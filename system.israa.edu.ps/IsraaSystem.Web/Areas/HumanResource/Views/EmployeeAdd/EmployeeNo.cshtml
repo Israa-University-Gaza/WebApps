@@ -1,0 +1,13 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Employee.EmployeeAdd
+
+@{
+    Layout = null;
+}
+
+<div id="employee-no">
+    <label class="col-md-2 control-label">الرقم الوظيفي</label>
+    <div class="col-md-2">
+        @Html.TextBoxFor(model => model.EmployeeNo, new { @class = "form-control text-center", @placeholder = "الرقم الوظيفي", @readonly = "" })
+        @Html.ValidationMessageFor(model => model.EmployeeNo, "", new { @class = "text-danger help-block" })
+    </div>
+</div>

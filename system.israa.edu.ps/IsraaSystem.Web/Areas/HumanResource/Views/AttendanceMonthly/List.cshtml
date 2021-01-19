@@ -1,0 +1,129 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceMonthlyVM
+
+@{
+    Layout = null;
+}
+
+<div id="attendance-monthly">
+  <div id="refresh-list"></div>
+
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "attendance-monthly"
+    };
+  }
+
+  @using (Ajax.BeginForm("List", null, opt, new {@id = "form-attendance-monthly"}))
+  {
+    <div class="form">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-md-1 control-label">الموظف</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.EmployeeName, new {@class = "form-control text-center input-change", placeholder = "رقم أو اسم الموظف"})
+            </div>
+            <label class="col-md-1 control-label">الفترة</label>
+            <div class="col-md-2">
+              @Html.DropDownListFor(model => model.filter.VacationBalanceYearID, new SelectList(Model.filter.VacationBalanceYears, "Value", "Text"), "جميع الفترات", new {@class = "form-control"})
+            </div>
+            @*<label class="col-md-1 control-label">السنة</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.Year, new { @class = "form-control text-center input-change", placeholder = "السنة" })
+                        </div>
+                        <label class="col-md-1 control-label">الشهر</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.MonthID, new SelectList(Model.filter.Monthes, "Value", "Text"), "جميع الأشهر", new { @class = "form-control input-change" })
+                        </div>*@
+            <div class="col-md-2">
+              <button type="submit" class="btn blue">تصفية</button>
+            </div>
+            <div class="col-md-1">
+              @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> {{"25", 25}, {"50", 50}, {"75", 75}, {"100", 100}}, "Key", "Value"), new {@class = "form-control pull-left", onchange = "$('#current-page').val('1');$(this).submit();"})
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br/>
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+      <table class="table table-striped table-hover">
+        <thead>
+        <tr>
+          <th class="wp3">#</th>
+          <th class="wp8 text-center">رقم الموظف</th>
+          <th class="wp12">اسم الموظف</th>
+          <th class="wp5 text-center">الشهر/السنة</th>
+          <th class="wp3 text-center">ع.أيام الشهر</th>
+          <th class="wp3 text-center">ع.عطل الشهر</th>
+          <th class="wp3 text-center">ع.إجازات الشهر</th>
+          <th class="wp3 text-center">ع.أيام الدوام</th>
+          <th class="wp3 text-center">ع.العطل الأسبوعية</th>
+          <th class="wp3 text-center">ع.أيام الغياب</th>
+          <th class="wp3 text-center">دقائق مرحل</th>
+          <th class="wp3 text-center">دقائق تأخير</th>
+          <th class="wp3 text-center">د. أذونات عمل </th>
+          <th class="wp3 text-center">د. أذونات خاصة</th>
+          <th class="wp3 text-center">دقائق الخصم</th>
+          <th class="wp3 text-center">أيام الخصم</th>
+          <th class="wp3 text-center">د. رصيد</th>
+          @*<th class="wp3 text-center">خصم راتب</th>*@
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (DataRow row in Model.data.Rows)
+        {
+          <tr>
+            <td>@row["RowNo"]</td>
+            <td class="text-center">@row["EmployeeNo"]</td>
+            <td><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+            <td class="text-center">@row["Month"] - @row["Year"]</td>
+            <td class="text-center">@row["MonthDays"]</td>
+            <td class="text-center">@row["HolidayDays"]</td>
+            <td class="text-center">@row["VacationDays"]</td>
+            <td class="text-center">@row["AttendanceDays"]</td>
+            <td class="text-center">@row["WeekHolidayDays"]</td>
+            <td class="text-center">@row["AbsenceDays"]</td>
+            <td class="text-center">@row["PostOutMinutes"]</td>
+            <td class="text-center">@row["LateMinutes"]</td>
+            <td class="text-center">@row["ExitMinutes1"]</td>
+            <td class="text-center">@row["ExitMinutes2"]</td>
+            <td class="text-center">@row["OutMinutes"]</td>
+            <td class="text-center">@row["OutDays"]</td>
+            <td class="text-center">@row["BalanceOutMinutes"]</td>
+            @*<td class="text-center">
+              @if (string.IsNullOrWhiteSpace(@row["DeductedFromSalary"].ToString()) && Convert.ToInt32(@row["OutDays"]) > 0 )
+              {
+
+                <a href="/HumanResource/AttendanceMonthly/DeductedFromSalary/@row["ID"]" class="btn btn-warning btn-sm confirm" data-title="خصم من الراتب" data-msg="هل أنت متأكد من خصم ايام التأخير من الراتب" data-action="خصم" data-ajax-update="#refresh-list">خصم</a>
+
+              }
+              else if (Convert.ToInt32(@row["OutDays"]) == 0)
+              {
+
+              }
+              else
+              {
+                <label class="success">مخصوم</label>
+              }
+            </td>*@
+          </tr>
+        }
+        </tbody>
+      </table>
+      @Html.Partial("_paging", Model.pagging)
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

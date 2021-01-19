@@ -1,0 +1,40 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+<div id="holiday-type">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th class="wp5">#</th>
+                <th>نوع الإجازة</th>
+                <th class="wp30"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.Rows)
+            {
+                <tr>
+                    <td>@row["RowNo"]</td>
+                    <td>@row["ArName"]</td>
+                    <td class="text-center">
+                        <a href="/HumanResource/HolidayType/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><i class="fa fa-edit"></i> تعديل</a>
+                        <a href="/HumanResource/HolidayType/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف نوع عطلة" data-msg="هل أنت متأكد من أنك تود حذف نوع عطلة ؟" data-action="حذف" data-ajax-update="#holiday-type"><i class="fa fa-times"></i> حذف</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

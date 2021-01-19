@@ -1,0 +1,105 @@
+﻿@using IsraaSystem.Application.Academic
+@using IsraaSystem.DataAccess.Sql.Academic
+@model IsraaSystem.Web.Areas.Academic.Models.SectionMark.SectionMarkIndexVm
+@{
+  /**/
+
+  /**/
+
+  /**/
+
+  ViewBag.Title = "الشؤون الأكاديمية - إدارة علامات الطلاب";
+  ViewBag.Menu = "#menu-mark";
+  ViewBag.subMenu = "#menu-mark-sectionMark";
+
+  Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+  <li>
+    <a href="/Academic/Dashboard">الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a href="/Academic/Mark">علامات الطلاب</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>إدارة علامات الطلاب</a>
+  </li>
+}
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="icon-social-dribbble font-green"></i>
+          <span class="caption-subject font-green bold uppercase">علامات مساقات الشعب</span>
+        </div>
+
+      </div>
+
+      <div class="portlet-body">
+        @{
+          var opt = new AjaxOptions
+          {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "mark-section"
+          };
+        }
+        @using (Ajax.BeginForm("SectionMarkList", null, opt, new { id = "form-mark-section" }))
+        {
+          <div class="form">
+            <div class="form-horizontal">
+              @Html.AntiForgeryToken()
+
+
+              <div class="form-body ">
+                <div class="form-group">
+
+                  <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.AcademicSectionsMarksInOut.SemesterId, new SelectList(SelectDA.ddlSemesters(), "Value", "Text"), new { @class = "form-control input-change select2   " })
+                  </div>
+
+
+                  <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.AcademicSectionsMarksInOut.DepartmentId, new SelectList(SelectDA.ddlDepartments(), "Value", "Text"), "جميع الأقسام", new { @class = "form-control input-change select2" })
+                  </div>
+
+
+                  <div class="col-md-2">
+                    @Html.DropDownListFor(model => model.AcademicSectionsMarksInOut.ExamType, new SelectList(new List<SelectListItem> {  new SelectListItem { Text = "نهائي", Value = "Final" } }, "Value", "Text"), new { @class = "form-control input-change " })
+                  </div>
+
+
+                  <div class="col-md-1">
+                    @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control ", onchange = "$('#current-page').val('1');$(this).submit();" })
+                  </div>
+
+
+                  <div class="col-md-1 ">
+
+
+                    <button type="submit" class="btn btn-block default">تصفية</button>
+                  </div>
+
+
+                </div>
+
+              </div>
+
+
+            </div>
+          </div>
+          @Html.Partial("_SectionMarkList", Model)
+        }
+
+      </div>
+
+
+    </div>
+  </div>
+</div>

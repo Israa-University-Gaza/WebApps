@@ -1,0 +1,86 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeBank.EmployeeBankVM
+
+@{
+    Layout = null;
+}
+
+<div id="employee-bank">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-bank"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeBank", opt, new { @id = "form-employee-bank" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">اسم البنك</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.BankID, new SelectList(Model.filter.Banks, "Value", "Text"), "جميع البنوك", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">رقم حساب البنك</label>
+                        <div class="col-md-3">
+                           @Html.TextBoxFor(model => model.filter.BankNo, new { @class = "form-control text-center", placeholder = "رقم الحساب البنكي" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">فرع البنك</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.filter.BankBranch, new { @class = "form-control text-center", placeholder = "فرع البنك" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp20">الموظف</th>
+                        <th class="wp15 text-center">اسم البنك</th>
+                        <th class="wp15 text-center">رقم الحساب</th>
+                        <th class="wp25 text-center">فرع البنك</th>
+                        <th class="wp20 text-center">ملاحظات</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["BankName"]</td>
+                            <td class="text-center">@row["BankNo"]</td>
+                            <td class="text-center">@row["BankBranch"]</td>
+                            <td class="text-center">@row["Note"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        </div>
+
+    }
+</div>

@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePersonal.EmployeeContactData
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.CityID, new SelectList(Model.Cities, "Value", "Text"), "إختر المدينة", new { @class = "form-control" })

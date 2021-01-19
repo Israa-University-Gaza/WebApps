@@ -1,0 +1,40 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.MachineFingerprint.MachineFingerprintVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - بصمات جهاز البصمة";
+    ViewBag.Menu = "#menu-fingerprint,#menu-machine-fingerprint";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/MachineFingerprint/Index">جهاز البصمة</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض بصمات جهاز البصمة</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض بصمات جهاز البصمة</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>
+

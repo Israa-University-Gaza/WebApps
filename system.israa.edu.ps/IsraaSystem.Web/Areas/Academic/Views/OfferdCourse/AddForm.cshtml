@@ -1,0 +1,133 @@
+﻿@model IsraaSystem.Core.Classic.Academic.OfferdCourse.OfferdCourse
+
+@{
+    Layout = null;
+}
+
+<div id="add-offerd-course" class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-social-dribbble font-green"></i>
+            <span class="caption-subject font-green bold uppercase">طرح مساق جديد</span>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (TempData["add-msg"] != null)
+            {
+                int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                String msg = TempData["add-msg"].ToString().Split(';')[1];
+            <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+            </script>
+        }
+        @{
+            AjaxOptions opt = new AjaxOptions
+            {
+                InsertionMode = InsertionMode.ReplaceWith,
+                HttpMethod = "POST",
+                UpdateTargetId = "add-offerd-course"
+            };
+        }
+        @using (Ajax.BeginForm("AddForm", null, opt, new { }))
+        {
+            <div class="form">
+                <div class="form-horizontal">
+                    @Html.AntiForgeryToken()
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">الفصل</label>
+                            <div class="col-md-9">
+                                @Html.DropDownListFor(model => model.SemesterID, new SelectList(Model.Semesters, "Value", "Text"), null, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.SemesterID, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">القسم</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.DepartmentID, new SelectList(Model.Departments, "Value", "Text"), "إختر القسم", new { @class = "form-control select2 ddl-dependent", data_url = "/Academic/OfferdCourse/ddlDepartmentCourse/", data_target_id = "#CourseID" })
+                                @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger help-block" })
+                            </div>
+                            <label class="col-md-1 control-label">المساق</label>
+                            <div class="col-md-4">
+                                @Html.Partial("ddlDepartmentCourse", Model)
+                                @Html.ValidationMessageFor(model => model.CourseID, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">المحاضر</label>
+                            <div class="col-md-4">
+                                @Html.DropDownListFor(model => model.InstructorID, new SelectList(Model.Instructors, "Value", "Text"), "إختر المحاضر", new { @class = "form-control select2" })
+                            </div>
+                            <label class="col-md-1 control-label">سعة الشعب</label>
+                            <div class="col-md-4">
+                                @Html.TextBoxFor(model => model.Capacity, new { @class = "form-control text-center" })
+                                @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">عدد الشعب</label>
+                            <div class="col-md-9">
+                                <table class="table table-bordered">
+                                    <thead>
+                                    <tr>
+                                        <th class="wp25 text-center">طلاب</th>
+                                        <th class="wp25 text-center">طالبات</th>
+                                        <th class="wp25 text-center">مشترك</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <td class="text-center">
+                                            @Html.TextBoxFor(model => model.MSectionCount, new { @class = "form-control text-center" })
+                                            @Html.ValidationMessageFor(model => model.MSectionCount, "", new { @class = "text-danger help-block" })
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.TextBoxFor(model => model.FSectionCount, new { @class = "form-control text-center" })
+                                            @Html.ValidationMessageFor(model => model.FSectionCount, "", new { @class = "text-danger help-block" })
+                                        </td>
+                                        <td class="text-center">
+                                            @Html.TextBoxFor(model => model.MFSectionCount, new { @class = "form-control text-center" })
+                                            @Html.ValidationMessageFor(model => model.MFSectionCount, "", new { @class = "text-danger help-block" })
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class=" form-group">
+                            <label class="col-md-2 control-label">تصنيف المساق</label>
+                            <div class="ol-md-4 mt-radio-inline">
+                                <label class="mt-radio">
+                                    @Html.RadioButtonFor(model => model.OfferdCourseTypeID,"1",new { Checked = "checked" }) نظامي
+                                    <span></span>
+                                </label>
+                                <label class="mt-radio">
+                                    @Html.RadioButtonFor(model => model.OfferdCourseTypeID, "3") صيفي خاص
+                                    <span></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-9">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa fa-plus"></i>
+                                    <span>طرح مساق جديد</span>
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    <i class="fa fa-eraser"></i>
+                                    <span>تفريغ الحقول</span>
+                                </button>
+                                <a href="/Academic/OfferdCourse" class="btn btn-success pull-right">
+                                    <i class="fa fa-list"></i>
+                                    <span>إدارة المساقات المطروحة</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

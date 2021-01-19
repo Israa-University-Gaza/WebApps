@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8bf700fde3704fce8781989314352546" Name="Diagram1" ZoomLevel="100" ShowGrid="true">
+        <EntityTypeShape EntityType="IsraPermissionModel.Area" Width="1.5" PointX="0.75" PointY="7" />
+        <EntityTypeShape EntityType="IsraPermissionModel.Controller" Width="1.5" PointX="3" PointY="15.125" />
+        <EntityTypeShape EntityType="IsraPermissionModel.Employee" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraPermissionModel.EmployeeArea" Width="1.5" PointX="3" PointY="5" />
+        <EntityTypeShape EntityType="IsraPermissionModel.EmployeeRole" Width="1.5" PointX="5.25" PointY="10.375" />
+        <EntityTypeShape EntityType="IsraPermissionModel.Permission" Width="1.5" PointX="8.25" PointY="9.75" />
+        <EntityTypeShape EntityType="IsraPermissionModel.Role" Width="1.5" PointX="3" PointY="10.625" />
+        <EntityTypeShape EntityType="IsraPermissionModel.RolePermission" Width="1.5" PointX="10.5" PointY="10.125" />
+        <AssociationConnector Association="IsraPermissionModel.FK_Controller_Area" />
+        <AssociationConnector Association="IsraPermissionModel.FK_EmployeeArea_Area" />
+        <AssociationConnector Association="IsraPermissionModel.FK_Permission_Area" />
+        <AssociationConnector Association="IsraPermissionModel.FK_Role_Area" />
+        <AssociationConnector Association="IsraPermissionModel.FK_Permission_Permission" />
+        <AssociationConnector Association="IsraPermissionModel.FK_EmployeeArea_Employee" />
+        <AssociationConnector Association="IsraPermissionModel.FK_EmployeeRole_Employee" />
+        <AssociationConnector Association="IsraPermissionModel.FK_EmployeeRole_Role" />
+        <AssociationConnector Association="IsraPermissionModel.FK_RolePermission_Permission" />
+        <AssociationConnector Association="IsraPermissionModel.FK_RolePermission_Role" />
+        <EntityTypeShape EntityType="IsraPermissionModel.PermissionJob" Width="1.5" PointX="10.5" PointY="15.25" />
+        <AssociationConnector Association="IsraPermissionModel.FK_PermissionJob_Permission" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

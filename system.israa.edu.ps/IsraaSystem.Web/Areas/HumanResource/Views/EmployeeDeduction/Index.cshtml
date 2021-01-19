@@ -1,0 +1,45 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Salary.EmployeeDeductionVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - خصميات الموظفين";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeDeduction/Index">خصميات الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض خصميات الموظفين</a>
+    </li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض خصميات الموظفين</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/EmployeeDeduction/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        تنسيب خصمية لموظف
+                    </a>
+                    <a href="/HumanResource/EmployeeDeduction/MultiAdd" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        تنسيب خصمية جماعية
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

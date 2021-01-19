@@ -1,0 +1,26 @@
+﻿@model IsraaSystem.Core.Classic.Academic.Lecture.Lecture
+@{
+    Layout = null;
+}
+
+<div id="delete-lecture">
+    @if (TempData["delete-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["delete-msg"].ToString().Split(';')[0]);
+        String msg = TempData["delete-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('#study-table-refresh').trigger('click');
+                $('#student-study-table-refresh').trigger('click');
+                $('#instructor-study-table-refresh').trigger('click');
+                $('#room-study-table-refresh').trigger('click');
+                $('#course-study-table-refresh').trigger('click');
+                $('.modal').modal('hide');
+            </script>
+        }
+    }
+</div>

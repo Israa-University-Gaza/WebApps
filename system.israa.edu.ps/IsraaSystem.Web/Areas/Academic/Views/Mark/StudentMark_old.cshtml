@@ -1,0 +1,305 @@
+﻿
+@using IsraaSystem.Application.Helper
+@using IsraaSystem.DataAccess.Sql.Academic
+@model IsraaSystem.Web.Areas.Academic.Models.Mark.MarkIndexVm
+
+@{
+    ViewBag.Title = "Index";
+    ViewBag.Menu = "#menu-mark";
+    ViewBag.subMenu = "#menu-mark-studentMark";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+
+
+
+
+
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Academic/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Academic/OfferdCourse">إدارة العلامات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>علامات الطلاب</a>
+    </li>
+}
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">علامات الطلاب</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+
+
+                <div id="student-mark">
+                    @if (TempData["toast-msg"] != null)
+                    {
+                        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+                        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+                        <script type="text/javascript">
+              showToast("@msg", "@((status > 0) ? "success":"error")");
+                        </script>
+                    }
+
+
+
+                    @{
+                        AjaxOptions opt = new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.ReplaceWith,
+                            HttpMethod = "POST",
+                            UpdateTargetId = "data-list"
+                        };
+                    }
+                    @using (Ajax.BeginForm("StudentMarkList", "Mark", opt, new { @id = "israa-form" }))
+                    {
+                        <div class="form">
+                            <div class="form-horizontal">
+                                @Html.AntiForgeryToken()
+                                <div class="form-body">
+
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.SemesterId)
+
+                                        </label>
+                                        <div class="col-md-5">
+
+                                            @Html.DropDownListFor(model => model.SemesterId,
+                                                new SelectList(DropDownHelpper.Semesters(), "Value", "Text"),
+                                                "اختر الفصل",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_target = "Colleges",
+                                                    @data_url = "/Academic/Mark/ddlColleges",
+                                                    @data_replacement = "container1"
+                                                })
+
+                                        </div>
+
+
+
+
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.ProgramID)
+                                        </label>
+                                        <div class="col-md-4">
+
+                                            @Html.DropDownListFor(model => model.ProgramID,
+                                                new SelectList(SelectDA.ddlEmployeePrograms(Convert.ToInt32(User.Identity.Name)), "Value", "Text"),
+                                                "اختر البرنامج",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_target = "Colleges",
+                                                    @data_url = "/Academic/Mark/ddlColleges",
+                                                    @data_replacement = "container1"
+                                                })
+
+                                        </div>
+
+
+                                    </div>
+                                    <div class="form-group">
+
+
+
+
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.CollegeID)
+                                        </label>
+                                        <div class="col-md-5">
+                                            @Html.DropDownListFor(model => model.CollegeID,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر الكلية",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_id = "Colleges",
+                                                    @data_target = "Departments",
+                                                    @data_url = "/Academic/Mark/ddlEmployeeDepartments",
+                                                    @data_replacement = "container1",
+                                                    @data_default_label = "اختر الكلية",
+                                                    @disabled = ""
+                                                })
+                                        </div>
+
+
+
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.DepartmentID)
+
+                                        </label>
+                                        <div class="col-md-4">
+
+
+                                            @Html.DropDownListFor(model => model.DepartmentID,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر القسم",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_target = "OfferdCourses",
+                                                    @data_id = "Departments",
+                                                    @data_url = "/Academic/Mark/ddlFilterdOfferdCourses",
+                                                    @data_replacement = "container1",
+                                                    @data_default_label = "اختر القسم",
+                                                    @disabled = ""
+                                                })
+
+                                        </div>
+
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.OfferdCourseID)
+
+                                        </label>
+                                        <div class="col-md-5">
+
+                                            @Html.DropDownListFor(model => model.OfferdCourseID,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر المساق",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_id = "OfferdCourses",
+                                                    @data_target = "Sections",
+                                                    @data_url = "/Academic/Mark/ddlSections",
+                                                    @data_replacement = "container1",
+                                                    @data_default_label = "اختر المساق",
+                                                    @disabled = ""
+                                                })
+
+                                        </div>
+
+                                        <label class="col-md-1 control-label">
+                                            @Html.DisplayNameFor(model => model.SectionID)
+
+                                        </label>
+                                        <div class="col-md-4">
+
+                                            @Html.DropDownListFor(model => model.SectionID,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر الشعبة",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "product-1",
+                                                    @data_id = "Sections",
+                                                    @data_replacement = "container1",
+                                                    @data_default_label = "اختر الشعبة",
+                                                    @data_final = "",
+                                                    @disabled = ""
+                                                })
+
+
+                                        </div>
+
+
+
+
+
+
+                                        <div class="col-md-1">
+                                            <button type="submit" class="btn blue">تصفية</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <hr />
+
+                                @Html.Partial("StudentMarkList", Model)
+
+
+                            </div>
+                        </div>
+                    }
+                </div>
+
+
+
+                <script src="~/assets/global/plugins/cascading-dropdown/jquery.cascading-drop-down.js"></script>
+                <script>
+                    $('.cascadingDropDown').ssdCascadingDropDown({
+                        startCall: function (trigger, props) {
+
+                            var spinner = '<div class="spinner"><i class="fa fa-spinner fa-spin"></i> processing</div>';
+
+                            trigger.hide();
+                            trigger.parent().prepend(spinner);
+
+                        },
+                        endCall: function (trigger, props) {
+
+                            trigger.parent().find('.spinner').remove();
+                            trigger.show();
+
+                        },
+                        nonFinalEmptyCallback: function (trigger, props, self) {
+
+                            console.log('non final');
+
+                        },
+                        nonFinalCallback: function (trigger, props, data, self) {
+
+                            trigger.closest('form')
+                                .find('input[type="submit"]')
+                                .attr('disabled', true);
+
+                        },
+                        finalEmptyCallback: function (trigger, props, self) {
+
+                            console.log('final');
+
+                        },
+                        finalCallback: function (trigger, props, data) {
+
+                            if (props.isValueEmpty()) {
+                                trigger.closest('form')
+                                    .find('input[type="submit"]')
+                                    .attr('disabled', true);
+                            } else {
+                                trigger.closest('form')
+                                    .find('input[type="submit"]')
+                                    .attr('disabled', false);
+                            }
+
+                        }
+                    });
+                </script>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

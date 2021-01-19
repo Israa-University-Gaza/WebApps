@@ -1,0 +1,101 @@
+﻿@using System.Data
+@model IsraaSystem.Core.HumanResource.Employee.EmployeesVM
+
+@{
+    Layout = null;
+}
+
+<div id="employees-personal">
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employees-personal"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeesPersonal", opt, new { @id = "form-employee-personal" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الرقم الوظيفي</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.EmployeeNo, new { @class = "form-control", placeholder = "الرقم الوظيفي" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.EmployeeStatusID, new SelectList(Model.filter.EmployeeStatuses, "Value", "Text"), "جميع الحالات", new { @class = "form-control input-change" })
+                        </div>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.EmploymentTypeID, new SelectList(Model.filter.EmploymentTypes, "Value", "Text"), "جميع الأنواع", new { @class = "form-control input-change" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">اسم الموظف</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArFirstName, new { @class = "form-control", placeholder = "اسم الموظف" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArSecoundName, new { @class = "form-control", placeholder = "اسم الأب" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArThirdName, new { @class = "form-control", placeholder = "اسم الجد" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArFamilyName, new { @class = "form-control", placeholder = "اسم العائلة" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn blue">تصفية</button>
+                            <button type="button" class="btn default">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp10 text-center">رقم الموظف</th>
+                        <th class="wp15 text-center">الموظف</th>
+                        <th class="wp20 text-center">المسمى الوظيفي</th>
+                        <th class="wp15 text-center">القسم</th>
+                        <th class="wp10 text-center">تاريخ الميلاد</th>
+                        <th class="wp10 text-center">الجوال</th>
+                        <th class="wp15 text-center">العنوان</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["EmployeeNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["ID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["EmployeeJobTitle"]</td>
+                            <td class="text-center">@row["EmployeeDepartment"]</td>
+                            <td class="text-center">@row["DateOfBirth"]</td>
+                            <td class="text-center">@row["Mobile"]</td>
+                            <td class="text-center">@row["Street"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

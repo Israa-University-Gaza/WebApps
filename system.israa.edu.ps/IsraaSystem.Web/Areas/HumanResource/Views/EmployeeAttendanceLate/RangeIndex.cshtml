@@ -1,0 +1,38 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.EmployeeAttendanceRangeLateVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - كشف تأخير الموظف خلال فترة";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeAttendanceLate/RangeIndex">كشف تأخير الموظف خلال فترة</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>كشف تأخير الموظف خلال فترة</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">كشف تأخير الموظف خلال فترة</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("RangeList", Model)
+            </div>
+        </div>
+    </div>
+</div>

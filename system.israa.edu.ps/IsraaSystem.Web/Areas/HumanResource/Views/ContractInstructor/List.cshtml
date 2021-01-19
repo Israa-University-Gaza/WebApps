@@ -1,0 +1,128 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Contract.ContractInstructorVM
+
+@{
+    Layout = null;
+}
+
+<div id="contract-instructor">
+    <div id="refresh-list"></div>
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "contract-instructor"
+        };
+    }
+    @using (Ajax.BeginForm("List", null, opt, new { @id = "form-instructor" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <div class="col-md-offset-1 col-md-3">
+                            <label>الفصل</label>
+                            @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), new { @class = "form-control input-change" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>نوع التعيين</label>
+                            @Html.DropDownListFor(model => model.filter.EmploymentTypeID, new SelectList(Model.filter.EmploymentTypes, "Value", "Text"), "جميع أنواع التعيينات", new { @class = "form-control input-change" })
+                        </div>
+                        <div class="col-md-3">
+                            <label>الموظف</label>
+                            @Html.TextBoxFor(model => model.filter.InstructorName, new { @class = "form-control text-center input-change", placeholder = "رقم أو اسم الموظف" })
+                        </div>
+                        <div class="col-md-offset-1 col-md-1">
+                            @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 }, { "500", 500 }, { "1000", 1000 } }, "Key", "Value"), new { @class = "form-control pull-right input-change" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-1 col-md-3">
+                            <button type="submit" class="btn green">
+                                <i class="fa fa-filter"></i>
+                                <span>تصفية</span>
+                            </button>
+                            <a href="/HumanResource/ContractInstructor/Excel" class="btn blue">
+                                <i class="fa fa-file-excel-o"></i>
+                                <span>تصدير الى Excel</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.statistics != null && Model.statistics.Rows.Count > 0 && Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp25 text-center">إجمالي عدد الساعات الأكاديمية</th>
+                        <th class="wp25 text-center">إجمالي عدد الساعات الفعلية</th>
+                        <th class="wp25 text-center">تكلفة المحاضرين الأكاديمية</th>
+                        <th class="wp25 text-center">تكلفة المحاضرين الفعلية</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.statistics.Rows)
+                    {
+                        <tr>
+                            <td class="text-center">@row["TotalLectureHours"]</td>
+                            <td class="text-center">@row["TotalInstructorHours"]</td>
+                            <td class="text-center">@row["TotalLectureCost"] دينار أردني</td>
+                            <td class="text-center">@row["TotalInstructorCost"] دينار أردني</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <br />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp10 text-center">رقم المحاضر </th>
+                        <th class="wp17 text-center">اسم المحاضر</th>
+                        <th class="wp8 text-center">البرنامج</th>
+                        <th class="wp8 text-center">درجة المحاضر</th>
+                        <th class="wp8 text-center">عبء أكاديمي</th>
+                        <th class="wp8 text-center">عبء فعلي</th>
+                        <th class="wp8 text-center">سعر الساعة</th>
+                        <th class="wp8 text-center">ت.م.الأكاديمي</th>
+                        <th class="wp8 text-center">ت.م.الفعلي</th>
+                        <th class="wp8 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["InstructorNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["InstructorID"]">@row["InstructorName"]</a></td>
+                            <td class="text-center">@row["ProgramName"]</td>
+                            <td class="text-center">@row["InstructorType"]</td>
+                            <td class="text-center">@row["LectureHours"]</td>
+                            <td class="text-center">@row["InstructorHours"]</td>
+                            <td class="text-center">@row["HourPrice"]</td>
+                            <td class="text-center">@(row["LectureCost"])</td>
+                            <td class="text-center">@(row["InstructorCost"])</td>
+                            <td class="text-center">
+                                <a href="/HumanResource/ContractInstructor/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+                                <a href="/HumanResource/ContractInstructor/Print/@row["ID"]" class="btn btn-sm btn-default"><span class="fa fa-print"></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

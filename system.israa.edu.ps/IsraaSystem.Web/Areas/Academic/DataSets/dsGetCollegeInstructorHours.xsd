@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGetCollegeInstructorHours" targetNamespace="http://tempuri.org/dsGetCollegeInstructorHours.xsd" xmlns:mstns="http://tempuri.org/dsGetCollegeInstructorHours.xsd" xmlns="http://tempuri.org/dsGetCollegeInstructorHours.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGetCollegeInstructorHours" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsGetCollegeInstructorHours" msprop:Generator_UserDSName="dsGetCollegeInstructorHours">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetCollegeInstructorHours" msprop:Generator_TableClassName="GetCollegeInstructorHoursDataTable" msprop:Generator_TableVarName="tableGetCollegeInstructorHours" msprop:Generator_TablePropName="GetCollegeInstructorHours" msprop:Generator_RowDeletingName="GetCollegeInstructorHoursRowDeleting" msprop:Generator_RowChangingName="GetCollegeInstructorHoursRowChanging" msprop:Generator_RowEvHandlerName="GetCollegeInstructorHoursRowChangeEventHandler" msprop:Generator_RowDeletedName="GetCollegeInstructorHoursRowDeleted" msprop:Generator_UserTableName="GetCollegeInstructorHours" msprop:Generator_RowChangedName="GetCollegeInstructorHoursRowChanged" msprop:Generator_RowEvArgName="GetCollegeInstructorHoursRowChangeEvent" msprop:Generator_RowClassName="GetCollegeInstructorHoursRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CollegeID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCollegeID" msprop:Generator_ColumnPropNameInRow="CollegeID" msprop:Generator_ColumnPropNameInTable="CollegeIDColumn" msprop:Generator_UserColumnName="CollegeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="InstructorName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInstructorName" msprop:Generator_ColumnPropNameInRow="InstructorName" msprop:Generator_ColumnPropNameInTable="InstructorNameColumn" msprop:Generator_UserColumnName="InstructorName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SectionCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSectionCount" msprop:Generator_ColumnPropNameInRow="SectionCount" msprop:Generator_ColumnPropNameInTable="SectionCountColumn" msprop:Generator_UserColumnName="SectionCount" type="xs:int" minOccurs="0" />
+              <xs:element name="CourseCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCourseCode" msprop:Generator_ColumnPropNameInRow="CourseCode" msprop:Generator_ColumnPropNameInTable="CourseCodeColumn" msprop:Generator_UserColumnName="CourseCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="InstructorCourseHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInstructorCourseHours" msprop:Generator_ColumnPropNameInRow="InstructorCourseHours" msprop:Generator_ColumnPropNameInTable="InstructorCourseHoursColumn" msprop:Generator_UserColumnName="InstructorCourseHours" type="xs:int" minOccurs="0" />
+              <xs:element name="CollegeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCollegeName" msprop:Generator_ColumnPropNameInRow="CollegeName" msprop:Generator_ColumnPropNameInTable="CollegeNameColumn" msprop:Generator_UserColumnName="CollegeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ProgramName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnProgramName" msprop:Generator_ColumnPropNameInRow="ProgramName" msprop:Generator_ColumnPropNameInTable="ProgramNameColumn" msprop:Generator_UserColumnName="ProgramName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SemesterID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSemesterID" msprop:Generator_ColumnPropNameInRow="SemesterID" msprop:Generator_ColumnPropNameInTable="SemesterIDColumn" msprop:Generator_UserColumnName="SemesterID" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseName" msprop:Generator_ColumnVarNameInTable="columnCourseName" msprop:Generator_ColumnPropNameInRow="CourseName" msprop:Generator_ColumnPropNameInTable="CourseNameColumn" msprop:Generator_UserColumnName="CourseName" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorTotalHours" msprop:Generator_ColumnVarNameInTable="columnInstructorTotalHours" msprop:Generator_ColumnPropNameInRow="InstructorTotalHours" msprop:Generator_ColumnPropNameInTable="InstructorTotalHoursColumn" msprop:Generator_UserColumnName="InstructorTotalHours" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

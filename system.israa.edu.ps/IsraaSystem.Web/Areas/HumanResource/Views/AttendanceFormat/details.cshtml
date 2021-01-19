@@ -1,0 +1,83 @@
+﻿@using System.Data
+@*@model IEnumerable<IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceFormatDetails>*@
+
+@{
+    ViewBag.Title = "شؤون الموظفين - تفاصيل الدوام الإفتراضي";
+    ViewBag.Menu = "menu-AttendanceFormat";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/AttendanceFormat">الدوام الافتراضي</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>التفاصيل</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض التفاصيل</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/AttendanceFormat/AddDetails/@Request.RequestContext.RouteData.Values["id"]" class="btn btn-sm btn-success pop-up-md">
+                        <i class="fa fa-plus"></i>
+                        إضافة جديد
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+
+                @if (TempData["toast-msg"] != null)
+                {
+                    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+                    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+                    <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+                    </script>
+                }
+
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="wp3">#</th>
+                            <th class="wp30 text-center">اليوم</th>
+                            <th class="wp12 text-center">التاريخ من</th>
+                            <th class="wp15 text-center">إلـى</th>
+                            <th class="wp8"></th>
+                            <th class="wp12"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @{ int serial = 1;}
+                        @foreach (DataRow item in Model.Rows)
+                        {
+                            <tr>
+                                <td>@serial</td>
+                                <td class="text-center">@item["DayName"]</td>
+                                <td class="text-center">@item["AttendanceFrom"]</td>
+                                <td class="text-center">@item["AttendanceTo"]</td>
+                                <td class="text-center">
+                             @*       <a href="/HumanResource/AttendanceFormat/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><i class="fa fa-edit"></i> تعديل</a>*@
+                                    <a href='/HumanResource/AttendanceFormat/DeleteDetails/@item["ID"]?AttendanceID=@item["AttendanceFormatID"]' class="btn btn-sm btn-danger confirm" data-title="حذف" data-msg="هل أنت متأكد من أنك تود حذف الدوام ؟" data-action="حذف" data-ajax-update="#attendance-formats"><i class="fa fa-times"></i> حذف</a>
+                                </td>
+                            </tr>
+                            serial++; 
+                        }
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</div>

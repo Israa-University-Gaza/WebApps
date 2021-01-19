@@ -1,0 +1,103 @@
+﻿<!-- BEGIN SIDEBAR MENU -->
+<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+  <li id="menu-dashboard" class="nav-item start ">
+    <a href="/HumanResource/Dashboard" class="nav-link">
+      <i class="icon-bar-chart"></i>
+      <span class="title">الصفحة الرئيسية</span>
+    </a>
+  </li>
+  <li class="heading">
+    <h3 class="uppercase">الجداول الدراسية</h3>
+  </li>
+  <li id="menu-offerd-course-add" class="nav-item">
+    <a href="/Academic/OfferdCourse/Add" class="nav-link">
+      <i class="icon-user-follow"></i>
+      <span class="title">طرح مساق جديد</span>
+    </a>
+  </li>
+  <li id="menu-offerd-course" class="nav-item">
+    <a href="/Academic/OfferdCourse" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title">إدارة المساقات المطروحة</span>
+    </a>
+  </li>
+  <li id="menu-study-table" class="nav-item">
+    <a href="/Academic/StudyTable" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title">برنامج الجداول الدراسية</span>
+    </a>
+  </li>
+  <li id="menu-study-table" class="nav-item">
+    <a href="/Academic/StudyTable/InstructorTable" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title">جدول المحاضر</span>
+    </a>
+  </li>
+  <li id="menu-study-table-report" class="nav-item">
+    <a href="/Academic/StudyTable/Report" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title">طباعة الجداول الدراسية</span>
+    </a>
+  </li>
+  <li id="menu-study-table-print" class="nav-item">
+    <a href="/Academic/StudyTable/Print" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title">طباعة جداول الكليات</span>
+    </a>
+  </li>
+
+
+
+
+
+  <li class="heading" @*style="display:none"*@>
+    <h3 class="uppercase">ادارة العلامات</h3>
+  </li>
+  <li id="menu-mark" class="nav-item" @*style="display:none"*@>
+    <a href="#" class="nav-link">
+      <i class="icon-users"></i>
+      <span class="title"> اعتماد العلامات</span>
+      <span class="arrow"></span>
+    </a>
+    <ul class="sub-menu">
+
+        <li id="menu-mark-studentMark" class="nav-item">
+          <a href="/Academic/Mark/StudentMark" class="nav-link">
+            <span class="title"> اعتماد علامات الطلاب</span>
+          </a>
+        </li>
+
+
+
+      @if (ThisUser.HasAction("Academic.SectionMark.Index"))
+      {
+        <li id="menu-mark-sectionMark" class="nav-item">
+          <a href="/Academic/SectionMark/Index" class="nav-link">
+            <span class="title">اعتماد علامات الشعب</span>
+          </a>
+        </li>
+      }
+
+
+    </ul>
+
+
+  </li>
+
+
+
+
+
+
+
+
+
+
+</ul>
+<!-- END SIDEBAR MENU -->

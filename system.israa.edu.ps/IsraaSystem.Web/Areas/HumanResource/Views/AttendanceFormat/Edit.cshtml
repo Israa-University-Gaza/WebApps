@@ -1,0 +1,75 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceFormat
+
+@{
+    Layout = null;
+}
+
+<div id="edit-attendance-format" class="modal-content">
+    <script type="text/javascript">
+        function updateData() {
+            $("#attendance-formats").load("/HumanResource/AttendanceFormat/List");
+        }
+    </script>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل النسق : @Model.ArName</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Edit", "AttendanceFormat",
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.ReplaceWith,
+                                                HttpMethod = "POST",
+                                                UpdateTargetId = "edit-attendance-format",
+                                                OnSuccess = "updateData"
+                                            }, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @if (TempData["add-msg"] != null)
+                            {
+                                int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                                String msg = TempData["add-msg"].ToString().Split(';')[1];
+                                <script type="text/javascript">
+                                    showToast("@msg", "@((status > 0) ? "success":"error")");
+                                </script>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">النسق بالعربية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.ArName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ArName, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">النسق بالإنجليزية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.EnName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            @Ajax.ActionLink("نسق دوام جديد", "Add", null, new AjaxOptions
+                       {
+                           InsertionMode = InsertionMode.ReplaceWith,
+                           HttpMethod = "Get",
+                           UpdateTargetId = "edit-attendance-format"
+                       }, new { @class = "btn btn-success pull-right" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

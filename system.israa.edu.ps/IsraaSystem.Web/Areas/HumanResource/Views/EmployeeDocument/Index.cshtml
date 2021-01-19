@@ -1,0 +1,47 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Document.EmployeeDocumentsVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - مستندات الموظفين";
+    ViewBag.Menu = "#menu-employee-document";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeDocument/Index">مستندات الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض مستندات الموظفين</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض مستندات الموظفين</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/DocumentType" class="btn btn-sm btn-primary">
+                        <i class="fa fa-list"></i>
+                        عرض أنواع المستندات
+                    </a>
+                    <a href="/HumanResource/EmployeeDocument/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة مستند جديد
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

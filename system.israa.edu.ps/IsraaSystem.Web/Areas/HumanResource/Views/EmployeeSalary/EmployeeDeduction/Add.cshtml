@@ -1,0 +1,96 @@
+﻿@model IsraaSystem.Entity.HumanResource.Salary.EmployeeDeduction
+
+@{
+    Layout = null;
+}
+
+<div id="add-employee-deduction" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-employee-deduction').submit();
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-employee-deduction"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تنسيب خصمية لموظف</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Add", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الموظف</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.EmployeeID, new SelectList(Model.Employees, "Value", "Text"), "إختر الموظف", new { @class = "form-control select2 ddl-dependent", data_url = "/HumanResource/EmployeeDeduction/ddlBasicSalaries/", data_target_id = "#BasicSalaryID" })
+                            @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">راتب الموظف</label>
+                        <div class="col-md-3">
+                            @Html.Partial("ddlBasicSalaries", Model)
+                            @Html.ValidationMessageFor(model => model.BasicSalaryID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الخصمية</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.DeductionID, new SelectList(Model.Deductions, "Value", "Text"), "إختر الخصمية", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.DeductionID, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">القيمة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Amount, new { @class = "form-control text-center" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">من</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.DateFrom, new { @class = "form-control text-center date-picker", placeholder = "yyyy/MM/dd" })
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">إلى</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.DateTo, new { @class = "form-control text-center date-picker", placeholder = "yyyy/MM/dd" })
+                            @Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">ملاحظات</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.Note, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn btn-primary">إضافة</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/EmployeeDeduction/Add" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-employee-deduction">خصمية جديدة</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

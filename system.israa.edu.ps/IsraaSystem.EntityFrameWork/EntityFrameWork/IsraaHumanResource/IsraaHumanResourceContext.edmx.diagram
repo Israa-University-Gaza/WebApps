@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bf9f8e76090748cc966c53fbdc2e62d5" Name="Diagram1" ZoomLevel="59">
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeReportData" Width="1.5" PointX="8.75" PointY="12.75" FillColor="0, 192, 0" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AccreditationStatus" Width="1.5" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceDaily" Width="1.5" PointX="10.75" PointY="12.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceExit" Width="1.5" PointX="12.75" PointY="12.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceExitType" Width="1.5" PointX="13.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceFingerprint" Width="1.5" PointX="14.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceFormat" Width="1.5" PointX="10.75" PointY="1.25" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceFormatDetails" Width="1.5" PointX="15.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceInstructor" Width="1.5" PointX="14.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceInstructorStatus" Width="1.5" PointX="15.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceInstructorTimeOut" Width="1.5" PointX="16.75" PointY="8.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceMonthly" Width="1.5" PointX="16.75" PointY="12.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AttendanceTimeOut" Width="1.5" PointX="17.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Bank" Width="1.5" PointX="18.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.BankAcount" Width="1.5" PointX="18.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.BasicSalary" Width="1.5" PointX="8" PointY="1" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Bonus" Width="1.5" PointX="18.75" PointY="13.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.BonusType" Width="1.5" PointX="18.75" PointY="18.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Cader" Width="1.5" PointX="0.75" PointY="1.5" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.CaderDegree" Width="1.5" PointX="19.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.City" Width="1.5" PointX="5.75" PointY="19.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.ContractInstructor" Width="1.5" PointX="10.75" PointY="19.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.ContractStatus" Width="1.5" PointX="20.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.ContractType" Width="1.5" PointX="20.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Country" Width="1.5" PointX="3.75" PointY="19.25" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Currency" Width="1.5" PointX="5.75" PointY="6.5" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Day" Width="1.5" PointX="20.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.DayStatus" Width="1.5" PointX="20.75" PointY="13.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Deduction" Width="1.5" PointX="20.75" PointY="16.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.DeductionStatus" Width="1.5" PointX="12.75" PointY="21.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.DeductionType" Width="1.5" PointX="14.75" PointY="21.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Department" Width="1.5" PointX="0.75" PointY="27.875" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.DepartmentType" Width="1.5" PointX="21.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.DocumentType" Width="1.5" PointX="20.75" PointY="21.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmpCategory" Width="1.5" PointX="3" PointY="34.625" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmpEmploymentType" Width="1.5" PointX="11" PointY="7.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeAppointmentDecision" Width="1.5" PointX="22.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeAttendanceFormat" Width="1.5" PointX="13" PointY="1" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeBank" Width="1.5" PointX="22.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeBonus" Width="1.5" PointX="22.75" PointY="15.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeCategory" Width="1.5" PointX="16.75" PointY="22.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeContract" Width="1.5" PointX="22.75" PointY="20.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeContractRenew" Width="1.5" PointX="24.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeDeduction" Width="1.5" PointX="24.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeDocument" Width="1.5" PointX="5.75" PointY="24.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeFacebook" Width="1.5" PointX="24.75" PointY="11.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeFacebookPost" Width="1.5" PointX="24.75" PointY="14.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeFamily" Width="1.5" PointX="24.75" PointY="18.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeIdentifier" Width="1.5" PointX="24.75" PointY="24.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeLanguage" Width="1.5" PointX="7.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeMedicalCheckUp" Width="1.5" PointX="9.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeMessage" Width="1.5" PointX="11.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeePlacement" Width="1.5" PointX="3" PointY="7" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeePracticalExperience" Width="1.5" PointX="3" PointY="28.625" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeQualification" Width="1.5" PointX="6" PointY="12.5" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeResearch" Width="1.5" PointX="13.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeSalary" Width="1.5" PointX="18.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeSkill" Width="1.5" PointX="26.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeStatus" Width="1.5" PointX="0.75" PointY="32.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeTrainingCourse" Width="1.5" PointX="26.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeVacation" Width="1.5" PointX="26.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeVacationBalance" Width="1.5" PointX="15.75" PointY="26.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmploymentType" Width="1.5" PointX="8.75" PointY="7.125" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmpStatus" Width="1.5" PointX="3" PointY="13.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.FingerprintType" Width="1.5" PointX="26.75" PointY="18.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Gender" Width="1.5" PointX="26.75" PointY="21.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Governorate" Width="1.5" PointX="26.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Holiday" Width="1.5" PointX="20.75" PointY="27.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.HolidayType" Width="1.5" PointX="28.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.InstructorType" Width="1.5" PointX="28.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.InstructorTypeHourPrice" Width="1.5" PointX="28.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobCategory" Width="1.5" PointX="28.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobPersonal" Width="1.5" PointX="28.75" PointY="14.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobRequirement" Width="1.5" PointX="28.75" PointY="18.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobTask" Width="1.5" PointX="28.75" PointY="23.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobTaskPointer" Width="1.5" PointX="28.75" PointY="28.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobTerm" Width="1.5" PointX="30.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.JobType" Width="1.5" PointX="30.75" PointY="5.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.KnowLevel" Width="1.5" PointX="5.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Language" Width="1.5" PointX="7.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.LateType" Width="1.5" PointX="30.75" PointY="9.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.LogEmployeeVacationBalance" Width="1.5" PointX="9.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.MachineFingerprint" Width="1.5" PointX="11.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.MaritalStatus" Width="1.5" PointX="30.75" PointY="17.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Month" Width="1.5" PointX="3.75" PointY="3.625" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.MonthDay" Width="1.5" PointX="17.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Nationality" Width="1.5" PointX="30.75" PointY="21.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.PersonStatus" Width="1.5" PointX="22.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.PlacementStatus" Width="1.5" PointX="0.75" PointY="22.25" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.PlacementType" Width="1.5" PointX="0.75" PointY="25.625" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.QualificationType" Width="1.5" PointX="3.75" PointY="23.25" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.RelativeType" Width="1.5" PointX="24.75" PointY="30.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Religion" Width="1.5" PointX="30.75" PointY="25.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.SalaryBox" Width="1.5" PointX="5.75" PointY="1.5" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.SalaryBoxType" Width="1.5" PointX="30.75" PointY="29.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.SkillType" Width="1.5" PointX="32.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.sysdiagrams" Width="1.5" PointX="32.75" PointY="4.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.VacationBalanceYear" Width="1.5" PointX="32.75" PointY="7.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.VacationPlace" Width="1.5" PointX="32.75" PointY="10.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.VacationType" Width="1.5" PointX="32.75" PointY="13.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeeEmergencyInfo" Width="1.5" PointX="13.75" PointY="32.75" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Sheet1_" Width="1.5" PointX="32.75" PointY="18.75" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeAttendanceFormat_AttendanceFormat" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_BasicSalary_Currency" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_BasicSalary_SalaryBox" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_Cader" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeQualification_Country" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_Department" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmpEmploymentType_EmploymentType" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_PlacementStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_PlacementType" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeQualification_Month" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeQualification_QualificationType" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeStatus_EmployeeStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmpStatus_EmployeeStatus" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.AllEmployees" Width="1.5" PointX="19.75" PointY="32.75" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Gender_Gender" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceFormatDetails_AttendanceFormat" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.NotificationFlag" Width="1.5" PointX="35" PointY="13.375" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Notifications" Width="1.5" PointX="37.25" PointY="20.375" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Notifications_NotificationFlag" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Department_Department" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Job" Width="1.5" PointX="16.375" PointY="34.125" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_Job" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Job_Job" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.ManualFingerprint" Width="1.5" PointX="29.625" PointY="34" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_AccreditationStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_AccreditationStatus1" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_AccreditationStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_AccreditationStatus1" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceDaily_AttendanceDaily" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceDaily_AttendanceFormatDetails" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceDaily_DayStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceDaily_EmployeeAttendanceFormat" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_AttendanceExitType" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_DeductionStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExitType_DeductionStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_FingerprintType_AttendanceExitType" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceFormatDetails_Day" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_EmployeeVacationBalance" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_VacationPlace" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_VacationType" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.EmployeePersonal" Width="1.5" PointX="35" PointY="16.625" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceDaily_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_EmployeePersonal1" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_AttendanceExit_EmployeePersonal2" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePersonal_City" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePersonal_Country" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmpCategory_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmpEmploymentType_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeAttendanceFormat_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeFamily_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePersonal_Gender" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePersonal_Governorate" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePersonal_MaritalStatus" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePlacement_EmployeePersonal1" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeePracticalExperience_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeQualification_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmployeeVacation_EmployeePersonal1" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_EmpStatus_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Notifications_EmployeePersonal" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_Notifications_EmployeePersonal1" />
+        <EntityTypeShape EntityType="IsraaHumanResourceModel.Branch" Width="1.5" PointX="27.375" PointY="35.125" />
+        <AssociationConnector Association="IsraaHumanResourceModel.FK_ManualFingerprint_Branch" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

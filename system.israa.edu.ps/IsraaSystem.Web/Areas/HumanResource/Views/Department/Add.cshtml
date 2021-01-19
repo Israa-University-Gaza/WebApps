@@ -1,0 +1,82 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Department.Department
+@{
+    Layout = null;
+}
+
+<div id="add-department" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-department').submit();
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-department"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة قسم</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Add", "Department", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">اسم القسم</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.ArName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ArName, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">القسم التابع له</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.ParentID, new SelectList(Model.Departments, "Value", "Text"), "اختر القسم التابع له", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.ParentID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">نوع القسم</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.DepartmentTypeID, new SelectList(Model.DepartmentTypes, "Value", "Text"), "اختر نوع القسم", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.DepartmentTypeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">فعال</label>
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.IsActive)
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/Department/Add" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-department">قسم جديد</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

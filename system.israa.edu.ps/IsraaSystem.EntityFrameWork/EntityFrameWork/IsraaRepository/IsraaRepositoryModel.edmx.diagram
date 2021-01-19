@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="0b19d6e933124d6ba301287379db9a4d" Name="Diagram1">
+        <EntityTypeShape EntityType="IsraaRepositoryModel.CustodyDetails" PointX="4.5" PointY="7.125" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.CustodyType" PointX="2.25" PointY="24" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.Material" PointX="0.75" PointY="9.25" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.MaterialType" PointX="0.75" PointY="0.75" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.MaterialUnit" PointX="2.75" PointY="1.875" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.RepositoryBalance" PointX="7.5" PointY="7.5" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.RepositoryCustody" PointX="6.75" PointY="12.25" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.RepositoryDepartment" PointX="2.25" PointY="4.875" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.RequestStatus" PointX="2.25" PointY="27.125" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.Supplier" PointX="3" PointY="19.875" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.Transaction" PointX="5.25" PointY="18.125" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.TransactionDetails" PointX="5" PointY="1" Width="1.5" />
+        <EntityTypeShape EntityType="IsraaRepositoryModel.TransactionType" PointX="3" PointY="16.875" Width="1.5" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_CustodyDetails_CustodyType" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_CustodyDetails_Material" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_CustodyDetails_RepositoryDepartment" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_CustodyDetails_RequestStatus" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryCustody_CustodyDetails" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_Material_MaterialType" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_Material_MaterialUnit" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryBalance_Material" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryCustody_Material" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryTransaction_Material" />
+        <AssociationConnector Association="IsraaRepositoryModel.islam" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryBalance_MaterialUnit" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_TransactionDetails_MaterialUnit" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_RepositoryBalance_RepositoryDepartment" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_TransactionDetails_RepositoryDepartment" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_TransactionDetails_TransactionDetails" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_Transaction_Supplier" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_Transaction_TransactionType" />
+        <AssociationConnector Association="IsraaRepositoryModel.FK_TransactionDetails_Transaction" />
+        <AssociationConnector Association="IsraaRepositoryModel.MaterialSupplier" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

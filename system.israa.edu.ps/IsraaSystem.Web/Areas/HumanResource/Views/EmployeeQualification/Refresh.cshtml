@@ -1,0 +1,13 @@
+﻿@{
+    Layout = null;
+}
+
+@if (TempData["refresh-msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["refresh-msg"].ToString().Split(';')[0]);
+    String msg = TempData["refresh-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        $('#form-employee-qualification').submit();
+    </script>
+}

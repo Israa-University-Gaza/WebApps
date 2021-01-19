@@ -1,0 +1,102 @@
+﻿@model IsraaSystem.Web.Areas.Academic.Controllers.StudentController.StudentGpaDetailsVm
+
+<!-- BEGIN PORTLET -->
+<div class="portlet light bordered">
+
+    <div class="portlet-title">
+
+        <div class="caption caption-md">
+            <i class="icon-bar-chart theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">معدل الطالب</span>
+            <span class="caption-helper hide">weekly stats...</span>
+        </div>
+
+    </div>
+    <div class="portlet-body">
+        <div class="row number-stats margin-bottom-30">
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="stat-left">
+                    <div class="stat-chart">
+                        <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                        <div id="sparkline_bar"><canvas width="90" height="45" style="display: inline-block; width: 90px; height: 45px; vertical-align: top;"></canvas></div>
+                    </div>
+                    <div class="stat-number">
+                        <div class="title"> معدل تراكمي </div>
+                        <div class="number"> @Model.GpaUniversity% </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-sm-6 col-xs-6">
+                <div class="stat-right">
+                    <div class="stat-chart">
+                        <!-- do not line break "sparkline_bar" div. sparkline chart has an issue when the container div has line break -->
+                        <div id="sparkline_bar2"><canvas width="90" height="45" style="display: inline-block; width: 90px; height: 45px; vertical-align: top;"></canvas></div>
+                    </div>
+                    <div class="stat-number">
+                        <div class="title"> معدل خريج </div>
+                        <div class="number"> @Model.GpaGraduate% </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="table-scrollable table-scrollable-borderless">
+            <table class="table table-hover table-light">
+                <thead>
+                    <tr class="uppercase">
+                        <th> الفصل الدراسي </th>
+                        <th> فصلي </th>
+                        <th> فصلي تراكمي </th>
+                        <th> ساعات التسجيل </th>
+                        <th> ساعات تراكمية </th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in Model.Data)
+                    {
+                        <tr>
+
+                            <td>
+                                <a href="javascript:;" class="primary-link"> @item.SemesterArShortName</a>
+                            </td>
+                            <td>
+                                <span class="bold theme-font">@item.SemesterGPA%</span>
+                            </td>
+                            <td>
+                                <span class="bold theme-font">@item.SemesterCumulativeGPA%</span>
+                            </td>
+                            <td> @item.SemesterRegestedHour </td>
+                            <td>
+                                @item.SemesterCumulativeHours
+                            </td>
+                        </tr>
+
+                    }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- END PORTLET -->
+
+<script type="text/javascript">
+
+    var SemesterGPAArray = [];
+
+    @foreach (var item in Model.Data)
+    {
+        @:SemesterGPAArray.push("@item.SemesterGPA");
+    }
+
+    console.debug(SemesterGPAArray);
+
+    var SemesterGraduateGpaArray = [];
+
+    @foreach (var item in Model.Data)
+    {
+        @:SemesterGraduateGpaArray.push("@item.SemesterGraduateGpa");
+    }
+    console.debug(SemesterGraduateGpaArray);
+
+</script>

@@ -1,0 +1,117 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Salary.BasicSalaryVM
+
+@{
+    Layout = null;
+}
+
+<div id="basic-salary">
+    <div id="refresh-list"></div>
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "basic-salary"
+        };
+    }
+    @using (Ajax.BeginForm("List", null, opt, new { @id = "form-basic-salary" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الموظف</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center input-change", placeholder = "رقم أو اسم الموظف" })
+                        </div>
+                        <label class="col-md-2 control-label">التاريخ</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.SalaryDate, new { @class = "form-control date-picker text-center", placeholder = "التاريخ" })
+                        </div>
+                        <div class="col-md-offset-1 col-md-1">
+                            @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-right", onchange = "$('#current-page').val('1');$(this).submit();" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الصندوق</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.SalaryBoxID, new SelectList(Model.filter.SalaryBoxes, "Value", "Text"), "جميع الصناديق", new { @class = "form-control input-change" })
+                        </div>
+                        <label class="col-md-2 control-label">نوع الصندوق</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.SalaryBoxTypeID, new SelectList(Model.filter.SalaryBoxTypes, "Value", "Text"), "جميع أنواع الصناديق", new { @class = "form-control input-change" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">حالة الموظف</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.EmployeeStatusID, new SelectList(Model.filter.EmployeeStatuses, "Value", "Text"), "حالات الموظف", new { @class = "form-control input-change" })
+                        </div>
+                        <label class="col-md-2 control-label">نوع التعيين</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.EmploymentTypeID, new SelectList(Model.filter.EmploymentTypes, "Value", "Text"), "أنواع التعيينات", new { @class = "form-control input-change" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">العملة</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.CurrencyID, new SelectList(Model.filter.Currencies, "Value", "Text"), "جميع العملات", new { @class = "form-control input-change" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp15 text-center">رقم الموظف</th>
+                        <th class="wp20">اسم الموظف</th>
+                        <th class="wp10 text-center">الصندوق</th>
+                        <th class="wp10 text-center">قيمة الراتب</th>
+                        <th class="wp10 text-center">العملة</th>
+                        <th class="wp10 text-center">من</th>
+                        <th class="wp10 text-center">إلى</th>
+                        <th class="wp10 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["EmployeeNo"]</td>
+                            <td><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["SalaryBoxName"]</td>
+                            <td class="text-center">@row["Amount"]</td>
+                            <td class="text-center">@row["CurrencyName"]</td>
+                            <td class="text-center">@row["DateFrom"]</td>
+                            <td class="text-center">@row["DateTo"]</td>
+                            <td class="text-center">
+                                <a href="/HumanResource/BasicSalary/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+                                <a href="/HumanResource/BasicSalary/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف علاوة موظف" data-msg="هل أنت متأكد من أنك تود حذف العلاوة من الموظف ؟" data-action="حذف" data-ajax-update="#refresh-list"><span class="fa fa-times"></span></a>
+                                <a href="/HumanResource/BasicSalary/EmployeeBonusAdd/@row["ID"]" class="btn btn-sm btn-default pop-up-lg"><i class="fa fa-plus"></i>تنسيب علاوة</a>
+                                <a href="/HumanResource/BasicSalary/EmployeeDeductionAdd/@row["ID"]" class="btn btn-sm btn-default pop-up-lg"><i class="fa fa-plus"></i>تنسيب خصمية</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

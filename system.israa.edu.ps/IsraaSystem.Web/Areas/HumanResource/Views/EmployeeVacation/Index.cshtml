@@ -1,0 +1,56 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - إجازات الموظفين";
+    ViewBag.Menu = "#menu-vacation,#menu-employee-vacation";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeVacation">إجازات الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض إجازات الموظفين</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض إجازات الموظفين</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/EmployeeVacation/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة طلب إجازة جديد
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>
+
+@section PageScripts
+{
+    <script>
+        $(document).ready(function () {
+
+            $("#excle").on('mousedown', function () {
+                var url = 'EmployeeVacation/Excel/?EmployeeName=' + $("#EmployeeName").val() + '& VacationTypeID=' + $("#VacationTypeID").val() + '&VacationBalanceYearID=' + $("#VacationBalanceYearID").val() + '&AccreditationStatusID=' + $("#AccreditationStatusID").val() + '&DateFrom=' + $("#DateFrom").val() + '&DateTo=' + $("#DateTo").val();
+                $(this).attr("href", url);
+            });
+        });
+    </script>
+}

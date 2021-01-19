@@ -1,0 +1,140 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeTrainingCourse.EmployeeTrainingCourse
+
+@{
+    Layout = null;
+}
+
+<div id="add-employee-training-course" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $("#employee-training-course").load("/HumanResource/EmployeeTrainingCourse/EmployeeList/@Model.EmployeeID");
+            </script>
+        }
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة دورة تدريبية</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @{
+                AjaxOptions opt = new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.ReplaceWith,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "add-employee-training-course"
+                };
+            }
+                @using (Ajax.BeginForm("EmployeeAdd", "EmployeeTrainingCourse", opt, new { @class = "form-horizontal",id="Myform" }))
+            {
+                    @Html.AntiForgeryToken()
+                    <div class="form-body">
+                        @Html.HiddenFor(model => model.EmployeeID)
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">اسم الكورس</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control text-center", placeholder = "اسم الكورس" })
+                                @Html.ValidationMessageFor(model => model.CourseName, "", new { @class = "text-danger help-block" })
+                            </div>
+                            <label class="col-md-2 control-label">المؤسسة</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseOrganisers, new { @class = "form-control text-center", placeholder = "المؤسسة" })
+                                @Html.ValidationMessageFor(model => model.CourseOrganisers, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">التخصص</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseSpecialization, new { @class = "form-control text-center", placeholder = "التخصص" })
+                                @Html.ValidationMessageFor(model => model.CourseSpecialization, "", new { @class = "text-danger help-block" })
+                            </div>
+                            <label class="col-md-2 control-label">عدد الساعات</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseHours, new { @class = "form-control text-center", placeholder = "عدد الساعات" })
+                                @Html.ValidationMessageFor(model => model.CourseHours, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">من تاريخ</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseFromDate, new { @class = "form-control text-center date-picker", placeholder = "من تاريخ" })
+                                @Html.ValidationMessageFor(model => model.CourseFromDate, "", new { @class = "text-danger help-block" })
+                            </div>
+                            <label class="col-md-2 control-label">إلى تاريخ</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.CourseToDate, new { @class = "form-control text-center date-picker", placeholder = "إلى تاريخ" })
+                                @Html.ValidationMessageFor(model => model.CourseToDate, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">شهادة الدورة</label>
+                            <div class="col-md-3">
+                              @*<form id="Myform" action="/HumanResource/EmployeeTrainingCourse/EmployeeAdd" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" />
+    </form>*@
+                              <input type="file" name="file" />
+                              <div class="progress" style="width:50%">
+                                <div class="progress-bar"></div>
+                                <div class="percent">0%</div>
+                              </div>
+                              <div id="status"></div>
+                            </div>
+                            <label class="col-md-2 control-label">ملاحظات</label>
+                            <div class="col-md-3">
+                                @Html.TextAreaFor(model => model.Note, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" class="btn btn-primary" value="حفظ">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                                @Ajax.ActionLink("دورة تدريبية جديدة", "EmployeeAdd",null, new AjaxOptions
+                           {
+                               InsertionMode = InsertionMode.ReplaceWith,
+                               HttpMethod = "Get",
+                               UpdateTargetId = "add-employee-training-course"
+                           }, new { @class = "btn btn-success pull-right" })
+                            </div>
+                        </div>
+                    </div>
+                }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var bar = $('.progress-bar');
+        var percent = $('.percent');
+        var status = $('#status');
+
+        $('#Myform').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            complete: function (xhr) {
+                //status.html(xhr.responseText);
+            }
+        });
+    });
+</script>
+
+

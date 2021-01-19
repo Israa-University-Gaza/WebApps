@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeAddNew.EmployeeAddNewVM
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.EmployeeContactData.GovernorateID, new SelectList(Model.EmployeeContactData.Governorates, "Value", "Text"), "إختر المحافظة", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/EmployeeAddNew/ddlCity/", data_target_id = "#EmployeeContactData_CityID" })

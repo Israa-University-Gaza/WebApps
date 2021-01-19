@@ -1,0 +1,172 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePersonal.EmployeeMainData
+
+@{
+  Layout = null;
+}
+
+<div id="employee-page">
+  <script type="text/javascript">
+    setMenu('#menu-employee-personal');
+  </script>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="portlet light bordered">
+        <div class="portlet-title tabbable-line">
+          <div class="caption">
+            <i class="icon-globe theme-font hide"></i>
+            <span class="caption-subject font-blue-madison bold uppercase">بيانات الموظف</span>
+          </div>
+          <ul class="nav nav-tabs">
+            <li class="active">
+              <a href="/HumanResource/EmployeePersonal/EmployeeMainData/@Model.EmployeeID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">البيانات الشخصية</a>
+            </li>
+            <li>
+              <a href="/HumanResource/EmployeePersonal/EmployeeContactData/@Model.EmployeeID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">بيانات الإتصال</a>
+            </li>
+          </ul>
+        </div>
+        <div class="portlet-body form">
+          @{
+            AjaxOptions opt = new AjaxOptions
+            {
+              InsertionMode = InsertionMode.ReplaceWith,
+              HttpMethod = "POST",
+              UpdateTargetId = "employee-page"
+            };
+          }
+          @using (Ajax.BeginForm("EmployeeMainData", "EmployeePersonal", opt, new { @class = "form-horizontal" }))
+          {
+            @Html.AntiForgeryToken()
+            <div class="form-body">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @if (TempData["add-msg"] != null)
+                        {
+                            int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                            String msg = TempData["add-msg"].ToString().Split(';')[1];
+                            <script type="text/javascript">
+                                    showToast("@msg", "@((status > 0) ? "success":"error")");
+                            </script>
+                        }
+                    </div>
+                </div>
+                @Html.HiddenFor(model => model.EmployeeID)
+                <div class="form-group">
+                    <label class="col-md-2 control-label">الإسم بالعربية</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.ArFirstName, new { @class = "form-control text-center" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.ArSecoundName, new { @class = "form-control text-center" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.ArThirdName, new { @class = "form-control text-center" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.ArFamilyName, new { @class = "form-control text-center" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">الإسم بالإنجليزية</label>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.EnFirstName, new { @class = "form-control text-center" })
+                        @Html.ValidationMessageFor(model => model.EnFirstName, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.EnSecoundName, new { @class = "form-control text-center" })
+                        @Html.ValidationMessageFor(model => model.EnSecoundName, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.EnThirdName, new { @class = "form-control text-center" })
+                        @Html.ValidationMessageFor(model => model.EnThirdName, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <div class="col-md-2">
+                        @Html.TextBoxFor(model => model.EnFamilyName, new { @class = "form-control text-center" })
+                        @Html.ValidationMessageFor(model => model.EnFamilyName, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">الوصف بالعربية</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.ArNameTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ArNameTitle, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-2 control-label">الوصف بالإنجليزية</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.EnNameTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EnNameTitle, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">اسم الأم</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.MotherName, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MotherName, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-2 control-label">الجنس</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.GenderID, new SelectList(Model.Genders, "Value", "Text"), "إختر الجنس", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.GenderID, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">الجنسية</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.NationalityID, new SelectList(Model.Nationalities, "Value", "Text"), "إختر الجنسية", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.NationalityID, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-2 control-label">الديانة</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.ReligionID, new SelectList(Model.Religions, "Value", "Text"), "إختر الديانة", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.ReligionID, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">تاريخ الميلاد</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.DateOfBirth, new { @class = "form-control date-picker", placeholder = "yyyy/mm/dd", data_val_date = "الرجاء ادخال تاريخ صحيح" })
+                        @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-2 control-label">مكان الميلاد</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.PlaceOfBirth, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.PlaceOfBirth, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">رقم جواز السفر</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.Passport, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Passport, "", new { @class = "text-danger help-block" })
+
+                    </div>
+                    <label class="col-md-2 control-label">رقم الهوية</label>
+                    <div class="col-md-3">
+                        @Html.TextBoxFor(model => model.SSN, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger help-block" })
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">الحالة الإجتماعية</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.MaritalStatusID, new SelectList(Model.MaritalStatuses, "Value", "Text"), "إختر الحالة الإجتماعية", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.MaritalStatusID, "", new { @class = "text-danger help-block" })
+                    </div>
+                
+                   
+                </div>
+            </div>
+            <div class="form-actions">
+              <div class="row">
+                <div class="col-md-offset-2 col-md-9">
+                  <input type="submit" class="btn green" value="حفظ">
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

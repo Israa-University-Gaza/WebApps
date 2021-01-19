@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewBag.Title = "وظائف الجامعة - الوظائف";
+    ViewBag.Menu = "#menu-";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Administrator/OrganizationJops">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Administrator/OrganizationJops">الوظائف</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>ادارة الوظائف</a>
+    </li>
+}
+
+
+
+<div class="row">
+    <div class="col-md-6">
+
+        <div class="portlet light ">
+            <div class="portlet-title">
+                <div class="caption font-green-sharp">
+                    <i class="icon-share font-green-sharp"></i>
+                    <span class="caption-subject bold uppercase"> الوظائف</span>
+                    <span class="caption-helper">عرض وادارة الوظائف</span>
+                </div>
+
+            </div>
+            <div class="portlet-body">
+                <div @*class="scroller" style="height:400px"*@ data-always-visible="1" data-rail-visible="1" data-rail-color="red" data-handle-color="green">
+                    <div id="using_json_3" class="demo"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="permisiion_portlet" class="col-md-6">
+
+    </div>
+
+</div>
+
+
+
+
+
+@section PageStyles {
+    <link href="~/assets/global/plugins/jstree/dist/themes/default/style.css" rel="stylesheet" />
+}
+
+@section PagePlugins {
+    <script src="~/assets/global/plugins/jstree/dist/jstree.js"></script>
+}
+
+@section PageScripts {
+
+    <script>
+        $(function () {
+            $('#using_json_3')
+                .on('changed.jstree', function (e, data) {
+                    var i, j, r = [];
+                    for (i = 0, j = data.selected.length; i < j; i++) {
+                        r.push(data.instance.get_node(data.selected[i]).data);
+                    }
+                    //$('#event_result').html('Selected: ' + r.join(', '));
+                })
+                .jstree({
+                    'types': {
+                        "default": {
+                            "icon": "jstree-icon jstree-themeicon fa fa-folder icon-state-warning fa-lg jstree-themeicon-custom"
+                        }
+                    },
+                    'core': {
+                        'data': {
+                            'url': function (node) {
+
+                                if (node.id === '#')
+                                    return "/Administrator/OrganizationJop/TreeData";
+                                else
+                                    return "/Administrator/OrganizationJop/TreeData?managerJobId=" + node.id;
+                            },
+                            'data': function (node) {
+                                return { 'id': node.id };
+                            }
+                        }
+                    },
+                    "check_callback": true,
+                    contextmenu: { items: customMenu },
+                    "plugins": [
+                        "contextmenu", "dnd", "search",
+                        , "types"
+                    ]
+                });
+        });
+
+
+        function customMenu(node) {
+            var items = {
+                addItem: {
+                    label: "اضافة",
+                    action: function () {
+
+                        $("#pop-up-lg .modal-dialog").load('/Administrator/OrganizationJop/Add?id=' + node.id, function () {
+                            $("#pop-up-lg").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                $('#using_json_3').jstree(true).refresh_node(node.id);
+
+                            });
+                    }
+                },
+                editItem: {
+                    label: "تعديل",
+                    action: function () {
+                        console.log("rename");
+                        $("#pop-up-lg .modal-dialog").load('/Administrator/OrganizationJop/Edit?id=' + node.id, function () {
+                            $("#pop-up-lg").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                $('#using_json_3').jstree(true).refresh_node(node.id);
+
+                            });
+                    }
+                },
+                delete: {
+                    label: "حذف",
+                    action: function () {
+
+                        $("#pop-up-md .modal-dialog").load('/Administrator/OrganizationJop/Delete?id=' + node.id, function () {
+                            $("#pop-up-md").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                //parent_node = $.jstree._reference('#using_json_3')._get_parent(node);
+                                //console.log(parent_node);
+                            });
+
+                    }
+                }
+                ,
+                view: {
+                    label: " الصلاحيات",
+                    action: function () {
+
+                        $("#permisiion_portlet").load('/Administrator/OrganizationJop/_JobPermissions?jobId=' + node.id);
+
+                    }
+                }
+            };
+
+
+            if ($(node).hasClass("folder")) {
+                // Delete the "delete" menu item
+                delete items.deleteItem;
+            }
+
+            return items;
+        }
+
+
+    </script>
+
+
+
+}

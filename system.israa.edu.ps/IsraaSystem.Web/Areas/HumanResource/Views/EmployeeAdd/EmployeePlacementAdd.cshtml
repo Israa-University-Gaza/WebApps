@@ -1,0 +1,158 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePlacement.EmployeePlacement
+
+@{
+    ViewBag.Title = "شؤون الموظفين - إضافة موظف";
+    ViewBag.Menu = "#menu-employee-add";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>شؤون الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>إضافة موظف</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">إضافة حالة للموظف </span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                @{
+                    AjaxOptions opt = new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        HttpMethod = "POST",
+                      
+                    };
+                }
+                @using (Ajax.BeginForm("EmployeePlacementAdd", "EmployeeAdd", opt, new { @class = "form-horizontal" }))
+                {
+                    <div class="form-wizard">
+                        @Html.AntiForgeryToken()
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li class="active">
+                                    <a class="step">
+                                        <span class="number"> 1 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>بيانات أساسية</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 2 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>الموقع الوظيفي</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 3 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>حالة الموظف</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 4 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>إعتماد الموظف</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success" style="width: 25%;"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label">قسم الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(model => model.DepartmentID, new SelectList(Model.Departments, "Value", "Text"), "إختر القسم", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/EmployeeAdd/ddlJob/", data_target_id = "#JobID" })
+                                            @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger help-block" })
+                                        </div>
+
+                                        <label class="col-md-3 control-label">وظيفة الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.Partial("ddlJob", Model)
+                                            @Html.ValidationMessageFor(model => model.Jobs, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label">مسؤول الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(model => model.DManagerID, new SelectList(Model.Employees, "Value", "Text"), "إختر المسؤول", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.DManagerID, "", new { @class = "text-danger help-block" })
+                                        </div>
+
+                                        <label class="col-md-3 control-label">صفة الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(model => model.PlacementStatusID, new SelectList(Model.PlacementStatuses, "Value", "Text"), "إختر صفة الموظف", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.PlacementStatusID, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label">نوع الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(model => model.PlacementTypeID, new SelectList(Model.PlacementTypes, "Value", "Text"), "إختر نوع الموظف", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.PlacementTypeID, "", new { @class = "text-danger help-block" })
+                                        </div>
+
+                                        <label class="col-md-3 control-label">كادر الموظف</label>
+                                        <div class="col-md-3">
+                                            @Html.DropDownListFor(model => model.CaderID, new SelectList(Model.Caders, "Value", "Text"), "إختر كادر الموظف", new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(model => model.CaderID, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <label class="col-md-3 control-label">تاريخ بدء الموقع الوظيفي</label>
+                                        <div class="col-md-3">
+                                            @Html.TextBoxFor(model => model.DateFrom, new { @class = "form-control date-picker" })
+                                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <label class="col-md-3 control-label">تاريخ نهاية الموقع الوظيفي</label>
+                                        <div class="col-md-3">
+                                            @Html.TextBoxFor(model => model.DateTo, new { @class = "form-control date-picker" })
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-9">
+                                    <input type="submit" class="btn btn-primary" value="إضافة حالة للموظف">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

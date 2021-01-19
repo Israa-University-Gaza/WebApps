@@ -1,0 +1,113 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePlacement.EmployeePlacement
+
+@{
+    Layout = null;
+}
+
+<div id="add-employee-placement" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-job').submit();
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-employee-placement"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة موقع وظيفي جديد</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("EmployeePlacementAdd", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الموظف</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.EmployeeID, new SelectList(Model.Employees, "Value", "Text"), "إختر الموظف", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">المسؤول المباشر</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.DManagerID, new SelectList(Model.DManagers, "Value", "Text"), "إختر المسؤول المباشر", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.DManagerID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">القسم</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(model => model.DepartmentID)
+                            @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الوظيفة</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(model => model.JobID)
+                            @Html.TextBoxFor(model => model.JobName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الكادر</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.CaderID, new SelectList(Model.Caders, "Value", "Text"), "إختر الكادر", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CaderID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">حالة الإنتساب</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.PlacementStatusID, new SelectList(Model.PlacementStatuses, "Value", "Text"), "إختر حالة الإنتساب", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PlacementStatusID, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">نوع الإنتساب</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.PlacementTypeID, new SelectList(Model.PlacementTypes, "Value", "Text"), "إختر نوع الإنتساب", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.PlacementTypeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">من</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.DateFrom, new { @class = "form-control text-center date-picker" })
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">إلى</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.DateTo, new { @class = "form-control text-center date-picker" })
+                            @Html.ValidationMessageFor(model => model.DateTo, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <button type="submit" class="btn btn-primary">إضافة</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/Job/EmployeePlacementAdd?jobId=@Model.JobID" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-employee-placement">موقع وظيفي جديد</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

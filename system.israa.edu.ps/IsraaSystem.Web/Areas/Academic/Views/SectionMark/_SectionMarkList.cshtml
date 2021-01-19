@@ -1,0 +1,594 @@
+﻿
+@using System.Data
+@using System.Web.Mvc.Html
+@using IsraaSystem.Application.Common.Enums
+@using IsraaSystem.Application.Common.Enums.Academic
+@using IsraaSystem.Web.Common
+@model IsraaSystem.Web.Areas.Academic.Models.SectionMark.SectionMarkIndexVm
+
+@{
+  /**/
+
+  Layout = null;
+  var departmentName = Model.AcademicSectionsMarksInOut.DepartmentId.HasValue ? Model.AcademicSectionsMarksInOut.Result.FirstOrDefault().DepartmentName : "جميع الشعب";
+  var examType = Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Mid ? "نصفي" : "نهائي";
+
+}
+<div id="refresh-list"></div>
+
+<div id="mark-section">
+
+
+  @if (Model.AcademicSectionsMarksInOut.IsAllAccreditation())
+  {
+    <div class="note note-success">
+
+      <p> تم اعتماد علامات جميع الشعب</p>
+    </div>
+  }
+  else
+  {
+    <div class="note note-warning">
+
+      <p> لم يتم اعتماد جميع علامات الشعب</p>
+    </div>
+  }
+
+  <div class="note note-info">
+    <div class="row">
+
+      <div class="col-md-6">
+        <h4 class="block font-green-jungle bold uppercase">
+
+
+          @departmentName
+
+        </h4>
+
+        <p>
+
+          <ul class="list-inline">
+
+
+            <ul class="page-breadcrumb breadcrumb">
+
+              <li class="">
+                <a href="/Academic/Dashboard" class="">@Model.AcademicSectionsMarksInOut.SemesterName</a>
+                <i class="fa fa-circle"></i>
+              </li>
+              @*<li>
+                  <a href="/Academic/Mark">@departmentName</a>
+                  <i class="fa fa-circle"></i>
+                </li>*@
+              <li>
+                <a class="">@examType</a>
+              </li>
+
+            </ul>
+
+            @if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Mid)
+            {
+              <li> <strong>العدد</strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count()</li>
+              <li> <strong>غير معتمد </strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count(x => !x.IsMidAcademicAllAccreditation)</li>
+              <li> <strong> معتمد </strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count(x => x.IsMidAcademicAllAccreditation)</li>
+            }
+            else if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Final)
+            {
+              <li> <strong>العدد</strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count()</li>
+              <li> <strong>غير معتمد </strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count(x => !x.IsFinalAcademicAllAccreditation)</li>
+              <li> <strong> معتمد </strong>&nbsp:&nbsp; @Model.AcademicSectionsMarksInOut.Result.Count(x => x.IsFinalAcademicAllAccreditation)</li>
+
+            }
+
+          </ul>
+        </p>
+      </div>
+      <div class="col-md-3 ">
+        <button id="DeanAccreditAllSection" class="btn btn-block green-jungle btn-success">
+          <i class="fa fa-check pull-left"></i>
+          اعتماد الشعب المحددة كعميد
+        </button>
+
+
+
+
+        <button id="DeanReturnAllSection" class="btn btn-block btn-danger">
+          <i class="fa fa-check-circle pull-left"></i>
+          ارجاع الشعب المحددة كعميد
+        </button>
+
+
+      </div>
+
+
+      <div class="col-md-3">
+
+
+        <button id="AcademicAccreditAllSection" class="btn btn-block green-jungle btn-success">
+          <i class="fa fa-check pull-left"></i>
+          اعتماد الشعب المحددة كنائب اكاديمي
+        </button>
+
+
+
+        <button id="AcademicReturnAllSection" class="btn btn-block btn-danger">
+          <i class="fa fa-check-circle pull-left"></i>
+          ارجاع الشعب المحددة كنائب
+        </button>
+
+      </div>
+
+    </div>
+
+
+  </div>
+
+
+
+
+  @if (Model.AcademicSectionsMarksInOut.Result != null && Model.AcademicSectionsMarksInOut.Result.Count > 0)
+  {
+    <table class="table  table-hover">
+      <thead>
+        <tr>
+          <th class=" text-center"><input type="checkbox" id="SellectAllRows" class="icheck "> </th>
+          <th class=" text-center">القسم </th>
+          <th class=" text-center"> المساق</th>
+          <th class=" text-center">الشعبة</th>
+          <th class=" text-center">المحاضر</th>
+          <th class=" text-center">اعتمادات</th>
+
+          <th class=" text-center"></th>
+        </tr>
+      </thead>
+      <tbody id="Table">
+        @foreach (var item in Model.AcademicSectionsMarksInOut.Result)
+        {
+          string trClass = "";
+          if (item.IsMidAcademicAllAccreditation && Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Mid)
+          {
+            trClass = "active";
+          }
+          else if (item.IsFinalAcademicAllAccreditation && Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Final)
+          {
+            trClass = "active";
+          }
+
+
+
+          <tr class="@trClass">
+            @*<td>@row["RowNo"]</td>*@
+            <td class="text-center">
+              <input type="checkbox"
+                     class="icheck"
+                     name="SelectedRows"
+                     value="@item.ID" />
+
+            </td>
+            <td class="text-center">@item.DepartmentName</td>
+            <td class="text-center">@item.CourseName</td>
+            <td class="text-center">@item.SectionNum</td>
+            <td class="text-center">@item.EmployeeName</td>
+
+
+
+            @if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Mid)
+            {
+              <td>
+                @if (item.IsMidTeacherAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled"> محاضر</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> محاضر</a>
+                }
+
+
+                @if (item.IsMidDeanAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled">عميد</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> عميد</a>
+
+                }
+                @if (item.IsMidAcademicAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled">نائب</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> نائب</a>
+
+                }
+              </td>
+
+            }
+            else if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Final)
+            {
+              <td>
+                @if (item.IsFinalTeacherAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled"> محاضر</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> محاضر</a>
+                }
+
+
+                @if (item.IsFinalDeanAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled">عميد</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> عميد</a>
+
+                }
+                @if (item.IsFinalAcademicAllAccreditation)
+                {
+                  <a href="javascript:;" class="btn btn-xs btn-success disabled">نائب</a>
+
+                }
+                else
+                {
+                  <a href="javascript:;" class="btn btn-xs grey disabled "> نائب</a>
+
+                }
+              </td>
+
+            }
+
+
+
+
+            <td class="text-center">
+
+
+              @if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Mid)
+              {
+
+                if (item.IsMidAcademicAllAccreditation)
+                {
+                  @*<a href="@Url.Action("ReturnAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Academic , examTypeEnum=ExamTypeEnum.Mid})" class="btn-xs btn-danger btn-block confirm" data-title="ارجاع شعبة" data-msg="هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟" data-action="ارجاع" data-ajax-update="#refresh-list">ارجاع كنائب </a>*@
+
+
+
+
+
+
+                  @Ajax.ActionLink(
+                    "ارجاع كنائب",
+                    "AcademicReturnAccredit",
+                    new { id = item.ID, examTypeEnum = ExamTypeEnum.Mid },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section"),
+                      Confirm = "هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟"
+
+
+                    }
+                    , new
+                    {
+                      @class = "btn-xs btn-danger btn-block "
+                    })
+
+
+
+
+                }
+                else if (item.IsMidDeanAllAccreditation)
+                {
+                  @*<a href="@Url.Action("ReturnAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Dean , examTypeEnum=ExamTypeEnum.Mid})" class="btn-xs btn-danger btn-block confirm" data-title="ارجاع شعبة" data-msg="هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟" data-action="ارجاع" data-ajax-update="#refresh-list">ارجاع كعميد </a>*@
+
+
+
+                  @Ajax.ActionLink(
+                    "ارجاع كعميد",
+                    "DeanReturnAccredit",
+                    new { id = item.ID, examTypeEnum = ExamTypeEnum.Mid },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section"),
+                      Confirm = "هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟"
+
+
+                    }
+                    , new
+                    {
+                      @class = "btn-xs btn-danger btn-block "
+                    })
+
+
+
+                }
+
+
+
+                if (!item.IsMidDeanAllAccreditation)
+                {
+
+                  @*<a href="@Url.Action("SectionAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Dean , examTypeEnum=ExamTypeEnum.Mid })" class="btn btn-xs green-jungle  " data-ajax="true" data-title="اعتماد شعبة" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#refresh-list">اعتماد كعميد</a>*@
+
+
+
+                  @Ajax.ActionLink(
+                    "اعتماد كعميد",
+                    "DeanSectionAccredit",
+                    new { id = item.ID, accreditationTypeEnum = AccreditationTypeEnum.Dean, examTypeEnum = ExamTypeEnum.Mid },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section")
+
+
+                    }
+                    , new { @class = "btn btn-xs green-jungle"})
+                }
+
+                if (!item.IsMidAcademicAllAccreditation)
+                {
+
+                  @*<a href="@Url.Action("SectionAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Academic , examTypeEnum=ExamTypeEnum.Mid})" class="btn btn-xs green-jungle " data-ajax="true" data-title="اعتماد شعبة" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#refresh-list">اعتماد كنائب</a>*@
+
+
+                  @Ajax.ActionLink(
+                    "اعتماد كنائب",
+                    "AcademicSectionAccredit",
+                    new { id = item.ID, accreditationTypeEnum = AccreditationTypeEnum.Academic, examTypeEnum = ExamTypeEnum.Mid },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section")
+
+
+                    }
+                    , new { @class = "btn btn-xs green-jungle" })
+
+
+
+                }
+
+
+
+
+              }
+              else if (Model.AcademicSectionsMarksInOut.ExamType == ExamTypeEnum.Final)
+              {
+
+                if (item.IsFinalAcademicAllAccreditation)
+                {
+                  @*<a href="@Url.Action("ReturnAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Academic , examTypeEnum=ExamTypeEnum.Final})" class="btn-xs btn-danger btn-block confirm" data-title="ارجاع نائب" data-msg="هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟" data-action="ارجاع" data-ajax-update="#refresh-list">ارجاع كنائب </a>*@
+
+
+
+                  @Ajax.ActionLink(
+                    "ارجاع كنائب",
+                    "AcademicReturnAccredit",
+                    new {id = item.ID  , examTypeEnum=ExamTypeEnum.Final},
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section"),
+                      Confirm = "هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟"
+
+
+                    }
+                    , new
+                    {
+                      @class = "btn-xs btn-danger btn-block "
+                    })
+
+
+
+
+                }
+                else if (item.IsFinalDeanAllAccreditation)
+                {
+                  @*<a href="@Url.Action("ReturnAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Dean , examTypeEnum=ExamTypeEnum.Final})" class="btn-xs btn-danger btn-block confirm" data-title="ارجاع عميد" data-msg="هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟" data-action="ارجاع" data-ajax-update="#refresh-list">ارجاع كعميد </a>*@
+
+
+
+
+                  @Ajax.ActionLink(
+                    "ارجاع كعميد",
+                    "DeanReturnAccredit",
+                    new {id = item.ID  , examTypeEnum=ExamTypeEnum.Final},
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section"),
+                      Confirm = "هل أنت متأكد من أنك تود ارجاع علامات الشعبة ؟"
+
+
+                    }
+                    , new
+                    {
+                      @class = "btn-xs btn-danger btn-block"
+                    })
+
+
+
+
+
+                }
+
+
+                if (!item.IsFinalDeanAllAccreditation && !item.IsFinalAcademicAllAccreditation)
+                {
+
+                  @*<a href="@Url.Action("SectionAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Dean , examTypeEnum=ExamTypeEnum.Final})" class="btn btn-xs green-jungle " data-ajax="true" data-title="اعتماد شعبة" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#refresh-list">اعتماد كعميد</a>*@
+
+
+
+
+                  @Ajax.ActionLink(
+                    "اعتماد كعميد",
+                    "DeanSectionAccredit",
+                    new { id = item.ID, accreditationTypeEnum = AccreditationTypeEnum.Dean, examTypeEnum = ExamTypeEnum.Final },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section")
+
+
+                    }
+                    , new { @class = "btn btn-xs green-jungle"})
+
+
+
+
+                }
+
+                if (!item.IsFinalAcademicAllAccreditation)
+                {
+
+                  @*<a href="@Url.Action("SectionAccredit",new {id = item.ID , accreditationTypeEnum = AccreditationTypeEnum.Academic , examTypeEnum=ExamTypeEnum.Final})" class="btn btn-xs green-jungle " data-ajax="true" data-title="اعتماد شعبة" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#refresh-list">اعتماد كنائب </a>*@
+
+
+
+                  @Ajax.ActionLink(
+                    "اعتماد كنائب",
+                    "AcademicSectionAccredit",
+                    new { id = item.ID, accreditationTypeEnum = AccreditationTypeEnum.Academic, examTypeEnum = ExamTypeEnum.Final },
+                    new AjaxOptions
+                    {
+                      UpdateTargetId = "refresh-list",
+                      InsertionMode = InsertionMode.Replace,
+                      HttpMethod = "POST",
+                      OnSuccess = JsHelper.ShowToast(ToastTypeEnum.success,"تمت العملية بنجاح"),
+                      OnFailure = JsHelper.ShowToast(ToastTypeEnum.error, "حدث خطأ ما!"),
+                      OnComplete = JsHelper.SubmitForm("form-mark-section"),
+
+
+                    }
+                    , new { @class = "btn btn-xs green-jungle"})
+
+
+
+                }
+
+              }
+
+
+            </td>
+          </tr>
+        }
+      </tbody>
+    </table>
+    @*@Html.HiddenFor(model=> model.pagging.pageSize)*@
+    @Html.HiddenFor(model => model.pagging.action);
+
+    @Html.HiddenFor(model => model.pagging.updateTargetId);
+    @Html.Partial("_paging", Model.pagging)
+  }
+  else
+  {
+    <div class="alert alert-info alert-dismissible text-center" role="alert">
+      <span>لا يوجد بيانات لعرضها</span>
+    </div>
+  }
+
+
+
+
+  <script type="text/javascript">
+    $(document).ready(function() {
+
+      iCheck.init();
+
+      $('#DeanAccreditAllSection').click(function() {
+
+
+        $.post('@Url.Action("DeanMultiSectionMarKAccrediation")',$("#form-mark-section").serialize(),
+          function(data) {
+            $("#refresh-list").html(data);
+          });
+
+      });
+
+
+      $('#AcademicAccreditAllSection').click(function() {
+        $.post('@Url.Action("AcademicMultiSectionMarKAccrediation")',$("#form-mark-section").serialize(),
+          function(data) {
+            $("#mark-section").html(data);
+          });
+      });
+
+
+
+
+      $('#DeanReturnAllSection').click(function() {
+        $.post('@Url.Action("DeanMultiSectionMarKReturnAccrediation")', $("#form-mark-section").serialize(),
+          function (data) {
+            $("#mark-section").html(data);
+
+          });
+      });
+
+      $('#AcademicReturnAllSection').click(function() {
+        $.post('@Url.Action("AcademicMultiSectionMarKReturnAccrediation")', $("#form-mark-section").serialize(),
+          function (data) {
+            $("#mark-section").html(data);
+
+          });
+      });
+
+
+
+
+    });
+  </script>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+

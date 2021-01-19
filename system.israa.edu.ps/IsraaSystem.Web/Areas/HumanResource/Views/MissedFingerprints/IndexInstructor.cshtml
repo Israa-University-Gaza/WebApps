@@ -1,0 +1,39 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.InstructorMissedFingerprintsVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - المحاضرين غير موقعين انصراف";
+    ViewBag.Menu = "#menu-attendance,#menu-attendance-instructor";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/MissedFingerprints/IndexInstructor">المحاضرين الغير موقعي انصراف</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض بيانات المحاضرين الغير موقعي انصراف</a>
+    </li>
+}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-social-dribbble font-green"></i>
+                        <span class="caption-subject font-green bold uppercase">عرض بيانات المحاضرين الغير موقعي انصراف</span>
+                    </div>
+                    <div class="actions">
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    @Html.Partial("ListInstructor", Model)
+                </div>
+            </div>
+        </div>
+    </div>

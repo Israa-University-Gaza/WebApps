@@ -1,0 +1,938 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IsraPermissionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayName" Type="nvarchar(max)" />
+          <Property Name="Code" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Controller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar(max)" />
+          <Property Name="DispalyName" Type="nvarchar(max)" />
+          <Property Name="AreaId" Type="int" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="EmployeeNo" Type="nvarchar" MaxLength="10" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Gender" Type="int" />
+          <Property Name="IsObserver" Type="bit" />
+          <Property Name="ObserverBranchID" Type="int" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+          <Property Name="IsSuperAdmin" Type="bit" />
+          <Property Name="CourseCount" Type="int" Nullable="false" />
+          <Property Name="ObservesCount" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeArea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="IsAllTime" Type="bit" Nullable="false" />
+          <Property Name="AvailableFrom" Type="datetime" />
+          <Property Name="AvailableTo" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="EmployeeRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="IsAllTime" Type="bit" Nullable="false" />
+          <Property Name="AvailableFrom" Type="datetime" />
+          <Property Name="AvailableTo" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar(max)" />
+          <Property Name="Name" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="AGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+          <Property Name="Controller" Type="nvarchar(max)" />
+          <Property Name="Action" Type="nvarchar" MaxLength="100" />
+          <Property Name="ControllerId" Type="int" />
+        </EntityType>
+        <EntityType Name="PermissionJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PermissionId" Type="int" Nullable="false" />
+          <Property Name="JobId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="AreaID" Type="int" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+          <Property Name="PermissionID" Type="int" Nullable="false" />
+          <Property Name="IsAllTime" Type="bit" Nullable="false" />
+          <Property Name="AvailableFrom" Type="datetime" />
+          <Property Name="AvailableTo" Type="datetime" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Controller_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="0..1" />
+          <End Role="Controller" Type="Self.Controller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Controller">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeArea_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="EmployeeArea" Type="Self.EmployeeArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeArea">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeArea_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeArea" Type="Self.EmployeeArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeArea">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRole_Employee">
+          <End Role="Employee" Type="Self.Employee" Multiplicity="1" />
+          <End Role="EmployeeRole" Type="Self.EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRole_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="EmployeeRole" Type="Self.EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Permission">
+          <End Role="Controller" Type="Self.Controller" Multiplicity="0..1" />
+          <End Role="Permission" Type="Self.Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Controller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ControllerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_PermissionJob_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="PermissionJob" Type="Self.PermissionJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PermissionJob">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Area">
+          <End Role="Area" Type="Self.Area" Multiplicity="1" />
+          <End Role="Role" Type="Self.Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Permission">
+          <End Role="Permission" Type="Self.Permission" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Role">
+          <End Role="Role" Type="Self.Role" Multiplicity="1" />
+          <End Role="RolePermission" Type="Self.RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="GetFillterdObserver" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="EmploymentTypeID" Type="int" Mode="In" />
+          <Parameter Name="BranchID" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="IsraPermissionModelStoreContainer">
+          <EntitySet Name="Area" EntityType="Self.Area" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Controller" EntityType="Self.Controller" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeArea" EntityType="Self.EmployeeArea" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EmployeeRole" EntityType="Self.EmployeeRole" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Permission" EntityType="Self.Permission" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PermissionJob" EntityType="Self.PermissionJob" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RolePermission" EntityType="Self.RolePermission" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Controller_Area" Association="Self.FK_Controller_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Controller" EntitySet="Controller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeArea_Area" Association="Self.FK_EmployeeArea_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="EmployeeArea" EntitySet="EmployeeArea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeArea_Employee" Association="Self.FK_EmployeeArea_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeArea" EntitySet="EmployeeArea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRole_Employee" Association="Self.FK_EmployeeRole_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRole_Role" Association="Self.FK_EmployeeRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Area" Association="Self.FK_Permission_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Permission" Association="Self.FK_Permission_Permission">
+            <End Role="Controller" EntitySet="Controller" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_PermissionJob_Permission" Association="Self.FK_PermissionJob_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="PermissionJob" EntitySet="PermissionJob" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Area" Association="Self.FK_Role_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Permission" Association="Self.FK_RolePermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Role" Association="Self.FK_RolePermission_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IsraPermissionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IsraPermissionEntities" annotation:LazyLoadingEnabled="true">
+          <FunctionImport Name="GetFillterdObserver" ReturnType="Collection(IsraPermissionModel.GetFillterdObserver_Output)">
+            <Parameter Name="EmploymentTypeID" Mode="In" Type="Int32" />
+            <Parameter Name="BranchID" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <EntitySet Name="Area" EntityType="IsraPermissionModel.Area" />
+          <EntitySet Name="Controller" EntityType="IsraPermissionModel.Controller" />
+          <EntitySet Name="Employee" EntityType="IsraPermissionModel.Employee" />
+          <EntitySet Name="EmployeeArea" EntityType="IsraPermissionModel.EmployeeArea" />
+          <EntitySet Name="EmployeeRole" EntityType="IsraPermissionModel.EmployeeRole" />
+          <EntitySet Name="Permission" EntityType="IsraPermissionModel.Permission" />
+          <EntitySet Name="Role" EntityType="IsraPermissionModel.Role" />
+          <EntitySet Name="RolePermission" EntityType="IsraPermissionModel.RolePermission" />
+          <AssociationSet Name="FK_Controller_Area" Association="IsraPermissionModel.FK_Controller_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Controller" EntitySet="Controller" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeArea_Area" Association="IsraPermissionModel.FK_EmployeeArea_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="EmployeeArea" EntitySet="EmployeeArea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Area" Association="IsraPermissionModel.FK_Permission_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_Area" Association="IsraPermissionModel.FK_Role_Area">
+            <End Role="Area" EntitySet="Area" />
+            <End Role="Role" EntitySet="Role" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Permission_Permission" Association="IsraPermissionModel.FK_Permission_Permission">
+            <End Role="Controller" EntitySet="Controller" />
+            <End Role="Permission" EntitySet="Permission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeArea_Employee" Association="IsraPermissionModel.FK_EmployeeArea_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeArea" EntitySet="EmployeeArea" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRole_Employee" Association="IsraPermissionModel.FK_EmployeeRole_Employee">
+            <End Role="Employee" EntitySet="Employee" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_EmployeeRole_Role" Association="IsraPermissionModel.FK_EmployeeRole_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="EmployeeRole" EntitySet="EmployeeRole" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Permission" Association="IsraPermissionModel.FK_RolePermission_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RolePermission_Role" Association="IsraPermissionModel.FK_RolePermission_Role">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="RolePermission" EntitySet="RolePermission" />
+          </AssociationSet>
+          <EntitySet Name="PermissionJob" EntityType="IsraPermissionModel.PermissionJob" />
+          <AssociationSet Name="FK_PermissionJob_Permission" Association="IsraPermissionModel.FK_PermissionJob_Permission">
+            <End Role="Permission" EntitySet="Permission" />
+            <End Role="PermissionJob" EntitySet="PermissionJob" />
+          </AssociationSet>
+          </EntityContainer>
+        <ComplexType Name="GetFillterdObserver_Result">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="Int32" Name="ObserverBranchID" Nullable="true" />
+          <Property Type="Int32" Name="GenderID" Nullable="true" />
+          <Property Type="Int32" Name="EmploymentTypeID" Nullable="true" />
+          <Property Type="String" Name="EmployeeNo" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CourseCount" Nullable="true" />
+          <Property Type="Int32" Name="ObservesCount" Nullable="true" />
+          <Property Type="String" Name="Column1" Nullable="true" MaxLength="100" />
+        </ComplexType>
+        <ComplexType Name="GetFillterdObserver_Output">
+          <Property Type="Int32" Name="ID" Nullable="false" />
+          <Property Type="String" Name="EmployeeNo" Nullable="true" MaxLength="10" />
+          <Property Type="Int32" Name="CourseCount" Nullable="true" />
+          <Property Type="Int32" Name="ObservesCount" Nullable="true" />
+          <Property Type="String" Name="EmployeeName" Nullable="true" MaxLength="100" />
+          <Property Type="Int32" Name="ObserverBranchID" Nullable="true" />
+          <Property Type="Int32" Name="GenderID" Nullable="true" />
+          <Property Type="Int32" Name="EmploymentTypeID" Nullable="true" />
+        </ComplexType>
+        <EntityType Name="Area">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Code" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Controller" Relationship="IsraPermissionModel.FK_Controller_Area" FromRole="Area" ToRole="Controller" />
+          <NavigationProperty Name="EmployeeArea" Relationship="IsraPermissionModel.FK_EmployeeArea_Area" FromRole="Area" ToRole="EmployeeArea" />
+          <NavigationProperty Name="Permission" Relationship="IsraPermissionModel.FK_Permission_Area" FromRole="Area" ToRole="Permission" />
+          <NavigationProperty Name="Role" Relationship="IsraPermissionModel.FK_Role_Area" FromRole="Area" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Controller">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="DispalyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AreaId" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="IsraPermissionModel.FK_Controller_Area" FromRole="Controller" ToRole="Area" />
+          <NavigationProperty Name="Permission" Relationship="IsraPermissionModel.FK_Permission_Permission" FromRole="Controller" ToRole="Permission" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="EmployeeNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="Int32" />
+          <Property Name="IsObserver" Type="Boolean" />
+          <Property Name="ObserverBranchID" Type="Int32" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <Property Name="IsSuperAdmin" Type="Boolean" />
+          <Property Name="CourseCount" Type="Int32" Nullable="false" />
+          <Property Name="ObservesCount" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="EmployeeArea" Relationship="IsraPermissionModel.FK_EmployeeArea_Employee" FromRole="Employee" ToRole="EmployeeArea" />
+          <NavigationProperty Name="EmployeeRole" Relationship="IsraPermissionModel.FK_EmployeeRole_Employee" FromRole="Employee" ToRole="EmployeeRole" />
+        </EntityType>
+        <EntityType Name="EmployeeArea">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="IsAllTime" Type="Boolean" Nullable="false" />
+          <Property Name="AvailableFrom" Type="DateTime" Precision="3" />
+          <Property Name="AvailableTo" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="IsraPermissionModel.FK_EmployeeArea_Area" FromRole="EmployeeArea" ToRole="Area" />
+          <NavigationProperty Name="Employee" Relationship="IsraPermissionModel.FK_EmployeeArea_Employee" FromRole="EmployeeArea" ToRole="Employee" />
+        </EntityType>
+        <EntityType Name="EmployeeRole">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="IsAllTime" Type="Boolean" Nullable="false" />
+          <Property Name="AvailableFrom" Type="DateTime" Precision="3" />
+          <Property Name="AvailableTo" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Employee" Relationship="IsraPermissionModel.FK_EmployeeRole_Employee" FromRole="EmployeeRole" ToRole="Employee" />
+          <NavigationProperty Name="Role" Relationship="IsraPermissionModel.FK_EmployeeRole_Role" FromRole="EmployeeRole" ToRole="Role" />
+        </EntityType>
+        <EntityType Name="Permission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <Property Name="Controller" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Action" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="ControllerId" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="IsraPermissionModel.FK_Permission_Area" FromRole="Permission" ToRole="Area" />
+          <NavigationProperty Name="Controller1" Relationship="IsraPermissionModel.FK_Permission_Permission" FromRole="Permission" ToRole="Controller" />
+          <NavigationProperty Name="RolePermission" Relationship="IsraPermissionModel.FK_RolePermission_Permission" FromRole="Permission" ToRole="RolePermission" />
+          <NavigationProperty Name="PermissionJob" Relationship="IsraPermissionModel.FK_PermissionJob_Permission" FromRole="Permission" ToRole="PermissionJob" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AreaID" Type="Int32" Nullable="false" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Area" Relationship="IsraPermissionModel.FK_Role_Area" FromRole="Role" ToRole="Area" />
+          <NavigationProperty Name="EmployeeRole" Relationship="IsraPermissionModel.FK_EmployeeRole_Role" FromRole="Role" ToRole="EmployeeRole" />
+          <NavigationProperty Name="RolePermission" Relationship="IsraPermissionModel.FK_RolePermission_Role" FromRole="Role" ToRole="RolePermission" />
+        </EntityType>
+        <EntityType Name="RolePermission">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <Property Name="PermissionID" Type="Int32" Nullable="false" />
+          <Property Name="IsAllTime" Type="Boolean" Nullable="false" />
+          <Property Name="AvailableFrom" Type="DateTime" Precision="3" />
+          <Property Name="AvailableTo" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Permission" Relationship="IsraPermissionModel.FK_RolePermission_Permission" FromRole="RolePermission" ToRole="Permission" />
+          <NavigationProperty Name="Role" Relationship="IsraPermissionModel.FK_RolePermission_Role" FromRole="RolePermission" ToRole="Role" />
+        </EntityType>
+        <Association Name="FK_Controller_Area">
+          <End Type="IsraPermissionModel.Area" Role="Area" Multiplicity="0..1" />
+          <End Type="IsraPermissionModel.Controller" Role="Controller" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Controller">
+              <PropertyRef Name="AreaId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeArea_Area">
+          <End Type="IsraPermissionModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="IsraPermissionModel.EmployeeArea" Role="EmployeeArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeArea">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Area">
+          <End Type="IsraPermissionModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="IsraPermissionModel.Permission" Role="Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_Area">
+          <End Type="IsraPermissionModel.Area" Role="Area" Multiplicity="1" />
+          <End Type="IsraPermissionModel.Role" Role="Role" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Area">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Role">
+              <PropertyRef Name="AreaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Permission_Permission">
+          <End Type="IsraPermissionModel.Controller" Role="Controller" Multiplicity="0..1" />
+          <End Type="IsraPermissionModel.Permission" Role="Permission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Controller">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Permission">
+              <PropertyRef Name="ControllerId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeArea_Employee">
+          <End Type="IsraPermissionModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="IsraPermissionModel.EmployeeArea" Role="EmployeeArea" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeArea">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRole_Employee">
+          <End Type="IsraPermissionModel.Employee" Role="Employee" Multiplicity="1" />
+          <End Type="IsraPermissionModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Employee">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="EmployeeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_EmployeeRole_Role">
+          <End Type="IsraPermissionModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="IsraPermissionModel.EmployeeRole" Role="EmployeeRole" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="EmployeeRole">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Permission">
+          <End Type="IsraPermissionModel.Permission" Role="Permission" Multiplicity="1" />
+          <End Type="IsraPermissionModel.RolePermission" Role="RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="PermissionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RolePermission_Role">
+          <End Type="IsraPermissionModel.Role" Role="Role" Multiplicity="1" />
+          <End Type="IsraPermissionModel.RolePermission" Role="RolePermission" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RolePermission">
+              <PropertyRef Name="RoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="PermissionJob">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PermissionId" Type="Int32" Nullable="false" />
+          <Property Name="JobId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Permission" Relationship="IsraPermissionModel.FK_PermissionJob_Permission" FromRole="PermissionJob" ToRole="Permission" />
+        </EntityType>
+        <Association Name="FK_PermissionJob_Permission">
+          <End Type="IsraPermissionModel.Permission" Role="Permission" Multiplicity="1" />
+          <End Type="IsraPermissionModel.PermissionJob" Role="PermissionJob" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Permission">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="PermissionJob">
+              <PropertyRef Name="PermissionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IsraPermissionModelStoreContainer" CdmEntityContainer="IsraPermissionEntities">
+          <FunctionImportMapping FunctionImportName="GetFillterdObserver" FunctionName="IsraPermissionModel.Store.GetFillterdObserver">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="IsraPermissionModel.GetFillterdObserver_Output">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="CourseCount" ColumnName="CourseCount" />
+                <ScalarProperty Name="ObservesCount" ColumnName="ObservesCount" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="ObserverBranchID" ColumnName="ObserverBranchID" />
+                <ScalarProperty Name="GenderID" ColumnName="GenderID" />
+                <ScalarProperty Name="EmploymentTypeID" ColumnName="EmploymentTypeID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Area">
+            <EntityTypeMapping TypeName="IsraPermissionModel.Area">
+              <MappingFragment StoreEntitySet="Area">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Controller">
+            <EntityTypeMapping TypeName="IsraPermissionModel.Controller">
+              <MappingFragment StoreEntitySet="Controller">
+                <ScalarProperty Name="AreaId" ColumnName="AreaId" />
+                <ScalarProperty Name="DispalyName" ColumnName="DispalyName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employee">
+            <EntityTypeMapping TypeName="IsraPermissionModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="ObservesCount" ColumnName="ObservesCount" />
+                <ScalarProperty Name="CourseCount" ColumnName="CourseCount" />
+                <ScalarProperty Name="IsSuperAdmin" ColumnName="IsSuperAdmin" />
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="ObserverBranchID" ColumnName="ObserverBranchID" />
+                <ScalarProperty Name="IsObserver" ColumnName="IsObserver" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="EmployeeNo" ColumnName="EmployeeNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeArea">
+            <EntityTypeMapping TypeName="IsraPermissionModel.EmployeeArea">
+              <MappingFragment StoreEntitySet="EmployeeArea">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AvailableTo" ColumnName="AvailableTo" />
+                <ScalarProperty Name="AvailableFrom" ColumnName="AvailableFrom" />
+                <ScalarProperty Name="IsAllTime" ColumnName="IsAllTime" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeRole">
+            <EntityTypeMapping TypeName="IsraPermissionModel.EmployeeRole">
+              <MappingFragment StoreEntitySet="EmployeeRole">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AvailableTo" ColumnName="AvailableTo" />
+                <ScalarProperty Name="AvailableFrom" ColumnName="AvailableFrom" />
+                <ScalarProperty Name="IsAllTime" ColumnName="IsAllTime" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Permission">
+            <EntityTypeMapping TypeName="IsraPermissionModel.Permission">
+              <MappingFragment StoreEntitySet="Permission">
+                <ScalarProperty Name="ControllerId" ColumnName="ControllerId" />
+                <ScalarProperty Name="Action" ColumnName="Action" />
+                <ScalarProperty Name="Controller" ColumnName="Controller" />
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="AGroup" ColumnName="AGroup" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Role">
+            <EntityTypeMapping TypeName="IsraPermissionModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AreaID" ColumnName="AreaID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RolePermission">
+            <EntityTypeMapping TypeName="IsraPermissionModel.RolePermission">
+              <MappingFragment StoreEntitySet="RolePermission">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="AvailableTo" ColumnName="AvailableTo" />
+                <ScalarProperty Name="AvailableFrom" ColumnName="AvailableFrom" />
+                <ScalarProperty Name="IsAllTime" ColumnName="IsAllTime" />
+                <ScalarProperty Name="PermissionID" ColumnName="PermissionID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PermissionJob">
+            <EntityTypeMapping TypeName="IsraPermissionModel.PermissionJob">
+              <MappingFragment StoreEntitySet="PermissionJob">
+                <ScalarProperty Name="JobId" ColumnName="JobId" />
+                <ScalarProperty Name="PermissionId" ColumnName="PermissionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

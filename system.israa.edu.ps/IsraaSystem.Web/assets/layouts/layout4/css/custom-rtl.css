@@ -1,0 +1,94 @@
+/* here you can put your own css to customize and override the theme */
+
+.font-ta {
+    font-family: Tahoma;
+}
+
+.align-middle {
+    vertical-align: middle;
+}
+
+.input-validation-error {
+    border-color: #e73d4a;
+}
+
+select.input-validation-error + .select2 .selection .select2-selection {
+    border-color: #e73d4a;
+}
+
+input[type="text"], select, textarea {
+    font-family: tahoma;
+}
+
+.modal-form {
+    padding: 15px 0 0 0;
+}
+
+a i.fa, button i.fa {
+    margin-left: 5px;
+}
+
+.pagging-details {
+    font-family: Tahoma;
+    font-size: 11px;
+    color: #777
+}
+
+.table > tbody > tr > td {
+    font-family: Tahoma !important;
+}
+
+.td-cb {
+    padding: 13px 13px 0px 0px !important;
+}
+
+label.filebutton {
+    width: 120px;
+    height: 40px;
+    overflow: hidden;
+    position: relative;
+    background-color: #ccc;
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    padding: 7px;
+    width: 20%;
+}
+
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.modal-header-tabbable-line {
+    padding-bottom: 0px;
+}
+
+
+.mt-radio, .mt-checkbox {
+    /*margin-bottom: 0 !important;*/
+}

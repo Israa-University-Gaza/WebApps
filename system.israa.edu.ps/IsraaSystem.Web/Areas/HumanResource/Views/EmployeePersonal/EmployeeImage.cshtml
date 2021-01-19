@@ -1,0 +1,93 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePersonal.EmployeeImage
+
+@{
+    Layout = null;
+}
+
+<div id="employee-image-update">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('#pop-up-md').modal('hide');
+                @*$("#employee-image").load("/HumanResource/Employee/Image/@Model.EmployeeID.ToString()");*@
+                $('#form-employee').submit();
+            </script>
+        }
+    }
+
+    <script type="text/javascript">
+                $('document').ready(function () {
+                    $('.image-editor').cropit({
+                        imageBackground: true,
+                        imageBackgroundBorderWidth: 8
+                    });
+                    $('.crop').click(function () {
+                        var imageData = $('.image-editor').cropit('export');
+                        $('.hidden-image-data').val(imageData);
+                        $('.btn-upload').show();
+                    });
+                });
+    </script>
+
+    <div class="modal-content">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title">تغير صورة الموظف الشخصية</h4>
+        </div>
+        <div class="modal-body modal-form">
+            <div class="portlet-body form">
+                @{
+                    AjaxOptions opt = new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "employee-image-update"
+                    };
+                }
+                @using (Ajax.BeginForm("EmployeeImage", "EmployeePersonal", opt, new { @class = "form-horizontal" }))
+                {
+
+                    @Html.AntiForgeryToken()
+                    <div class="form-body">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="image-editor" style="width: 200px;margin:0 auto;">
+                                    <div class="fileUpload btn btn-primary" style="width: 200px; float: right;">
+                                        <span>إختر الصورة</span>
+                                        <input type="file" class="cropit-image-input upload" />
+                                    </div>
+                                    <div class="clearfix"></div>
+                                    <br />
+                                    <div class="cropit-image-preview" style="background-image:url('@Model.ImageURL')">
+                                    </div>
+                                    <div class="image-size-label" style="text-align: center">
+                                        تكبير / تصغير الصورة
+                                    </div>
+                                    <input type="range" class="cropit-image-zoom-input" />
+                                    <input type="hidden" name="employeeId" value="@Model.EmployeeID" />
+                                    <input type="hidden" name="image" class="hidden-image-data" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <input type="button" class="btn btn-success crop" value="اقتصاص" />
+                                <input type="submit" class="btn btn-primary btn-upload" style="display:none;" value="تغير الصورة">
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

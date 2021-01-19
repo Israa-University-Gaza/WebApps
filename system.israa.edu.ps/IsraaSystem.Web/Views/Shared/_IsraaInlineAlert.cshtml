@@ -1,0 +1,28 @@
+﻿@model  IsraaSystem.Application.Common.Alert.IHasAlert
+
+
+
+<div id="inline_alert_container"></div>
+  @foreach (var item in Model.Alerts)
+  {
+
+
+
+    <script id="inline_alert-js-container" data-ajax-update="true">
+      App.alert({
+        container: $('#inline_alert_container'), // alerts parent container
+        place: 'prepend', // append or prepent in container
+        type: "@item.AlertType", // alert's type
+        message: "@item.Message", // alert's message
+        close: true, // make alert closable
+        reset: false, // close all previouse alerts first
+        focus: false, // auto scroll to the alert after shown
+        closeInSeconds: 1000, // auto close after defined seconds
+        //icon: 'fa fa-check' // put icon class before the message
+      });
+
+    </script>
+
+  }
+
+

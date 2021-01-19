@@ -1,0 +1,44 @@
+﻿@model IsraaSystem.Core.Classic.Shared.Pagging
+@{
+
+    <div class="text-center">
+        <input id="current-page" type="hidden" name="page" value="@Model.currentPage" />
+        <ul class="pagination pagination-sm">
+
+            @if (Model.currentPage > 1)
+            {
+                <li>
+                    <a onclick="$('#current-page').val('1');$('#@Model.updateTargetId').submit()">الأول</a>
+                </li>
+                <li>
+                    <a onclick="$('#current-page').val('@(Model.currentPage - 1)');$('#@Model.updateTargetId').submit()">السابق</a>
+                </li>
+            }
+            else
+            {
+                <li class="disabled"><a>الأول</a></li>
+                <li class="disabled"><a>السابق</a></li>
+            }
+            @for (int i = 1; i <= Model.pageCount; i++)
+            {
+                <li @(i == Model.currentPage ? "class=active" : "")>
+                    <a onclick="$('#current-page').val('@i');$('#@Model.updateTargetId').submit()">@i</a>
+                </li>
+            }
+            @if (Model.currentPage < Model.pageCount)
+            {
+                <li>
+                    <a onclick="$('#current-page').val('@(Model.currentPage + 1)');$('#@Model.updateTargetId').submit()">التالي</a>
+                </li>
+                <li>
+                    <a onclick="$('#current-page').val('@(Model.pageCount)');$('#@Model.updateTargetId').submit()">الأخير</a>
+                </li>
+            }
+            else
+            {
+                <li class="disabled"><a>التالي</a></li>
+                <li class="disabled"><a>الأخير</a></li>
+            }
+        </ul>
+    </div>
+}

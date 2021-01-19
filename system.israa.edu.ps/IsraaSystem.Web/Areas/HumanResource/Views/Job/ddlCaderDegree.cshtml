@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Job.Job
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.CaderDegreeID, new SelectList(Model.CaderDegrees, "Value", "Text"), "إختر الفئة", new { @class = "form-control" })

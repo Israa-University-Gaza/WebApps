@@ -1,0 +1,43 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Vacation.VacationBalanceVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - رصيد الإجازات";
+    ViewBag.Menu = "#menu-vacation,#menu-vacation-balance";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Department">رصيد الإجازات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض رصيد الإجازات</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض رصيد الإجازات</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/VacationBalance/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة رصيد إجازة جديد للموظف
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

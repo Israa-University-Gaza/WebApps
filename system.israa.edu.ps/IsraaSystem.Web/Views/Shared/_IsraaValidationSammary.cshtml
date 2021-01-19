@@ -1,0 +1,19 @@
+﻿<div id="ValidationSummary_container"></div>
+<script id="partial-js-container" data-ajax-update="true">
+  var message = @Html.Raw(Json.Encode(((@Html.ValidationSummary()==null)?"":@Html.ValidationSummary().ToHtmlString())));
+  if (message.length > 112) {
+
+    App.alert({
+      container: $('#ValidationSummary_container'), // alerts parent container
+      place: 'prepend', // append or prepent in container
+      type: 'danger', // alert's type
+      message: message, // alert's message
+      close: true, // make alert closable
+      reset: true, // close all previouse alerts first
+      focus: true, // auto scroll to the alert after shown
+      closeInSeconds: 1000, // auto close after defined seconds
+      //icon: 'fa fa-check' // put icon class before the message
+    });
+  }
+</script>
+

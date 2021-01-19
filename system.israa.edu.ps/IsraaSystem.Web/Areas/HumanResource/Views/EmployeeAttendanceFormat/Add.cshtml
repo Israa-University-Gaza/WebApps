@@ -1,0 +1,79 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.EmployeeAttendanceFormat
+
+@{
+    Layout = null;
+}
+
+<div id="add-employee-attendance-format" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success" : "error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $("#employee-attendance-format").load("/HumanResource/EmployeeAttendanceFormat/List");
+            </script>
+        }
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تنسيب دوام افتراضي للموظف</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @{
+                AjaxOptions opt = new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.ReplaceWith,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "add-employee-attendance-format"
+                };
+            }
+            @using (Ajax.BeginForm("Add", "EmployeeAttendanceFormat", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الموظف</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.EmployeeID, new SelectList(Model.Employees, "Value", "Text"), "إختر الموظف", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.EmployeeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">نوع النسق</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.AttendanceFormatID, new SelectList(Model.AttendanceFormats, "Value", "Text"), "إختر نوع النسق", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.AttendanceFormatID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">من</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.ActiveFromDate, new { @class = "form-control text-center date-picker" })
+                            @Html.ValidationMessageFor(model => model.ActiveFromDate, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">إلى</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.ActiveToDate, new { @class = "form-control text-center date-picker" })
+                            @Html.ValidationMessageFor(model => model.ActiveToDate, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <button type="submit" class="btn btn-primary">إضافة</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/EmployeeAttendanceFormat/Add" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-employee-attendance-format">تنسيب جديد</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

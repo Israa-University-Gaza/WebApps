@@ -1,0 +1,92 @@
+﻿@model IsraaSystem.Core.Classic.Academic.Section.SectionEdit
+
+@{
+    Layout = null;
+}
+
+<div id="edit-section" class="modal-content">
+    @if (TempData["edit-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["edit-msg"].ToString().Split(';')[0]);
+        String msg = TempData["edit-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#offerd-course-sections').load('/Academic/Section/List/@Model.OfferdCourseID');
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "edit-section"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل شعبة رقم : @Model.SectionNum</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Edit", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المساق</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(model => model.OfferdCourseID)
+                            @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المحاضر</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.InstructorName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">رقم الشعبة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.SectionNum, new { @class = "form-control text-center" })
+                            @Html.ValidationMessageFor(model => model.SectionNum, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">نوع الشعبة</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.SectionType, new SelectList(Model.SectionTypes, "Value", "Text"), "إختر نوع الشعبة ", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SectionType, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">سعة الشعبة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Capacity, new { @class = "form-control text-center" })
+                            @Html.ValidationMessageFor(model => model.Capacity, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">الجندر</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.Gender, new SelectList(Model.Genders, "Value", "Text"), "إختر الجندر", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn btn-primary">حفظ</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/Academic/Section/Add/@Model.OfferdCourseID" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-section">شعبة جديدة</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

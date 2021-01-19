@@ -1,0 +1,117 @@
+﻿@using IsraaSystem.Application.Helper
+@model IsraaSystem.Application.Administration.OrganizationJop.JopDTO
+    Layout = null;
+}
+
+<div id="add-job" class="modal-content">
+
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-job",
+            OnSuccess = "ModelHideFormSubmit"
+        };
+    }
+    @Html.Partial("_Alerts")
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة وظيفة جديدة</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Add", "OrganizationJop", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+            <div class="form-body">
+                <div class="form-group">
+                    <label class="col-md-3 control-label">المسمى الوظيفي</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.JobTitle, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.JobTitle, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">الهدف العام من الوظيفة</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.JobGoal, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.JobGoal, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">ع. الموظفين المطلوب</label>
+                    <div class="col-md-8">
+                        @Html.TextBoxFor(model => model.EmployeeCount, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmployeeCount, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">القسم</label>
+                    <div class="col-md-8">
+                        @Html.DropDownListFor(model => model.DepartmentID, DropDownHelpper.HumanResourceDepartments(), "اختر القسم ", new { @class = "form-control select2" })
+                        @Html.ValidationMessageFor(model => model.DepartmentID, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">كادر الوظيفة</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.CaderID, DropDownHelpper.Caders(), "اختر الكادر ", new { @class = "form-control select2" })
+                        @Html.ValidationMessageFor(model => model.CaderID, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-2 control-label">فئة الوظيفة</label>
+                    <div class="col-md-3">
+                        @Html.DropDownListFor(model => model.CaderDegreeID, DropDownHelpper.CaderDegrees(Model.CaderID), "اختر الكادر ", new { @class = "form-control select2" })
+                        @Html.ValidationMessageFor(model => model.CaderDegreeID, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">الوظيفة المسؤولة</label>
+                    <div class="col-md-8">
+                        @Html.HiddenFor(model => model.ManagerJobID)
+                        @Html.DropDownListFor(model => model.ManagerJobID, DropDownHelpper.Jops(), "إختر المسئول المباشر ", new { @class = "form-control select2", @disabled = "disabled" })
+                        @Html.ValidationMessageFor(model => model.ManagerJobID, "", new { @class = "text-danger help-block" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">علاقة الوظيفة بالوظائف الأخرى</label>
+                    <div class="col-md-8">
+                        @Html.TextAreaFor(model => model.OtherJobRelation, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.OtherJobRelation, "", new { @class = "text-danger help-block" })
+                    </div>
+                    <label class="col-md-3 control-label">فعال</label>
+                    <div class="col-md-8">
+                        @Html.CheckBoxFor(model => model.IsActive, new { @data_toggle = "toggle", @class = "toggle-checkbox" })
+                    </div>
+                </div>
+            </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+
+                            <input id="submit" type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+<script>
+    $.validator.unobtrusive.parse($("form"));
+
+    $(function () {
+
+        $('.toggle-checkbox').bootstrapToggle();
+
+    });
+
+    function ModelHideFormSubmit() {
+        $('.modal').modal('hide');
+    }
+</script>

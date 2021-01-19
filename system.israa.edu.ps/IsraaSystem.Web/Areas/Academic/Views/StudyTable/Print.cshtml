@@ -1,0 +1,94 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.Academic.Print.PrintVM
+
+@{
+  ViewBag.Title = "الشؤون الأكاديمية - طباعة الجدول الدراسي";
+  ViewBag.Menu = "#menu-study-table-print";
+  Layout = "~/Areas/Academic/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+  <li>
+    <a>الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>الشؤون الأكاديمية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>طباعة الجداول الدراسية</a>
+  </li>
+}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="icon-social-dribbble font-green"></i>
+          <span class="caption-subject font-green bold uppercase">طباعة الجداول الدراسية</span>
+
+
+        </div>
+        <div class="pull-right">
+          @*<label class="control-label">الفرع</label>*@
+          @Html.DropDownList("BrancheID", new SelectList(Model.Filter.Branches, "Value", "Text"), null, new { id = "student-study-table-branch", @class = "form-control " })
+        </div>
+      </div>
+      <div class="portlet-body">
+        @if (Model.Data.Rows.Count > 0)
+        {
+          <table class="table table-striped table-hover">
+            <thead>
+              <tr>
+                <th class="wp5">#</th>
+                <th class="wp40 text-center">القسم</th>
+                <th class="wp20 text-center">المستوي</th>
+                <th class="wp20 text-center">الجندر</th>
+                <th class="wp15"></th>
+              </tr>
+            </thead>
+            <tbody>
+              @foreach (DataRow row in Model.Data.Rows)
+              {
+                <tr>
+                  <td>@row["RowNo"]</td>
+                  <td>@row["DepartmentName"]</td>
+                  <td class="text-center">@row["StudyLevelName"]</td>
+                  <td class="text-center">@row["GenderName"]</td>
+                  <td class="text-center">
+                    <form action="/Academic/StudyTable/StudyTableReport" method="post">
+                      <input type="hidden" name="filter.BranchID" value="1" />
+                      <input type="hidden" name="filter.DepartmentID" value="@row["DepartmentID"]" />
+                      <input type="hidden" name="filter.StudyLevelID" value="@row["StudyLevelID"]" />
+                      <input type="hidden" name="filter.GenderID" value="@row["GenderID"]" />
+                      <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                    </form>
+                  </td>
+                </tr>
+              }
+            </tbody>
+          </table>
+        }
+        else
+        {
+          <div class="alert alert-info alert-dismissible text-center" role="alert">
+            <span>لا يوجد بيانات لعرضها</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+
+    //info Branch filtter
+    $("#student-study-table-branch").change(function () {
+      var selectedVal = $("#student-study-table-branch").val();
+      $("[name='filter.BranchID']").val(selectedVal);
+    });
+  });
+</script>

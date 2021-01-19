@@ -1,0 +1,43 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.EmployeeAttendanceFormatVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - الدوام الإفتراضي";
+    ViewBag.Menu = "#menu-employee-attendance-format";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeAttendanceFormat/Index">دوام الموظفين الإفتراضي</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض دوام الموظفين الإفتراضي</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض دوام الموظفين الإفتراضي</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/EmployeeAttendanceFormat/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        تنسيب دوام افتراضي للموظف
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

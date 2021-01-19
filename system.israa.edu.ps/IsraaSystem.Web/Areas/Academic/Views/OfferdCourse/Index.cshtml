@@ -1,0 +1,93 @@
+﻿@model IsraaSystem.Core.Classic.Academic.OfferdCourse.OfferdCourseVM
+@{
+    ViewBag.Title = "الشؤون الأكاديمية - إدارة المساقات";
+    ViewBag.Menu = "#menu-offerd-course";
+    Layout = "~/Areas/Academic/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Academic/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Academic/OfferdCourse">الجداول الدراسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>إدارة المساقات المطروحة</a>
+    </li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">إدارة المساقات المطروحة</span>
+                </div>
+                <div class="actions">
+                    <a href="/Academic/OfferdCourse/Add" class="btn btn-sm btn-success">
+                        <i class="fa fa-plus"></i>
+                        طرح مساق جديد
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @{
+                    AjaxOptions opt = new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "offerd-courses"
+                    };
+                }
+                @using (Ajax.BeginForm("List", null, opt, new { @id = "form-offerd-course" }))
+                {
+                    <div class="form">
+                        <div class="form-horizontal">
+                            @Html.AntiForgeryToken()
+                            <div class="form-body" style="padding-top:0;">
+                                <div class="form-group">
+                                    <div class="col-md-offset-1 col-md-3">
+                                        <label class="control-label">الفصل</label>
+                                        @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                                    </div>
+
+                                    <div class="col-md-3">
+                                        <label class="control-label">القسم</label>
+                                        @Html.DropDownListFor(model => model.filter.DepartmentID, new SelectList(Model.filter.Departments, "Value", "Text"), "جميع الأقسام", new { @class = "form-control input-change select2" })
+                                    </div>
+
+                                    <div class="col-md-2">
+                                        <label class="control-label">المستوى</label>
+                                        @Html.DropDownListFor(model => model.filter.StudyLevelID, new SelectList(Model.filter.StudyLevels, "Value", "Text"), "جميع المستويات", new { @class = "form-control input-change" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-1 col-md-3">
+                                        <label class="control-label">تصنيف المساق</label>
+                                        @Html.DropDownListFor(model => model.filter.CourseCategoryID, new SelectList(Model.filter.Categories, "Value", "Text"), "جميع التصنيفات", new { @class = "form-control input-change" })
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label class="control-label">تصنيف المساق المطروح</label>
+                                        @Html.DropDownListFor(model => model.filter.OfferdCourseTypeID, new SelectList(Model.filter.OfferdCourseTypes, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label">الكود</label>
+                                        @Html.TextBoxFor(model => model.filter.CourseCode, new { @class = "form-control input-keyup text-center", placeholder = "كود المساق" })
+                                    </div>
+                                    <div class="col-md-2">
+                                        <label class="control-label">المساق</label>
+                                        @Html.TextBoxFor(model => model.filter.CourseName, new { @class = "form-control input-keyup text-center", placeholder = "المساق" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

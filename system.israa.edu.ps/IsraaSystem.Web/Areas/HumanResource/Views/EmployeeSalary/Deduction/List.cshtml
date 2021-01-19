@@ -1,0 +1,55 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+@if (TempData["toast-msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+}
+
+<div id="deductions">
+    @if (Model.Rows.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="wp5">#</th>
+                    <th class="wp30">الخصمية</th>
+                    <th class="wp20 text-center">نوع الخصمية</th>
+                    <th class="wp15 text-center">القيمة</th>
+                    <th class="wp15 text-center">العملة</th>
+                    <th class="wp10"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row["RowNo"]</td>
+                        <td>@row["Name"]</td>
+                        <td class="text-center">@row["DeductionType"]</td>
+                        <td class="text-center">@row["ratio"]@row["Amount"]</td>
+                        <td class="text-center">@row["Currency"]</td>
+                        <td class="text-center">
+                            <a href="/HumanResource/Deduction/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><span class="fa fa-edit"></span></a>
+                            <a href="/HumanResource/Deduction/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف خصمية" data-msg="هل أنت متأكد من أنك تود حذف الخصمية ؟" data-action="حذف" data-ajax-update="#deductions"><span class="fa fa-times"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info alert-dismissible text-center" role="alert">
+            <span>لا يوجد بيانات لعرضها</span>
+        </div>
+    }
+</div>

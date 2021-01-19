@@ -1,0 +1,38 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmpStatus.EmpStatusVM
+
+@{
+  ViewBag.Title = "شؤون الموظفين - حالة الموظف";
+  ViewBag.Menu = "#menu-employee-location,#menu-emp-status";
+  Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+  <li>
+    <a href="/HumanResource/Dashboard">الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a href="/HumanResource/EmpStatus/Index">المراقبين</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>ادارة المراقبين</a>
+  </li>
+}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class="icon-social-dribbble font-green"></i>
+          <span class="caption-subject font-green bold uppercase">ادارة المراقبين</span>
+        </div>
+
+      </div>
+      <div class="portlet-body">
+        @Html.Partial("List", Model)
+      </div>
+    </div>
+  </div>
+</div>

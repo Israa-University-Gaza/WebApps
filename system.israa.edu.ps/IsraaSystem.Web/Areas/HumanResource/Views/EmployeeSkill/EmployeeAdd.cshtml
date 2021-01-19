@@ -1,0 +1,79 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeSkill.EmployeeSkill
+
+@{
+    Layout = null;
+}
+
+<div id="add-employee-skill" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $("#employee-page").load("/HumanResource/EmployeeSkill/EmployeeList/@Model.EmployeeID");
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-employee-skill"
+        };
+    }
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة مهارة جديدة</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("EmployeeAdd", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.EmployeeID)
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">نوع المهارة</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.SkillTypeID, new SelectList(Model.SkillTypes, "Value", "Text"), "إختر نوع المهارة", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.SkillTypeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">اسم المهارة</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", placeholder = "اسم المهارة" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">مستوى المهارة</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.KnowLevelID, new SelectList(Model.KnowLevels, "Value", "Text"), "إختر مستوى المهارة", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.KnowLevelID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/EmployeeSkill/EmployeeAdd?empId=@Model.EmployeeID" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-employee-skill">مهارة جديدة</a>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

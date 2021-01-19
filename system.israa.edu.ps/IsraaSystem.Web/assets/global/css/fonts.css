@@ -1,0 +1,13 @@
+﻿@font-face {
+    font-family: 'Helvetica-Neue-W23';
+    src: url('../fonts/helveticaneuew23/helveticaneuew23forsky-reg-473ea59ccaaa34c7a4eac33a3c595bda.ttf');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "hasanin";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/hasanin/hasanin.woff") format("woff"), url("../fonts/hasanin/hasanin.ttf") format("truetype"), url("../fonts/hasanin/hasanin.svg") format("svg");
+}

@@ -1,0 +1,6 @@
+﻿@model IsraaSystem.Core.Classic.Academic.StudyTable.StudyTableVM
+
+
+
+@Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Instructors, "Value", "Text"), null, new { id = "instructor-study-table-instructor", @class = "form-control select2 instructor-study-table-change" })
+

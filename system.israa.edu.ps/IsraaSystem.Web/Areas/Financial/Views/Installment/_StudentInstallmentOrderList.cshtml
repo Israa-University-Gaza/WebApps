@@ -1,0 +1,57 @@
+﻿@model List<IsraaSystem.DataAccess.EntityFrameWork.IsraData.StudentInstallment>
+
+
+<table class=" table   table-condensed no-margin datatabels-child-tabel  ">
+    <thead>
+        <tr>
+            <th class="text-center">  </th>
+            <th class="text-center"> القسط </th>
+            <th class="text-center"> قيمة القسط </th>
+            <th class="text-center"> تاريخ الطلب </th>
+            <th class="text-center"> تاريخ السداد </th>
+            <th class="text-center"> معتمد </th>
+            <th class="text-center"> مسدد </th>
+            <th class="text-center"> موقوف </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>  </td>
+                <td> @item.InstallmentName </td>
+                <td> @item.InstallmentValue </td>
+                <td> @item.RequestDate </td>
+                <td> @item.PaidDate </td>
+                <td>
+                    @if (item.AcademicAccreditation)
+                    {
+                        <i class="fa fa-check font-green-jungle"></i>
+                    }
+                </td>
+                <td>
+                    @if (item.IsPaid.Value)
+                    {
+                        <i class="fa fa-check font-green-jungle"></i>
+                    }
+                    </td>
+                <td>
+                    @if (item.IsClosed.Value)
+                    {
+                        <i class="fa fa-check font-green-jungle"></i>
+                    }</td>
+                @*<td> Otto </td>
+                    <td> makr124 </td>
+                    <td>
+                        <a href="javascript:;" class="btn btn-xs btn-success disabled"> معتمد</a>
+                    </td>*@
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>

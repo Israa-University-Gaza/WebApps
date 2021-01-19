@@ -1,0 +1,74 @@
+﻿
+@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+@section PageStyles
+{
+    <style>
+        @@media print
+        {
+            .no-print, .no-print *, .page-breadcrumb, .page-head {
+                display: none !important;
+            }
+            .for-print {
+                display: table-cell !important
+            }
+
+        }
+        .for-print {
+            display: none;
+        }
+
+    </style>
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeVacation">إجازات الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>إحصاء إجازات موظف</a>
+    </li>
+}
+
+<div class="row">
+
+    <div class="clear for-print">
+        <img width="" class="for-print" src="~/assets/layouts/layout4/img/Capture.JPG" />
+    </div>
+
+
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-social-dribbble font-green no-print"></i>
+                <span class="caption-subject font-green bold uppercase">احصاء إجازات الموظف</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            @Html.Partial("List", Model)
+
+        </div>
+    </div>
+    
+
+    <div class="clear for-print">
+        <img width="" class="for-print" src="~/assets/layouts/layout4/img/Capture2.JPG" />
+    </div>
+
+
+</div>
+
+
+

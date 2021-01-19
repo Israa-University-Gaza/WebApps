@@ -1,0 +1,44 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Job.JobsVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - وظائف الجامعة";
+    ViewBag.Menu = "#menu-jobs";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Job">وظائف الجامعة</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض الوظائف</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض وظائف الجامعة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/Job/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة وظيفة جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

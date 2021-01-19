@@ -1,0 +1,34 @@
+﻿@model  List<IsraaSystem.Application.Academic.MarkManager.AcademicWarningService.AcademicWarningDto>
+
+
+<table class="  table table-light  table-condensed no-margin datatabels-child-tabel  ">
+    <thead>
+        <tr class="" >
+
+            <th > فصل التحذير </th>
+            <th class="text-center" > رقم التحذير </th>
+            <th class="text-center" >  حالة التحذير </th>
+            <th class="text-center" >  المعدل الفصلي </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+
+        <tr class="">
+            <td  > @item.SemesterArName </td>
+            <td class="text-center" > @item.WarningNo </td>
+            <td class="text-center" > @item.StatusArName </td>
+            <td class="text-center" >
+                <span class="bold theme-font"> @item.SemesterGPA %</span>
+
+            </td>
+        </tr>
+
+        }
+
+
+    </tbody>
+</table>

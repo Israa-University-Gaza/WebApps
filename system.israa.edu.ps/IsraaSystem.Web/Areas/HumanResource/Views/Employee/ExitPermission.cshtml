@@ -1,0 +1,86 @@
+﻿@model System.Data.DataTable
+
+@{
+    ViewBag.Title = "شؤون الموظفين - ملف الموظف";
+    ViewBag.Menu = "menu-employees";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageStyles{
+    <link href="/assets/layouts/layout4/css/profile-rtl.css" rel="stylesheet" />
+    <link href="/assets/global/plugins/jcrop/css/jquery.Jcrop.css" rel="stylesheet" />
+}
+
+@section PageScripts{
+    @*<script src="/assets/layouts/layout4/scripts/profile.js"></script>*@
+
+    <script src="/assets/global/plugins/jcrop/js/jquery.cropit.min.js"></script>
+
+    <script type="text/javascript">
+        function setMenu(menu) {
+            $('.profile-usermenu ul.nav li').removeClass("active");
+            $(menu).addClass("active");
+        }
+    </script>
+
+    <style>
+        label.filebutton {
+            width: 120px;
+            height: 40px;
+            overflow: hidden;
+            position: relative;
+            background-color: #ccc;
+        }
+
+        label span input {
+            z-index: 999;
+            line-height: 0;
+            font-size: 50px;
+            position: absolute;
+            top: -2px;
+            left: -700px;
+            opacity: 0;
+            filter: alpha(opacity = 0);
+            -ms-filter: "alpha(opacity=0)";
+            cursor: pointer;
+            _cursor: hand;
+            margin: 0;
+            padding: 0;
+        }
+
+        .fileUpload {
+            position: relative;
+            overflow: hidden;
+            padding: 7px;
+            width: 20%;
+        }
+
+            .fileUpload input.upload {
+                position: absolute;
+                top: 0;
+                right: 0;
+                margin: 0;
+                padding: 0;
+                font-size: 20px;
+                cursor: pointer;
+                opacity: 0;
+                filter: alpha(opacity=0);
+            }
+    </style>
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>ملف الموظف</a>
+    </li>
+}
+
+@Html.Partial("Layout2", Model)

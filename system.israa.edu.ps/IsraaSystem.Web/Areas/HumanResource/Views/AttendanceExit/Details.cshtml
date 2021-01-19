@@ -1,0 +1,79 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.AttendanceExit.AttendanceExit
+
+@{
+    Layout = null;
+}
+
+<div id="exit-permission-details" class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-settings font-green"></i>
+                <span class="caption-subject font-green sbold uppercase">تفاصيل إذن الموظف</span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            <div class="form-horizontal">
+                <div class="row">
+                    <div class="form-body">
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">الموظف</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.EmployeeName, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                            <label class="col-md-2 control-label">نوع الإذن</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.AttendanceExitType, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">تاريخ الإذن</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.ExitDate, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                            <label class="col-md-2 control-label">رقم الجوال </label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">ساعة الخروج المتوقعة</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.ExpectedTimeFrom, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                            <label class="col-md-2 control-label">ساعة العودة المتوقعة</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.ExpectedTimeTo, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">ساعة الخروج الفعلية</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.ActualTimeFrom, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                            <label class="col-md-2 control-label">ساعة العودة الفعلية</label>
+                            <div class="col-md-3">
+                                @Html.TextBoxFor(model => model.ActualTimeTo, new { @class = "form-control text-center", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">سبب الخروج</label>
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(model => model.ExitReason, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">ملاحظات</label>
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(model => model.Notes, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

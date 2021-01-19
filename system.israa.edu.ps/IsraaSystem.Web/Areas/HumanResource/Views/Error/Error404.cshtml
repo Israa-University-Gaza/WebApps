@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Error404";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageStyles{
+    <link href="~/assets/layouts/layout4/css/error-rtl.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>ملف الموظف</a>
+    </li>
+}
+
+
+<div class="row">
+    <div class="col-md-12 page-404">
+        <div class="number font-green"> 404 </div>
+        <div class="details">
+            <p>
+                <h3>الصفحة المطلوبة غير موجودة</h3>
+                <a href="/HumanResource/Dashboard">العودة للصفحة الرئيسية</a>
+            </p>
+        </div>
+    </div>
+</div>

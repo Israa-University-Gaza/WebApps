@@ -1,0 +1,38 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeEmergencyInfo.EmployeeEmergencyInfoVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - بيانات الطوارئ";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeEmergencyInfo/Index">بيانات الطوارئ</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض بيانات الطوارئ</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض بيانات الطوارئ</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

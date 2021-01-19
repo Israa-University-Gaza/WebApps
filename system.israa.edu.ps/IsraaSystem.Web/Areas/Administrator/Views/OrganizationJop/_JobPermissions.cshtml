@@ -1,0 +1,88 @@
+﻿@model int
+
+
+<div class="portlet light ">
+    <div class="portlet-title">
+        <div class="caption font-green-sharp">
+            <i class="icon-share font-green-sharp"></i>
+            <span class="caption-subject bold uppercase"> الادوار</span>
+            <span class="caption-helper">عرض ادوار الوظائف</span>
+        </div>
+        <div class="actions">
+            <a Id="save" href="javascript:;" class="btn btn-circle green">
+                <i class="fa fa-pencil"></i> حفظ
+            </a>
+        </div>
+
+    </div>
+    <div class="portlet-body">
+        <div @*class="scroller" style="height:400px"*@ data-always-visible="1" data-rail-visible="1" data-rail-color="red" data-handle-color="green">
+
+            <div id="Roles_tree" class="demo"></div>
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(function () {
+
+
+        $( "#save" ).click(function() {
+            var selectedElmsIds = $('#Roles_tree').jstree("get_selected");
+            console.log(selectedElmsIds);
+            $.post("/Administrator/OrganizationJop/EditJobPermissions", { permissions: selectedElmsIds, jobId: @Model }).done(function( data ) {
+                showToast("تمت العملية بنجاح", "success");
+            });
+        });
+
+
+
+        $('#Roles_tree')
+            .on('changed.jstree', function (e, data) {
+                var i, j, r = [];
+                for (i = 0, j = data.selected.length; i < j; i++) {
+                    r.push(data.instance.get_node(data.selected[i]).data);
+                }
+                //$('#event_result').html('Selected: ' + r.join(', '));
+            })
+            .jstree({
+                "checkbox": {
+                    "keep_selected_style": false
+                },
+                'types': {
+                    "default": {
+                        "icon": "jstree-icon jstree-themeicon fa fa-folder icon-state-danger fa-lg jstree-themeicon-custom"
+                    },
+                    "Permission": {
+                        "icon": "jstree-icon jstree-themeicon fa fa-circle icon-state-default fa-xs jstree-themeicon-custom"
+                    },
+                    "Controller": {
+                        "icon": "jstree-icon jstree-themeicon fa fa-folder icon-state-warning fa-md jstree-themeicon-custom"
+                    }
+                },
+                'core': {
+                    'data': {
+                        'url': function (node) {
+
+                            return "/Administrator/OrganizationJop/AreaTreeData?jobId="+@Model;
+                        },
+                        'data': function (node) {
+                            return { 'id': node.id };
+                        }
+                    }
+                },
+                "check_callback": true,
+                contextmenu: { items: customMenu },
+                "plugins": [
+                    "dnd", "search", "types", "checkbox", ""
+                ]
+            });
+    });
+
+
+</script>
+
+

@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Employee.EmployeeAdd
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.JobID, new SelectList(Model.Jobs, "Value", "Text"), "إختر الوظيفة", new { @class = "form-control" })

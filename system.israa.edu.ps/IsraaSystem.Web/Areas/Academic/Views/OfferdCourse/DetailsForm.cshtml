@@ -1,0 +1,85 @@
+﻿@model IsraaSystem.Core.Classic.Academic.OfferdCourse.OfferdCourse
+
+@{
+    Layout = null;
+}
+<div id="add-offerd-course" class="portlet light bordered">
+    <div class="portlet-title">
+        <div class="caption">
+            <i class="icon-social-dribbble font-green"></i>
+            <span class="caption-subject font-green bold uppercase">إدارة شعب المساق</span>
+        </div>
+        <div class="actions">
+            <a href="/Academic/Section/Add/@Model.ID" class="btn btn-sm btn-success pop-up-lg">
+                <i class="fa fa-plus"></i>
+                إضافة شعبة جديدة
+            </a>
+        </div>
+    </div>
+    <div class="portlet-body">
+        @if (TempData["add-msg"] != null)
+        {
+            int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+            String msg = TempData["add-msg"].ToString().Split(';')[1];
+            <script type="text/javascript">
+                showToast("@msg", "@((status > 0) ? "success" : "error")");
+                window.history.pushState("object or string", "Title", "/Academic/OfferdCourse/Details/@Model.ID");
+            </script>
+        }
+        <div class="row">
+            <div class="col-md-3">
+                <div class="form">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">البرنامج :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.ProgramName, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">الكلية :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.CollegeName, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">القسم :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.DepartmentName, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">كود المساق :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.CourseCode, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">اسم المساق :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">عدد الساعات :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.CourseHours, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">المحاضر :</label>
+                                <div class="col-md-9">
+                                    @Html.TextBoxFor(model => model.InstructorName, new { @class = "form-control text-center", @readonly = "readonly" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9" style="border-right:1px solid #ddd; height:400px;overflow-y:scroll">
+                @Html.Partial("~/Areas/Academic/Views/Section/List.cshtml", Model.SectionVM)
+            </div>
+        </div>
+    </div>
+</div>

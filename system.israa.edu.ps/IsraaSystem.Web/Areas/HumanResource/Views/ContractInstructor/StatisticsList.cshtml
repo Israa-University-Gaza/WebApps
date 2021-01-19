@@ -1,0 +1,86 @@
+﻿@using System.Data
+@model IsraaSystem.Entity.HumanResource.Contract.ContractInstructorVM
+@{
+    Layout = null;
+}
+
+<div id="contract-instructor-statistic">
+    <div id="refresh-list"></div>
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "contract-instructor-statistic"
+        };
+    }
+    @using (Ajax.BeginForm("StatisticsList", null, opt, new { @id = "form-contract-instructor-statistic" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+
+                        <label class="col-md-1 control-label">الفصل</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), "اختر الفصل الدراسي", new { @class = "form-control", onchange = "$('#form-contract-instructor-statistic').submit();" })
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+
+            <table class="table table-hover table-bordered">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center; width: 10%; border-top: none!important; font-size: 17px;">إحصائية حضور المحاضرين  </th>
+                    </tr>
+                    <tr style="border-top: 1px solid #ddd!important; background-color: #eee !important">
+                        <th style="width: 30%; border-top: none!important; font-size: 15px;">البيان</th>
+                        <th style="text-align: center; width: 70%; border-top: none!important; font-size: 15px;">العدد</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <th class="wp30">الفصل الدراسي</th>
+                            <td class="text-center">@row["SemesterName"]</td>
+                        </tr>
+
+                        <tr>
+                            <th class="wp30">اجمالي المحاضرات الكلية</th>
+                            <td class="text-center">@row["TotalLectureHours"]</td>
+                        </tr>
+
+                        <tr>
+                            <th class="wp30">اجمالي حضور المحاضرين الكلي</th>
+                            <td class="text-center">@row["TotalAttendanceHours"]</td>
+                        </tr>
+                        <tr>
+                            <th class="wp30">اجمالي حضور المحاضرين الفعلي</th>
+                            <td class="text-center">@row["TotalInstructorHours"]</td>
+                        </tr>
+                        <tr>
+                            <th class="wp30">اجمالي التكلفة</th>
+                            <td class="text-center">@row["TotalInstructorCost"]</td>
+                        </tr>
+                    }
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

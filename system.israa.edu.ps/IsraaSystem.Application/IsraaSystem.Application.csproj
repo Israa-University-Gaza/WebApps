@@ -1,0 +1,249 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{873B445B-CFAC-4745-8274-63665EF2F545}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IsraaSystem.Application</RootNamespace>
+    <AssemblyName>IsraaSystem.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="CommonServiceLocator, Version=2.0.4.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\CommonServiceLocator.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Hangfire.Core, Version=1.6.21.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Hangfire.Core.1.6.21\lib\net45\Hangfire.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\netstandard1.0\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.6\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="TrackableEntities.Common, Version=2.5.0.0, Culture=neutral, PublicKeyToken=b10b51e7b9be6a2e, processorArchitecture=MSIL">
+      <HintPath>..\packages\TrackableEntities.Common.2.5.6\lib\portable-net40+sl50+win+wpa81+wp80\TrackableEntities.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Abstractions, Version=3.3.1.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.Abstractions.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Configuration, Version=5.2.5.0, Culture=neutral, PublicKeyToken=6d32ff45e0ccc69f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Container, Version=5.8.12.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.Container.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception, Version=5.5.5.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.Interception.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.Interception.Configuration, Version=5.1.7.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.Interception.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.RegistrationByConvention, Version=2.1.9.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ServiceLocation, Version=2.1.2.0, Culture=neutral, PublicKeyToken=489b6accfaf20ef0, processorArchitecture=MSIL">
+      <HintPath>..\packages\Unity.5.8.12\lib\net45\Unity.ServiceLocation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Academic\BackgroundJobManger\BackgroundJobService.cs" />
+    <Compile Include="Academic\CalendarManger\SemesterCalendarService.cs" />
+    <Compile Include="Academic\CourseManger\CourseService.cs" />
+    <Compile Include="Academic\MarkManager\Dtos\StdSemesterDto.cs" />
+    <Compile Include="Academic\MarkManager\Dtos\GpaDto.cs" />
+    <Compile Include="Academic\OfferdcourseManger\OfferdcourseService.cs" />
+    <Compile Include="Academic\PlanManger\PlanService.cs" />
+    <Compile Include="Academic\Registration\RegisterSectionService.cs" />
+    <Compile Include="Academic\Registration\RegisterSemesterService.cs" />
+    <Compile Include="Academic\SectionDepartmentManger\SectionDepartmentService.cs" />
+    <Compile Include="Academic\LectureManger\LectureService.cs" />
+    <Compile Include="Academic\SectionManger\SectionService.cs" />
+    <Compile Include="Academic\StdSemesterManger\StdSemesterService.cs" />
+    <Compile Include="Academic\StudentManager\Specifications\RegularStudentAcademicSpecification.cs" />
+    <Compile Include="Academic\StudentManager\StudentReportService.cs" />
+    <Compile Include="Academic\StudentManager\StudentService.cs" />
+    <Compile Include="Academic\TransformationManger\TransformationService.cs" />
+    <Compile Include="Administration\Notification\NotificationService.cs" />
+    <Compile Include="Administration\OrganizationJop\IOrganizationJopService.cs" />
+    <Compile Include="Administration\OrganizationUnit\IOrganizationUnitService.cs" />
+    <Compile Include="Affairs\IStudentVolunteerService.cs" />
+    <Compile Include="Common\Constants\ValidationMessages.cs" />
+    <Compile Include="Common\Enums\Academic\CourseTypeEnum.cs" />
+    <Compile Include="Common\Enums\Academic\OfferdCourseTypeEnum.cs" />
+    <Compile Include="Common\Enums\HumanResource\FingerprintTypeEnum.cs" />
+    <Compile Include="Common\ExtensionMethods\SubstringExtensions.cs" />
+    <Compile Include="Common\RepositoryPattern\AcademicGenericRepository.cs" />
+    <Compile Include="Common\RepositoryPattern\GenericRepository.cs" />
+    <Compile Include="Common\SpecificationPattern\ParameterReplacer.cs" />
+    <Compile Include="Common\SpecificationPattern\Specification.cs" />
+    <Compile Include="Common\Tree\TreeDto.cs" />
+    <Compile Include="Administration\Permistions\IUserManagerService.cs" />
+    <Compile Include="Administration\Permistions\PermistionService.cs" />
+    <Compile Include="Academic\ExamManager\ObserverService\ObserverService.cs" />
+    <Compile Include="Common\Alert\HasAlert.cs" />
+    <Compile Include="Common\Alert\IsraaAlert.cs" />
+    <Compile Include="Common\ChickResult\ICheckResult.cs" />
+    <Compile Include="Common\CustomExceptions\FriendlyException.cs" />
+    <Compile Include="Common\DataFilter\IActivationAudited.cs" />
+    <Compile Include="Common\DataFilter\IDeletionAudited.cs" />
+    <Compile Include="Common\DataFilter\IFullAudited.cs" />
+    <Compile Include="Common\DataFilter\IHasActivation.cs" />
+    <Compile Include="Common\DataFilter\IHasInsertionDate.cs" />
+    <Compile Include="Common\DataFilter\IHasUpdatingDate.cs" />
+    <Compile Include="Common\DataFilter\IInsertionAudited.cs" />
+    <Compile Include="Common\DataFilter\ISoftDelete.cs" />
+    <Compile Include="Common\DataFilter\IUpdatingAudited.cs" />
+    <Compile Include="Common\DtoBase\IIsraaQueryOptionInput.cs" />
+    <Compile Include="Common\Enums\Academic\AccreditationTypeEnum.cs" />
+    <Compile Include="Common\Enums\Academic\CourseStatusEnum.cs" />
+    <Compile Include="Common\Enums\Academic\ExamTypeEnum.cs" />
+    <Compile Include="Common\Enums\Academic\GraduationStatusEnum.cs" />
+    <Compile Include="Common\Enums\Academic\GraduationRemainHourEnum.cs" />
+    <Compile Include="Common\Enums\Academic\ProgramEnum.cs" />
+    <Compile Include="Common\Enums\Academic\SemestersEnum.cs" />
+    <Compile Include="Common\Enums\Academic\SemesterStatusEnum.cs" />
+    <Compile Include="Common\Enums\Academic\SemesterTypeEnum.cs" />
+    <Compile Include="Common\Enums\Academic\StudentStatusEnum.cs" />
+    <Compile Include="Common\Enums\Academic\WarningStatusEnum.cs" />
+    <Compile Include="Common\Enums\Academic\WarningTypeEnum.cs" />
+    <Compile Include="Common\Enums\Administration\EnumEmploymentType.cs" />
+    <Compile Include="Common\Enums\Administration\NotificationFlagEnum.cs" />
+    <Compile Include="Common\Enums\AlertTypeEnum.cs" />
+    <Compile Include="Common\Enums\SortDirection.cs" />
+    <Compile Include="Common\ExtensionMethods\ExtensionMethods.cs" />
+    <Compile Include="Common\Lists\ListHelpper.cs" />
+    <Compile Include="Common\ServiceBase\IIsraaService.cs" />
+    <Compile Include="Common\ServiceBase\IsraaService.cs" />
+    <Compile Include="Common\Session\IisraaSession.cs" />
+    <Compile Include="Common\Session\IsraaSession.cs" />
+    <Compile Include="Common\Session\NullIsraaSession.cs" />
+    <Compile Include="Common\Transporter\IIsraaTransporter.cs" />
+    <Compile Include="Common\UnitOfWork\IUnitOfWork.cs" />
+    <Compile Include="Common\UnitOfWork\UnitOfWork.cs" />
+    <Compile Include="Financial\IInstallmentService.cs" />
+    <Compile Include="Financial\TransactionService.cs" />
+    <Compile Include="Financial\StudentFinancialService.cs" />
+    <Compile Include="Helper\DropDownHelpper.cs" />
+    <Compile Include="Academic\MarkManager\GpaService.cs" />
+    <Compile Include="Academic\MarkManager\AcademicWarningService.cs" />
+    <Compile Include="Academic\MarkManager\MarkService.cs" />
+    <Compile Include="HumanResource\Attendance\IFingerPrintService.cs" />
+    <Compile Include="HumanResource\EmpPlacement\EmployeePlacementManager.cs" />
+    <Compile Include="HumanResource\Vacation\VacationManager.cs" />
+    <Compile Include="HumanResource\employee\EmployeeManager.cs" />
+    <Compile Include="HumanResource\IEmloyeeReportService.cs" />
+    <Compile Include="HumanResource\JobManger\JobService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\department\IdepartmentService.cs" />
+    <Compile Include="Repository\export\IexportService.cs" />
+    <Compile Include="Repository\import\IimportService.cs" />
+    <Compile Include="Repository\materialType\IMaterialTypeService.cs" />
+    <Compile Include="Repository\materialUnit\IMaterialUnitService.cs" />
+    <Compile Include="Repository\material\ImaterialService.cs" />
+    <Compile Include="Administration\Settings\ISettingService.cs" />
+    <Compile Include="Repository\custodyDetails\IcustodyDetailsService.cs" />
+    <Compile Include="Repository\supplier\IsupplierService.cs" />
+    <Compile Include="Repository\transactionType\ItransactionTypeService.cs" />
+    <Compile Include="Repository\transaction\IRepoTransactionService.cs" />
+    <Compile Include="Test\ITestService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IsraaSystem.Core\IsraaSystem.Core.csproj">
+      <Project>{a5a3793b-eeaf-4daa-b55a-371c93c7d63a}</Project>
+      <Name>IsraaSystem.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IsraaSystem.EntityFrameWork\IsraaSystem.DataAccess.csproj">
+      <Project>{94be8d9b-8e9f-4dfd-a307-b7028990171f}</Project>
+      <Name>IsraaSystem.DataAccess</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

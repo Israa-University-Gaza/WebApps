@@ -1,0 +1,12 @@
+﻿@if (TempData["msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["msg"].ToString().Split(';')[0]);
+    String msg = TempData["msg"].ToString().Split(';')[1];
+
+    var msgClass = (status > 0) ? "alert-success" : "alert-danger";
+
+    <div class="alert @msgClass alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        @msg
+    </div>
+}

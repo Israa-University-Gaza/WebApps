@@ -1,0 +1,221 @@
+﻿@using System.Web.WebSockets
+@model System.Data.DataTable
+
+@{
+    Layout = null;
+}
+
+@if (TempData["toast-msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+}
+
+<script src="~/assets/global/plugins/jcrop/js/jquery.cropit.min.js"></script>
+
+<div id="employee" class="row">
+    <div class="col-md-12">
+        <!-- BEGIN PROFILE SIDEBAR -->
+        <div class="profile-sidebar">
+            <!-- PORTLET MAIN -->
+            <div class="portlet light bordered">
+                @{
+                    AjaxOptions opt1 = new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "employee"
+                    };
+                }
+                @using (Ajax.BeginForm("Layout", "Employee", opt1, new { @id = "form-employee" }))
+                {
+                    <div class="input-group">
+                        <span class="input-group-addon">
+                            <i class="fa fa-user"></i>
+                        </span>
+                        <input type="hidden" name="employeeId" value="@Model.Rows[0]["EmployeeID"].ToString()" />
+                        <input type="text" name="employeeNo" class="form-control" placeholder="الرقم الوظيفي">
+                        <span class="input-group-btn">
+                            <input type="submit" class="btn btn-success" value="بحث" />
+                        </span>
+                    </div>
+                }
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            <div class="portlet light profile-sidebar-portlet bordered">
+                <div class="col-md-12">
+                    <a href="/HumanResource/EmployeePersonal/EmployeeImage/@Model.Rows[0]["EmployeeID"].ToString()" class="btn default btn-outline pull-right pop-up-md">
+                        <i class="fa fa-camera" style="margin:0"></i>
+                    </a>
+                </div>
+                <!-- SIDEBAR USERPIC -->
+                @Html.Partial("Image", Model)
+                <!-- END SIDEBAR USERPIC -->
+                <!-- SIDEBAR USER TITLE -->
+                <div class="profile-usertitle">
+                    <div class="profile-usertitle-name">@Model.Rows[0]["EmployeeName"].ToString() (@Model.Rows[0]["EmployeeNo"].ToString())</div>
+                    <div class="profile-usertitle-job">@Model.Rows[0]["JobTitle"].ToString()</div>
+                </div>
+                <!-- END SIDEBAR USER TITLE -->
+                <!-- SIDEBAR MENU -->
+                <div class="profile-usermenu">
+                    <ul class="nav">
+                        <li id="menu-employee-home">
+                            <a href="/HumanResource/Employee/Home?employeeId=@Model.Rows[0]["EmployeeID"].ToString()&employeeNo=@Model.Rows[0]["EmployeeNO"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+
+                                <i class="icon-home"></i>
+                                <span>الصفحة الرئيسية</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-personal">
+                            <a href="/HumanResource/EmployeePersonal/EmployeeMainData/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-home"></i>
+                                <span>بيانات الموظف</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-location">
+                            <a href="/HumanResource/EmployeePlacement/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>الهيكلية الإدارية</span>
+                            </a>
+                        </li>
+                        
+                        <li id="menu-employee-location">
+                            <a href="/HumanResource/EmpStatus/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>حالة الموظف</span>
+                            </a>
+                        </li>
+                        @*<li id="menu-employee-exit-permission">
+                                <a href="/HumanResource/ExitPermission/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                    <i class="icon-info"></i>
+                                    <span>تحركات الموظف</span>
+                                </a>
+                            </li>*@
+                        <li id="menu-employee-document">
+                            @*/HumanResource/EmployeeDocument/List/@Model.Rows[0]["EmployeeID"].ToString()*@
+                            <a href="/HumanResource/EmployeeDocument/ProfileList?employeeId=@Model.Rows[0]["EmployeeID"].ToString()&employeeNo=@Model.Rows[0]["EmployeeNO"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+
+
+                                <i class="icon-info"></i>
+                                <span>مستندات الموظف</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-language">
+                            <a href="/HumanResource/EmployeeLanguage/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>لغات الموظف</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-identifier">
+                            <a href="/HumanResource/EmployeeIdentifier/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>بيانات المعرفين</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-emergencyinfo">
+                            <a href="/HumanResource/EmployeeEmergencyInfo/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>بيانات الطوارئ</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-family">
+                            <a href="/HumanResource/EmployeeFamily/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>بيانات العائلة</span>
+                            </a>
+                        </li>
+                        <li id="menu-employee-qualification">
+                            <a href="/HumanResource/EmployeeQualification/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>الخبرات العلمية</span>
+                            </a>
+                        </li>
+
+                        <li id="menu-employee-bank">
+                            <a href="/HumanResource/EmployeeBank/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>بيانات البنك</span>
+                            </a>
+                        </li>
+
+                        <li id="menu-employee-practical-experience">
+                            <a href="/HumanResource/EmployeePracticalExperience/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>الخبرات العملية</span>
+                            </a>
+                        </li>
+
+                        <li id="menu-employee-training-course">
+                            <a href="/HumanResource/EmployeeTrainingCourse/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>الدورات التدريبية</span>
+                            </a>
+                        </li>
+
+
+
+                        <li id="menu-employee-medical-checkup">
+                            <a href="/HumanResource/EmployeeMedicalCheckUp/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>الفحوصات الطبية</span>
+                            </a>
+                        </li>
+
+
+                        <li id="menu-employee-skill">
+                            <a href="/HumanResource/EmployeeSkill/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>مهارات الموظف</span>
+                            </a>
+                        </li>
+
+                        <li id="menu-employee-research">
+                            <a href="/HumanResource/EmployeeResearch/EmployeeList/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>البحوث العلمية</span>
+                            </a>
+                        </li>
+                        @*<li id="menu-employee-research">
+                            <a href="/HumanResource/EmployeeSalary/CalculateSalary/@Model.Rows[0]["EmployeeID"].ToString()" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">
+                                <i class="icon-info"></i>
+                                <span>احتساب راتب الموظف</span>
+                            </a>
+                        </li>*@
+                    </ul>
+                </div>
+                <!-- END MENU -->
+            </div>
+            <!-- END PORTLET MAIN -->
+            <!-- PORTLET MAIN -->
+            @*<div class="portlet light bordered">
+                     STAT
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 37 </div>
+                            <div class="uppercase profile-stat-text"> Projects </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 51 </div>
+                            <div class="uppercase profile-stat-text"> Tasks </div>
+                        </div>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <div class="uppercase profile-stat-title"> 61 </div>
+                            <div class="uppercase profile-stat-text"> Uploads </div>
+                        </div>
+                    </div>
+                </div>*@
+            <!-- END PORTLET MAIN -->
+        </div>
+        <!-- END BEGIN PROFILE SIDEBAR -->
+        <!-- BEGIN PROFILE CONTENT -->
+        <div class="profile-content">
+            @Html.Action("Home", "Employee", new { employeeId = Convert.ToInt32(Model.Rows[0]["EmployeeID"]), employeeNo = Model.Rows[0]["EmployeeNo"].ToString() })
+        </div>
+        <!-- END PROFILE CONTENT -->
+    </div>
+</div>

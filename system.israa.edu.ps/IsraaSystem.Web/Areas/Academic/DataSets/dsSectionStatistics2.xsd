@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSectionStatistics2" targetNamespace="http://tempuri.org/dsSectionStatistics2.xsd" xmlns:mstns="http://tempuri.org/dsSectionStatistics2.xsd" xmlns="http://tempuri.org/dsSectionStatistics2.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSectionStatistics2" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSectionStatistics2" msprop:Generator_UserDSName="dsSectionStatistics2">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsSectionStatistics2" msprop:Generator_TableClassName="dsSectionStatistics2DataTable" msprop:Generator_TableVarName="tabledsSectionStatistics2" msprop:Generator_RowChangedName="dsSectionStatistics2RowChanged" msprop:Generator_TablePropName="_dsSectionStatistics2" msprop:Generator_RowDeletingName="dsSectionStatistics2RowDeleting" msprop:Generator_RowChangingName="dsSectionStatistics2RowChanging" msprop:Generator_RowEvHandlerName="dsSectionStatistics2RowChangeEventHandler" msprop:Generator_RowDeletedName="dsSectionStatistics2RowDeleted" msprop:Generator_RowClassName="dsSectionStatistics2Row" msprop:Generator_UserTableName="dsSectionStatistics2" msprop:Generator_RowEvArgName="dsSectionStatistics2RowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="count" msprop:Generator_ColumnVarNameInTable="columncount" msprop:Generator_ColumnPropNameInRow="count" msprop:Generator_ColumnPropNameInTable="countColumn" msprop:Generator_UserColumnName="count" type="xs:string" minOccurs="0" />
+              <xs:element name="FinalIncompleteCount" msprop:Generator_ColumnVarNameInTable="columnFinalIncompleteCount" msprop:Generator_ColumnPropNameInRow="FinalIncompleteCount" msprop:Generator_ColumnPropNameInTable="FinalIncompleteCountColumn" msprop:Generator_UserColumnName="FinalIncompleteCount" type="xs:string" minOccurs="0" />
+              <xs:element name="FinalNoMarkCount" msprop:Generator_ColumnVarNameInTable="columnFinalNoMarkCount" msprop:Generator_ColumnPropNameInRow="FinalNoMarkCount" msprop:Generator_ColumnPropNameInTable="FinalNoMarkCountColumn" msprop:Generator_UserColumnName="FinalNoMarkCount" type="xs:string" minOccurs="0" />
+              <xs:element name="SuccessCount" msprop:Generator_ColumnVarNameInTable="columnSuccessCount" msprop:Generator_ColumnPropNameInRow="SuccessCount" msprop:Generator_ColumnPropNameInTable="SuccessCountColumn" msprop:Generator_UserColumnName="SuccessCount" type="xs:string" minOccurs="0" />
+              <xs:element name="FailCount" msprop:Generator_ColumnVarNameInTable="columnFailCount" msprop:Generator_ColumnPropNameInRow="FailCount" msprop:Generator_ColumnPropNameInTable="FailCountColumn" msprop:Generator_UserColumnName="FailCount" type="xs:string" minOccurs="0" />
+              <xs:element name="ExcellenceCount" msprop:Generator_ColumnVarNameInTable="columnExcellenceCount" msprop:Generator_ColumnPropNameInRow="ExcellenceCount" msprop:Generator_ColumnPropNameInTable="ExcellenceCountColumn" msprop:Generator_UserColumnName="ExcellenceCount" type="xs:string" minOccurs="0" />
+              <xs:element name="VeryGoodCount" msprop:Generator_ColumnVarNameInTable="columnVeryGoodCount" msprop:Generator_ColumnPropNameInRow="VeryGoodCount" msprop:Generator_ColumnPropNameInTable="VeryGoodCountColumn" msprop:Generator_UserColumnName="VeryGoodCount" type="xs:string" minOccurs="0" />
+              <xs:element name="GoodCount" msprop:Generator_ColumnVarNameInTable="columnGoodCount" msprop:Generator_ColumnPropNameInRow="GoodCount" msprop:Generator_ColumnPropNameInTable="GoodCountColumn" msprop:Generator_UserColumnName="GoodCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PassCount" msprop:Generator_ColumnVarNameInTable="columnPassCount" msprop:Generator_ColumnPropNameInRow="PassCount" msprop:Generator_ColumnPropNameInTable="PassCountColumn" msprop:Generator_UserColumnName="PassCount" type="xs:string" minOccurs="0" />
+              <xs:element name="Pcount" msprop:Generator_ColumnVarNameInTable="columnPcount" msprop:Generator_ColumnPropNameInRow="Pcount" msprop:Generator_ColumnPropNameInTable="PcountColumn" msprop:Generator_UserColumnName="Pcount" type="xs:string" minOccurs="0" />
+              <xs:element name="PFinalIncompleteCount" msprop:Generator_ColumnVarNameInTable="columnPFinalIncompleteCount" msprop:Generator_ColumnPropNameInRow="PFinalIncompleteCount" msprop:Generator_ColumnPropNameInTable="PFinalIncompleteCountColumn" msprop:Generator_UserColumnName="PFinalIncompleteCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PFinalNoMarkCount" msprop:Generator_ColumnVarNameInTable="columnPFinalNoMarkCount" msprop:Generator_ColumnPropNameInRow="PFinalNoMarkCount" msprop:Generator_ColumnPropNameInTable="PFinalNoMarkCountColumn" msprop:Generator_UserColumnName="PFinalNoMarkCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PSuccessCount" msprop:Generator_ColumnVarNameInTable="columnPSuccessCount" msprop:Generator_ColumnPropNameInRow="PSuccessCount" msprop:Generator_ColumnPropNameInTable="PSuccessCountColumn" msprop:Generator_UserColumnName="PSuccessCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PFailCount" msprop:Generator_ColumnVarNameInTable="columnPFailCount" msprop:Generator_ColumnPropNameInRow="PFailCount" msprop:Generator_ColumnPropNameInTable="PFailCountColumn" msprop:Generator_UserColumnName="PFailCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PExcellenceCount" msprop:Generator_ColumnVarNameInTable="columnPExcellenceCount" msprop:Generator_ColumnPropNameInRow="PExcellenceCount" msprop:Generator_ColumnPropNameInTable="PExcellenceCountColumn" msprop:Generator_UserColumnName="PExcellenceCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PVeryGoodCount" msprop:Generator_ColumnVarNameInTable="columnPVeryGoodCount" msprop:Generator_ColumnPropNameInRow="PVeryGoodCount" msprop:Generator_ColumnPropNameInTable="PVeryGoodCountColumn" msprop:Generator_UserColumnName="PVeryGoodCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PGoodCount" msprop:Generator_ColumnVarNameInTable="columnPGoodCount" msprop:Generator_ColumnPropNameInRow="PGoodCount" msprop:Generator_ColumnPropNameInTable="PGoodCountColumn" msprop:Generator_UserColumnName="PGoodCount" type="xs:string" minOccurs="0" />
+              <xs:element name="PPassCount" msprop:Generator_ColumnVarNameInTable="columnPPassCount" msprop:Generator_ColumnPropNameInRow="PPassCount" msprop:Generator_ColumnPropNameInTable="PPassCountColumn" msprop:Generator_UserColumnName="PPassCount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

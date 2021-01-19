@@ -1,0 +1,54 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceInstructorVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - دوام المحاضرين";
+    ViewBag.Menu = "#menu-attendance,#menu-attendance-instructor";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Department">دوام المحاضرين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض دوام المحاضر خلال فترة</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض دوام المحاضر خلال فترة </span>
+                </div>
+                <div class="actions">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary">خيارات</button>
+                        <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                            <i class="fa fa-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li>
+                                <a href="/HumanResource/MissedFingerprints/IndexInstructor">كشف عدم توقيع انصراف المحاضر</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="/HumanResource/AttendanceInstructor/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة محاضرة جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("InstructorList", Model)
+            </div>
+        </div>
+    </div>
+</div>

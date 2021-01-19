@@ -1,0 +1,51 @@
+﻿@using IsraaSystem.Web.Common
+@using IsraaSystem.Web.Models
+@using MVCGrid.Web
+
+@{
+    ViewBag.Title = "الرئيسية";
+    ViewBag.Menu = "#menu-dashboard";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Home/Index">الرئيسية</a>
+        <i class="fa fa-circle"></i>-
+    </li>
+    <li>
+        <a href="/Home/Index"> .. </a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a> .. </a>
+    </li>
+}
+
+@*<table>
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>@item.Key</td>
+            <td>@item.Value</td>
+
+        </tr>
+        }
+    </table>*@
+
+
+    @*<bootstrap-card ></bootstrap-card>*@
+
+    @section PageScripts {
+
+    }
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSumSalaryBankReport" targetNamespace="http://tempuri.org/dsSumSalaryBankReport.xsd" xmlns:mstns="http://tempuri.org/dsSumSalaryBankReport.xsd" xmlns="http://tempuri.org/dsSumSalaryBankReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="IsraaHumanResourceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IsraaHumanResourceConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.IsraaHumanResourceConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSumSalaryBankReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSumSalaryBankReport" msprop:Generator_UserDSName="dsSumSalaryBankReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetSumSalaryBankReport" msprop:Generator_TableClassName="GetSumSalaryBankReportDataTable" msprop:Generator_TableVarName="tableGetSumSalaryBankReport" msprop:Generator_TablePropName="GetSumSalaryBankReport" msprop:Generator_RowDeletingName="GetSumSalaryBankReportRowDeleting" msprop:Generator_RowChangingName="GetSumSalaryBankReportRowChanging" msprop:Generator_RowEvHandlerName="GetSumSalaryBankReportRowChangeEventHandler" msprop:Generator_RowDeletedName="GetSumSalaryBankReportRowDeleted" msprop:Generator_UserTableName="GetSumSalaryBankReport" msprop:Generator_RowChangedName="GetSumSalaryBankReportRowChanged" msprop:Generator_RowEvArgName="GetSumSalaryBankReportRowChangeEvent" msprop:Generator_RowClassName="GetSumSalaryBankReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRowNo" msprop:Generator_ColumnPropNameInRow="RowNo" msprop:Generator_ColumnPropNameInTable="RowNoColumn" msprop:Generator_UserColumnName="RowNo" type="xs:long" minOccurs="0" />
+              <xs:element name="SumFinalSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSumFinalSalary" msprop:Generator_ColumnPropNameInRow="SumFinalSalary" msprop:Generator_ColumnPropNameInTable="SumFinalSalaryColumn" msprop:Generator_UserColumnName="SumFinalSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="CurrencyName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCurrencyName" msprop:Generator_ColumnPropNameInRow="CurrencyName" msprop:Generator_ColumnPropNameInTable="CurrencyNameColumn" msprop:Generator_UserColumnName="CurrencyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAcountNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBankAcountNo" msprop:Generator_ColumnPropNameInRow="BankAcountNo" msprop:Generator_ColumnPropNameInTable="BankAcountNoColumn" msprop:Generator_UserColumnName="BankAcountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:int" />
+              <xs:element name="MonthName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMonthName" msprop:Generator_ColumnPropNameInRow="MonthName" msprop:Generator_ColumnPropNameInTable="MonthNameColumn" msprop:Generator_UserColumnName="MonthName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SalaryBox" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSalaryBox" msprop:Generator_ColumnPropNameInRow="SalaryBox" msprop:Generator_ColumnPropNameInTable="SalaryBoxColumn" msprop:Generator_UserColumnName="SalaryBox" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FinalSalaryName" msprop:Generator_ColumnVarNameInTable="columnFinalSalaryName" msprop:Generator_ColumnPropNameInRow="FinalSalaryName" msprop:Generator_ColumnPropNameInTable="FinalSalaryNameColumn" msprop:Generator_UserColumnName="FinalSalaryName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

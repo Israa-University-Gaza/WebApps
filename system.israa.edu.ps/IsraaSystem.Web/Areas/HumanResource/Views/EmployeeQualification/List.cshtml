@@ -1,0 +1,109 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeQualification.EmployeeQualificationVM
+
+@{
+    Layout = null;
+}
+
+<div id="employee-qualification">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-qualification"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeQualification", opt, new { @id = "form-employee-qualification" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الموظف</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", placeholder = "رقم أو اسم الموظف" })
+                        </div>
+                        <label class="col-md-2 control-label">نوع المؤهل</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.QualificationTypeID, new SelectList(Model.filter.QualificationTypes, "Value", "Text"), "جميع أنواع المؤهلات", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الجامعة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.UniversityName, new { @class = "form-control text-center", placeholder = "اسم الجامعة" })
+                        </div>
+                        <label class="col-md-2 control-label">القسم</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.Department, new { @class = "form-control text-center", placeholder = "اسم القسم" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الكلية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.filter.College, new { @class = "form-control text-center", placeholder = "اسم الكلية" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp25">الموظف</th>
+                        <th class="wp15 text-center">نوع المؤهل</th>
+                        <th class="wp15 text-center">الجامعة</th>
+                        <th class="wp10 text-center">الكلية</th>
+                        <th class="wp10 text-center">القسم</th>
+                        <th class="wp10 text-center">الحالة</th>
+                        <th class="wp10"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td><a href="/HumanResourse/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["QualificationTypeName"]</td>
+                            <td class="text-center">@row["UniversityName"]</td>
+                            <td class="text-center">@row["College"]</td>
+                            <td class="text-center">@row["Department"]</td>
+                            <td class="text-center">@row["QualificationStatus"]</td>
+                            <td class="text-center">
+                                @*<a href="/HumanResourse/EmployeeQualification/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><i class="fa fa-edit"></i> تعديل</a>*@
+                                @*<a href="/HumanResourse/EmployeeQualification/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف مؤهل" data-msg="هل أنت متأكد من أنك تود حذف المؤهل ؟" data-action="حذف" data-ajax-update="#employee-qualification"><i class="fa fa-times"></i> حذف</a>*@
+                                <a href="/HumanResourse/EmployeeQualification/HRAccreditation/@row["ID"]" class="btn btn-sm btn-primary confirm" data-title="اعتماد مؤهل" data-msg="هل أنت متأكد من أنك تود اعتماد المؤهل ؟" data-action="اعتماد" data-ajax-update="#employee-qualification"><i class="fa fa-times"></i> اعتماد</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

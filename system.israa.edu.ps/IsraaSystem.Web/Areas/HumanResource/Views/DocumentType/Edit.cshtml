@@ -1,0 +1,61 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Document.DocumentType
+@{
+    Layout = null;
+}
+
+<div id="edit-document-type" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $("#document-type").load("/HumanResource/DocumentType/List");
+            </script>
+        }
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل نوع المستند : @Model.ArName</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @{
+                AjaxOptions opt = new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.ReplaceWith,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "edit-document-type"
+                };
+            }
+            @using (Ajax.BeginForm("Edit", null, opt, new { @class = "form-horizontal" }))
+            {
+
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">نوع المستند</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.ArName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ArName, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/DocumentType/Add" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#edit-document-type">نوع جديد</a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

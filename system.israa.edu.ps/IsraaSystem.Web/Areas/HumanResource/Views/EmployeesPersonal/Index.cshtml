@@ -1,0 +1,37 @@
+﻿@model IsraaSystem.Core.HumanResource.Employee.EmployeesVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - الموظفين";
+    ViewBag.Menu = "#menu-employees-Personal";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>ملفات الموظفين</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">ملفات الموظفين</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

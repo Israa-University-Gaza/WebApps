@@ -1,0 +1,47 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.ManualFingerprint.ManualFingerprint
+
+@{
+  Layout = null;
+}
+
+<div id="manual-fingerprint-details" class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <div class="portlet-title">
+      <div class="caption">
+        <i class="icon-settings font-green"></i>
+        <span class="caption-subject font-green sbold uppercase">تفاصيل بصمة الموظف</span>
+      </div>
+    </div>
+  </div>
+  <div class="modal-body">
+    <div class="portlet-body">
+
+
+
+      <div class="well">
+        <h4>ملاحظات</h4>
+        @Html.DisplayFor(model => model.Note)
+      </div>
+    </div>
+
+    <div class="form-horizontal">
+      <div class="row">
+        <div class="form-body">
+
+          <div class="form-group">
+            <label class="col-md-2 text-right">التاريخ</label>
+            <div class="col-md-3">
+              @Html.DisplayFor(model => model.FingerprintDate)
+            </div>
+            <label class="col-md-2 text-right">الساعة</label>
+            <div class="col-md-3">
+              @Html.DisplayFor(model => model.FingerprintTime)
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

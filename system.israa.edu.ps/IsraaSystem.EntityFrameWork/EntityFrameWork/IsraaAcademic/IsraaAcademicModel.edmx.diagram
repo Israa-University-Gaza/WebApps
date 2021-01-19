@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="d5bcbf7341d3465ca6a92b0765097a93" Name="Diagram1" ZoomLevel="86" ShowGrid="true">
+        <EntityTypeShape EntityType="IsraaAcademicModel.FinalExamSection" Width="1.5" PointX="20.25" PointY="36" IsExpanded="true" FillColor="0, 122, 204" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfferdCourse" Width="1.5" PointX="12.75" PointY="48.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfferdCourseType" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Semester" Width="1.5" PointX="10.5" PointY="32.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdSection" Width="1.5" PointX="22.5" PointY="47.625" IsExpanded="true" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_FinalExamSection" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_AvailableCourse_Semester" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Branch" Width="1.5" PointX="10.5" PointY="26.25" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Building" Width="1.5" PointX="12.75" PointY="25.875" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Building_Branch" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Lecture" Width="1.5" PointX="17.25" PointY="34.5" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.EmplyeeView" Width="1.5" PointX="2.75" PointY="0.75" FillColor="Lime" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentsView" Width="1.5" PointX="4.75" PointY="0.75" FillColor="Lime" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Department" Width="1.5" PointX="5.25" PointY="48" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.College" Width="1.5" PointX="3" PointY="47" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Department_College" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Plan" Width="1.5" PointX="7.5" PointY="58.5" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PlanCourse" Width="1.5" PointX="12.75" PointY="59.125" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PlanCourse_Plan" ManuallyRouted="false" >
+        </AssociationConnector>
+        <EntityTypeShape EntityType="IsraaAcademicModel.ProgramLevel" Width="1.5" PointX="6.75" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SemesterStatus" Width="1.5" PointX="15.75" PointY="63.875" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Mark" Width="1.5" PointX="24.75" PointY="46.375" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Mark_StdSection" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Plan_Department" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentAcademicLog" Width="1.875" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdStatus" Width="1.5" PointX="15" PointY="46.875" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_Semester" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Program" Width="1.5" PointX="0.75" PointY="48" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_College_Program" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SectionDepartment" Width="1.5" PointX="20.25" PointY="46.25" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudyLevel" Width="1.5" PointX="7.5" PointY="71.25" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_Department" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_OfferdCourse" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_StudyLevel" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentAcademic" Width="1.5" PointX="9.75" PointY="47" FillColor="Yellow" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Department" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Plan" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Program" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentStatus" Width="1.5" PointX="12.75" PointY="43.375" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentTypes" Width="1.5" PointX="7.5" PointY="67.375" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudentTypes" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WarningStatus" Width="1.5" PointX="15.75" PointY="72.25" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudyLevel" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudentAcademic" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_StudentAcademic" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdAcademicWarning" Width="1.5" PointX="18" PointY="54.625" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WarningType" Width="1.5" PointX="15.75" PointY="69.75" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_StudentAcademic" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_WarningStatus" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_WarningType" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.GraduationStatus" Width="1.5" PointX="7.5" PointY="45.625" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_GraduationStatus_GraduationStatus" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_GraduationStatus" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentSuspended" Width="1.5" PointX="12" PointY="92.625" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentSuspended_StudentAcademic" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MidtermExamSection" Width="1.5" PointX="17.25" PointY="40" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_MidtermExamSection" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_StudentAcademic" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_StudentStatus" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PreRequest" Width="1.5" PointX="9.75" PointY="42.375" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdSemester" Width="1.5" PointX="18" PointY="60.5" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_Semester" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_SemesterStatus" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_StdSemester" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_StdSemester" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_StudentAcademic" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseOptionalCourses" Width="1.5" PointX="9.75" PointY="68.25" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MarkTitle" Width="1.5" PointX="6.75" PointY="3.75" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseCategory" Width="1.5" PointX="5.25" PointY="61.25" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseType" Width="1.5" PointX="5.25" PointY="58.75" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentVolunteer" Width="1.5" PointX="18" PointY="48" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_Semester" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_StudentAcademic" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.VolunteerCategory" Width="1.5" PointX="15.75" PointY="67.25" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.VolunteerType" Width="1.5" PointX="15.75" PointY="32" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_VolunteerCategory" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_VolunteerType" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.City" Width="1.5" PointX="12.75" PointY="74.125" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Country" Width="1.5" PointX="8.25" PointY="74.125" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Governorates" Width="1.5" PointX="10.5" PointY="74" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_City_Governorates" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Governorates_Country" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CollegeEmployee" Width="1.5" PointX="5.25" PointY="43.625" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_CollegeEmployee_College" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentPersonal" Width="1.5" PointX="15" PointY="51.75" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_City" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_Country" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_Governorates" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_StudentAcademic" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Section" Width="1.5" PointX="15" PointY="37.75" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_FinalExamSection_Section" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Lecture_Section" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_MidtermExamSection_Section" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Section_OfferdCourse" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_Section" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Section" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExamSectionDistribution" Width="1.5" PointX="18.25" PointY="30.875" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Room" Width="1.5" PointX="15" PointY="24.5" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Room_Building" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSectionDistribution_ExamSectionDistribution" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSectionDistribution_Section" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_FinalExamSection_Room" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Lecture_Room" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_MidtermExamSection_Room" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Course" Width="1.5" PointX="7.5" PointY="49.375" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_CourseCategory" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_CourseType" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_Department_DepartmentID1" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_CourseOptionalCourses_Course" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_OfferdCourse_Course" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PlanCourse_Course_CourseID" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PreRequest_Course" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Course" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Course1" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

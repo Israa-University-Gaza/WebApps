@@ -1,0 +1,161 @@
+﻿.dt-button-collection {
+    width: 50% !important;
+}
+
+    .dt-button-collection a {
+        width: 49% !important;
+        float: left !important;
+    }
+
+div.dt-button-collection {
+    border: 1px solid #d4c1c1 !important;
+    box-shadow: unset !important;
+    padding: 0 !important;
+}
+
+.filter {
+    background-color: cornsilk;
+}
+
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #ffffff !important;
+}
+
+#israa-table {
+    margin: unset;
+}
+
+.dt-button-collection {
+    width: 50% !important;
+}
+
+    .dt-button-collection a {
+        width: 49% !important;
+        float: left !important;
+    }
+
+div.dt-button-collection {
+    border: 1px solid #d4c1c1 !important;
+    box-shadow: unset !important;
+    padding: 0 !important;
+}
+
+.filter {
+    background-color: cornsilk;
+}
+
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: #ffffff !important;
+}
+
+#israa-table {
+    margin: unset;
+}
+
+.dt-buttons {
+    margin-top: unset !important
+}
+
+td.details-control {
+    background: url('../plugins/datatables/images/details_open.png') no-repeat center center;
+    cursor: pointer;
+}
+
+tr.shown td.details-control {
+    background: url('../plugins/datatables/images/details_close.png') no-repeat center center;
+}
+
+
+
+.table-responsive {
+    margin-top: 10px
+}
+
+
+
+
+
+
+.spinner {
+    margin: 10px auto 0;
+    width: 70px;
+    text-align: center;
+}
+
+.spinner > div {
+    width: 18px;
+    height: 18px;
+    background-color: #f36a5a;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% {
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% {
+          -webkit-transform: scale(1.0);
+          transform: scale(1.0);
+      }
+}
+
+
+.paging_bootstrap_extended {
+    margin-left: 10px !important;
+}
+
+
+.dataTables_length {
+    margin-left: 10px !important;
+}
+
+
+.datatabels-child-tabel {
+    /*margin-right: 20px !important;*/
+}
+
+table.dataTable tbody tr.shown + tr > td {
+    /*padding: 0;*/
+    /*background-color: #eef1f5;*/
+}
+
+table.dataTable tbody tr.shown + tr table.dataTable tbody td.sorting_1,
+td.details-control {
+    width: 40px;
+}
+
+.dataTables_paginate {
+    color: #a1a1a1 !important;
+}
+
+.dataTables_length {
+    color: #a1a1a1 !important;
+}
+
+.dataTables_info {
+    color: #a1a1a1 !important;
+}
+
+.label {
+    font-family: Tahoma !important;
+}

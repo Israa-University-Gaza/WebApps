@@ -1,0 +1,53 @@
+﻿
+@model List<IsraaSystem.Application.Affairs.StudentVolunteerRequestDto>
+
+
+<table class=" table   table-condensed no-margin datatabels-child-tabel  ">
+    <thead>
+        <tr>
+            <th class="text-center">  </th>
+            <th class="text-center"> الفصل الدراسي </th>
+            <th class="text-center"> اسم المؤسسة </th>
+            <th class="text-center"> نوع التطوع </th>
+            <th class="text-center"> تصنيف التطوع </th>
+            <th class="text-center"> عدد ساعات التطوع </th>
+            <th class="text-center"> من </th>
+            <th class="text-center"> الى </th>
+            <th class="text-center">خيارات</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>  </td>
+                <td>@item.SemesterName </td>
+                <td> @item.OrganizationName </td>
+                <td> @item.VolunteerTypeName </td>
+                <td> @item.VolunteerCategoryName </td>
+                <td> @item.OrganizationHour </td>
+                <td> @item.DateFrom </td>
+                <td> @item.DateTo </td>
+                <td>
+                    @if (item.IsAccept)
+                    {
+                        <button disabled class=" btn btn-xs  green-jungle">اعتماد</button>
+                    }
+                    else
+                    {
+                        @*<i class="fa fa-remove font-green-jungle"></i>*@
+                        <button onclick="AccreditRequest(@item.ID)" class="Accerdiate btn btn-xs btn-outline green-jungle">اعتماد</button>
+
+                    }
+
+                </td>
+            </tr>
+
+        }
+
+
+    </tbody>
+</table>
+
+

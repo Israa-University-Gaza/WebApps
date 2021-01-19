@@ -1,0 +1,159 @@
+﻿@using IsraaSystem.Application.Repository.materialType
+
+
+@{
+    ViewBag.Title = "ادارة المخازن - تصنيفات الأصناف";
+    ViewBag.Menu = "#menu-material-type";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Repository/material">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Repository/material">تصنيفات الأصناف</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>ادارة تصنيفات الأصناف</a>
+    </li>
+}
+
+
+
+<div id="refresh-list"></div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض تصنيفات الأصناف</span>
+                </div>
+                <div class="actions">
+
+                </div>
+            </div>
+            <br /><br /><br />
+            <div class="portlet-body">
+
+
+                <div id="using_json_3" class="demo"></div>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section PageStyles {
+    <link href="~/assets/global/plugins/jstree/dist/themes/default/style.css" rel="stylesheet" />
+}
+
+@section PagePlugins {
+    <script src="~/assets/global/plugins/jstree/dist/jstree.js"></script>
+}
+
+@section PageScripts {
+
+    <script>
+        $(function () {
+            $('#using_json_3')
+                .on('changed.jstree', function (e, data) {
+                    var i, j, r = [];
+                    for (i = 0, j = data.selected.length; i < j; i++) {
+                        r.push(data.instance.get_node(data.selected[i]).data);
+                    }
+                    //$('#event_result').html('Selected: ' + r.join(', '));
+                })
+                .jstree({
+                    'core': {
+                        'data': {
+                            'url': function (node) {
+
+                                if (node.id === '#')
+                                    return '/Repository/MaterialType/TreeData';
+                                else
+                                    return "/Repository/MaterialType/TreeData?parentId=" + node.id;
+                            },
+                            'data': function (node) {
+                                return { 'id': node.id };
+                            }
+                        }
+                    },
+                    "check_callback": true,
+                    contextmenu: { items: customMenu },
+                    "plugins" : [
+                        "contextmenu", "dnd", "search",
+                        "state", "types", "wholerow"
+                    ]
+                });
+        });
+
+
+        function customMenu(node) {
+            var items = {
+                renameItem: {
+                    label: "اضافة",
+                    action: function() {
+
+                        $("#pop-up-md .modal-dialog").load('/Repository/MaterialType/Add?id=' + node.id, function () {
+                            $("#pop-up-md").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                $('#using_json_3').jstree(true).refresh_node(node.id);
+
+                            });
+                    }
+                },
+                deleteItem: {
+                    label: "تعديل",
+                    action: function() {
+                        console.log("rename");
+                        $("#pop-up-md .modal-dialog").load('/Repository/MaterialType/Edit?id=' + node.id, function () {
+                            $("#pop-up-md").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                $('#using_json_3').jstree(true).refresh_node(node.id);
+
+                            });
+                    }
+                },
+                delete: {
+                    label: "حذف",
+                    action: function () {
+
+                        $("#pop-up-md .modal-dialog").load('/Repository/MaterialType/Delete?id=' + node.id, function () {
+                            $("#pop-up-md").modal("show");
+                        });
+                        $(".modal").on("hidden.bs.modal",
+                            function () {
+                                //parent_node = $.jstree._reference('#using_json_3')._get_parent(node);
+                                //console.log(parent_node);
+
+                            });
+
+                    }
+                }
+            };
+
+            if ($(node).hasClass("folder")) {
+                // Delete the "delete" menu item
+                delete items.deleteItem;
+            }
+
+            return items;
+        }
+
+
+
+    </script>
+
+}

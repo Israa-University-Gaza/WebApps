@@ -1,0 +1,1481 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeAddNew.EmployeeAddNewVM
+
+
+
+@{
+  ViewBag.Title = "إضافة موظف جديد ";
+  Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/assets/global/plugins/bootstrap-sweetalert/sweetalert.css" rel="stylesheet" />
+
+@section PageBreadcrumb{
+  <li>
+    <a href="/HumanResource/Dashboard">الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a href="/HumanResource/Department">شؤون الموظفين</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>إضافة موظف </a>
+  </li>
+}
+
+
+
+
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered" id="form_wizard_1">
+      <div class="portlet-title">
+        <div class="caption">
+          <i class=" icon-layers font-red"></i>
+          <span class="caption-subject font-red bold uppercase">
+            إضافة موظف جديد
+
+          </span>
+        </div>
+        <div class="actions">
+          <span class="step-title danger text-danger "> خطوة 1 من 4 </span>
+        </div>
+
+      </div>
+      <div class="portlet-body form">
+
+
+
+        <form id="submit_form" method="post" class="form-horizontal" novalidate="novalidate">
+          @Html.AntiForgeryToken()
+          <div class="form-wizard">
+            <div class="form-body">
+              <ul class="nav nav-pills nav-justified steps">
+                <li class="active">
+                  <a href="#tab1" data-toggle="tab" class="step" aria-expanded="true">
+                    <span class="number"> 1 </span>
+                    <span class="desc">
+                      <i class="fa fa-check"></i> البيانات الأساسية
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab2" data-toggle="tab" class="step">
+                    <span class="number"> 2 </span>
+                    <span class="desc">
+                      <i class="fa fa-check"></i> الموقع الوظيفي
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab3" data-toggle="tab" class="step active">
+                    <span class="number"> 3 </span>
+                    <span class="desc">
+                      <i class="fa fa-check"></i> حالة الموظف
+                    </span>
+                  </a>
+                </li>
+                <li>
+                  <a href="#tab4" data-toggle="tab" class="step">
+                    <span class="number"> 4 </span>
+                    <span class="desc">
+                      <i class="fa fa-check"></i> إعتماد
+                    </span>
+                  </a>
+                </li>
+              </ul>
+              <div id="bar" class="progress progress-striped" role="progressbar">
+                <div class="progress-bar progress-bar-success" style="width: 25%;"> </div>
+              </div>
+              <div class="tab-content">
+                <div class="alert alert-danger display-none">
+                  <button class="close" data-dismiss="alert"></button> الرجاء التحقق من المعلومات .
+                </div>
+                <div class="alert alert-success display-none">
+                  <button class="close" data-dismiss="alert"></button> تم التحقق من المعلومات بنجاح !
+                </div>
+
+                <div class="form-group">
+                  <div class="col-md-12">
+                    @if (TempData["add-msg"] != null)
+                    {
+                      int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                      String msg = TempData["add-msg"].ToString().Split(';')[1];
+                      <script type="text/javascript">
+                                                showToast("@msg", "@((status > 0) ? "success":"error")");
+                      </script>
+                    }
+                  </div>
+                </div>
+
+
+                <div class="tab-pane active" id="tab1">
+                    <h3 class="form-section">معلومات الموظف الاساسية</h3>
+
+
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="form-group">
+
+                                <label class="col-md-6 control-label">الإسم بالعربية</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.ArFirstName, new { @class = "form-control text-center", @placeholder = "الإسم الأول" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.ArSecoundName, new { @class = "form-control text-center", @placeholder = "الإسم الثاني" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.ArThirdName, new { @class = "form-control text-center", @placeholder = "الإسم الثالث" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.ArFamilyName, new { @class = "form-control text-center", @placeholder = "اسم العائلة" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+                        <div class="col-md-4 col-md-offset-1">
+                            <div class="form-group">
+
+                                <label class="col-md-6 control-label">الإسم بالإنجليزية</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.EnFirstName, new { @class = "form-control text-center", @placeholder = "First Name" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.EnSecoundName, new { @class = "form-control text-center", @placeholder = "Second Name" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.EnThirdName, new { @class = "form-control text-center", @placeholder = "Third Name" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="form-group">
+
+                                <div class="col-md-12">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.EnFamilyName, new { @class = "form-control text-center", @placeholder = "Last Name" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="row">
+
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">الوصف بالعربية</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.ArNameTitle, new { @class = "form-control" })
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">الوصف بالإنجليزية</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.EnNameTitle, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">اسم الأم</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.MotherName, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">الجنس</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.EmployeeMainData.GenderID, new SelectList(Model.EmployeeMainData.Genders, "Value", "Text"), "إختر الجنس", new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label class="col-md-6 control-label">الجنسية</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.EmployeeMainData.NationalityID, new SelectList(Model.EmployeeMainData.Nationalities, "Value", "Text"), "إختر الجنسية", new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">الديانة</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.EmployeeMainData.ReligionID, new SelectList(Model.EmployeeMainData.Religions, "Value", "Text"), "إختر الديانة", new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label class="col-md-6 control-label">تاريخ الميلاد</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.DateOfBirth, new { @class = "form-control date-picker", placeholder = "yyyy/mm/dd" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label">مكان الميلاد</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.PlaceOfBirth, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+
+                                <label class="col-md-6 control-label">رقم جواز السفر</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.Passport, new { @class = "form-control" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-4 control-label">رقم الهوية</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeMainData.SSN, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">الحالة الإجتماعية</label>
+                                <div class="col-md-6">
+                                    @Html.DropDownListFor(model => model.EmployeeMainData.MaritalStatusID, new SelectList(Model.EmployeeMainData.MaritalStatuses, "Value", "Text"), "إختر الحالة الإجتماعية", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                     
+                    </div>
+
+
+                        <h3 class="form-section">العنوان</h3>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">الدولة</label>
+                                    <div class="col-md-6">
+                                        @Html.DropDownListFor(model => model.EmployeeContactData.CountryID, new SelectList(Model.EmployeeContactData.Countries, "Value", "Text"), "إختر الدولة", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/EmployeeAddNew/ddlGovernorate/", data_target_id = "#EmployeeContactData_GovernorateID" })
+                                        @Html.ValidationMessageFor(model => model.EmployeeContactData.CountryID, "", new { @class = "text-danger help-block" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label">المحافظة</label>
+                                    <div class="col-md-6">
+                                        @Html.Partial("ddlGovernorate", Model)
+                                        @Html.ValidationMessageFor(model => model.EmployeeContactData.GovernorateID, "", new { @class = "text-danger help-block" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="col-md-6 control-label">المدينة</label>
+                                    <div class="col-md-6">
+                                        @Html.Partial("ddlCity", Model)
+                                        @Html.ValidationMessageFor(model => model.EmployeeContactData.CityID, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+
+                                    <label class="col-md-4 control-label">الحي</label>
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.EmployeeContactData.Neighborhood, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EmployeeContactData.Neighborhood, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-6 control-label">الشارع</label>
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.EmployeeContactData.Street, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EmployeeContactData.Street, "", new { @class = "text-danger help-block" })
+                                    </div>
+
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">المنزل</label>
+                                    <div class="col-md-6">
+                                        @Html.TextBoxFor(model => model.EmployeeContactData.HomeNo, new { @class = "form-control" })
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">العنوان</label>
+                            <div class="col-md-8">
+                                @Html.TextAreaFor(model => model.EmployeeContactData.AddressDetails, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.EmployeeContactData.AddressDetails, "", new { @class = "text-danger help-block" })
+                            </div>
+                        </div>
+
+                        <h3 class="form-section">معلومات الاتصال</h3>
+
+
+                        <div class="col-md-6">
+                            <div class="form-group ">
+                                <label class="col-md-6 control-label">الجوال</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeContactData.Mobile, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeContactData.Mobile, "", new { @class = "text-danger help-block" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group ">
+
+                                <label class="col-md-4 control-label">الهاتف</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeContactData.Phone, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeContactData.Phone, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label class="col-md-6 control-label">البريد الالكتروني</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeContactData.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeContactData.Email, "", new { @class = "text-danger help-block" })
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+
+                                <label class="col-md-4 control-label">البريد الجامعي</label>
+                                <div class="col-md-6">
+                                    @Html.TextBoxFor(model => model.EmployeeContactData.UniversityEmail, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeContactData.UniversityEmail, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="clearfix"></div>
+
+
+                    </div>
+                            <div class="tab-pane" id="tab2">
+                                <h3 class="form-section"> معلومات الموقع الوظيفي</h3>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">القسم</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.EmployeePlacement.DepartmentID, new SelectList(Model.EmployeePlacement.Departments, "Value", "Text"), "إختر القسم", new { @class = "form-control select2 ddl-dependent", data_url = "/HumanResource/EmployeeAddNew/ddlDepartmentJobs/", data_target_id = "#EmployeePlacement_JobID" })
+                                        @Html.ValidationMessageFor(model => model.EmployeePlacement.DepartmentID, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الوظيفة</label>
+                                    <div class="col-md-8">
+                                        @Html.Partial("ddlDepartmentJobs", Model)
+                                        @Html.ValidationMessageFor(model => model.EmployeePlacement.JobID, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الكادر</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.EmployeePlacement.CaderID, new SelectList(Model.EmployeePlacement.Caders, "Value", "Text"), "إختر الكادر", new { @class = "form-control select2" })
+                                        @Html.ValidationMessageFor(model => model.EmployeePlacement.CaderID, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label class="col-md-6 control-label">حالة الإنتساب</label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownListFor(model => model.EmployeePlacement.PlacementStatusID, new SelectList(Model.EmployeePlacement.PlacementStatuses, "Value", "Text"), "إختر حالة الإنتساب", new { @class = "form-control select2" })
+                                                @Html.ValidationMessageFor(model => model.EmployeePlacement.PlacementStatusID, "", new { @class = "text-danger help-block" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label class="col-md-4 control-label">نوع الإنتساب</label>
+                                            <div class="col-md-6">
+                                                @Html.DropDownListFor(model => model.EmployeePlacement.PlacementTypeID, new SelectList(Model.EmployeePlacement.PlacementTypes, "Value", "Text"), "إختر نوع الإنتساب", new { @class = "form-control select2" })
+                                                @Html.ValidationMessageFor(model => model.EmployeePlacement.PlacementTypeID, "", new { @class = "text-danger help-block" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label class="col-md-6 control-label">من</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmployeePlacement.DateFrom, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">إلى</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmployeePlacement.DateTo, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+                            </div>
+                            <div class="tab-pane" id="tab3">
+                                <h3 class="form-section">حالة الموظف</h3>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">حالة الموظف</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.EmpStatus.EmployeeStatusID, new SelectList(Model.EmpStatus.EmployeeStatuses, "Value", "Text"), "إختر حالة الموظف", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.EmpStatus.EmployeeStatusID, "", new { @class = "text-danger help-block" })
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+
+                                            <label class="col-md-6 control-label">من</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmpStatus.DateFrom, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                                @Html.ValidationMessageFor(model => model.EmpStatus.DateFrom, "", new { @class = "text-danger help-block" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">إلى</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmpStatus.DateTo, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                                @Html.ValidationMessageFor(model => model.EmpStatus.DateTo, "", new { @class = "text-danger help-block" })
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <h3 class="form-section">نوع التوظيف</h3>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">نوع التوظيف</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.EmpEmploymentType.EmploymentTypeID, new SelectList(Model.EmpEmploymentType.EmploymentTypes, "Value", "Text"), "إختر نوع التوظيف", new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">رقم الموظف</label>
+                                    <div class="col-md-8">
+                                        @Html.TextBoxFor(model => model.EmpEmploymentType.EmployeeNo, new { @class = "form-control", placeholder = "رقم الموظف", @Readonly = "" })
+                                        <span class="help-block"> قم باختيار نوع التوظيف ليتم انشاء رقم توظيف جديد </span>
+                                    </div>
+
+
+
+                                </div>
+
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label">من</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmpEmploymentType.DateFrom, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">إلى</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmpEmploymentType.DateTo, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+                                <h4 class="form-section">الدوام الافتراضي</h4>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">نوع النسق</label>
+                                    <div class="col-md-8">
+                                        @Html.DropDownListFor(model => model.EmployeeAttendanceFormat.AttendanceFormatID, new SelectList(Model.EmployeeAttendanceFormat.AttendanceFormats, "Value", "Text"), "إختر نوع النسق", new { @class = "form-control" })
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="row">
+
+
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-6 control-label">من</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmployeeAttendanceFormat.ActiveFromDate, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="col-md-4 control-label">إلى</label>
+                                            <div class="col-md-6">
+                                                @Html.TextBoxFor(model => model.EmployeeAttendanceFormat.ActiveToDate, new { @class = "form-control text-center date-picker", placeholder = "yyyy/mm/dd" })
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                </div>
+
+                            </div>
+                            <div class="tab-pane" id="tab4">
+                                <h3 class="block">مراجعة المعلومات المدخلة</h3>
+
+
+
+                                <h4 class="form-section">البيانات الأساسية</h4>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الإسم بالعربية</label>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ArFirstName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ArSecoundName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ArThirdName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ArFamilyName"> </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الإسم بالإنجليزية</label>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.EnFirstName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.EnSecoundName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.EnThirdName"> </p>
+                                    </div>
+                                    <div class="col-md-2">
+                                        <p class="form-control-static" data-display="EmployeeMainData.EnFamilyName"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الوصف بالعربية</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ArNameTitle"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">الوصف بالإنجليزية</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.EnNameTitle"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">اسم الأم</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.MotherName"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">الجنس</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.GenderID"> </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الجنسية</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.NationalityID"> </p>
+
+
+                                    </div>
+                                    <label class="col-md-3 control-label">الديانة</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.ReligionID"> </p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">تاريخ الميلاد</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.DateOfBirth"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">مكان الميلاد</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.PlaceOfBirth"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">رقم جواز السفر</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.Passport"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">رقم الهوية</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.SSN"> </p>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الحالة الإجتماعية</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeMainData.MaritalStatusID"> </p>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <h4 class="form-section">العنوان </h4>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الدولة</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.CountryID"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">المحافظة</label>
+                                    <div class="col-md-3">
+
+
+                                        <p class="form-control-static" data-display="EmployeeContactData.GovernorateID"> </p>
+                                    </div>
+
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">المدينة</label>
+                                    <div class="col-md-3">
+
+                                        <p class="form-control-static" data-display="EmployeeContactData.CityID"> </p>
+                                    </div>
+
+                                    <label class="col-md-3 control-label">الحي</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.Neighborhood"> </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الشارع</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.Street"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">المنزل</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.HomeNo"> </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">العنوان</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeeContactData.AddressDetails"> </p>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+
+                                <h4 class="form-section">معلومات الاتصال</h4>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الجوال</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.Mobile"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">الهاتف</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.Phone"> </p>
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">البريد الالكتروني</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.Email"> </p>
+                                    </div>
+
+                                    <label class="col-md-3 control-label">البريد الجامعي</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeContactData.UniversityEmail"> </p>
+                                    </div>
+                                </div>
+
+
+                                <h4 class="form-section">معلومات الموقع الوظيفي</h4>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">المسؤول المباشر</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeePlacement.DManagerID"> </p>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">القسم</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeePlacement.DepartmentID"> </p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الوظيفة</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeePlacement.JobID"> </p>
+
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">الكادر</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeePlacement.CaderID"> </p>
+
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">حالة الإنتساب</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeePlacement.PlacementStatusID"> </p>
+
+                                    </div>
+                                    <label class="col-md-3 control-label">نوع الإنتساب</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeePlacement.PlacementTypeID"> </p>
+
+                                    </div>
+                                </div>
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">من</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeePlacement.DateFrom"> </p>
+                                    </div>
+                                    <label class="col-md-3 control-label">إلى</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeePlacement.DateTo"> </p>
+
+                                    </div>
+                                </div>
+
+
+
+
+                                <h4 class="form-section">حالة الموظف</h4>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">حالة الموظف</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmpStatus.EmployeeStatusID"> </p>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">من</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmpStatus.DateFrom"> </p>
+
+                                    </div>
+                                    <label class="col-md-3 control-label">إلى</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmpStatus.DateTo"> </p>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">ملاحظات</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmpStatus.Notes"> </p>
+                                    </div>
+                                </div>
+
+
+
+
+
+
+
+
+                                <h4 class="form-section">نوع التوظيف</h4>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">نوع التوظيف</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmpEmploymentType.EmploymentTypeID"> </p>
+
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">رقم الموظف</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmpEmploymentType.EmployeeNo"> </p>
+
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+
+                                    <label class="col-md-3 control-label">من</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmpEmploymentType.DateFrom"> </p>
+
+                                    </div>
+                                    <label class="col-md-3 control-label">إلى</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmpEmploymentType.DateTo"> </p>
+                                    </div>
+                                </div>
+
+
+
+
+                                <h4 class="form-section">الدوام الافتراضي</h4>
+
+
+
+
+                                <div class="form-group">
+                                    <label class="col-md-3 control-label">نوع النسق</label>
+                                    <div class="col-md-8">
+                                        <p class="form-control-static" data-display="EmployeeAttendanceFormat.AttendanceFormatID"> </p>
+
+                                    </div>
+                                </div>
+
+
+
+
+
+                                <div class="row">
+
+
+
+                                    <label class="col-md-3 control-label">من</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeAttendanceFormat.ActiveFromDate"> </p>
+
+                                    </div>
+
+
+                                    <label class="col-md-3 control-label">إلى</label>
+                                    <div class="col-md-3">
+                                        <p class="form-control-static" data-display="EmployeeAttendanceFormat.ActiveToDate"> </p>
+
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-3 col-md-9">
+                                <a href="javascript:;" class="btn default button-previous disabled" style="display: none;">
+                                    <i class="fa fa-angle-right"></i> عـودة
+                                </a>
+                                <a href="javascript:;" class="btn btn-outline green button-next">
+                                    استمــرار
+                                    &nbsp;&nbsp;
+                                    <i class="fa fa-angle-left"></i>
+                                </a>
+
+                                <input type="submit" style="display: none;" class="btn green button-submit" value="إضــافة">
+
+                            </div>
+                            <div class="col-md-2">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+        </form>
+
+
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+@section PagePlugins
+{
+
+  <script src="~/assets/global/plugins/select2/js/select2.full.min.js"></script>
+  <script src="~/assets/global/plugins/jquery-validation/js/jquery.validate.js"></script>
+  <script src="~/assets/global/plugins/jquery-validation/js/additional-methods.min.js"></script>
+  <script src="~/assets/global/plugins/bootstrap-wizard/jquery.bootstrap.wizard.min.js"></script>
+  <script src="~/assets/global/plugins/bootstrap-sweetalert/sweetalert.js"></script>
+}
+
+
+@section PageScripts
+{
+
+  <script>
+
+
+    function MyAlert(message, type) {
+
+
+      console.log('viewbag message : ' + message);
+
+      App.alert({
+        container: $('#alert_container').val(),
+        place: 'append',
+        type: type,
+        message: message,
+        close: false,
+        reset: true,
+        focus: true,
+        closeInSeconds: 10000,
+        icon: 'fa fa-check'
+
+      });
+
+    };
+
+
+
+
+
+
+
+    jQuery(document).ready(function () {
+
+      $("#submit_form").submit(function (e) {
+
+        var url = "EmployeeAddNew/Index";
+
+        $.ajax({
+          type: "POST",
+          url: url,
+          data: $("#submit_form").serialize(),
+          success: function (data) {
+
+
+            if (data.type === "success") {
+
+              swal({
+                title: data.message,
+                text: "رقم الموظف : " + data.EmpNo + " , لمزيد من الخيارات من خلال ملف الموظف  ",
+                type: "success",
+                showCancelButton: true,
+                confirmButtonClass: "btn-success",
+                confirmButtonText: "عرض ملف الموظف",
+                closeOnConfirm: false
+              },
+                function () {
+                  window.location.href = '../Employee/Index/' + data.newID;
+                });
+              ('#button-submit').hide();
+
+            } else {
+              MyAlert(data.message, data.type);
+
+            }
+
+          },
+          error: function () {
+
+            MyAlert("خطأ في العملية", "danger");
+          }
+        });
+
+        e.preventDefault();
+      });
+
+      FormWizard.init();
+
+      var ddl = $("#EmpEmploymentType_EmploymentTypeID");
+      ddl.change(function (e) {
+
+
+        $.ajax({
+          type: "POST",
+          url: "EmployeeAddNew/GenerateEmpNumber?EmploymentTypeID=" + ddl.val(),
+          contentType: "application/json; charset=utf-8",
+          data: '{}',
+          dataType: "json",
+          success: function (response) {
+            $("#EmpEmploymentType_EmployeeNo").val(response.empnum);
+          },
+          error: function (xhr, status, error) {
+            $("#EmpEmploymentType_EmployeeNo").val("حدث خطأ ما !");
+
+          }
+        });
+
+
+      });
+
+
+
+
+
+
+
+
+    });
+
+
+
+
+    var FormWizard = function () {
+      return {
+        init: function () {
+          function e(e) {
+            return e.id ? "<img class='flag' src='../../assets/global/img/flags/" + e.id.toLowerCase() + ".png'/>&nbsp;&nbsp;" + e.text : e.text
+          }
+          if (jQuery().bootstrapWizard) {
+            $("#country_list").select2({
+              placeholder: "Select",
+              allowClear: !0,
+              formatResult: e,
+              width: "auto",
+              formatSelection: e,
+              escapeMarkup: function (e) {
+                return e
+              }
+            });
+            var r = $("#submit_form"),
+              t = $(".alert-danger", r),
+              i = $(".alert-success", r);
+            r.validate({
+              doNotHideMessage: !0,
+              errorElement: "span",
+              errorClass: "help-block help-block-error",
+              focusInvalid: !1,
+              rules: {
+                'EmployeeMainData.ArFirstName': {
+                  required: !0
+                }
+                ,
+                'EmployeeMainData.ArSecoundName': {
+                  required: !0
+                },
+                'EmployeeMainData.ArThirdName': {
+                  required: !0
+                },
+                'EmployeeMainData.ArFamilyName': {
+                  required: !0
+                },
+                'EmployeeMainData.EnFirstName': {
+                  required: !0
+                },
+                'EmployeeMainData.EnSecoundName': {
+                  required: !0
+                },
+                'EmployeeMainData.EnThirdName': {
+                  required: !0
+                },
+                'EmployeeMainData.EnFamilyName': {
+                  required: !0
+                },
+                'EmployeeMainData.ArNameTitle': {
+                  required: !0
+                },
+                'EmployeeMainData.EnNameTitle': {
+                  required: !0
+                },
+                'EmployeeMainData.MotherName': {
+                  required: !0
+                },
+                'EmployeeMainData.GenderID': {
+                  required: !0
+                },
+                'EmployeeMainData.NationalityID': {
+                  required: !0
+                },
+                'EmployeeMainData.ReligionID': {
+                  required: !0
+                },
+                'EmployeeMainData.DateOfBirth': {
+                  required: !0,
+                  date: !0
+                },
+                'EmployeeMainData.PlaceOfBirth': {
+                  required: !0
+                },
+                'EmployeeMainData.Passport': {
+                  // required: !0
+                },
+                'EmployeeMainData.SSN': {
+                  // required: !0
+                  digits: !0
+
+                },
+                'EmployeeMainData.MaritalStatusID': {
+                  required: !0
+                },
+                'EmployeeContactData.CountryID': {
+                  required: !0
+                },
+                'EmployeeContactData.GovernorateID': {
+                  required: !0
+                },
+                'EmployeeContactData.CityID': {
+                  required: !0
+                },
+                'EmployeeContactData.Neighborhood': {
+                  required: !0
+                },
+                'EmployeeContactData.Street': {
+                  //required: !0
+                },
+                'EmployeeContactData.HomeNo': {
+                  // required: !0,
+
+
+                },
+                'EmployeeContactData.AddressDetails': {
+                  required: !0
+                },
+                'EmployeeContactData.Mobile': {
+                  required: !0,
+                  digits: !0,
+                  minlength: 10,
+                  maxlength: 10
+                },
+                'EmployeeContactData.Phone': {
+                  required: !0,
+                  digits: !0,
+                  minlength: 8,
+                  maxlength: 8
+                },
+                'EmployeeContactData.Email': {
+                  //required: !0
+                  email: !0
+                },
+                'EmployeeContactData.UniversityEmail': {
+                  // required: !0
+                  email: !0
+                },
+                'EmployeePlacement.DManagerID': {
+                  required: !0
+                },
+                'EmployeePlacement.DepartmentID': {
+                  required: !0
+                },
+                'EmployeePlacement.JobID': {
+                  required: !0
+                },
+                'EmployeePlacement.CaderID': {
+                  required: !0
+                },
+                'EmployeePlacement.PlacementStatusID': {
+                  required: !0
+                },
+                'EmployeePlacement.PlacementTypeID': {
+                  required: !0
+                },
+                'EmployeePlacement.DateFrom': {
+                  //required: !0
+                  date: !0
+                },
+                'EmployeePlacement.DateTo': {
+                  //required: !0
+                  date: !0
+                },
+                //'EmpStatus.EmployeeID': {
+                //   // required: !0
+                //},
+                'EmpStatus.EmployeeStatusID': {
+                  required: !0
+                },
+                'EmpStatus.DateFrom': {
+                  required: !0,
+                  date: !0
+                },
+                'EmpStatus.DateTo': {
+                  //required: !0
+                  date: !0
+                },
+                'EmpStatus.Notes': {
+                  // required: !0
+                }, 'EmpEmploymentType.EmploymentTypeID': {
+                  required: !0
+                }, 'EmpEmploymentType.EmployeeNo': {
+                  required: !0
+                }, 'EmpEmploymentType.DateFrom': {
+                  date: !0
+                }, 'EmpEmploymentType.DateTo': {
+                  date: !0
+                }
+
+                , 'EmployeeAttendanceFormat.AttendanceFormatID': {
+                   //required: 0
+                }
+
+                , 'EmployeeAttendanceFormat.ActiveFromDate': {
+                  date: !0
+
+                }, 'EmployeeAttendanceFormat.ActiveToDate': {
+                  date: !0
+
+                }
+
+
+
+
+
+
+
+              },
+              messages: {
+                "payment[]": {
+                  required: "Please select at least one option",
+                  minlength: jQuery.validator.format("Please select at least one option")
+                }
+              },
+              errorPlacement: function (e, r) {
+                "gender" == r.attr("name") ? e.insertAfter("#form_gender_error") : "payment[]" == r.attr("name") ? e.insertAfter("#form_payment_error") : e.insertAfter(r)
+              },
+              invalidHandler: function (e, r) {
+                i.hide(), t.show(), App.scrollTo(t, -200)
+              },
+              highlight: function (e) {
+                $(e).closest(".form-group").removeClass("has-success").addClass("has-error")
+              },
+              unhighlight: function (e) {
+                $(e).closest(".form-group").removeClass("has-error")
+              },
+              success: function (e) {
+                "gender" == e.attr("for") || "payment[]" == e.attr("for") ? (e.closest(".form-group").removeClass("has-error").addClass("has-success"), e.remove()) : e.addClass("valid").closest(".form-group").removeClass("has-error").addClass("has-success")
+              },
+              submitHandler: function (e) {
+                i.show(), t.hide(), e[0].submit()
+              }
+            });
+            var a = function () {
+              $("#tab4 .form-control-static", r).each(function () {
+                var e = $('[name="' + $(this).attr("data-display") + '"]', r);
+                if (e.is(":radio") && (e = $('[name="' + $(this).attr("data-display") + '"]:checked', r)), e.is(":text") || e.is("textarea")) $(this).html(e.val());
+                else if (e.is("select")) $(this).html(e.find("option:selected").text());
+                else if (e.is(":radio") && e.is(":checked")) $(this).html(e.attr("data-title"));
+                else if ("payment[]" == $(this).attr("data-display")) {
+                  var t = [];
+                  $('[name="payment[]"]:checked', r).each(function () {
+                    t.push($(this).attr("data-title"))
+                  }), $(this).html(t.join("<br>"))
+                }
+              })
+            },
+              o = function (e, r, t) {
+                var i = r.find("li").length,
+                  o = t + 1;
+                $(".step-title", $("#form_wizard_1")).text("خطوة " + (t + 1) + " من  " + i), jQuery("li", $("#form_wizard_1")).removeClass("done");
+                for (var n = r.find("li"), s = 0; s < t; s++) jQuery(n[s]).addClass("done");
+                1 == o ? $("#form_wizard_1").find(".button-previous").hide() : $("#form_wizard_1").find(".button-previous").show(), o >= i ? ($("#form_wizard_1").find(".button-next").hide(), $("#form_wizard_1").find(".button-submit").show(), a()) : ($("#form_wizard_1").find(".button-next").show(), $("#form_wizard_1").find(".button-submit").hide()), App.scrollTo($(".page-title"))
+              };
+            $("#form_wizard_1").bootstrapWizard({
+              nextSelector: ".button-next",
+              previousSelector: ".button-previous",
+              onTabClick: function (e, r, t, i) {
+                return !1
+              },
+              onNext: function (e, a, n) {
+                return i.hide(), t.hide(), 0 != r.valid() && void o(e, a, n)
+              },
+              onPrevious: function (e, r, a) {
+                i.hide(), t.hide(), o(e, r, a)
+              },
+              onTabShow: function (e, r, t) {
+                var i = r.find("li").length,
+                  a = t + 1,
+                  o = a / i * 100;
+                $("#form_wizard_1").find(".progress-bar").css({
+                  width: o + "%"
+                })
+              }
+            }), $("#form_wizard_1").find(".button-previous").hide(), $("#form_wizard_1 .button-submit").click(function () {
+              //alert("Finished! Hope you like it :)")
+            }).hide(), $("#country_list", r).change(function () {
+              r.validate().element($(this))
+            })
+          }
+        }
+      }
+    }();
+
+  </script>
+
+}

@@ -1,0 +1,50 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+<div id="document-type">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @if (Model.Rows.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="wp10">#</th>
+                    <th class="wp30 text-center">نوع المستند</th>
+                    <th class="wp30 text-center">عدد المستندات المرتبطة به</th>
+                    <th class="wp30"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                <tr>
+                    <td>@row["RowNo"]</td>
+                    <td class="text-center">@row["ArName"]</td>
+                    <td class="text-center">@row["EmployeeDocumentCount"]</td>
+                    <td class="text-center">
+                        <a href="/HumanResource/DocumentType/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><i class="fa fa-edit"></i> تعديل</a>
+                        <a href="/HumanResource/DocumentType/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف نوع المستند" data-msg="هل أنت متأكد من أنك تود حذف نوع المستند ؟" data-action="حذف" data-ajax-update="#document-type"><i class="fa fa-times"></i> حذف</a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info alert-dismissible text-center" role="alert">
+            <span>لا يوجد بيانات لعرضها</span>
+        </div>
+    }
+</div>

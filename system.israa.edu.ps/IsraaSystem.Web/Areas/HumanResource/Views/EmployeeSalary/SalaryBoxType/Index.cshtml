@@ -1,0 +1,42 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "شؤون الموظفين - نوع صندوق الراتب";
+    ViewBag.Menu = "#menu-salary,#menu-salary-box";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/SalaryBoxType">أنواع صندوق الراتب</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض أنواع صندوق الراتب</a>
+    </li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض أنواع صندوق الراتب</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/SalaryBoxType/Add" class="btn btn-sm btn-success pop-up-md">
+                        <i class="fa fa-plus"></i>
+                        إضافة نوع صندوق جديد
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

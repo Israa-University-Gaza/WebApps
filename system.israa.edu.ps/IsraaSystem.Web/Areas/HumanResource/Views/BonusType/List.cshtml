@@ -1,0 +1,56 @@
+﻿@using System.Data
+@model DataTable
+
+@{
+    Layout = null;
+}
+
+@if (TempData["toast-msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+}
+
+<div id="bonus-types">
+    @if (Model.Rows.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="wp5">#</th>
+                    <th>نوع العلاوة</th>
+                    @*<th class="wp5"></th>*@
+                    <th class="wp10"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Rows)
+                {
+                    <tr>
+                        <td>@row["RowNo"]</td>
+                        <td>@row["Name"]</td>
+                        @*<td class="text-center">
+                            <a href="/HumanResource/BonusType/BonusAdd?bonustypeId=@row["ID"]" class="btn btn-sm btn-default pop-up-md">
+                                <i class="fa fa-user-plus"></i>
+                                <span>تنسيب علاوة</span>
+                            </a>
+                        </td>*@
+                        <td class="text-center">
+                            <a href="/HumanResource/BonusType/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><span class="fa fa-edit"></span></a>
+                            <a href="/HumanResource/BonusType/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف نوع علاوة" data-msg="هل أنت متأكد من أنك تود حذف نوع العلاوة ؟" data-action="حذف" data-ajax-update="#bonus-types"><span class="fa fa-times"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info alert-dismissible text-center" role="alert">
+            <span>لا يوجد بيانات لعرضها</span>
+        </div>
+    }
+</div>

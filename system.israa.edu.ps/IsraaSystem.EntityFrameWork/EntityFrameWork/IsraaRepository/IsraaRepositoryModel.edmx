@@ -1,0 +1,1350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IsraaRepositoryModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CustodyDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="CustodyTypeId" Nullable="false" Type="int" />
+          <Property Name="CustodyDate" Nullable="false" Type="datetime" />
+          <Property Name="RepositoryDepartmentId" Type="int" />
+          <Property Name="DepartmentId" Nullable="false" Type="int" />
+          <Property Name="EmployeeId" Nullable="false" Type="int" />
+          <Property Name="ToEmployeeId" Type="int" />
+          <Property Name="MaterialId" Nullable="false" Type="int" />
+          <Property Name="Quantity" Nullable="false" Type="int" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="RequestStatusId" Nullable="false" Type="int" />
+          <Property Name="CustodyStatus" Nullable="false" Type="bit" />
+          <Property Name="DateOfReturnCustody" Type="datetime" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="CustodyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Code" MaxLength="50" Type="nvarchar" />
+          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="UnitId" Nullable="false" Type="int" />
+          <Property Name="TypeID" Type="int" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Price" Nullable="false" Type="float" />
+          <Property Name="UsageStatus" Nullable="false" Type="bit" />
+          <Property Name="IsConsumed" Nullable="false" Type="bit" />
+          <Property Name="WarningBeforExpir" Type="int" />
+          <Property Name="RequestLimit" Nullable="false" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialSupplier">
+          <Key>
+            <PropertyRef Name="MaterialId" />
+            <PropertyRef Name="SupplierId" />
+          </Key>
+          <Property Name="MaterialId" Nullable="false" Type="int" />
+          <Property Name="SupplierId" Nullable="false" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" MaxLength="100" Type="nvarchar" />
+          <Property Name="ParentID" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="MaterialUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="RepositoryBalance">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RepositoryDeparmentId" />
+            <PropertyRef Name="MaterialId" />
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="RepositoryDeparmentId" Nullable="false" Type="int" />
+          <Property Name="MaterialId" Nullable="false" Type="int" />
+          <Property Name="UnitId" Nullable="false" Type="int" />
+          <Property Name="Quantity" Nullable="false" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="RepositoryCustody">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="CustodyDetailsId" Nullable="false" Type="int" />
+          <Property Name="EmployeeId" Nullable="false" Type="int" />
+          <Property Name="MaterialId" Nullable="false" Type="int" />
+          <Property Name="Quantity" Nullable="false" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="RepositoryDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="ParentId" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="150" Type="nvarchar" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Mobile" MaxLength="50" Type="nvarchar" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="TransactionTypeId" Nullable="false" Type="int" />
+          <Property Name="TransactionDate" Nullable="false" Type="datetime" />
+          <Property Name="SupplierId" Type="int" />
+          <Property Name="DepartmentId" Type="int" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="TransactionDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="TransactionId" Nullable="false" Type="int" />
+          <Property Name="RepositoryDepartmentId" Nullable="false" Type="int" />
+          <Property Name="ToRepositoryDepartmentId" Type="int" />
+          <Property Name="MaterialId" Nullable="false" Type="int" />
+          <Property Name="UnitId" Nullable="false" Type="int" />
+          <Property Name="Quantity" Nullable="false" Type="int" />
+          <Property Name="QuantityAfterInventory" Type="int" />
+          <Property Name="Price" Type="float" />
+          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="Name" Nullable="false" MaxLength="50" Type="nvarchar" />
+          <Property Name="IsDelete" Nullable="false" Type="bit" />
+          <Property Name="IsActive" Nullable="false" Type="bit" />
+          <Property Name="InsertedDate" Nullable="false" Type="datetime" />
+          <Property Name="InsertEmployeeId" Type="int" />
+        </EntityType>
+        <Association Name="FK_CustodyDetails_CustodyType">
+          <End Type="Self.CustodyType" Multiplicity="1" Role="CustodyType" />
+          <End Type="Self.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="CustodyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="CustodyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_Material">
+          <End Type="Self.Material" Multiplicity="1" Role="Material" />
+          <End Type="Self.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_RepositoryDepartment">
+          <End Type="Self.RepositoryDepartment" Multiplicity="0..1" Role="RepositoryDepartment" />
+          <End Type="Self.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="RepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_RequestStatus">
+          <End Type="Self.RequestStatus" Multiplicity="1" Role="RequestStatus" />
+          <End Type="Self.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="RequestStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialType">
+          <End Type="Self.MaterialType" Multiplicity="0..1" Role="MaterialType" />
+          <End Type="Self.Material" Multiplicity="*" Role="Material" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialUnit">
+          <End Type="Self.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="Self.Material" Multiplicity="*" Role="Material" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialSupplier_Material">
+          <End Type="Self.Material" Multiplicity="1" Role="Material" />
+          <End Type="Self.MaterialSupplier" Multiplicity="*" Role="MaterialSupplier" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialSupplier">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_MaterialSupplier_Supplier">
+          <End Type="Self.Supplier" Multiplicity="1" Role="Supplier" />
+          <End Type="Self.MaterialSupplier" Multiplicity="*" Role="MaterialSupplier" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="MaterialSupplier">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_Material">
+          <End Type="Self.Material" Multiplicity="1" Role="Material" />
+          <End Type="Self.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_MaterialUnit">
+          <End Type="Self.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="Self.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_RepositoryDepartment">
+          <End Type="Self.RepositoryDepartment" Multiplicity="1" Role="RepositoryDepartment" />
+          <End Type="Self.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="RepositoryDeparmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryCustody_CustodyDetails">
+          <End Type="Self.CustodyDetails" Multiplicity="1" Role="CustodyDetails" />
+          <End Type="Self.RepositoryCustody" Multiplicity="*" Role="RepositoryCustody" />
+          <ReferentialConstraint>
+            <Principal Role="CustodyDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryCustody">
+              <PropertyRef Name="CustodyDetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryCustody_Material">
+          <End Type="Self.Material" Multiplicity="1" Role="Material" />
+          <End Type="Self.RepositoryCustody" Multiplicity="*" Role="RepositoryCustody" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryCustody">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryTransaction_Material">
+          <End Type="Self.Material" Multiplicity="1" Role="Material" />
+          <End Type="Self.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Supplier">
+          <End Type="Self.Supplier" Multiplicity="0..1" Role="Supplier" />
+          <End Type="Self.Transaction" Multiplicity="*" Role="Transaction" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_TransactionType">
+          <End Type="Self.TransactionType" Multiplicity="1" Role="TransactionType" />
+          <End Type="Self.Transaction" Multiplicity="*" Role="Transaction" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransactionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_MaterialUnit">
+          <End Type="Self.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="Self.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_RepositoryDepartment">
+          <End Type="Self.RepositoryDepartment" Multiplicity="1" Role="RepositoryDepartment" />
+          <End Type="Self.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="RepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_Transaction">
+          <End Type="Self.Transaction" Multiplicity="1" Role="Transaction" />
+          <End Type="Self.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_TransactionDetails">
+          <End Type="Self.RepositoryDepartment" Multiplicity="0..1" Role="RepositoryDepartment" />
+          <End Type="Self.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="ToRepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="islam">
+          <End Type="Self.MaterialType" Multiplicity="0..1" Role="MaterialType" />
+          <End Type="Self.MaterialType" Multiplicity="*" Role="MaterialType1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialType1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IsraaRepositoryModelStoreContainer">
+          <EntitySet Name="CustodyDetails" EntityType="Self.CustodyDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustodyType" EntityType="Self.CustodyType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Material" EntityType="Self.Material" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialSupplier" EntityType="Self.MaterialSupplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialType" EntityType="Self.MaterialType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MaterialUnit" EntityType="Self.MaterialUnit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RepositoryBalance" EntityType="Self.RepositoryBalance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RepositoryCustody" EntityType="Self.RepositoryCustody" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RepositoryDepartment" EntityType="Self.RepositoryDepartment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="RequestStatus" EntityType="Self.RequestStatus" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Supplier" EntityType="Self.Supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionDetails" EntityType="Self.TransactionDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransactionType" EntityType="Self.TransactionType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_CustodyDetails_CustodyType" Association="Self.FK_CustodyDetails_CustodyType">
+            <End EntitySet="CustodyType" Role="CustodyType" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_Material" Association="Self.FK_CustodyDetails_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_RepositoryDepartment" Association="Self.FK_CustodyDetails_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_RequestStatus" Association="Self.FK_CustodyDetails_RequestStatus">
+            <End EntitySet="RequestStatus" Role="RequestStatus" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialType" Association="Self.FK_Material_MaterialType">
+            <End EntitySet="MaterialType" Role="MaterialType" />
+            <End EntitySet="Material" Role="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialUnit" Association="Self.FK_Material_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="Material" Role="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialSupplier_Material" Association="Self.FK_MaterialSupplier_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="MaterialSupplier" Role="MaterialSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_MaterialSupplier_Supplier" Association="Self.FK_MaterialSupplier_Supplier">
+            <End EntitySet="Supplier" Role="Supplier" />
+            <End EntitySet="MaterialSupplier" Role="MaterialSupplier" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_Material" Association="Self.FK_RepositoryBalance_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_MaterialUnit" Association="Self.FK_RepositoryBalance_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_RepositoryDepartment" Association="Self.FK_RepositoryBalance_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryCustody_CustodyDetails" Association="Self.FK_RepositoryCustody_CustodyDetails">
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+            <End EntitySet="RepositoryCustody" Role="RepositoryCustody" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryCustody_Material" Association="Self.FK_RepositoryCustody_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="RepositoryCustody" Role="RepositoryCustody" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryTransaction_Material" Association="Self.FK_RepositoryTransaction_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Supplier" Association="Self.FK_Transaction_Supplier">
+            <End EntitySet="Supplier" Role="Supplier" />
+            <End EntitySet="Transaction" Role="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_TransactionType" Association="Self.FK_Transaction_TransactionType">
+            <End EntitySet="TransactionType" Role="TransactionType" />
+            <End EntitySet="Transaction" Role="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_MaterialUnit" Association="Self.FK_TransactionDetails_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_RepositoryDepartment" Association="Self.FK_TransactionDetails_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_Transaction" Association="Self.FK_TransactionDetails_Transaction">
+            <End EntitySet="Transaction" Role="Transaction" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_TransactionDetails" Association="Self.FK_TransactionDetails_TransactionDetails">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="islam" Association="Self.islam">
+            <End EntitySet="MaterialType" Role="MaterialType" />
+            <End EntitySet="MaterialType" Role="MaterialType1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IsraaRepositoryModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IsraaRepositoryEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CustodyDetails" EntityType="IsraaRepositoryModel.CustodyDetails" />
+          <EntitySet Name="CustodyType" EntityType="IsraaRepositoryModel.CustodyType" />
+          <EntitySet Name="Material" EntityType="IsraaRepositoryModel.Material" />
+          <EntitySet Name="MaterialType" EntityType="IsraaRepositoryModel.MaterialType" />
+          <EntitySet Name="MaterialUnit" EntityType="IsraaRepositoryModel.MaterialUnit" />
+          <EntitySet Name="RepositoryBalance" EntityType="IsraaRepositoryModel.RepositoryBalance" />
+          <EntitySet Name="RepositoryCustody" EntityType="IsraaRepositoryModel.RepositoryCustody" />
+          <EntitySet Name="RepositoryDepartment" EntityType="IsraaRepositoryModel.RepositoryDepartment" />
+          <EntitySet Name="RequestStatus" EntityType="IsraaRepositoryModel.RequestStatus" />
+          <EntitySet Name="Supplier" EntityType="IsraaRepositoryModel.Supplier" />
+          <EntitySet Name="Transaction" EntityType="IsraaRepositoryModel.Transaction" />
+          <EntitySet Name="TransactionDetails" EntityType="IsraaRepositoryModel.TransactionDetails" />
+          <EntitySet Name="TransactionType" EntityType="IsraaRepositoryModel.TransactionType" />
+          <AssociationSet Name="FK_CustodyDetails_CustodyType" Association="IsraaRepositoryModel.FK_CustodyDetails_CustodyType">
+            <End EntitySet="CustodyType" Role="CustodyType" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_Material" Association="IsraaRepositoryModel.FK_CustodyDetails_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_RepositoryDepartment" Association="IsraaRepositoryModel.FK_CustodyDetails_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CustodyDetails_RequestStatus" Association="IsraaRepositoryModel.FK_CustodyDetails_RequestStatus">
+            <End EntitySet="RequestStatus" Role="RequestStatus" />
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryCustody_CustodyDetails" Association="IsraaRepositoryModel.FK_RepositoryCustody_CustodyDetails">
+            <End EntitySet="CustodyDetails" Role="CustodyDetails" />
+            <End EntitySet="RepositoryCustody" Role="RepositoryCustody" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialType" Association="IsraaRepositoryModel.FK_Material_MaterialType">
+            <End EntitySet="MaterialType" Role="MaterialType" />
+            <End EntitySet="Material" Role="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Material_MaterialUnit" Association="IsraaRepositoryModel.FK_Material_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="Material" Role="Material" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_Material" Association="IsraaRepositoryModel.FK_RepositoryBalance_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryCustody_Material" Association="IsraaRepositoryModel.FK_RepositoryCustody_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="RepositoryCustody" Role="RepositoryCustody" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryTransaction_Material" Association="IsraaRepositoryModel.FK_RepositoryTransaction_Material">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="islam" Association="IsraaRepositoryModel.islam">
+            <End EntitySet="MaterialType" Role="MaterialType" />
+            <End EntitySet="MaterialType" Role="MaterialType1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_MaterialUnit" Association="IsraaRepositoryModel.FK_RepositoryBalance_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_MaterialUnit" Association="IsraaRepositoryModel.FK_TransactionDetails_MaterialUnit">
+            <End EntitySet="MaterialUnit" Role="MaterialUnit" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RepositoryBalance_RepositoryDepartment" Association="IsraaRepositoryModel.FK_RepositoryBalance_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="RepositoryBalance" Role="RepositoryBalance" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_RepositoryDepartment" Association="IsraaRepositoryModel.FK_TransactionDetails_RepositoryDepartment">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_TransactionDetails" Association="IsraaRepositoryModel.FK_TransactionDetails_TransactionDetails">
+            <End EntitySet="RepositoryDepartment" Role="RepositoryDepartment" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Supplier" Association="IsraaRepositoryModel.FK_Transaction_Supplier">
+            <End EntitySet="Supplier" Role="Supplier" />
+            <End EntitySet="Transaction" Role="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_TransactionType" Association="IsraaRepositoryModel.FK_Transaction_TransactionType">
+            <End EntitySet="TransactionType" Role="TransactionType" />
+            <End EntitySet="Transaction" Role="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TransactionDetails_Transaction" Association="IsraaRepositoryModel.FK_TransactionDetails_Transaction">
+            <End EntitySet="Transaction" Role="Transaction" />
+            <End EntitySet="TransactionDetails" Role="TransactionDetails" />
+          </AssociationSet>
+          <AssociationSet Name="MaterialSupplier" Association="IsraaRepositoryModel.MaterialSupplier">
+            <End EntitySet="Material" Role="Material" />
+            <End EntitySet="Supplier" Role="Supplier" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="CustodyDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="CustodyTypeId" Nullable="false" Type="Int32" />
+          <Property Name="CustodyDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="RepositoryDepartmentId" Type="Int32" />
+          <Property Name="DepartmentId" Nullable="false" Type="Int32" />
+          <Property Name="EmployeeId" Nullable="false" Type="Int32" />
+          <Property Name="ToEmployeeId" Type="Int32" />
+          <Property Name="MaterialId" Nullable="false" Type="Int32" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="RequestStatusId" Nullable="false" Type="Int32" />
+          <Property Name="CustodyStatus" Nullable="false" Type="Boolean" />
+          <Property Name="DateOfReturnCustody" Precision="3" Type="DateTime" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="CustodyType" Relationship="IsraaRepositoryModel.FK_CustodyDetails_CustodyType" FromRole="CustodyDetails" ToRole="CustodyType" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_CustodyDetails_Material" FromRole="CustodyDetails" ToRole="Material" />
+          <NavigationProperty Name="RepositoryDepartment" Relationship="IsraaRepositoryModel.FK_CustodyDetails_RepositoryDepartment" FromRole="CustodyDetails" ToRole="RepositoryDepartment" />
+          <NavigationProperty Name="RequestStatus" Relationship="IsraaRepositoryModel.FK_CustodyDetails_RequestStatus" FromRole="CustodyDetails" ToRole="RequestStatus" />
+          <NavigationProperty Name="RepositoryCustody" Relationship="IsraaRepositoryModel.FK_RepositoryCustody_CustodyDetails" FromRole="CustodyDetails" ToRole="RepositoryCustody" />
+        </EntityType>
+        <EntityType Name="CustodyType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="CustodyDetails" Relationship="IsraaRepositoryModel.FK_CustodyDetails_CustodyType" FromRole="CustodyType" ToRole="CustodyDetails" />
+        </EntityType>
+        <EntityType Name="Material">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="UnitId" Nullable="false" Type="Int32" />
+          <Property Name="TypeID" Type="Int32" />
+          <Property Name="Description" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Price" Nullable="false" Type="Double" />
+          <Property Name="UsageStatus" Nullable="false" Type="Boolean" />
+          <Property Name="IsConsumed" Nullable="false" Type="Boolean" />
+          <Property Name="WarningBeforExpir" Type="Int32" />
+          <Property Name="RequestLimit" Nullable="false" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Nullable="false" Type="Int32" />
+          <NavigationProperty Name="CustodyDetails" Relationship="IsraaRepositoryModel.FK_CustodyDetails_Material" FromRole="Material" ToRole="CustodyDetails" />
+          <NavigationProperty Name="MaterialType" Relationship="IsraaRepositoryModel.FK_Material_MaterialType" FromRole="Material" ToRole="MaterialType" />
+          <NavigationProperty Name="MaterialUnit" Relationship="IsraaRepositoryModel.FK_Material_MaterialUnit" FromRole="Material" ToRole="MaterialUnit" />
+          <NavigationProperty Name="RepositoryBalance" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_Material" FromRole="Material" ToRole="RepositoryBalance" />
+          <NavigationProperty Name="RepositoryCustody" Relationship="IsraaRepositoryModel.FK_RepositoryCustody_Material" FromRole="Material" ToRole="RepositoryCustody" />
+          <NavigationProperty Name="TransactionDetails" Relationship="IsraaRepositoryModel.FK_RepositoryTransaction_Material" FromRole="Material" ToRole="TransactionDetails" />
+          <NavigationProperty Name="Supplier" Relationship="IsraaRepositoryModel.MaterialSupplier" FromRole="Material" ToRole="Supplier" />
+          <Property Name="Code" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+        </EntityType>
+        <EntityType Name="MaterialType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" MaxLength="100" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ParentID" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_Material_MaterialType" FromRole="MaterialType" ToRole="Material" />
+          <NavigationProperty Name="MaterialType1" Relationship="IsraaRepositoryModel.islam" FromRole="MaterialType" ToRole="MaterialType1" />
+          <NavigationProperty Name="MaterialType2" Relationship="IsraaRepositoryModel.islam" FromRole="MaterialType1" ToRole="MaterialType" />
+        </EntityType>
+        <EntityType Name="MaterialUnit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_Material_MaterialUnit" FromRole="MaterialUnit" ToRole="Material" />
+          <NavigationProperty Name="RepositoryBalance" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_MaterialUnit" FromRole="MaterialUnit" ToRole="RepositoryBalance" />
+          <NavigationProperty Name="TransactionDetails" Relationship="IsraaRepositoryModel.FK_TransactionDetails_MaterialUnit" FromRole="MaterialUnit" ToRole="TransactionDetails" />
+        </EntityType>
+        <EntityType Name="RepositoryBalance">
+          <Key>
+            <PropertyRef Name="Id" />
+            <PropertyRef Name="RepositoryDeparmentId" />
+            <PropertyRef Name="MaterialId" />
+            <PropertyRef Name="UnitId" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="RepositoryDeparmentId" Nullable="false" Type="Int32" />
+          <Property Name="MaterialId" Nullable="false" Type="Int32" />
+          <Property Name="UnitId" Nullable="false" Type="Int32" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_Material" FromRole="RepositoryBalance" ToRole="Material" />
+          <NavigationProperty Name="MaterialUnit" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_MaterialUnit" FromRole="RepositoryBalance" ToRole="MaterialUnit" />
+          <NavigationProperty Name="RepositoryDepartment" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_RepositoryDepartment" FromRole="RepositoryBalance" ToRole="RepositoryDepartment" />
+        </EntityType>
+        <EntityType Name="RepositoryCustody">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="CustodyDetailsId" Nullable="false" Type="Int32" />
+          <Property Name="EmployeeId" Nullable="false" Type="Int32" />
+          <Property Name="MaterialId" Nullable="false" Type="Int32" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="CustodyDetails" Relationship="IsraaRepositoryModel.FK_RepositoryCustody_CustodyDetails" FromRole="RepositoryCustody" ToRole="CustodyDetails" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_RepositoryCustody_Material" FromRole="RepositoryCustody" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="RepositoryDepartment">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="ParentId" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="CustodyDetails" Relationship="IsraaRepositoryModel.FK_CustodyDetails_RepositoryDepartment" FromRole="RepositoryDepartment" ToRole="CustodyDetails" />
+          <NavigationProperty Name="RepositoryBalance" Relationship="IsraaRepositoryModel.FK_RepositoryBalance_RepositoryDepartment" FromRole="RepositoryDepartment" ToRole="RepositoryBalance" />
+          <NavigationProperty Name="TransactionDetails" Relationship="IsraaRepositoryModel.FK_TransactionDetails_RepositoryDepartment" FromRole="RepositoryDepartment" ToRole="TransactionDetails" />
+          <NavigationProperty Name="TransactionDetails1" Relationship="IsraaRepositoryModel.FK_TransactionDetails_TransactionDetails" FromRole="RepositoryDepartment" ToRole="TransactionDetails" />
+        </EntityType>
+        <EntityType Name="RequestStatus">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="CustodyDetails" Relationship="IsraaRepositoryModel.FK_CustodyDetails_RequestStatus" FromRole="RequestStatus" ToRole="CustodyDetails" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Address" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="Mobile" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Transaction" Relationship="IsraaRepositoryModel.FK_Transaction_Supplier" FromRole="Supplier" ToRole="Transaction" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.MaterialSupplier" FromRole="Supplier" ToRole="Material" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="TransactionTypeId" Nullable="false" Type="Int32" />
+          <Property Name="TransactionDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="SupplierId" Type="Int32" />
+          <Property Name="DepartmentId" Type="Int32" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Supplier" Relationship="IsraaRepositoryModel.FK_Transaction_Supplier" FromRole="Transaction" ToRole="Supplier" />
+          <NavigationProperty Name="TransactionType" Relationship="IsraaRepositoryModel.FK_Transaction_TransactionType" FromRole="Transaction" ToRole="TransactionType" />
+          <NavigationProperty Name="TransactionDetails" Relationship="IsraaRepositoryModel.FK_TransactionDetails_Transaction" FromRole="Transaction" ToRole="TransactionDetails" />
+        </EntityType>
+        <EntityType Name="TransactionDetails">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="TransactionId" Nullable="false" Type="Int32" />
+          <Property Name="RepositoryDepartmentId" Nullable="false" Type="Int32" />
+          <Property Name="ToRepositoryDepartmentId" Type="Int32" />
+          <Property Name="MaterialId" Nullable="false" Type="Int32" />
+          <Property Name="UnitId" Nullable="false" Type="Int32" />
+          <Property Name="Quantity" Nullable="false" Type="Int32" />
+          <Property Name="QuantityAfterInventory" Type="Int32" />
+          <Property Name="Price" Type="Double" />
+          <Property Name="ExpirationDate" Precision="3" Type="DateTime" />
+          <Property Name="Notes" MaxLength="Max" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Material" Relationship="IsraaRepositoryModel.FK_RepositoryTransaction_Material" FromRole="TransactionDetails" ToRole="Material" />
+          <NavigationProperty Name="MaterialUnit" Relationship="IsraaRepositoryModel.FK_TransactionDetails_MaterialUnit" FromRole="TransactionDetails" ToRole="MaterialUnit" />
+          <NavigationProperty Name="RepositoryDepartment" Relationship="IsraaRepositoryModel.FK_TransactionDetails_RepositoryDepartment" FromRole="TransactionDetails" ToRole="RepositoryDepartment" />
+          <NavigationProperty Name="RepositoryDepartment1" Relationship="IsraaRepositoryModel.FK_TransactionDetails_TransactionDetails" FromRole="TransactionDetails" ToRole="RepositoryDepartment" />
+          <NavigationProperty Name="Transaction" Relationship="IsraaRepositoryModel.FK_TransactionDetails_Transaction" FromRole="TransactionDetails" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="TransactionType">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="Name" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" Type="String" />
+          <Property Name="IsDelete" Nullable="false" Type="Boolean" />
+          <Property Name="IsActive" Nullable="false" Type="Boolean" />
+          <Property Name="InsertedDate" Nullable="false" Precision="3" Type="DateTime" />
+          <Property Name="InsertEmployeeId" Type="Int32" />
+          <NavigationProperty Name="Transaction" Relationship="IsraaRepositoryModel.FK_Transaction_TransactionType" FromRole="TransactionType" ToRole="Transaction" />
+        </EntityType>
+        <Association Name="FK_CustodyDetails_CustodyType">
+          <End Type="IsraaRepositoryModel.CustodyType" Multiplicity="1" Role="CustodyType" />
+          <End Type="IsraaRepositoryModel.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="CustodyType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="CustodyTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_Material">
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="1" Role="Material" />
+          <End Type="IsraaRepositoryModel.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_RepositoryDepartment">
+          <End Type="IsraaRepositoryModel.RepositoryDepartment" Multiplicity="0..1" Role="RepositoryDepartment" />
+          <End Type="IsraaRepositoryModel.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="RepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CustodyDetails_RequestStatus">
+          <End Type="IsraaRepositoryModel.RequestStatus" Multiplicity="1" Role="RequestStatus" />
+          <End Type="IsraaRepositoryModel.CustodyDetails" Multiplicity="*" Role="CustodyDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RequestStatus">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="CustodyDetails">
+              <PropertyRef Name="RequestStatusId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryCustody_CustodyDetails">
+          <End Type="IsraaRepositoryModel.CustodyDetails" Multiplicity="1" Role="CustodyDetails" />
+          <End Type="IsraaRepositoryModel.RepositoryCustody" Multiplicity="*" Role="RepositoryCustody" />
+          <ReferentialConstraint>
+            <Principal Role="CustodyDetails">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryCustody">
+              <PropertyRef Name="CustodyDetailsId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialType">
+          <End Type="IsraaRepositoryModel.MaterialType" Multiplicity="0..1" Role="MaterialType" />
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="*" Role="Material" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Material_MaterialUnit">
+          <End Type="IsraaRepositoryModel.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="*" Role="Material" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Material">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_Material">
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="1" Role="Material" />
+          <End Type="IsraaRepositoryModel.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryCustody_Material">
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="1" Role="Material" />
+          <End Type="IsraaRepositoryModel.RepositoryCustody" Multiplicity="*" Role="RepositoryCustody" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryCustody">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryTransaction_Material">
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="1" Role="Material" />
+          <End Type="IsraaRepositoryModel.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Material">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="MaterialId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="islam">
+          <End Type="IsraaRepositoryModel.MaterialType" Multiplicity="0..1" Role="MaterialType" />
+          <End Type="IsraaRepositoryModel.MaterialType" Multiplicity="*" Role="MaterialType1" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="MaterialType1">
+              <PropertyRef Name="ParentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_MaterialUnit">
+          <End Type="IsraaRepositoryModel.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="IsraaRepositoryModel.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_MaterialUnit">
+          <End Type="IsraaRepositoryModel.MaterialUnit" Multiplicity="1" Role="MaterialUnit" />
+          <End Type="IsraaRepositoryModel.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="MaterialUnit">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="UnitId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RepositoryBalance_RepositoryDepartment">
+          <End Type="IsraaRepositoryModel.RepositoryDepartment" Multiplicity="1" Role="RepositoryDepartment" />
+          <End Type="IsraaRepositoryModel.RepositoryBalance" Multiplicity="*" Role="RepositoryBalance" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="RepositoryBalance">
+              <PropertyRef Name="RepositoryDeparmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_RepositoryDepartment">
+          <End Type="IsraaRepositoryModel.RepositoryDepartment" Multiplicity="1" Role="RepositoryDepartment" />
+          <End Type="IsraaRepositoryModel.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="RepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_TransactionDetails">
+          <End Type="IsraaRepositoryModel.RepositoryDepartment" Multiplicity="0..1" Role="RepositoryDepartment" />
+          <End Type="IsraaRepositoryModel.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="RepositoryDepartment">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="ToRepositoryDepartmentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Supplier">
+          <End Type="IsraaRepositoryModel.Supplier" Multiplicity="0..1" Role="Supplier" />
+          <End Type="IsraaRepositoryModel.Transaction" Multiplicity="*" Role="Transaction" />
+          <ReferentialConstraint>
+            <Principal Role="Supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="SupplierId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_TransactionType">
+          <End Type="IsraaRepositoryModel.TransactionType" Multiplicity="1" Role="TransactionType" />
+          <End Type="IsraaRepositoryModel.Transaction" Multiplicity="*" Role="Transaction" />
+          <ReferentialConstraint>
+            <Principal Role="TransactionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="TransactionTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TransactionDetails_Transaction">
+          <End Type="IsraaRepositoryModel.Transaction" Multiplicity="1" Role="Transaction" />
+          <End Type="IsraaRepositoryModel.TransactionDetails" Multiplicity="*" Role="TransactionDetails" />
+          <ReferentialConstraint>
+            <Principal Role="Transaction">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="TransactionDetails">
+              <PropertyRef Name="TransactionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MaterialSupplier">
+          <End Type="IsraaRepositoryModel.Material" Multiplicity="*" Role="Material" />
+          <End Type="IsraaRepositoryModel.Supplier" Multiplicity="*" Role="Supplier" />
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IsraaRepositoryModelStoreContainer" CdmEntityContainer="IsraaRepositoryEntities">
+          <EntitySetMapping Name="CustodyDetails">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.CustodyDetails">
+              <MappingFragment StoreEntitySet="CustodyDetails">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="DateOfReturnCustody" ColumnName="DateOfReturnCustody" />
+                <ScalarProperty Name="CustodyStatus" ColumnName="CustodyStatus" />
+                <ScalarProperty Name="RequestStatusId" ColumnName="RequestStatusId" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="ToEmployeeId" ColumnName="ToEmployeeId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="RepositoryDepartmentId" ColumnName="RepositoryDepartmentId" />
+                <ScalarProperty Name="CustodyDate" ColumnName="CustodyDate" />
+                <ScalarProperty Name="CustodyTypeId" ColumnName="CustodyTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CustodyType">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.CustodyType">
+              <MappingFragment StoreEntitySet="CustodyType">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Material">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.Material">
+              <MappingFragment StoreEntitySet="Material">
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="RequestLimit" ColumnName="RequestLimit" />
+                <ScalarProperty Name="WarningBeforExpir" ColumnName="WarningBeforExpir" />
+                <ScalarProperty Name="IsConsumed" ColumnName="IsConsumed" />
+                <ScalarProperty Name="UsageStatus" ColumnName="UsageStatus" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialType">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.MaterialType">
+              <MappingFragment StoreEntitySet="MaterialType">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ParentID" ColumnName="ParentID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MaterialUnit">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.MaterialUnit">
+              <MappingFragment StoreEntitySet="MaterialUnit">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepositoryBalance">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.RepositoryBalance">
+              <MappingFragment StoreEntitySet="RepositoryBalance">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="RepositoryDeparmentId" ColumnName="RepositoryDeparmentId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepositoryCustody">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.RepositoryCustody">
+              <MappingFragment StoreEntitySet="RepositoryCustody">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
+                <ScalarProperty Name="CustodyDetailsId" ColumnName="CustodyDetailsId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RepositoryDepartment">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.RepositoryDepartment">
+              <MappingFragment StoreEntitySet="RepositoryDepartment">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="ParentId" ColumnName="ParentId" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="RequestStatus">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.RequestStatus">
+              <MappingFragment StoreEntitySet="RequestStatus">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Supplier">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.Supplier">
+              <MappingFragment StoreEntitySet="Supplier">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="DepartmentId" ColumnName="DepartmentId" />
+                <ScalarProperty Name="SupplierId" ColumnName="SupplierId" />
+                <ScalarProperty Name="TransactionDate" ColumnName="TransactionDate" />
+                <ScalarProperty Name="TransactionTypeId" ColumnName="TransactionTypeId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionDetails">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.TransactionDetails">
+              <MappingFragment StoreEntitySet="TransactionDetails">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="QuantityAfterInventory" ColumnName="QuantityAfterInventory" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitId" ColumnName="UnitId" />
+                <ScalarProperty Name="MaterialId" ColumnName="MaterialId" />
+                <ScalarProperty Name="ToRepositoryDepartmentId" ColumnName="ToRepositoryDepartmentId" />
+                <ScalarProperty Name="RepositoryDepartmentId" ColumnName="RepositoryDepartmentId" />
+                <ScalarProperty Name="TransactionId" ColumnName="TransactionId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransactionType">
+            <EntityTypeMapping TypeName="IsraaRepositoryModel.TransactionType">
+              <MappingFragment StoreEntitySet="TransactionType">
+                <ScalarProperty Name="InsertEmployeeId" ColumnName="InsertEmployeeId" />
+                <ScalarProperty Name="InsertedDate" ColumnName="InsertedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="MaterialSupplier" TypeName="IsraaRepositoryModel.MaterialSupplier" StoreEntitySet="MaterialSupplier">
+            <EndProperty Name="Supplier">
+              <ScalarProperty Name="Id" ColumnName="SupplierId" />
+            </EndProperty>
+            <EndProperty Name="Material">
+              <ScalarProperty Name="Id" ColumnName="MaterialId" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

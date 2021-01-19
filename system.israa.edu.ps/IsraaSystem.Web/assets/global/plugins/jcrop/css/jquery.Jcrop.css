@@ -1,0 +1,47 @@
+.cropit-image-preview {
+    background-color: #f8f8f8;
+    background-size: cover;
+    border: 3px solid #ccc;
+    border-radius: 3px;
+    margin-top: 7px;
+    width: 206px;
+    height: 236px;
+    cursor: move;
+}
+
+.cropit-image-background {
+    opacity: .2;
+    cursor: auto;
+}
+
+.image-size-label {
+    margin-top: 10px;
+}
+
+input {
+    display: block;
+}
+
+#result {
+    margin-top: 10px;
+    width: 900px;
+}
+
+#result-data {
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+}
+
+input {
+    /* Use relative position to prevent from being covered by image background */
+    position: relative;
+    z-index: 10;
+    display: block;
+}
+
+.export {
+    margin-top: 10px;
+}

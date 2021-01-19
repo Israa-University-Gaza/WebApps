@@ -1,0 +1,424 @@
+﻿
+@model IsraaSystem.Web.Areas.Academic.Models.Mark.MarkIndexVm
+@using IsraaSystem.Application.Helper
+@using IsraaSystem.DataAccess.Sql.Academic
+
+@{
+    /**/
+
+    /**/
+
+    ViewBag.Title = "الشؤون الأكاديمية - إدارة علامات الطلاب";
+    ViewBag.Menu = "#menu-mark";
+    ViewBag.subMenu = "#menu-mark-studentMark";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+
+
+
+
+
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Academic/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Academic/OfferdCourse">إدارة العلامات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>علامات الطلاب</a>
+    </li>
+}
+
+
+<div id="refresh-list"></div>
+<div class="row">
+
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-social-dribbble font-green"></i>
+                <span class="caption-subject font-green bold uppercase"> ادارة علامات الطلاب</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+
+
+            <div class="form">
+                <div class="form-horizontal">
+                    @Html.AntiForgeryToken()
+
+
+                    <div class="form-body ">
+
+
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.SemesterId)
+
+                            </label>
+                            <div class="col-md-5">
+
+                                @Html.DropDownListFor(model => model.SemesterId,
+                                    new SelectList(DropDownHelpper.Semesters(), "Value", "Text"),
+                                    "اختر الفصل",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_target = "Colleges",
+                                        data_url = "/Academic/Mark/ddlColleges",
+                                        data_replacement = "container1"
+                                    })
+
+                            </div>
+
+
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.ProgramID)
+                            </label>
+                            <div class="col-md-4">
+
+                                @Html.DropDownListFor(model => model.ProgramID,
+                                    new SelectList(SelectDA.ddlEmployeePrograms(Convert.ToInt32(User.Identity.Name)), "Value", "Text"),
+                                    "اختر البرنامج",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_target = "Colleges",
+                                        data_url = "/Academic/Mark/ddlColleges",
+                                        data_replacement = "container1"
+                                    })
+
+                            </div>
+
+
+                        </div>
+                        <div class="form-group">
+
+
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.CollegeID)
+                            </label>
+                            <div class="col-md-5">
+                                @Html.DropDownListFor(model => model.CollegeID,
+                                    new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                    "اختر الكلية",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_id = "Colleges",
+                                        data_target = "Departments",
+                                        data_url = "/Academic/Mark/ddlEmployeeDepartments",
+                                        data_replacement = "container1",
+                                        data_default_label = "اختر الكلية",
+                                        disabled = ""
+                                    })
+                            </div>
+
+
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.DepartmentID)
+
+                            </label>
+                            <div class="col-md-4">
+
+
+                                @Html.DropDownListFor(model => model.DepartmentID,
+                                    new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                    "اختر القسم",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_target = "OfferdCourses",
+                                        data_id = "Departments",
+                                        data_url = "/Academic/Mark/ddlFilterdOfferdCourses",
+                                        data_replacement = "container1",
+                                        data_default_label = "اختر القسم",
+                                        disabled = ""
+                                    })
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.OfferdCourseID)
+
+                            </label>
+                            <div class="col-md-5">
+
+                                @Html.DropDownListFor(model => model.OfferdCourseID,
+                                    new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                    "اختر المساق",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_id = "OfferdCourses",
+                                        data_target = "Sections",
+                                        data_url = "/Academic/Mark/ddlSections",
+                                        data_replacement = "container1",
+                                        data_default_label = "اختر المساق",
+                                        disabled = ""
+                                    })
+
+                            </div>
+
+                            <label class="col-md-1 control-label">
+                                @Html.DisplayNameFor(model => model.SectionID)
+
+                            </label>
+                            <div class="col-md-4">
+
+                                @Html.DropDownListFor(model => model.SectionID,
+                                    new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                    "اختر الشعبة",
+                                    new
+                                    {
+                                        @class = "form-control select2 cascadingDropDown form-filter",
+                                        data_group = "product-1",
+                                        data_id = "Sections",
+                                        data_replacement = "container1",
+                                        data_default_label = "اختر الشعبة",
+                                        data_final = "",
+                                        disabled = ""
+                                    })
+
+
+                            </div>
+
+
+                            <div class="col-md-1">
+                                <button id="btnSearch" type="submit" class="btn btn-block default">تصفية</button>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+
+
+            <div class="table-container">
+
+
+                <div class="table-actions-wrapper">
+                    <span> </span>
+
+                    <select class="table-group-action-input form-control input-inline ">
+                        <option value="">اختر اجراء ...</option>
+
+                        <option value="DeanMidAccerdiate">اعتماد نصفي كعميد</option>
+                        @if (ThisUser.HasAction("Academic.Mark.AcademicMarkAccredit"))
+                        {
+                            <option value="AcademicMidAccerdiate">اعتماد نصفي كنائب اكاديمي</option>
+                        }
+                        <option class="font-red" value="DeanMidUnAccerdiate">ارجاع اعتماد نصفي كعميد</option>
+                        @if (ThisUser.HasAction("Academic.Mark.AcademicMarkReturnAccredit"))
+                        {
+                            <option class="font-red" value="AcademicMidUnAccerdiate">ارجاع اعتماد نصفي كنائب اكاديمي</option>
+                        }
+
+                        <option disabled="disabled">
+                            ---------------------------------
+                        </option>
+
+                        <option value="DeanFinalAccerdiate">اعتماد نهائي كعميد</option>
+                        @if (ThisUser.HasAction("Academic.Mark.AcademicMarkAccredit"))
+                        {
+                            <option value="AcademicFinalAccerdiate">اعتماد نهائي كنائب اكاديمي</option>
+                        }
+                        <option class="font-red" value="DeanFinalUnAccerdiate">ارجاع اعتماد نهائي كعميد</option>
+                        @if (ThisUser.HasAction("Academic.Mark.AcademicMarkReturnAccredit"))
+                        {
+                            <option class="font-red" value="AcademicFinalUnAccerdiate">ارجاع اعتماد نهائي كنائب اكاديمي</option>
+                        }
+
+
+                    </select>
+                    <button class="btn  green table-group-action-submit">
+                        <i class="fa fa-check"></i> تنفيذ
+                    </button>
+                </div>
+                <span> </span>
+                <div class="note note-info">
+                    <div class="row">
+                        <div class="col-md-2">
+                            <h4 id="course-name" class="block font-red bold uppercase"></h4>
+                            <p>
+                                <ul class="list-inline">
+                                    <li> <strong>شعبة</strong>&nbsp:&nbsp;<span id="section-num"></span> </li>
+                                    <li> <strong>المحاضر</strong>&nbsp:&nbsp; <span id="employee-name"></span> </li>
+
+                                </ul>
+                            </p>
+
+
+                        </div>
+                        <div class="col-md-7">
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>العدد الكلي </th>
+                                        <th> غير مكتمل </th>
+                                        <th> غياب </th>
+                                        <th> نجاح </th>
+                                        <th> رسوب </th>
+                                        <th> امتياز </th>
+                                        <th> جيد جدا </th>
+                                        <th> جيد </th>
+                                        <th> مقبول </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td id="count">  </td>
+                                        <td id="FinalIncompleteCount">  </td>
+                                        <td id="FinalNoMarkCount">  </td>
+                                        <td id="SuccessCount">  </td>
+                                        <td id="FailCount">  </td>
+                                        <td id="ExcellenceCount">  </td>
+                                        <td id="VeryGoodCount">  </td>
+                                        <td id="GoodCount">  </td>
+                                        <td id="PassCount">  </td>
+
+                                    </tr>
+                                    <tr>
+                                        <td id="countPer">  </td>
+                                        <td id="FinalIncompleteCountPer">  </td>
+                                        <td id="FinalNoMarkCountPer">  </td>
+                                        <td id="SuccessCountPer">  </td>
+                                        <td id="FailCountPer">  </td>
+                                        <td id="ExcellenceCountPer">  </td>
+                                        <td id="VeryGoodCountPer">  </td>
+                                        <td id="GoodCountPer">  </td>
+                                        <td id="PassCountPer">  </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class=" col-md-3">
+
+                            <a id="SectionStudentsMarks" href="#" class="btn btn-default btn-block">
+                                <i class="fa fa-download"></i>
+                                كشف علامات الطلاب
+                            </a>
+                            <a id="SectionStudentsMidtermMarks" href="#" class="btn btn-default btn-block">
+                                <i class="fa fa-download"></i>
+                                كشف العلامات النصفية
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+                <table class="table table-striped table-bordered table-hover table-checkable" id="datatable_ajax">
+                    <thead>
+                        <tr>
+                            <th rowspan="2" width="2%">
+                                <label class="mt-checkbox mt-checkbox-single mt-checkbox-outline">
+                                    <input type="checkbox" class="group-checkable" data-set="#sample_2 .checkboxes" />
+                                    <span></span>
+                                </label>
+                            </th>
+                            <th rowspan="2"> رقم الطالب</th>
+                            <th rowspan="2">اسم الطالب </th>
+                            <th rowspan="2"> اعمال الفصل </th>
+                            <th rowspan="2"> النصفي </th>
+                            <th rowspan="2"> النهائي </th>
+                            <th rowspan="2"> العلامة </th>
+
+                            <th colspan="3" class=" text-center">اعتماد نصفي</th>
+
+
+                            <th colspan="3" class=" text-center">اعتماد نهائي</th>
+
+                            <th rowspan="2"> ادوات </th>
+
+                        </tr>
+                        <tr role="row" class="heading">
+
+
+                            <th class=" text-center">محاضر</th>
+                            <th class=" text-center">عميد</th>
+                            <th class=" text-center">نائب</th>
+
+                            <th class=" text-center">محاضر</th>
+                            <th class=" text-center">عميد</th>
+                            <th class=" text-center">نائب</th>
+
+
+                        </tr>
+
+
+                    </thead>
+                    <tbody> </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section PageStyles {
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    <link href="~/assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/global/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.css" rel="stylesheet" />
+    <link href="~/assets/global/plugins/datatables/select.dataTables.css" rel="stylesheet" />
+    <!-- END PAGE LEVEL PLUGINS -->
+    <style>
+
+        option.select-hr {
+            border-bottom: 1px dotted #000;
+        }
+
+        table.dataTable.fixedHeader-floating {
+            top: 50px !important;
+        }
+
+        .label.label-sm {
+            font-size: 11px !important;
+            padding: 0px 2px !important;
+        }
+    </style>
+}
+
+@section PagePlugins {
+    <script src="~/assets/global/scripts/datatable.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/datatables/datatables.min.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.js" type="text/javascript"></script>
+    <script src="~/assets/global/plugins/cascading-dropdown/jquery.cascading-drop-down.js"></script>
+}
+
+@section PageScripts {
+
+    <script src="~/Areas/Academic/Scripts/Mark/Index.js"></script>
+
+
+    <script>
+        $(function () {
+            israaApp.initSsdCascadingDropDown();
+        });
+
+        function show(param_div_id) {
+            document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+        }
+    </script>
+
+}
+
+
+

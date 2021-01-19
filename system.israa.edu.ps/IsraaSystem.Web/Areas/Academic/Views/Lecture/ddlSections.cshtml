@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.Academic.Lecture.Lecture
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.SectionID, new SelectList(Model.Sections, "Value", "Text"), "إختر الشعبة", new { @class = "form-control" })

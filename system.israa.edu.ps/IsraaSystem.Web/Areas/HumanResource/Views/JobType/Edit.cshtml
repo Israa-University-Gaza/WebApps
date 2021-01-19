@@ -1,0 +1,76 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Job.JobType
+@{
+    Layout = null;
+}
+
+<script type="text/javascript">
+    function updateData() {
+        $("#Job-Type").load("/HumanResource/JobType/Data?page=@ViewBag.Page");
+    }
+</script>
+
+<div id="edit-Job-Type" class="modal-content">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل نوع وظيفة : @Model.ArName</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Edit", "JobType",
+                                            new AjaxOptions
+                                            {
+                                                InsertionMode = InsertionMode.ReplaceWith,
+                                                HttpMethod = "POST",
+                                                UpdateTargetId = "edit-Job-Type",
+                                                OnSuccess = "updateData"
+                                            }, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <div class="col-md-12">
+                            @if (TempData["add-msg"] != null)
+                            {
+                                int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                                String msg = TempData["add-msg"].ToString().Split(';')[1];
+                                <script type="text/javascript">
+                                    showToast("@msg", "@((status > 0) ? "success":"error")");
+                                </script>
+                            }
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">اسم نوع الوظيفة باللغة العربية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.ArName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.ArName, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">اسم نوع الوظيفة باللغة الإنجليزية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.EnName, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            @Ajax.ActionLink("نوع وظيفة جديد", "Add", null, new AjaxOptions
+                       {
+                           InsertionMode = InsertionMode.ReplaceWith,
+                           HttpMethod = "Get",
+                           UpdateTargetId = "edit-Job-Type"
+                       }, new { @class = "btn btn-success pull-right" })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+

@@ -1,0 +1,6 @@
+﻿@model IsraaSystem.Core.Classic.Academic.OfferdCourse.OfferdCourse
+@{
+    Layout = null;
+}
+@Html.DropDownListFor(model => model.DepartmentID, new SelectList(Model.Departments, "Value", "Text"), "إختر القسم", new { @class = "form-control ddl-dependent", data_url = "/Academic/OfferdCourse/ddlDepartmentCourse/", data_target_id = "#CourseID" })
+

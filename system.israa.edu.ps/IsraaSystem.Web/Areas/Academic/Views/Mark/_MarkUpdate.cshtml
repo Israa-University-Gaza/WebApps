@@ -1,0 +1,155 @@
+﻿@using IsraaSystem.Application.Helper
+@model IsraaSystem.Web.Areas.Academic.Models.Mark.MarkUpdateVM
+
+
+@{
+    Layout = null;
+}
+
+<div id="Edit-Mark" class="modal-content">
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "Edit-Mark",
+            OnSuccess = "ModelHideFormSubmit"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل علامة </h4>
+    </div>
+    <div class="modal-body modal-form">
+
+        <div class="note note-info">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <p><strong>توزيع العلامات</strong>&nbsp; &nbsp; @Model.MarkTitle.Title1:  @Model.MarkTitle.Mark1 &nbsp; &nbsp; @Model.MarkTitle.Title2:  @Model.MarkTitle.Mark2 &nbsp; @Model.MarkTitle.Title3 @Model.MarkTitle.Mark3</p>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("MarkUpdate", "Mark", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.Partial("_Alerts")
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.MarkDto.StdSectionId)
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.MarkDto.MarkId)
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@Model.MarkTitle.Title1</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.MarkDto.WorkMark, new { @class = "form-control " })
+
+
+
+                            @Html.ValidationMessageFor(model => model.MarkDto.WorkMark, "", new { @class = "text-danger help-block" })
+                            @Html.HiddenFor(model => model.MarkDto.WorkMark)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> @Model.MarkTitle.Title2</label>
+                        <div class="col-md-6">
+
+
+
+                            @Html.TextBoxFor(model => model.MarkDto.MidtermMark, new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.MarkDto.MidtermMark, "", new { @class = "text-danger help-block" })
+                            @Html.HiddenFor(model => model.MarkDto.MidtermMark)
+                        </div>
+                        <div class="col-md-1">
+                            @Html.CheckBoxFor(model => model.MarkDto.IsMidtermNoMark,
+                                new
+                                {
+                                    @data_on = "غياب",
+                                    @data_off = "حضور",
+                                    @data_onstyle = "danger",
+                                    @data_offstyle = "success",
+                                    @width="100"
+
+                                })
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> @Model.MarkTitle.Title3</label>
+                        <div class="col-md-6">
+                            @Html.TextBoxFor(model => model.MarkDto.FinalMark, new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.MarkDto.FinalMark, "", new { @class = "text-danger help-block" })
+                            @Html.HiddenFor(model => model.MarkDto.FinalMark)
+                        </div>
+                        <div class="col-md-1">
+                            @Html.CheckBoxFor(model => model.MarkDto.IsFinalNoMark,
+                                new
+                                {
+                                    @data_on = "غياب",
+                                    @data_off = "حضور",
+                                    @data_onstyle = "danger",
+                                    @data_offstyle = "success",
+
+                                })
+
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label"> ملاحظات</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.MarkDto.Note, new { @class = "form-control " })
+                            @Html.ValidationMessageFor(model => model.MarkDto.Note, "", new { @class = "text-danger help-block" })
+                            @Html.HiddenFor(model => model.MarkDto.Note)
+                        </div>
+                    </div>
+
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+
+                            <input id="submit" type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+<script>
+    $(function () {
+
+
+
+
+        $('#MarkDto_IsMidtermNoMark').bootstrapToggle();
+        $('#MarkDto_IsMidtermNoMark').change(function () {
+            $("#MarkDto_MidtermMark").prop('disabled', $(this).prop('checked'));
+        });
+
+
+        $('#MarkDto_IsFinalNoMark').bootstrapToggle();
+        $('#MarkDto_IsFinalNoMark').change(function () {
+            $("#MarkDto_FinalMark").prop('disabled', $(this).prop('checked'));
+        });
+
+    });
+
+
+    function ModelHideFormSubmit() {
+        $('.modal').modal('hide');
+
+    }
+
+
+</script>
+
+
+

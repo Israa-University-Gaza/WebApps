@@ -1,0 +1,138 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+    Layout = null;
+}
+
+
+<div id="employee-statistics">
+    <div id="refresh-list"></div>
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-statistics"
+        };
+    }
+
+
+    @using (Ajax.BeginForm("ListPlan", null, opt, new { @id = "form-employee-vacation" }))
+    {
+
+        <div class="form no-print">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-sm1-1 control-label">الرقم الوظيفي</label>
+                        <div class="col-sm-2">
+                            @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", @type = "Number", placeholder = "رقم  الموظف", @id = "EmployeeName" })
+                        </div>
+
+                        <label class="col-sm-1 control-label">سنة الرصيد</label>
+                        <div class="col-sm-2">
+                            @Html.DropDownListFor(model => model.filter.VacationBalanceYearID, new SelectList(Model.filter.VacationBalanceYears, "Value", "Text"), new { @class = "form-control input-change", @id = "VacationBalanceYearID" })
+                        </div>
+                        <div class=" col-sm-1">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+
+
+            DataTable dtEmpInfo = (DataTable)ViewBag.dtEmpInfo;
+
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <td class="active">اسم الموظف </td>
+                                <td>@dtEmpInfo.Rows[0]["EmployeeName"].ToString()  </td>
+
+                                <td class="active">الرقم الوظيفي </td>
+                                <td>@dtEmpInfo.Rows[0]["EmployeeNo"].ToString()  </td>
+                            </tr>
+
+                            <tr>
+                                <td class="active">المسمى الوظيفي </td>
+                                <td>@dtEmpInfo.Rows[0]["JobTitle"].ToString()  </td>
+
+                                <td class="active">العام </td>
+                                <td>@ViewBag.selectedYear.ToString()  </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <div class="row">
+           
+                <div class="col-md-6">
+                
+                    <table class="table table-bordered ">
+
+                            <tbody>
+                                <tr>
+                                    <td colspan="3" class="info"> إجازة حسب الخطة </td>
+                                    <td class="for-print" rowspan="2">توقيع الموظف </td>
+                                </tr>
+                                <tr>
+                                    <td> من </td>
+                                    <td> إلى </td>
+                                    <td> عدد الأيام </td>
+
+                                </tr>
+                                @foreach (DataRow row in Model.data.Rows)
+                                {
+                                    if ((string)row["VacationType"] == "إجازة حسب الخطة")
+                                    {
+                                        <tr>
+                                            <td> @row["VacationStartDate"] </td>
+                                            <td> @row["VacationEndDate"] </td>
+                                            <td> @row["VacationDays"] </td>
+                                            <td class="for-print"></td>
+                                        </tr>
+                                    }
+
+                                }
+
+
+                            </tbody>
+                        </table>
+
+                </div>
+            </div>
+
+
+
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

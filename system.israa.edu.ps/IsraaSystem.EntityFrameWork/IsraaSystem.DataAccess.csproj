@@ -1,0 +1,1024 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{94BE8D9B-8E9F-4DFD-A307-B7028990171F}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>IsraaSystem.DataAccess</RootNamespace>
+    <AssemblyName>IsraaSystem.DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.DynamicFilters, Version=3.0.1.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.DynamicFilters.3.0.1\lib\net40\EntityFramework.DynamicFilters.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Linq.Dynamic, Version=1.0.6132.35681, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Linq.Dynamic.1.0.7\lib\net40\System.Linq.Dynamic.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DBConnection.cs" />
+    <Compile Include="EntityFrameWork\IsraaAcademic\City.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\College.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\CollegeEmployee.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Country.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Course.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\CourseCategory.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\CourseOptionalCourses.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\CourseType.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Department.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\EmplyeeView.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\ExamSectionDistribution.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Governorates.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\GraduationStatus.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Mark.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\MarkTitle.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\MidtermExamSection.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Plan.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\PlanCourse.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\PreRequest.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Program.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\ProgramLevel.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Room.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Section.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\SectionDepartment.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\SemesterStatus.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StdAcademicWarning.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StdSemester.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StdStatus.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentAcademic.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentAcademicLog.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentPersonal.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentStatus.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentSuspended.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentsView.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentTypes.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudentVolunteer.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StudyLevel.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\VolunteerCategory.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\VolunteerType.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\WarningStatus.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\WarningType.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAdministration\AcedmicWarningSetting.cs">
+      <DependentUpon>AdministrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAdministration\AdministrationModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAdministration\AdministrationModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAdministration\AdministrationModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAdministration\VolunteerSetting.cs">
+      <DependentUpon>AdministrationModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AccreditationStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AllEmployees.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceDaily.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceExit.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceExitType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceFingerprint.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceFormat.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceFormatDetails.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceInstructor.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceInstructorStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceInstructorTimeOut.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceMonthly.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\AttendanceTimeOut.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Bank.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\BankAcount.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\BasicSalary.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Bonus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\BonusType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Branch.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Cader.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\CaderDegree.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\City.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\ContractInstructor.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\ContractStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\ContractType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Country.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Currency.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Day.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\DayStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Deduction.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\DeductionStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\DeductionType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Department.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\DepartmentType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\DocumentType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmpCategory.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmpEmploymentType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeAppointmentDecision.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeAttendanceFormat.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeBank.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeBonus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeCategory.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeContract.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeContractRenew.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeDeduction.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeDocument.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeEmergencyInfo.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeFacebook.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeFacebookPost.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeFamily.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeIdentifier.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeLanguage.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeMedicalCheckUp.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeMessage.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeePersonal.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Branch.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Building.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\FinalExamSection.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaAcademicModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaAcademicModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Lecture.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\OfferdCourse.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\OfferdCourseType.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\Semester.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaAcademic\StdSection.cs">
+      <DependentUpon>IsraaAcademicModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeePlacement.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeePracticalExperience.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeQualification.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeReportData.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeResearch.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeSalary.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeSkill.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeTrainingCourse.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeVacation.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmployeeVacationBalance.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmploymentType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\EmpStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\FingerprintType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Gender.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Governorate.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Holiday.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\HolidayType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\InstructorType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\InstructorTypeHourPrice.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaHumanResourceContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaHumanResourceContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Job.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobCategory.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobPersonal.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobRequirement.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobTask.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobTaskPointer.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobTerm.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\JobType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\KnowLevel.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Language.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\LateType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\LogEmployeeVacationBalance.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\MachineFingerprint.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\ManualFingerprint.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\MaritalStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Month.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\MonthDay.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Nationality.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\NotificationFlag.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Notifications.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\PersonStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\PlacementStatus.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\PlacementType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\QualificationType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\RelativeType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Religion.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\SalaryBox.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\SalaryBoxType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\Sheet1_.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\SkillType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\sysdiagrams.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\VacationBalanceYear.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\VacationPlace.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaHumanResource\VacationType.cs">
+      <DependentUpon>IsraaHumanResourceContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaLog\IsraaLogModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaLogModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaLog\IsraaLogModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaLogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaLog\IsraaLogModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaLogModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaLog\MarkLog.cs">
+      <DependentUpon>IsraaLogModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionsModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionsModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermissions\Student.cs">
+      <DependentUpon>IsraaPermissionsModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\Area.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\Controller.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\Employee.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\EmployeeArea.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\EmployeeRole.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\GetFillterdObserver_Output.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\GetFillterdObserver_Result.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionContext.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaPermissionContext.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\Permission.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\PermissionJob.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\Role.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaPermission\RolePermission.cs">
+      <DependentUpon>IsraaPermissionContext.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\CustodyDetails.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\CustodyType.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaRepositoryModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraaRepositoryModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\Material.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\MaterialType.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\MaterialUnit.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\RepositoryBalance.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\RepositoryCustody.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\RepositoryDepartment.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\RequestStatus.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\Supplier.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\Transaction.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\TransactionDetails.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraaRepository\TransactionType.cs">
+      <DependentUpon>IsraaRepositoryModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\Account.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\AccountTransaction.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\AccountVoucher.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\AccountVoucherDetails.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\Action.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\ActionType.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\Currency.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\CurrencyPrice.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\HelpRequest.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\InstallmentOrder.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\IsraDataModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraDataModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\IsraDataModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\IsraDataModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>IsraDataModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StringNumber.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentBankInstallment.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentData.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentHelps.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentInstallment.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentLoan.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentScholarship.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\StudentSocialSolidarity.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\Transaction.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\Voucher.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\VoucherDetails.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EntityFrameWork\IsraData\VoucherType.cs">
+      <DependentUpon>IsraDataModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sql\Academic\LectureDA.cs" />
+    <Compile Include="Sql\Academic\MarkDA.cs" />
+    <Compile Include="Sql\Academic\OfferdCourseDA.cs" />
+    <Compile Include="Sql\Academic\SectionDA.cs" />
+    <Compile Include="Sql\Academic\SectionDepartmantDA.cs" />
+    <Compile Include="Sql\Academic\SelectDA.cs" />
+    <Compile Include="Sql\Academic\StudyTableDA.cs" />
+    <Compile Include="Sql\FacebookShare\EmployeeFacebookDA.cs" />
+    <Compile Include="Sql\Financial\TransactionDA.cs" />
+    <Compile Include="Sql\HumanResource\AttendanceDA.cs" />
+    <Compile Include="Sql\HumanResource\AttendanceExitDA.cs" />
+    <Compile Include="Sql\HumanResource\ContractDA.cs" />
+    <Compile Include="Sql\HumanResource\CountryDA.cs" />
+    <Compile Include="Sql\HumanResource\DepartmentDA.cs" />
+    <Compile Include="Sql\HumanResource\DocumentDA.cs" />
+    <Compile Include="Sql\HumanResource\EmpEmploymentTypeDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeBankDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeEmergencyInfoDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeFamilyDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeIdentifierDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeLanguageDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeMedicalCheckUpDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeePersonalDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeePlacementDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeePracticalExperienceDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeQualificationDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeResearchDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeSkillDA.cs" />
+    <Compile Include="Sql\HumanResource\EmployeeTrainingCourseDA.cs" />
+    <Compile Include="Sql\HumanResource\EmpStatusDA.cs" />
+    <Compile Include="Sql\HumanResource\HolidayDA.cs" />
+    <Compile Include="Sql\HumanResource\JobDA.cs" />
+    <Compile Include="Sql\HumanResource\ManualFingerprintDA.cs" />
+    <Compile Include="Sql\HumanResource\SalaryDA.cs" />
+    <Compile Include="Sql\HumanResource\SelectDA.cs" />
+    <Compile Include="Sql\HumanResource\VacationDA.cs" />
+    <Compile Include="Sql\Shared\AccountDA.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <EntityDeploy Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaPermissionContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaAcademicModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.edmx.diagram">
+      <DependentUpon>IsraaAcademicModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaHumanResourceContext.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EntityFrameWork\IsraaAdministration\AdministrationModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>AdministrationModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityFrameWork\IsraaAdministration\AdministrationModel.edmx.diagram">
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+    </None>
+    <None Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.edmx.diagram">
+      <DependentUpon>IsraaHumanResourceContext.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaPermissionsModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <EntityDeploy Include="EntityFrameWork\IsraaLog\IsraaLogModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaLogModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityFrameWork\IsraaLog\IsraaLogModel.edmx.diagram">
+      <DependentUpon>IsraaLogModel.edmx</DependentUpon>
+    </None>
+    <None Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.edmx.diagram">
+      <DependentUpon>IsraaPermissionsModel.edmx</DependentUpon>
+    </None>
+    <None Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.edmx.diagram">
+      <DependentUpon>IsraaPermissionContext.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraaRepositoryModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.edmx.diagram">
+      <DependentUpon>IsraaRepositoryModel.edmx</DependentUpon>
+    </None>
+    <EntityDeploy Include="EntityFrameWork\IsraData\IsraDataModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>IsraDataModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EntityFrameWork\IsraData\IsraDataModel.edmx.diagram">
+      <DependentUpon>IsraDataModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IsraaSystem.Core\IsraaSystem.Core.csproj">
+      <Project>{a5a3793b-eeaf-4daa-b55a-371c93c7d63a}</Project>
+      <Name>IsraaSystem.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaAcademicModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaAcademicModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaAcademic\IsraaAcademicModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaAcademicModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaAcademicModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaAdministration\AdministrationModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+      <LastGenOutput>AdministrationModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaAdministration\AdministrationModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>AdministrationModel.edmx</DependentUpon>
+      <LastGenOutput>AdministrationModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaHumanResourceContext.edmx</DependentUpon>
+      <LastGenOutput>IsraaHumanResourceContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaHumanResource\IsraaHumanResourceContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaHumanResourceContext.edmx</DependentUpon>
+      <LastGenOutput>IsraaHumanResourceContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaLog\IsraaLogModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaLogModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaLogModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaLog\IsraaLogModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaLogModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaLogModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaPermissionsModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaPermissionsModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaPermissions\IsraaPermissionsModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaPermissionsModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaPermissionsModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaPermissionContext.edmx</DependentUpon>
+      <LastGenOutput>IsraaPermissionContext.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaPermission\IsraaPermissionContext.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaPermissionContext.edmx</DependentUpon>
+      <LastGenOutput>IsraaPermissionContext.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaRepositoryModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaRepositoryModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraaRepository\IsraaRepositoryModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraaRepositoryModel.edmx</DependentUpon>
+      <LastGenOutput>IsraaRepositoryModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraData\IsraDataModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraDataModel.edmx</DependentUpon>
+      <LastGenOutput>IsraDataModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="EntityFrameWork\IsraData\IsraDataModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>IsraDataModel.edmx</DependentUpon>
+      <LastGenOutput>IsraDataModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

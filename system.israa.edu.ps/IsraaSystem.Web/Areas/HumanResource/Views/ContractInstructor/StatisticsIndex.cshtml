@@ -1,0 +1,36 @@
+﻿@model IsraaSystem.Entity.HumanResource.Contract.ContractInstructorVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - احصائية دوام المحاضرين";
+    ViewBag.Menu = "#menu-attendance-instructor-statistic";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/ContractInstructor/StatisticIndex">احصائية دوام المحاضرين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض الإحصائيات</a>
+    </li>
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض احصائية دوام المحاضرين</span>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("StatisticsList", Model)
+            </div>
+        </div>
+    </div>
+</div>

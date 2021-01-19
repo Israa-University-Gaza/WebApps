@@ -1,0 +1,41 @@
+﻿@model System.Data.DataTable
+
+@{
+  ViewBag.Title = "شؤون الموظفين - ملف الموظف";
+  ViewBag.Menu = "#menu-employees";
+  Layout =null;
+}
+
+@section PageStyles{
+  <link href="/assets/layouts/layout4/css/profile-rtl.css" rel="stylesheet" />
+  <link href="/assets/global/plugins/jcrop/css/jquery.Jcrop.css" rel="stylesheet" />
+}
+
+@section PageScripts{
+
+  <script type="text/javascript">
+    function setMenu(menu) {
+      $('.profile-usermenu ul.nav li').removeClass("active");
+      $('.profile-usermenu ul.nav li' + menu).addClass("active");
+    }
+  </script>
+
+}
+
+
+
+@section PageBreadcrumb{
+  <li>
+    <a>الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>الموظفين</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>ملف الموظف</a>
+  </li>
+}
+
+@Html.Partial("Layout", Model)

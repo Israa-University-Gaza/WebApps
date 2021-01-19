@@ -1,0 +1,49 @@
+﻿@model IsraaSystem.Core.Classic.Shared.Pagging
+@{
+    AjaxOptions opt = new AjaxOptions
+    {
+        InsertionMode = InsertionMode.ReplaceWith,
+        HttpMethod = "Get",
+        UpdateTargetId = Model.updateTargetId
+    };
+
+    <div class="text-center">
+        <ul class="pagination pagination-sm">
+            @if (Model.currentPage > 1)
+            {
+                <li>
+                    @Ajax.ActionLink("الأول", Model.action, new { page = 1 }, opt, new { })
+                </li>
+                <li>
+                    @Ajax.ActionLink("السابق", Model.action, new { page = (Model.currentPage - 1) }, opt, new { })
+                </li>
+            }
+            else
+            {
+                <li class="disabled"><a>الأول</a></li>
+                <li class="disabled"><a>السابق</a></li>
+            }
+            @for (int i = 1; i <= Model.pageCount; i++)
+            {
+                <li @(i == Model.currentPage ? "class=active" : "")>
+                    @Ajax.ActionLink(i.ToString(), Model.action, new { page = i }, opt, new { })
+                </li>
+            }
+            @if (Model.currentPage < Model.pageCount)
+            {
+                <li>
+                    @Ajax.ActionLink("التالي", Model.action, new { page = (Model.currentPage + 1) }, opt, new { })
+                </li>
+                <li>
+                    @Ajax.ActionLink("الأخير", Model.action, new { page = Model.pageCount }, opt, new { })
+                </li>
+            }
+            else
+            {
+                <li class="disabled"><a>التالي</a></li>
+                <li class="disabled"><a>الأخير</a></li>
+            }
+        </ul>
+    </div>
+
+}

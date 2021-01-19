@@ -1,0 +1,96 @@
+﻿@model IsraaSystem.Web.Security.IsraaUser
+
+
+  <!-- BEGIN PAGE ACTIONS -->
+  <div class="page-actions">
+    <div class="btn-group">
+      <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+        <span class="hidden-sm hidden-xs">البرامج</span>
+        <i class="fa fa-angle-down"></i>
+      </button>
+      <ul class="dropdown-menu" role="menu">
+          @if (Model.IsInArea("Administrator"))
+          {
+              <li class="active">
+                  <a href="/Administrator/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>مدير النظام المحوسب</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("HumanResource"))
+          {
+              <li>
+                  <a href="/HumanResource/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>شؤون الموظفين</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Academic"))
+          {
+              <li>
+                  <a href="/Academic/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>الشؤون الأكاديمية</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Admission"))
+          {
+              <li>
+                  <a href="/Admission/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>القبول والتسجيل</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Affairs"))
+          {
+              <li>
+                  <a href="/Affairs/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>شؤون الطلبة</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Financial"))
+          {
+              <li>
+                  <a href="/Financial/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>مالية القبول والتسجيل</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Library"))
+          {
+              <li>
+                  <a href="/Library/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>المكتبة المركزية</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Repository"))
+          {
+              <li>
+                  <a href="/Repository/Dashboard">
+                      <i class="icon-settings"></i>
+                      <span>ادارة المخازن</span>
+                  </a>
+              </li>
+          }
+          @if (Model.IsInArea("Exam"))
+          {
+              <li>
+                  <a href="/Exam/Observer">
+                      <i class="icon-settings"></i>
+                      <span>ادارة الإمتحانات</span>
+                  </a>
+              </li>
+          }
+      </ul>
+    </div>
+  </div>
+  <!-- END PAGE ACTIONS -->

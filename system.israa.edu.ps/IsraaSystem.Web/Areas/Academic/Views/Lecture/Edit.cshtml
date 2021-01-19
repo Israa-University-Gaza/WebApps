@@ -1,0 +1,185 @@
+﻿@model IsraaSystem.Core.Classic.Academic.Lecture.Lecture
+@{
+  Layout = null;
+
+  bool canUmPin = Convert.ToBoolean(ViewBag.canUnPin.ToString());
+}
+
+<div id="edit-lecture" class="modal-content">
+  <div id="delete-lecture"></div>
+  @if (TempData["edit-msg"] != null)
+  {
+    int status = Convert.ToInt32(TempData["edit-msg"].ToString().Split(';')[0]);
+    String title = TempData["edit-msg"].ToString().Split(';')[1];
+    String msg = TempData["edit-msg"].ToString().Split(';')[2];
+    <script type="text/javascript">
+      showToastTitle("@title", "@msg", "@((status > 0) ? "success":"error")");
+    </script>
+    if (status > 0)
+    {
+      <script type="text/javascript">
+        $('#study-table-refresh').trigger('click');
+        $('#student-study-table-refresh').trigger('click');
+        $('#instructor-study-table-refresh').trigger('click');
+        $('#room-study-table-refresh').trigger('click');
+        $('#course-study-table-refresh').trigger('click');
+        $('.modal').modal('hide');
+      </script>
+    }
+  }
+  <div class="modal-header tabbable-line modal-header-tabbable-line">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <ul class="nav nav-tabs font-ta">
+      <li class="active">
+        <a href="/Academic/Lecture/Edit/@Model.ID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#edit-lecture">تعديل الموعد</a>
+      </li>
+      <li>
+        <a href="/Academic/Lecture/InstructorEdit/@Model.ID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#edit-lecture">تعديل المحاضر</a>
+      </li>
+      <li>
+        <a href="/Academic/Lecture/InstructorEdit/@Model.ID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#edit-lecture">طلاب الشعبة</a>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-body modal-form">
+    <div class="portlet-body form">
+      @{
+        AjaxOptions opt = new AjaxOptions
+        {
+          InsertionMode = InsertionMode.ReplaceWith,
+          HttpMethod = "POST",
+          UpdateTargetId = "edit-lecture"
+        };
+      }
+      @using (Ajax.BeginForm("Edit", null, opt, new { @class = "form-horizontal" }))
+      {
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(model => model.ID)
+        <div class="form-body">
+          <div class="form-group">
+            <label class="control-label col-md-3">المساق :</label>
+            <div class="col-md-8">
+              @Html.TextBoxFor(model => model.CourseName, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3">الشعبة :</label>
+            <div class="col-md-8">
+              @Html.TextBoxFor(model => model.SectionNum, new { @class = "form-control", @readonly = "readonly" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3">القاعة :</label>
+            <div class="col-md-8">
+              @Html.DropDownListFor(model => model.RoomID, new SelectList(Model.Rooms, "Value", "Text"), "إختر القاعة", new { @class = "form-control select2" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3">اليوم :</label>
+            <div class="col-md-8">
+              @Html.DropDownListFor(model => model.CDayID, new SelectList(Model.CDays, "Value", "Text"), "إختر اليوم", new { @class = "form-control" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-md-3">التوقيت :</label>
+            <div class="col-md-4">
+              @Html.TextBoxFor(model => model.FromHour, new { @class = "form-control text-center" })
+            </div>
+            <div class="col-md-4">
+              @Html.TextBoxFor(model => model.ToHour, new { @class = "form-control text-center" })
+            </div>
+          </div>
+
+        </div>
+        <div class="form-actions">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-10">
+              <button type="submit" id="btn-edit-lecture" class="btn btn-primary">حفظ</button>
+              <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+
+              <div class="pull-right">
+
+
+                @Html.CheckBoxFor(model => model.IsPined, new {@class = "CheckBoxPin"})
+
+
+                <a href="/Academic/Lecture/Delete/@Model.ID" id="btn-delete-lecture" class="btn btn-danger " data-ajax="true" data-ajax-method="Post" data-ajax-mode="replace-with" data-ajax-update="#delete-lecture">حذف المحاضرة</a>
+
+              </div>
+
+
+
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+
+</div>
+
+
+<script>
+
+  $(initPin());
+  function initPin () {
+    $('.CheckBoxPin').bootstrapToggle({
+      on: 'مثبتة',
+      off: 'غير مثبتة',
+      width: 100,
+      onstyle: 'success'
+    });
+
+
+
+    if ('@canUmPin' != 'True' ) {
+      $('.CheckBoxPin').bootstrapToggle('disable');
+    }
+
+    pinChick();
+
+
+
+
+    $('.CheckBoxPin').change(
+
+      function () {
+
+        $.ajax({
+          type: "POST",
+          data: JSON.stringify({ id: @Model.ID, pin: $('.CheckBoxPin').prop('checked'), pinEmployeeID:@Model.PinEmployeeID}),
+          url: "/Academic/Lecture/Pin",
+          dataType: 'json',
+          contentType: 'application/json',
+          processData: false,
+          success: function (response) {
+            if (response.success) {
+              showToastTitle("تم", response.responseText,  "success");
+              pinChick();
+            } else {
+
+              showToastTitle("خطأ!", response.responseText,  "error");
+
+            }
+          },
+          error: function (response) {
+            showToastTitle("خطأ!", response.responseText,  "error");
+          }
+        });
+      }
+    );
+
+
+
+
+    function pinChick() {
+      var pin = $('.CheckBoxPin').prop('checked');
+
+      $("#btn-delete-lecture").toggleClass('disabled', pin);
+
+      $('#btn-edit-lecture').prop('disabled', pin ? 'disabled' : '');
+
+    }
+
+  }
+</script>

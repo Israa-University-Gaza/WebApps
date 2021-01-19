@@ -1,0 +1,190 @@
+﻿<!-- BEGIN SIDEBAR MENU -->
+<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+    <li id="menu-dashboard" class="nav-item start ">
+        <a href="/HumanResource/Dashboard" class="nav-link">
+            <i class="icon-bar-chart"></i>
+            <span class="title">الصفحة الرئيسية</span>
+        </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">الموظفين</h3>
+    </li>
+    <li id="menu-employee-add" class="nav-item">
+        <a href="/HumanResource/EmployeeAdd" class="nav-link">
+            <i class="icon-user-follow"></i>
+            <span class="title">إضافة موظف جديد</span>
+        </a>
+    </li>
+    <li id="menu-employees" class="nav-item">
+        <a href="/HumanResource/Employees" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">ملفات الموظفين</span>
+        </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">الهيكلية والوظائف</h3>
+    </li>
+    <li id="menu-departments" class="nav-item">
+        <a href="/HumanResource/Department" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">أقسام الجامعة</span>
+        </a>
+    </li>
+    <li id="menu-jobs" class="nav-item">
+        <a href="/HumanResource/Job" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">وظائف الجامعة</span>
+        </a>
+    </li>
+    <li id="menu-employee-location" class="nav-item">
+        <a class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">الهيكلية الإدارية</span>
+            <span class="arrow"></span>
+        </a>
+        <ul id="menu-employee-placement" class="sub-menu">
+            <li class="nav-item">
+                <a href="/HumanResource/EmployeePlacement" class="nav-link ">
+                    <span class="title">المواقع الوظيفية</span>
+                </a>
+            </li>
+            <li id="menu-emp-employement-type" class="nav-item">
+                <a href="/HumanResource/EmpEmployementType" class="nav-link ">
+                    <span class="title">أنواع تعينات الموظفين</span>
+                </a>
+            </li>
+            <li id="menu-emp-status" class="nav-item">
+                <a href="/HumanResource/EmpStatus" class="nav-link ">
+                    <span class="title">حالات الموظفين</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">التعينات والعقود</h3>
+    </li>
+    <li id="menu-department" class="nav-item">
+        <a href="/HumanResource/Department" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">أقسام الجامعة</span>
+        </a>
+    </li>
+    <li id="menu-job" class="nav-item">
+        <a href="/HumanResource/Job" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">وظائف الجامعة</span>
+        </a>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">الدوام والتحركات</h3>
+    </li>
+    <li id="menu-attendance-format" class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">الدوام الإفتراضي</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li id="menu-employee-attendance-format" class="nav-item">
+                <a href="/HumanResource/EmployeeAttendanceFormat" class="nav-link">
+                    <span class="title">دوام الموظفين الإفتراضي</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="nav-item">
+        <a href="javascript:;" class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">دوام الموظفين</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li class="nav-item">
+                <a href="/HumanResource/ExitPermissionType" class="nav-link ">
+                    <span class="title">انواع الأذونات</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li id="menu-exit-permission" class="nav-item">
+        <a class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">أذونات الموظفين</span>
+            <span class="arrow"></span>
+        </a>
+        <ul id="menu-exit-permission-list" class="sub-menu">
+            <li class="nav-item">
+                <a href="/HumanResource/ExitPermission" class="nav-link ">
+                    <span class="title">أذونات الموظفين</span>
+                </a>
+            </li>
+            <li id="menu-exit-permission-type" class="nav-item">
+                <a href="/HumanResource/ExitPermissionType" class="nav-link ">
+                    <span class="title">انواع الأذونات</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li id="menu-machine-fingerprint" class="nav-item">
+        <a class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">جهاز البصمة</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li id="menu-machine-fingerprint-list" class="nav-item">
+                <a href="/HumanResource/MachineFingerprint" class="nav-link ">
+                    <span class="title">عرض بصمات الموظفين</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li class="heading">
+        <h3 class="uppercase">العطل والإجازات</h3>
+    </li>
+    <li id="menu-holiday" class="nav-item">
+        <a class="nav-link nav-toggle">
+            <i class="icon-users"></i>
+            <span class="title">العطل الرسمية</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li id="menu-holiday-list" class="nav-item">
+                <a href="/HumanResource/Holiday" class="nav-link">
+                    <span class="title">العطل الرسمية السنوية</span>
+                </a>
+            </li>
+            <li id="menu-holiday-type" class="nav-item">
+                <a href="/HumanResource/HolidayType" class="nav-link">
+                    <span class="title">أنواع العطل الرسمية</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+    <li id="menu-vacation" class="nav-item">
+        <a href="#" class="nav-link">
+            <i class="icon-users"></i>
+            <span class="title">إجازات الموظفين</span>
+            <span class="arrow"></span>
+        </a>
+        <ul class="sub-menu">
+            <li id="menu-vacation-balance" class="nav-item">
+                <a href="/HumanResource/VacationBalance" class="nav-link">
+                    <span class="title">أرصدة إجازات الموظفين</span>
+                </a>
+            </li>
+            <li id="menu-employee-vacation" class="nav-item">
+                <a href="/HumanResource/EmployeeVacation" class="nav-link">
+                    <span class="title">إجازات الموظفين</span>
+                </a>
+            </li>
+        </ul>
+    </li>
+</ul>
+<!-- END SIDEBAR MENU -->

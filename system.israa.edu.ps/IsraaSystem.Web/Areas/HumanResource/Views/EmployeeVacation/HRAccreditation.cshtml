@@ -1,0 +1,64 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacation
+
+@{
+    Layout = null;
+}
+
+<div id="hr-accreditation" class="modal-content">
+
+    @if (TempData["update-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["update-msg"].ToString().Split(';')[0]);
+        String msg = TempData["update-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-employee-vacation').submit();
+            </script>
+        }
+    }
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">قبول طلب إجازة الموظف</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+         @{
+             AjaxOptions opt = new AjaxOptions
+             {
+                 InsertionMode = InsertionMode.ReplaceWith,
+                 HttpMethod = "POST",
+                 UpdateTargetId = "hr-accreditation"
+             };
+        }
+        @using (Ajax.BeginForm("HRAccreditation", null, opt, new { @class = "form-horizontal" }))
+        {
+
+            @Html.AntiForgeryToken()
+
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">ملاحظات</label>
+                        <div class="col-md-9">
+                            @Html.TextAreaFor(model => model.HumanResourceNote, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" class="btn btn-success" value="قبول طلب الإجازة">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>

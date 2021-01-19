@@ -1,0 +1,3 @@
+﻿@model IsraaSystem.Core.Classic.Academic.StudyTable.StudyTableVM
+
+@Html.DropDownListFor(model => model.filter.CourseID, new SelectList(Model.filter.Courses, "Value", "Text"), null, new { id = "course-study-table-course", @class = "form-control select2 course-study-table-change" })

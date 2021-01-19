@@ -1,0 +1,8 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceInstructor
+
+@{
+    Layout = null;
+}
+@Html.DropDownListFor(model => model.OfferdCourseID, new SelectList(Model.Courses, "Value", "Text"), "إختر المساق", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/AttendanceInstructor/ddlOfferdCoursesSections?OfferdCourseID=" + Model.OfferdCourseID + "&InstructorID=" + Model.InstructorID, data_target_id = "#SectionID" })
+
+

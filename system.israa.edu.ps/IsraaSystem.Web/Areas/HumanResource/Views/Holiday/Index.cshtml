@@ -1,0 +1,42 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Holiday.HolidayVM
+@{
+    ViewBag.Title = "شؤون الموظفين - العطل الرسمية";
+    ViewBag.Menu = "#menu-holiday,#menu-holiday-list";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeePlacement/Index">العطل الرسمية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض العطل الرسمية</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض العطل الرسمية</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/Holiday/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة عطلة رسمية جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

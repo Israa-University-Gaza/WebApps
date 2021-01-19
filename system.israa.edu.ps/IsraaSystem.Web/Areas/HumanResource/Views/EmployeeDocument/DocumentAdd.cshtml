@@ -1,0 +1,111 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Document.EmployeeDocument
+@{
+    Layout = null;
+}
+
+<div id="add-employee-document" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-employee-document').submit();
+            </script>
+        }
+    }
+    <script type="text/javascript">
+                $(document).ready(function () {
+                    var bar = $('.progress-bar');
+                    var percent = $('.percent');
+
+                    $('#form-add-employee-document').ajaxForm({
+                        beforeSend: function () {
+                            var percentVal = '0%';
+                            bar.width(percentVal);
+                            percent.html(percentVal);
+                        },
+                        uploadProgress: function (event, position, total, percentComplete) {
+                            var percentVal = percentComplete + '%';
+                            bar.width(percentVal);
+                            percent.html(percentVal);
+                        },
+                        complete: function (xhr) {
+                            $('#add-employee-document').replaceWith(xhr.responseText);
+                        }
+                    });
+                });
+    </script>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">إضافة مستند جديد</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            <form id="form-add-employee-document" class="form-horizontal" action="/HumanResource/EmployeeDocument/DocumentAdd" method="post" enctype="multipart/form-data">
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.DocumentPID)
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الموظف</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(model => model.EmployeeID)
+                            @Html.TextBoxFor(model => model.EmployeeName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">نوع المستند</label>
+                        <div class="col-md-8">
+                            @Html.HiddenFor(model => model.DocumentTypeID)
+                            @Html.TextBoxFor(model => model.DocumentTypeName, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المستند</label>
+                        <div class="col-md-6">
+                            <div class="fileinput fileinput-new" data-provides="fileinput">
+                                <div class="input-group">
+                                    <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                                        <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                                        <span class="fileinput-filename"> </span>
+                                    </div>
+                                    <span class="input-group-addon btn default btn-file">
+                                        <span class="fileinput-new">إختر المستند</span>
+                                        <span class="fileinput-exists">تغير</span>
+                                        <input type="file" name="file">
+                                    </span>
+                                    <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">إلغاء</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div class="progress" style="height: 34px;padding: 5px; border:1px solid #ddd;margin-bottom:0;">
+                                <div class="progress-bar" style="border-radius: 3px;"></div>
+                                <div class="percent text-center" style="width:105px; line-height: 24px;color: #b3acac;position: absolute;">0 %</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">ملاحظات</label>
+                        <div class="col-md-8">
+                            @Html.TextAreaFor(model => model.Notes, new { @class = "form-control" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <button type="submit" class="btn btn-primary">إضافة</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                            <a href="/HumanResource/EmployeeDocument/DocumentAdd?documentId=@Model.DocumentPID" class="btn btn-success pull-right" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#add-employee-document">إضافة مستند جديد</a>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

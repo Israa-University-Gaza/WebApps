@@ -1,0 +1,38 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeResearch.EmployeeResearchVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - البحوث العلمية والمؤتمرات";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeResearch/Index">البحوث العلمية والمؤتمرات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض البحوث العلمية والمؤتمرات</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض البحوث العلمية والمؤتمرات</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

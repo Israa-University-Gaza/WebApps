@@ -1,0 +1,143 @@
+﻿@*@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationDetails*@
+
+@model IsraaSystem.Application.HumanResource.Vacation.EmpVacationDto
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>طلب إجازة- @Model.EmployeeName</title>
+    <style type="text/css">
+        .colorDarker {
+            background-color: #ffcc66;
+        }
+
+        .colorLight {
+            background-color: #ffff99 ;
+        }
+        .footer {
+            margin-top:550px;
+        }
+    </style>
+   
+</head>
+<body>
+    <div align="center" style="background-image:url(/images/header.png); background-repeat:no-repeat; background-size:contain; width:80%; margin:auto;  text-align:right; ">
+        <h2>
+            جامعة الإسراء <br />
+            دائرة الموارد البشرية<br />
+            قسم شئون الموظفين
+            <hr />
+        </h2>
+
+    </div>
+    <div>
+        <table align="center" style="text-align:center; border-spacing:0px" border="1" cellpadding="10" width="90%" dir="rtl">
+            <tbody>
+                <tr class="colorDarker">
+                    <td colspan="4">
+                        <h3>
+                            طـلب إجـازة
+                            <br />
+                            (عادية سنوية، طارئة، دون راتب، دراسية)
+                        </h3>
+
+                    </td>
+                <tr>
+                    <td class="colorLight">إسم الموظف</td>
+                    <td>@Model.EmployeeName</td>
+                    <td class="colorLight">الرقم الوظيفي</td>
+                    <td>@Model.EmployeeNo</td>
+                </tr>
+                <tr>
+                    <td class="colorLight">الوظيفة</td>
+                    <td>@Model.EmpJob</td>
+                    <td class="colorLight">مكان العمل</td>
+                    <td>جامعة الإسراء</td>
+                </tr>
+                <tr>
+                    <td class="colorLight">نوع الإجازة</td>
+                    <td colspan="3">
+                        <input type="checkbox" value="عادية سنوية" title="عادية سنوية" @(Model.VacationTypeID == 1 ? "checked=checked" : "") />عادية سنوية
+                        &nbsp; &nbsp;&nbsp;<input type="checkbox" value="طارئة" @(Model.VacationTypeID == 2 ? "checked=checked" : "") />طـارئة
+                        &nbsp;&nbsp;&nbsp;<input type="checkbox" value="دون راتب" @(Model.VacationTypeID == 4 ? "checked=checked" : "") />دون راتب
+                        &nbsp;&nbsp;&nbsp;<input type="checkbox" value="دراسية" />دراسية
+                    </td>
+                </tr>
+                <tr>
+                    <td class="colorLight">التاريخ المحدد للقيام بالإجازة</td>
+                    <td>@Model.VacationStartDate</td>
+                    <td>مدة الإجازة المطلوبة</td>
+                    <td class="colorLight">@Model.VacationDays يوم</td>
+                </tr>
+
+                <tr>
+                    <td class="colorLight">سبب القيام بالإجازة</td>
+                    <td>@Model.VacationReason</td>
+                    <td class="colorLight">مكان قضاء الإجازة</td>
+                    <td>
+                        <input type="checkbox" value="داخل البلاد" title="داخل البلاد" @(Model.VacationPlaceID==1 ? "checked=checked" : "") />داخل البلاد
+                        &nbsp; &nbsp;&nbsp;<input type="checkbox" value="خارج البلاد" @(Model.VacationPlaceID==2 ? "checked=checked" : "") />خارج البلاد
+
+                    </td>
+                </tr>
+                <tr class="colorDarker">
+                    <td colspan="4">
+                        <h3>لإستعمال الرئيس المباشر</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align:right" colspan="4">
+                        <input type="checkbox" checked />أوافق
+                        &nbsp; &nbsp;&nbsp;<input type="checkbox" />غير موافق
+                        &nbsp; &nbsp;&nbsp; على منح الإجازة المطلوبة لمدة @Model.VacationDays يوم من تاريخ @Model.VacationStartDate
+
+                    </td>
+                </tr>
+
+                <tr>
+                    <td class="colorLight">إسم المسئول المباشر</td>
+                    <td>@Model.DManagerName</td>
+                    <td class="colorLight">توقيع المسئول المباشر</td>
+                    <td>معتمد</td>
+                </tr>
+                <tr style="height:20px">
+                    <td style="text-align:right" colspan="2" rowspan="2">
+                        <input type="checkbox" checked />أوافق
+                        &nbsp; &nbsp;&nbsp;<input type="checkbox" />غير موافق
+                        <br />ملحوظات: ...............................................................
+                        <br />.............................................................................
+                    </td>
+                    <td colspan="2" class="colorLight"><b> توقيع قسم شئون الموظفين</b></td>
+                </tr>
+                <tr>
+                    <td colspan="2"><br />معتمد</td>
+
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div class="footer">
+        <table align="center" style="text-align:center; border-spacing:0px" border="1" cellpadding="10" width="90%" dir="rtl">
+            <tbody>
+                <tr class="colorDarker">
+                    <td class="colorLight">
+                       نموذج رقم
+                    </td>
+                    <td>ISRA 08-31</td>
+                    <td class="colorLight">رقم الإصدار</td>
+                    <td>01</td>
+                    <td class="colorLight">صفحات</td>
+                    <td>/</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
+</body>
+</html>

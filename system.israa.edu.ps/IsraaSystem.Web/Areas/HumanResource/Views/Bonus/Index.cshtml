@@ -1,0 +1,47 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "شؤون الموظفين - العلاوة";
+    ViewBag.Menu = "#menu-salary,#menu-salary-bonus";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Bonus">العلاوات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض العلاوات</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض العلاوات</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/BonusType" class="btn btn-sm btn-primary">
+                        <i class="fa fa-list"></i>
+                        عرض أنواع العلاوات
+                    </a>
+                    <a href="/HumanResource/Bonus/Add" class="btn btn-sm btn-success pop-up-md">
+                        <i class="fa fa-plus"></i>
+                        إضافة علاوة جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

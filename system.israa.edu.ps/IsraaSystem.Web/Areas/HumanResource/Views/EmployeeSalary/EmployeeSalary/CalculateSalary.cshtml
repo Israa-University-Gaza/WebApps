@@ -1,0 +1,63 @@
+﻿@model IsraaSystem.Entity.HumanResource.Salary.EmployeeSalary
+@{
+    Layout = null;
+}
+<div id="employee-page" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-page"
+        };
+    }
+    @using (Ajax.BeginForm("CalculateSalary", "EmployeeSalary", opt, new { @class = "form-horizontal" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="row">
+            <div class="col-md-12">
+                <div class="portlet light">
+                    <div class="portlet-title">
+                        <div class="caption">
+                            <i class="icon-social-dribbble font-green"></i>
+                            <span class="caption-subject font-green bold uppercase">احتساب راتب الموظف</span>
+                        </div>
+                    </div>
+                    <div class="portlet-body">
+                        <div class="form-body">
+                            <div class="form-group">
+                                @Html.HiddenFor(model => model.EmployeeID)
+                                <label class="col-md-2 control-label">الشهر</label>
+                                <div class="col-md-3">
+                                    @Html.DropDownListFor(model => model.MonthID, new SelectList(Model.Months, "Value", "Text"), "إختر الشهر", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.MonthID, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-2 control-label">السنة</label>
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(model => model.Year, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Year, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="form-actions">
+                        <div class="row">
+                            <div class="col-md-offset-2 col-md-8">
+                                <button type="submit" class="btn btn-primary">احتساب</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

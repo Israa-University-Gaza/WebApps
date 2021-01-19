@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Salary.EmployeeBonus
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.BasicSalaryID, new SelectList(Model.BasicSalaries, "Value", "Text"), "إختر راتب الموظف", new { @class = "form-control" })

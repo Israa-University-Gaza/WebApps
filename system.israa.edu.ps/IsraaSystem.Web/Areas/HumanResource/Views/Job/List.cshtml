@@ -1,0 +1,117 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Job.JobsVM
+
+@{
+    Layout = null;
+}
+
+<div id="jobs">
+    <div id="refresh-list"></div>
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "jobs"
+        };
+    }
+    @using (Ajax.BeginForm("List", null, opt, new { @id = "form-job" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المسمى الوظيفي</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.filter.JobTitle, new { @class = "form-control input-change", placeholder = "اكتب المسمى الوظيفي هنا للبحث ..." })
+                        </div>
+                        <label class="col-md-1 control-label">القسم</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.DepartmentID, new SelectList(Model.filter.Departments, "Value", "Text"), "جميع الاقسام", new { @class = "form-control input-change select2" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-right", onchange = "$('#current-page').val('1');$(this).submit();" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp25">المسمى الوظيفي</th>
+                        <th class="wp20 text-center">القسم</th>
+                        <th class="wp5 text-center">ع. م. مطلوب</th>
+                        <th class="wp5 text-center">ع. م. حاليين</th>
+                        <th class="wp5 text-center">ع. الشاغر</th>
+                        <th class="wp5 text-center">إجمالي الموظفين</th>
+                        <th class="wp3 text-center">فعال</th>
+                        <th class="wp8"></th>
+                        <th class="wp8"></th>
+                        <th class="wp8"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                    <tr>
+                        <td>@row["RowNo"]</td>
+                        <td>@row["JobTitle"]</td>
+                        <td class="text-center">@row["JobDepartmentName"]</td>
+                        <td class="text-center">@row["EmployeeCount"]</td>
+                        <td class="text-center">@row["JobEmployeeCount"]</td>
+                        <td class="text-center">@row["JobRemainEmployeecount"]</td>
+                        <td class="text-center">@row["JobTotalEmployeeCount"]</td>
+                        <td class="text-center td-cb">
+                            <div class="md-checkbox has-success">
+                                <input type="checkbox" id="checkbox@(row["RowNo"])" @(Convert.ToBoolean(row["IsActive"]) ? "checked='checked'" : "") class="md-check cb-activation" data-url="/HumanResource/Job/Activate/@row["ID"]" data-target-id="#refresh-list">
+                                <label for="checkbox@(row["RowNo"])">
+                                    <span></span>
+                                    <span class="check"></span>
+                                    <span class="box"></span>
+                                </label>
+                            </div>
+                        </td>
+                        <td class="text-center">
+                            <a href="/HumanResource/Job/Details/@row["ID"]" class="btn btn-sm btn-default"><i class="fa fa-file"></i> تفاصيل الوظيفة</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/HumanResource/Job/EmployeePlacementAdd?jobId=@row["ID"]" class="btn btn-sm btn-default pop-up-lg">
+                                <i class="fa fa-user-plus"></i>
+                                <span>تنسيب موقع وظيفي</span>
+                            </a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/HumanResource/Job/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+                            <a href="/HumanResource/Job/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف وظيفة" data-msg="هل أنت متأكد من أنك تود حذف الوظيفة ؟" data-action="حذف" data-ajax-update="#refresh-list"><span class="fa fa-times"></span></a>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

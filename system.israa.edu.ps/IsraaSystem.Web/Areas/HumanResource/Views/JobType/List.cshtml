@@ -1,0 +1,41 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.Shared.DataTableVM
+
+@{
+    Layout = null;
+}
+
+@if (TempData["toast-msg"] != null)
+{
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+}
+<div id="job-type">
+    <table class="table table-striped table-hover">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>اسم نوع الوظيفة بالعربية</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (DataRow row in Model.data.Rows)
+            {
+                <tr>
+                    <td>@row["RowNo"]</td>
+                    <td>@row["ArName"]</td>
+                    <td>
+                        @Html.ActionLink("تعديل", "Edit", new { id = row["ID"], page = Model.pagging.currentPage }, new { @class = "btn btn-primary pop-up-md" })
+                        @Html.ActionLink("حذف", "Delete", new { id = row["ID"], page = Model.pagging.currentPage }, new { @class = "btn btn-danger confirm", data_title = "حذف نوع وظيفة", data_msg = "هل أنت متأكد من أنك تود حذف نوع الوظيفة ؟", data_action = "حذف", data_ajax_update = "#Job-Type" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @Html.Partial("_paging", Model.pagging)
+</div>

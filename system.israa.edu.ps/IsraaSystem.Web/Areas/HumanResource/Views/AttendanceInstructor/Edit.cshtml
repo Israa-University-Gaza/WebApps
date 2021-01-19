@@ -1,0 +1,89 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceInstructorEdit
+
+@{
+    Layout = null;
+}
+
+<div id="edit-attendance-instructor" class="modal-content">
+    @if (TempData["edit-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["edit-msg"].ToString().Split(';')[0]);
+        String msg = TempData["edit-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $('.modal').modal('hide');
+                $('#form-instructor').submit();
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "edit-attendance-instructor"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل موعد محاضرة</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Edit", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الفصل</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Semester, new { @class = "form-control", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المحاضر</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.InstructorName, new { @class = "form-control text-center", @readonly = "readonly" })
+                        </div>
+                        <label class="col-md-2 control-label">المساق</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Course, new { @class = "form-control text-center", @readonly = "readonly" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الشعبة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.SectionNum, new { @class = "form-control text-center", @readonly = "readonly" })
+                        </div>
+                        <label class="col-md-2 control-label">تاريخ المساق</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.LectureDate, new { @class = "form-control text-center date-picker" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">من</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.LectureFrom, new { @class = "form-control text-center " })
+                        </div>
+                        <label class="col-md-2 control-label">إلى</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.LectureTo, new { @class = "form-control text-center " })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-2 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

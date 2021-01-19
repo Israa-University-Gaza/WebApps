@@ -1,0 +1,155 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Employee.EmployeeAdd
+@{
+    ViewBag.Title = "شؤون الموظفين - إضافة موظف";
+    ViewBag.Menu = "#menu-employee-add";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>شؤون الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>إضافة موظف</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">إضافة موظف جديد</span>
+                </div>
+            </div>
+            <div class="portlet-body form">
+                @{
+                    AjaxOptions opt = new AjaxOptions
+                    {
+                        InsertionMode = InsertionMode.ReplaceWith,
+                        HttpMethod = "POST",
+                        UpdateTargetId = "add-Holiday"
+                    };
+                }
+                @using (Ajax.BeginForm("Index", "EmployeeAdd", opt, new { @class = "form-horizontal" }))
+                {
+                    <div class="form-wizard">
+                        @Html.AntiForgeryToken()
+                        <div class="form-body">
+                            <ul class="nav nav-pills nav-justified steps">
+                                <li class="active">
+                                    <a class="step">
+                                        <span class="number"> 1 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>بيانات أساسية</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 2 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>الموقع الوظيفي</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 3 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>حالة الموظف</span>
+                                        </span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a class="step">
+                                        <span class="number"> 4 </span>
+                                        <span class="desc">
+                                            <i class="fa fa-check"></i>
+                                            <span>إعتماد الموظف</span>
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <div id="bar" class="progress progress-striped" role="progressbar">
+                                <div class="progress-bar progress-bar-success" style="width: 25%;"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group row">
+                                        <label class="col-md-2 control-label">نوع التوظيف</label>
+                                        <div class="col-md-4">
+                                            @Html.DropDownListFor(model => model.EmploymentTypeID, new SelectList(Model.EmploymentTypes, "Value", "Text"), "إختر نوع التوظيف", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/EmployeeAdd/EmployeeNo/", data_target_id = "#employee-no" })
+                                            @Html.ValidationMessageFor(model => model.EmploymentTypeID, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 control-label">فترة التعيين</label>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.SSN, new { @class = "form-control text-center", @placeholder = "بداية التعيين" })
+                                            @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-center", @placeholder = "نهاية التعيين" })
+                                        </div>
+                                        <div id="employee-no">
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 control-label">اسم الموظف :</label>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.ArFirstName, new { @class = "form-control text-center", @placeholder = "الإسم الأول" })
+                                            @Html.ValidationMessageFor(model => model.ArFirstName, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.ArSecoundName, new { @class = "form-control text-center", @placeholder = "الإسم الثاني" })
+                                            @Html.ValidationMessageFor(model => model.ArSecoundName, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.ArThirdName, new { @class = "form-control text-center", @placeholder = "الإسم الثالث" })
+                                            @Html.ValidationMessageFor(model => model.ArThirdName, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.ArFamilyName, new { @class = "form-control text-center", @placeholder = "اسم العائلة" })
+                                            @Html.ValidationMessageFor(model => model.ArFamilyName, "", new { @class = "text-danger help-block" })
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-2 control-label">رقم الهوية</label>
+                                        <div class="col-md-4">
+                                            @Html.TextBoxFor(model => model.SSN, new { @class = "form-control text-center", @placeholder = "رقم الهوية" })
+                                            @Html.ValidationMessageFor(model => model.SSN, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                        <label class="col-md-2 control-label">رقم الجوال</label>
+                                        <div class="col-md-2">
+                                            @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control text-center", @placeholder = "رقم الجوال" })
+                                            @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger help-block" })
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-2 col-md-9">
+                                    <input type="submit" class="btn btn-primary" value="إضافة موظف جديد">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

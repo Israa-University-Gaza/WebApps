@@ -1,0 +1,91 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Attendance.InstructorMissedFingerprintsVM
+
+@{
+    Layout = null;
+}
+
+<div id="instructor-missed-fingerprints">
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "instructor-missed-fingerprints"
+        };
+    }
+
+    @using (Ajax.BeginForm("ListInstructor", null, opt, new { @id = "form-missed-fingerprints" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">المحاضر</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Employees, "Value", "Text"),"اختر المحاضر", new { @class = "form-control select2" })
+                        </div>
+                        <label class="col-md-1 control-label">الفصل</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">من</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.filter.LectureDateFrom, new { @class = "form-control text-center date-picker", placeholder = "من" })
+                        </div>
+                        <label class="col-md-1 control-label">الى</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.filter.LectureDateTo, new { @class = "form-control text-center date-picker", placeholder = "الى" })
+                        </div>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            @if (Model.data != null && Model.data.Rows.Count > 0)
+            {
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="wp5">#</th>
+                            <th class="wp10 text-center">رقم المحاضر</th>
+                            <th class="wp20 text-center">اسم المحاضر</th>
+                            <th class="wp10 text-center">تاريخ الماضرة</th>
+                            <th class="wp10 text-center">من</th>
+                            <th class="wp10 text-center">الى</th>
+                            <th class="wp15 text-center">الحضور الفعلي</th>
+                            <th class="wp15 text-center">الإنصراف الفعلي</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (DataRow row in Model.data.Rows)
+                        {
+                            <tr>
+                                <td>@row["RowNo"]</td>
+                                <td class="text-center">@row["InstructorNo"]</td>
+                                <td class="text-center"><a href="/HumanResource/Employee/Index/@row["InstructorID"]">@row["InstructorName"]</a></td>
+                                <td class="text-center">@row["LectureDate"]</td>
+                                <td class="text-center">@row["LectureFrom"]</td>
+                                <td class="text-center">@row["LectureTo"]</td>
+                                <td class="text-center">@row["AttendanceFrom"]</td>
+                                <td class="text-center">@row["AttendanceTo"]</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @Html.Partial("_paging", Model.pagging)
+            }
+            else
+            {
+                <div class="alert alert-info alert-dismissible text-center" role="alert">
+                    <span>لا يوجد بيانات لعرضها</span>
+                </div>
+            }
+        </div>
+    }
+</div>

@@ -1,0 +1,9 @@
+﻿@model System.Data.DataTable
+
+@{
+    Layout = null;
+}
+
+<div id="employee-image" class="profile-userpic">
+    <img src="@Model.Rows[0]["EmployeeImageURL"].ToString()" cla class="img-responsive" alt="" />
+</div>

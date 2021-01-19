@@ -1,0 +1,107 @@
+﻿@model List<IsraaSystem.Core.Exam.Observer.DTO.ObserversDistributionList_Output>
+
+
+
+<div id="data-list">
+
+  <div class="note note-info">
+    <div class="row">
+      <div class="col-md-9">
+
+
+        <ul class="col-md-6">
+          <li>
+            يحدد الموظف كمراقب من برنامج شؤون الموظفين
+            <ul>
+              <li>يجب ان يكون الموظف على رأس عمله</li>
+              <li> يجب تحديد الفرع التابع له المراقب </li>
+            </ul>
+          </li>
+          <li> المراقب لا يدرس اي من مساقات القاعة المراقب عليها </li>
+          <li> يتم توزيع موظف كمراقب أول ومراقب ساعة ان وجد كمراقب ثاني </li>
+        </ul>
+
+        <ul class="col-md-6">
+          <li>
+            مراقب الساعة يتم اختياره لو كان له محاضرة لنفس اليوم في الفرع الموزع عليه
+            <ul>
+              <li> محاضرتين في فرعين يتم توزيعه على واحد</li>
+              <li> يجب تحديد الفرع التابع له المراقب </li>
+            </ul>
+          </li>
+          <li> قاعة الذكور يجب ان يكون المراقبين ذكور </li>
+          <li>القاعات المشتركة وقاعات الإناث يشترط وجود مراقبة على الأقل "ان وجد"</li>
+        </ul>
+
+      </div>
+      <div class="col-md-3 ">
+
+
+
+
+
+
+        <button id="ObserversDistribution" class="btn btn-block green-jungle btn-success">
+          <i class="fa fa-check pull-left"></i>
+          توزيــع المراقبين
+        </button>
+
+
+
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+
+  @if (Model != null && Model.Count > 0)
+  {
+    <table class="table table-striped table-hover">
+      <thead>
+        <tr>
+          <th class=" text-center">المساق</th>
+          <th class=" text-center">القاعة</th>
+          <th class="text-center">مراقب أول</th>
+          <th class="text-center">مراقب ثاني</th>
+
+
+        </tr>
+      </thead>
+      <tbody>
+        @foreach (var item in Model)
+        {
+          <tr>
+
+            <td class="text-center">@item.OfferdCourceName</td>
+            <td class="text-center">@item.RoomName</td>
+            <td class="text-center">@item.Emp1Name</td>
+            <td class="text-center">@item.Emp2Name</td>
+
+
+
+
+
+
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+  else
+  {
+    <div class="alert alert-info alert-dismissible text-center" role="alert">
+      <span>لا يوجد بيانات لعرضها</span>
+    </div>
+  }
+
+
+
+
+
+
+
+</div>
+

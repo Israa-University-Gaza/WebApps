@@ -1,0 +1,70 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.Shared.DataTableVM
+
+@{
+    Layout = null;
+}
+
+
+    <div id="attendance-formats">
+        <div id="refresh-list"></div>
+        @if (TempData["toast-msg"] != null)
+        {
+            int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+            String msg = TempData["toast-msg"].ToString().Split(';')[1];
+            <script type="text/javascript">
+        showToast("@msg", "@((status > 0) ? "success":"error")");
+            </script>
+        }
+        @{
+            AjaxOptions opt = new AjaxOptions
+            {
+                InsertionMode = InsertionMode.ReplaceWith,
+                HttpMethod = "POST",
+                UpdateTargetId = "attendance-formats"
+            };
+        }
+        @using (Ajax.BeginForm("List", null, opt, new { @id = "form-attendance-format" }))
+        {
+    
+            @Html.AntiForgeryToken()
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp30 text-center">نسق الدوام</th>
+                        <th class="wp12 text-center">ع. المنتسبين</th>
+                        <th class="wp15 text-center">ع. المنتسبين الحالي</th>
+                        <th class="wp10 text-center">ع. الأيام</th>
+                        <th class="wp5 text-center">ع. الساعات</th>
+                        <th class="wp8"></th>
+                        @*<th class="wp12"></th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td>@row["ArName"]</td>
+                            <td class="text-center">@row["TotalEmployeeCount"]</td>
+                            <td class="text-center">@row["CurrentEmployeeCount"]</td>
+                            <td class="text-center">@row["DayCount"]</td>
+                            <td class="text-center">@row["HourCount"]</td>
+                            <td class="text-center"></td>
+                            <td class="text-center">
+                                <a href="/HumanResource/AttendanceFormat/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-md"><i class="fa fa-edit"></i> @*تعديل*@</a>
+                                <a href="/HumanResource/AttendanceFormat/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف نسق دوام" data-msg="هل أنت متأكد من أنك تود حذف نسق الدوام ؟" data-action="حذف" data-ajax-update="#attendance-formats"><i class="fa fa-times"></i> @*حذف*@</a>
+                                <a href="/HumanResource/AttendanceFormat/Details/@row["ID"]" class="btn btn-sm btn-success" data-title="تفاصيل"><i class="fa fa-list"></i> @*تفاصيل*@</a>
+
+                            </td>
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+            
+            @Html.Partial("_paging", Model.pagging)
+        }
+        </div>
+

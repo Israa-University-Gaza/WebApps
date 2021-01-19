@@ -1,0 +1,145 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+    Layout = null;
+}
+
+
+<div id="employee-vacation">
+    <div id="refresh-list"></div>
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-vacation"
+        };
+    }
+
+
+    @using (Ajax.BeginForm("List", null, opt, new { @id = "form-employee-vacation" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">الموظف</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", placeholder = "رقم أو اسم الموظف", @id = "EmployeeName" })
+                        </div>
+                        <label class="col-md-1 control-label">نوع الإجازة</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.VacationTypeID, new SelectList(Model.filter.VacationTypes, "Value", "Text"), "جميع أنواع الإجازات", new { @class = "form-control input-change", @id = "VacationTypeID" })
+                        </div>
+                        <label class="col-md-1 control-label">سنة الرصيد</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.VacationBalanceYearID, new SelectList(Model.filter.VacationBalanceYears, "Value", "Text"), "جميع السنوات", new { @class = "form-control input-change", @id = "VacationBalanceYearID" })
+                        </div>
+                        <div class="col-md-offset-2 col-md-1">
+                            @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-left input-change" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">حالة الإجازة</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.AccreditationStatusID, new SelectList(Model.filter.AccreditationStatuses, "Value", "Text"), "جميع حالات الإجازة", new { @class = "form-control input-change", @id = "AccreditationStatusID" })
+                        </div>
+                        <label class="col-md-1 control-label">من</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.DateFrom, new { @class = "form-control date-picker text-center", placeholder = "من تاريخ", @id = "DateFrom" })
+                        </div>
+                        <label class="col-md-1 control-label">إلى</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.DateTo, new { @class = "form-control date-picker text-center", placeholder = "إلى تاريخ", @id = "DateTo" })
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn blue">تصفية</button>
+                            <a id="excle" class="btn blue">تصدير Excle </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp10 text-center">رقم الموظف</th>
+                        <th class="wp20 text-center">اسم الموظف</th>
+                        <th class="wp10 text-center">نوع الإجازة</th>
+                        <th class="wp10 text-center">بداية الإجازة</th>
+                        <th class="wp10 text-center">نهاية الإجازة</th>
+                        <th class="wp12 text-center">عدد أيام الإجازة</th>
+                        <th class="wp10 text-center">معتمد من المسئول المباشر</th>
+                        <th class="wp25 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr @(row["IsDMAccredit"].ToString()=="0" && !row["VacationType"].ToString().Contains("حسب الخطة")  ? "class='bg-red-pink-opacity'" :"")>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["EmployeeNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["VacationType"]</td>
+                            <td class="text-center">@row["VacationStartDate"]</td>
+                            <td class="text-center">@row["VacationEndDate"]</td>
+                            <td class="text-center">@row["VacationDays"]</td>
+                            <td class="text-center">@row["VacationDMStatus"]</td>
+                            <td class="text-center">
+                                @if (row["IsAccredit"].ToString() == "0")
+                                {
+                                    <a href="/HumanResource/EmployeeVacation/TypeUpdate/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><i class="fa fa-edit"></i> تغيير نوع الإجازة</a>
+                                    <a href="/HumanResource/EmployeeVacation/Details/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><i class="fa fa-list"></i> تفاصيل</a>
+                                    <a href="/HumanResource/EmployeeVacation/Edit/@row["ID"]" class="btn btn-sm btn-default tooltips pop-up-lg" data-original-title="تحرير"><span class="fa fa-edit"></span></a>
+                                    //if (/*row["IsDMAccredit"].ToString() == "1" ||*/ row["VacationType"].ToString().Contains("حسب الخطة"))
+                                    //{
+                                        <a href="/HumanResource/EmployeeVacation/HRAccreditation/@row["ID"]" class="btn btn-sm btn-success tooltips pop-up-md"  data-original-title="قبول"><span class="fa fa-check"></span></a>
+                                        <a href="/HumanResource/EmployeeVacation/HRUnAccreditation/@row["ID"]" class="btn btn-sm btn-danger tooltips confirm"  data-title="رفض طلب الإجازة" data-msg="هل أنت متأكد من أنك تود رفض طلب الإجازة ؟" data-action="رفض" data-ajax-update="#refresh-list" data-original-title="رفض"><span class="fa fa-ban"></span></a>
+                                            @*< a href = "/HumanResource/EmployeeVacation/HRAccreditation/@row["ID"]" class="btn btn-sm btn-success tooltips pop-up-md" @((row["IsAccredit"].ToString() == "1" || row["IsDMAccredit"].ToString() == "0")  && !row["VacationType"].ToString().Contains("حسب الخطة") ? "disabled='disabled'" : "") data-original-title="قبول"><span class="fa fa-check"></span></a>
+                                            <a href = "/HumanResource/EmployeeVacation/HRUnAccreditation/@row["ID"]" class="btn btn-sm btn-danger tooltips confirm" @(row["IsDMAccredit"].ToString() == "0" && !row["VacationType"].ToString().Contains("حسب الخطة") ? "disabled='disabled'" : "") data-title="رفض طلب الإجازة" data-msg="هل أنت متأكد من أنك تود رفض طلب الإجازة ؟" data-action="رفض" data-ajax-update="#refresh-list" data-original-title="رفض"><span class="fa fa-ban"></span></a>*@
+                                    //}
+                                 }
+                                 else
+                                 {
+                            <a class="btn btn-sm btn-primary" disabled='disabled'><i class="fa fa-edit"></i> تغيير نوع الإجازة</a>
+                            <a href="/HumanResource/EmployeeVacation/Details/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><i class="fa fa-list"></i> تفاصيل</a>
+                            <a class="btn btn-sm btn-default tooltips" data-original-title="تحرير" disabled='disabled'><span class="fa fa-edit"></span></a>
+                            <a href="/HumanResource/EmployeeVacation/HRDeAccreditation/@row["ID"]" class="btn btn-sm btn-primary tooltips confirm" data-title="إلغاء إعتماد طلب الإجازة" data-msg="هل أنت متأكد من أنك تود إلغاء إعتماد طلب الإجازة ؟" data-action="إلغاء الإعتماد" data-ajax-update="#refresh-list" data-original-title="إلغاء الإعتماد"><span class="fa fa-reply"></span></a>
+                                    if (!row["VacationType"].ToString().Contains("حسب الخطة") && !row["VacationType"].ToString().Contains("مرضية"))
+                                    {
+                            <a href="/HumanResource/EmployeeVacation/PrintEmploeeVacation/@row["ID"]"  class="btn btn-sm btn-danger tooltips" data-original-title="طباعة"><span class="fa fa-print"></span></a>
+                                    }
+                                }
+                                @if (row["IsEmpInsert"].ToString() == "0" && (row["IsAccredit"].ToString() == "0" || row["IsDMAccredit"].ToString() == "0"))
+                                                                {
+                                <a href="/HumanResource/EmployeeVacation/Delete/@row["ID"]" class="btn btn-sm btn-danger tooltips confirm" style="" data-title="إلغاء طلب الإجازة" data-msg="هل أنت متأكد من أنك تود إلغاء طلب الإجازة ؟" data-action="إلغاء طلب الإجازة" data-ajax-update="#refresh-list" data-original-title="إلغاء طلب الإجازة"><span class="fa fa-times"></span></a>
+                                                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

@@ -1,0 +1,142 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeMedicalCheckUp.EmployeeMedicalCheckUp
+
+
+@{
+  Layout = null;
+}
+
+
+<div id="add-employee-medical-checkup" class="modal-content">
+  @if (TempData["add-msg"] != null)
+  {
+    int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+    String msg = TempData["add-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+      showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+    if (status > 0)
+    {
+      <script type="text/javascript">
+        $("#employee-medical-checkup").load("/HumanResource/EmployeeMedicalCheckUp/EmployeeList/@Model.EmployeeID");
+        $('#pop-up-lg').modal('toggle');
+      </script>
+    }
+
+  }
+
+
+  <script type="text/javascript">
+
+
+    $(document).ready(function () {
+      var bar = $('.progress-bar');
+      var percent = $('.percent');
+
+      $('#form-add-employee-medical-checkup').ajaxForm({
+        beforeSend: function () {
+          var percentVal = '0%';
+          bar.width(percentVal);
+          percent.html(percentVal);
+        },
+        uploadProgress: function (event, position, total, percentComplete) {
+          var percentVal = percentComplete + '%';
+          bar.width(percentVal);
+          percent.html(percentVal);
+        },
+        complete: function (xhr) {
+
+          console.log("xxxxxxxxxxxxxx");
+          $('#add-employee-medical-checkup').replaceWith(xhr.responseText);
+        }
+      });
+    });
+
+
+
+
+  </script>
+
+
+
+
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">إضافة فحص طبي جديد</h4>
+  </div>
+  <div class="modal-body modal-form">
+    <div class="portlet-body form">
+      <form id="form-add-employee-medical-checkup" class="form-horizontal" action="/HumanResource/EmployeeMedicalCheckUp/EmployeeAdd" method="post" enctype="multipart/form-data">
+
+
+        <div class="form-body">
+          @Html.HiddenFor(model => model.EmployeeID)
+
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">تاريخ الفحص الطبي </label>
+            <div class="col-md-10">
+              @Html.TextBoxFor(model => model.CheckUpDate, new { @class = "form-control  date-picker"})
+
+              @Html.ValidationMessageFor(model => model.CheckUpDate, "", new { @class = "text-danger" })
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">ملاحظات</label>
+            <div class="col-md-10">
+              @Html.TextAreaFor(model => model.Notes, new { @class = "form-control text-center" })
+
+            </div>
+          </div>
+
+
+          <div class="form-group">
+            <label class="col-md-2 control-label">المستند</label>
+            <div class="col-md-8">
+              <div class="fileinput fileinput-new" data-provides="fileinput">
+                <div class="input-group">
+                  <div class="form-control uneditable-input input-fixed input-medium" data-trigger="fileinput">
+                    <i class="fa fa-file fileinput-exists"></i>&nbsp;
+                    <span class="fileinput-filename"> </span>
+                  </div>
+                  <span class="input-group-addon btn default btn-file">
+                    <span class="fileinput-new">إختر المستند</span>
+                    <span class="fileinput-exists">تغير</span>
+                    <input type="file" name="file">
+                  </span>
+                  <a href="javascript:;" class="input-group-addon btn red fileinput-exists" data-dismiss="fileinput">إلغاء</a>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="progress" style="height: 34px;padding: 5px; border:1px solid #ddd;margin-bottom:0;">
+                <div class="progress-bar" style="border-radius: 3px;"></div>
+                <div class="percent text-center" style="width:105px; line-height: 24px;color: #b3acac;position: absolute;">0 %</div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="form-actions">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <input id="btnSubmit" type="Submit" class="btn btn-primary" value="حفظ">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+            </div>
+          </div>
+        </div>
+
+
+
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

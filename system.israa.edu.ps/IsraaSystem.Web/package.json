@@ -1,0 +1,30 @@
+{
+  "name": "myproject",
+  "version": "1.0.0",
+  "devDependencies": {
+    "axios": "^0.18.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "moment": "^2.9.0",
+    "npm-watch": "^0.6.0",
+    "vue": "^2.6.8",
+    "vue-loader": "^15.7.0",
+    "vue-template-compiler": "^2.6.8",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.2.3"
+  },
+  "watch": {
+    "build": "Scripts/es6/*.js"
+  },
+  "scripts": {
+    "watch": "npm-watch",
+    "build": "webpack"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}

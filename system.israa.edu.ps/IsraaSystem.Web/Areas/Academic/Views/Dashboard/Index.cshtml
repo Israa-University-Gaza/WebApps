@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "الرئيسية";
+    ViewBag.Menu = "#menu-dashboard";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+}
+
+@section PageStyles { }
+
+@section PagePlugins { }
+
+@section PageScripts {
+    @*<script>
+            window.history.pushState("object or string", "Title", "/new-url");
+        </script>*@
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الشئون الأكاديمية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الرئيسية</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase"></span>
+                </div>
+            </div>
+            <div class="portlet-body">
+            </div>
+        </div>
+    </div>
+</div>

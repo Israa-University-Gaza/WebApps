@@ -1,0 +1,43 @@
+﻿@model IsraaSystem.Entity.HumanResource.Salary.BasicSalaryVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - رواتب الموظفين";
+    ViewBag.Menu = "#menu-salary,#menu-salary-basic-salary";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/BasicSalary/Index">رواتب الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض رواتب الموظفين</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض رواتب الموظفين</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/BasicSalary/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        اضافة راتب لموظف
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

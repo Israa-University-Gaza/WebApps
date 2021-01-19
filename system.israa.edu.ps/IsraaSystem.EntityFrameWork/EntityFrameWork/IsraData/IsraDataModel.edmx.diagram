@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="76420e7ee0b94b8a98263c5b8d533165" Name="Diagram1" ZoomLevel="71">
+        <EntityTypeShape EntityType="IsraDataModel.InstallmentOrder" Width="4.25" PointX="3" PointY="10" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentInstallment" Width="1.5" PointX="8" PointY="10.375" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentData" Width="1.5" PointX="0.75" PointY="10.75" FillColor="Lime" />
+        <AssociationConnector Association="IsraDataModel.FK_InstallmentOrder_StudentData" />
+        <AssociationConnector Association="IsraDataModel.FK_StudentInstallment_StudentData" />
+        <AssociationConnector Association="IsraDataModel.FK_StudentInstallment_InstallmentOrder" />
+        <EntityTypeShape EntityType="IsraDataModel.Action" Width="1.5" PointX="3" PointY="24.25" />
+        <EntityTypeShape EntityType="IsraDataModel.ActionType" Width="1.5" PointX="0.75" PointY="28.125" />
+        <EntityTypeShape EntityType="IsraDataModel.Currency" Width="1.5" PointX="0.75" PointY="23.375" />
+        <EntityTypeShape EntityType="IsraDataModel.CurrencyPrice" Width="1.5" PointX="3" PointY="31.625" />
+        <EntityTypeShape EntityType="IsraDataModel.Transaction" Width="1.5" PointX="5.25" PointY="4" />
+        <EntityTypeShape EntityType="IsraDataModel.Voucher" Width="1.5" PointX="3" PointY="4.25" />
+        <EntityTypeShape EntityType="IsraDataModel.VoucherDetails" Width="1.5" PointX="8.25" PointY="0.75" />
+        <EntityTypeShape EntityType="IsraDataModel.VoucherType" Width="1.5" PointX="0.75" PointY="5" />
+        <AssociationConnector Association="IsraDataModel.FK_Action_ActionType" />
+        <AssociationConnector Association="IsraDataModel.FK_Action_Currency" />
+        <AssociationConnector Association="IsraDataModel.FK_Transaction_Action" />
+        <AssociationConnector Association="IsraDataModel.FK_Voucher_Action" />
+        <AssociationConnector Association="IsraDataModel.FK_CurrencyPrice_Currency" />
+        <AssociationConnector Association="IsraDataModel.FK_VoucherDetails_Currency" />
+        <AssociationConnector Association="IsraDataModel.FK_Transaction_StudentData" />
+        <AssociationConnector Association="IsraDataModel.FK_Voucher_StudentData" />
+        <AssociationConnector Association="IsraDataModel.FK_Transaction_Voucher" />
+        <AssociationConnector Association="IsraDataModel.FK_Voucher_VoucherType" />
+        <AssociationConnector Association="IsraDataModel.FK_VoucherDetails_Voucher" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentScholarship" Width="1.5" PointX="8" PointY="5.5" />
+        <AssociationConnector Association="IsraDataModel.FK_StudentScholarship_Action" />
+        <AssociationConnector Association="IsraDataModel.FK_StudentScholarship_StudentData" />
+        <EntityTypeShape EntityType="IsraDataModel.Account" Width="1.5" PointX="3" PointY="18.875" />
+        <EntityTypeShape EntityType="IsraDataModel.AccountTransaction" Width="1.5" PointX="10.75" PointY="0.875" />
+        <EntityTypeShape EntityType="IsraDataModel.AccountVoucher" Width="1.5" PointX="10.75" PointY="5.875" />
+        <EntityTypeShape EntityType="IsraDataModel.AccountVoucherDetails" Width="1.5" PointX="10.75" PointY="10.875" />
+        <EntityTypeShape EntityType="IsraDataModel.HelpRequest" Width="1.5" PointX="12.75" PointY="0.875" />
+        <EntityTypeShape EntityType="IsraDataModel.StringNumber" Width="1.5" PointX="0.75" PointY="0.875" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentBankInstallment" Width="1.5" PointX="12.75" PointY="8.875" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentHelps" Width="1.5" PointX="2.75" PointY="0.875" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentLoan" Width="1.5" PointX="14.75" PointY="0.875" />
+        <EntityTypeShape EntityType="IsraDataModel.StudentSocialSolidarity" Width="1.5" PointX="14.75" PointY="6.875" />
+        <AssociationConnector Association="IsraDataModel.FK_Transaction_Account" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

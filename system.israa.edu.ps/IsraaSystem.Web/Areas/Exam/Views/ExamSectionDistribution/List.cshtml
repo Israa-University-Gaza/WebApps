@@ -1,0 +1,83 @@
+﻿@model IsraaSystem.Web.Areas.Exam.Models.ExamSectionDistributionVM
+
+
+
+
+<div id="datalist" class="row ">
+    <div class="table-container">
+
+        <table class="table table-bordered table-condensed">
+
+
+            <tr class="danger">
+                <th>Count</th>
+                <th>FeMale</th>
+                <th>Male</th>
+
+            </tr>
+
+            <tr>
+                <td>@Model.SectionDetails.count</td>
+                <td>@Model.SectionDetails.FeMale</td>
+                <td>@Model.SectionDetails.Male</td>
+
+            </tr>
+        </table>
+
+
+    </div>
+
+
+    <div class="table-container">
+
+        <table class="table table-bordered table-condensed">
+
+            @foreach (var item in Model.Data)
+            {
+                <tr class="active">
+                    <th colspan="1">roomName</th>
+                    <th colspan="1"> StudentCount </th>
+                    <th colspan="1">LectureCapacity </th>
+                    <th colspan="1"> SeatNum </th>
+
+                    <th colspan="1"> ExamCapacity </th>
+                    <th colspan="1">MaleCount </th>
+                    <th colspan="1"> FemaleCount</th>
+                </tr>
+                <tr class="active">
+                    <th colspan="1">@item.roomName</th>
+                    <th colspan="1">@item.StudentCount </th>
+                    <th colspan="1">@item.LectureCapacity</th>
+                    <th colspan="1">@item.SeatNum</th>
+
+                    <th colspan="1">@item.ExamCapacity</th>
+                    <th colspan="1">@item.MaleCount</th>
+                    <th colspan="1">@item.FemaleCount</th>
+                </tr>
+                <tr>
+                    <th>CourseCode</th>
+                    <th colspan="3">ArName</th>
+                    <th>SectionNum</th>
+                    <th>MaleCount</th>
+                    <th>FemaleCount</th>
+                </tr>
+                foreach (var g in item.data)
+                {
+                    <tr>
+                        <td>@g.Section.OfferdCourse.Course.CourseCode</td>
+                        <td colspan="3">@g.Section.OfferdCourse.Course.ArName</td>
+                        <td>@g.Section.SectionNum</td>
+                        <td>@g.MaleCount</td>
+                        <td>@g.FemaleCount</td>
+                    </tr>
+                }
+
+
+
+            }
+
+        </table>
+
+
+    </div>
+</div>

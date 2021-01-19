@@ -1,0 +1,49 @@
+﻿
+@using System.Data
+@model IsraaSystem.Entity.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+    ViewBag.Title = "Statistics";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/EmployeeVacation">إجازات الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>إحصاء إجازات موظف</a>
+    </li>
+}
+        
+<div class="row">
+
+
+
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-social-dribbble font-green"></i>
+                <span class="caption-subject font-green bold uppercase">احصاء إجازات الموظف</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+            @Html.Partial("_StatisticsList", Model)
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+

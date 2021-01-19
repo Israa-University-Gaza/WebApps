@@ -1,0 +1,59 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.EmployeeAttendanceFormat
+
+@{
+  Layout = null;
+}
+
+<div id="Edit-EmployeeAttendanceFormat" class="modal-content">
+  @if (TempData["add-msg"] != null)
+  {
+    int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+    String msg = TempData["add-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+    if (status > 0)
+    {
+      <script type="text/javascript">
+        $('.modal').modal('hide');
+      </script>
+    }
+  }
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">تعديل انتهاء فترة دوام افتراضي </h4>
+  </div>
+  <div class="modal-body modal-form">
+    <div class="portlet-body form">
+      @{
+        AjaxOptions opt = new AjaxOptions
+        {
+          InsertionMode = InsertionMode.ReplaceWith,
+          HttpMethod = "POST",
+          UpdateTargetId = "Edit-EmployeeAttendanceFormat"
+        };
+      }
+      @using (Ajax.BeginForm("Edit", "EmployeeAttendanceFormat", null, opt, new { @class = "form-horizontal" }))
+      {
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-md-2 control-label">إلى</label>
+            <div class="col-md-3">
+              @Html.TextBoxFor(model => model.ActiveToDate, new { @class = "form-control text-center date-picker" })
+              @Html.ValidationMessageFor(model => model.ActiveToDate, "", new { @class = "text-danger help-block" })
+            </div>
+          </div>
+        </div>
+        <div class="form-actions">
+          <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+              <input type="submit" class="btn btn-primary" value="حفظ">
+              <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</div>

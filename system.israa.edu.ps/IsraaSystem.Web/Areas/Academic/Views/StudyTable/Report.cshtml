@@ -1,0 +1,251 @@
+﻿@model IsraaSystem.Core.Classic.Academic.StudyTable.StudyTableVM
+@{
+    ViewBag.Title = "الشؤون الأكاديمية - برنامج الجدول الدراسي";
+    ViewBag.Menu = "#menu-study-table-report";
+    Layout = "~/Areas/Academic/Views/Shared/_Layout.cshtml";
+}
+
+@section PageStyles {
+    <link href="/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section PagePlugins {
+
+}
+
+@section PageScripts {
+    <script>
+        $(document).ready(function () {
+
+            // set semester id in hidden for Print Forms
+            var smID = $('#filter_SemesterID option:selected').val();
+            $('.SemesterID_ddl').val(smID)
+
+            $("#filter_SemesterID").change(function () {
+                var smID = $('#filter_SemesterID option:selected').val();
+                $('.SemesterID_ddl').val(smID)
+            });
+
+            // set Branch id in hidden for Print Forms
+            var BrID = $('#filter_BranchID option:selected').val();
+            $('.BranchID_ddl').val(BrID)
+
+            $("#filter_BranchID").change(function () {
+                var smID = $('#filter_BranchID option:selected').val();
+                $('.BranchID_ddl').val(smID)
+            });
+
+        });
+    </script>
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الشؤون الأكاديمية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الجداول الدراسية</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title tabbable-line">
+                <div class="actions pull-left" style="margin-left:20px;">
+                    <a class="btn btn-circle btn-icon-only btn-default fullscreen tooltips" data-original-title="شاشة كاملة" href="javascript:;"></a>
+                </div>
+                <div class="caption">
+                    <span class="caption-subject font-green bold uppercase">برنامج الجداول الدراسية</span>
+
+                </div>
+            </div>
+            <div class="portlet-body font-ta">
+                <div id="print-tab" class="tab-pane active">
+                    <div class="row">
+                        <div class="form-group">
+                            <div class="col-md-offset-1 col-md-5">
+                                <label class="control-label">الفصل الدراسي</label>
+                                @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                            </div>
+
+
+                            <div class=" col-md-4">
+                                <label class="control-label">الفرع</label>
+                                @Html.DropDownListFor(model => model.filter.BranchID, new SelectList(Model.filter.Branches, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                            </div>
+
+
+                        </div>
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form">
+
+                                @using (Html.BeginForm("StudyTableReport", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.filter.SemesterID, new { @class = "SemesterID_ddl" });
+                                    @Html.HiddenFor(model => model.filter.BranchID, new { @class = "BranchID_ddl" });
+                                    <div class="form-body" style="padding-top:0;">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-5">
+                                                <label class="control-label">القسم</label>
+                                                @Html.DropDownListFor(model => model.filter.DepartmentID, new SelectList(Model.filter.Departments, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="control-label">المستوى</label>
+                                                @Html.DropDownListFor(model => model.filter.StudyLevelID, new SelectList(Model.filter.StudyLevels, "Value", "Text"), null, new { @class = "form-control input-change" })
+                                            </div>
+                                            <div class="col-md-2">
+                                                <label class="control-label">الجندر</label>
+                                                @Html.DropDownListFor(model => model.filter.GenderID, new SelectList(Model.filter.Genders, "Value", "Text"), null, new { @class = "form-control input-change" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form">
+                                @using (Html.BeginForm("InstructorStudyTableReport", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.filter.SemesterID, new { @class = "SemesterID_ddl" });
+                                    <div class="form-body" style="padding-top:0;">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-9">
+                                                <label class="control-label">المحاضر</label>
+                                                @Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Instructors, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12 col-sm-12">
+                            <div class="form">
+                                @using (Html.BeginForm("RoomStudyTableReport", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.filter.SemesterID, new { @class = "SemesterID_ddl" });
+
+                                    <div class="form-body" style="padding-top:0;">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-9">
+                                                <label class="control-label">القاعة</label>
+                                                @Html.DropDownListFor(model => model.filter.RoomID, new SelectList(Model.filter.Rooms, "Value", "Text"), null, new { @class = "form-control input-change select2" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+
+
+
+
+                                @using (Html.BeginForm("CollegeTableReport", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.filter.SemesterID, new { @class = "SemesterID_ddl" });
+
+                                    <div class="form-body" style="padding-top:0;">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-5">
+                                                <label class="control-label">الكلية</label>
+                                                @Html.DropDownListFor(model => model.filter.CollegeID, new SelectList(Model.filter.CollegesWithoutProgram, "Value", "Text"), "جميع الكليات", new { @class = "form-control input-change select2" })
+
+
+                                            </div>
+                                            <div class=" col-md-4">
+                                                <label class="control-label">المحاضر</label>
+                                                @Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Instructors, "Value", "Text"), "جميع المحاضرين", new { id = "instructor-study-table-instructor", @class = "form-control select2 instructor-study-table-change" })
+
+
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+
+                                <hr />
+                                <h4 class="col-md-offset-1"> شعب بلا محاضرين</h4>
+
+                                @using (Html.BeginForm("SectionsWithNoEmployeeReport", null, FormMethod.Post, new { @class = "form-horizontal" }))
+                                {
+
+                                    @Html.HiddenFor(model => model.filter.SemesterID, new { @class = "SemesterID_ddl" });
+
+                                    <div class="form-body" style="padding-top:0;">
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-5">
+                                                <label class="control-label">الكلية</label>
+                                                @Html.DropDownListFor(model => model.filter.CollegeID, new SelectList(Model.filter.Colleges, "Value", "Text"), "جميع الكليات", new { @class = "form-control input-change select2" })
+
+
+                                            </div>
+                                            <div class=" col-md-4">
+                                                <label class="control-label">البرنامج</label>
+                                                @Html.DropDownListFor(model => model.filter.ProgramID, new SelectList(Model.filter.Programs, "Value", "Text"), "جميع البرامج", new { id = "instructor-study-table-instructor", @class = "form-control select2 instructor-study-table-change" })
+
+
+                                            </div>
+
+                                        </div>
+
+
+
+
+
+                                        <div class="form-group">
+                                            <div class="col-md-offset-1 col-md-2">
+                                                <button type="submit" class="btn btn-primary btn-sm btn-default">طباعة</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                }
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

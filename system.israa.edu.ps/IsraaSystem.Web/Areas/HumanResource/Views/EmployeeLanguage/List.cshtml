@@ -1,0 +1,92 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeLanguage.EmployeeLanguageVM
+
+
+@{
+    Layout = null;
+}
+
+<div id="employee-language">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-language"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeLanguage", opt, new { @id = "form-employee-family" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">لغة الموظف</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.LanguageID, new SelectList(Model.filter.Languages, "Value", "Text"), "جميع اللغات", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">مستوى القراءة </label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.ReadingKnowLevelID, new SelectList(Model.filter.ReadingKnowLevels, "Value", "Text"), "جميع المستويات ", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">مستوى الكتابة </label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.WritingKnowLevelID, new SelectList(Model.filter.WritingKnowLevels, "Value", "Text"), "جميع المستويات", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">مستوى التحدث </label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.ConversationKnowLevelID, new SelectList(Model.filter.ConversationKnowLevels, "Value", "Text"), "جميع المستويات", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp35">الموظف</th>
+                        <th class="wp15 text-center">اللغة</th>
+                        <th class="wp15 text-center">مستوى القراءة</th>
+                        <th class="wp15 text-center">مستوى الكتابة</th>
+                        <th class="wp15 text-center">مستوى التحدث</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["LanguageName"]</td>
+                            <td class="text-center">@row["ReadingKnowLevel"]</td>
+                            <td class="text-center">@row["WritingKnowLevel"]</td>
+                            <td class="text-center">@row["ConversationKnowLevel"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            @Html.Partial("_paging", Model.pagging)
+
+        </div>
+    }
+</div>

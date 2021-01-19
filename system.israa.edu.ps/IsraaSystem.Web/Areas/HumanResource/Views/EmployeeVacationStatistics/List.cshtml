@@ -1,0 +1,421 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Vacation.EmployeeVacationVM
+
+@{
+  Layout = null;
+}
+
+
+<div id="employee-statistics">
+  <div id="refresh-list"></div>
+  @if (TempData["toast-msg"] != null)
+  {
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+  }
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "employee-statistics"
+    };
+  }
+
+
+  @using (Ajax.BeginForm("List", null, opt, new { @id = "form-employee-vacation" }))
+  {
+
+    <div class="form no-print">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-sm1-1 control-label">الرقم الوظيفي</label>
+            <div class="col-sm-2">
+              @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", @type = "Number", placeholder = "رقم  الموظف", @id = "EmployeeName" })
+            </div>
+
+            <label class="col-sm-1 control-label">سنة الرصيد</label>
+            <div class="col-sm-2">
+              @Html.DropDownListFor(model => model.filter.VacationBalanceYearID, new SelectList(Model.filter.VacationBalanceYears, "Value", "Text"), new { @class = "form-control input-change", @id = "VacationBalanceYearID" })
+            </div>
+            <div class=" col-sm-1">
+              <button type="submit" class="btn blue">تصفية</button>
+            </div>
+          </div>
+
+
+
+        </div>
+      </div>
+    </div>
+    <br />
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+
+
+      DataTable dtEmpInfo = (DataTable)ViewBag.dtEmpInfo;
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <tbody>
+              <tr>
+                <td class="active">اسم الموظف </td>
+                <td>@dtEmpInfo.Rows[0]["EmployeeName"].ToString()  </td>
+
+                <td class="active">الرقم الوظيفي </td>
+                <td>@dtEmpInfo.Rows[0]["EmployeeNo"].ToString()  </td>
+              </tr>
+
+              <tr>
+                <td class="active">المسمى الوظيفي </td>
+                <td>@dtEmpInfo.Rows[0]["JobTitle"].ToString()  </td>
+
+                <td class="active">العام </td>
+                <td>@ViewBag.selectedYear.ToString()  </td>
+              </tr>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+
+
+      <div class="row">
+        <div class="col-md-4">
+          <table class="table table-bordered ">
+
+            <tbody>
+              <tr>
+                <td colspan="4" class="info"> الاجازات العادية </td>
+                <td class="for-print" rowspan="2">توقيع الموظف </td>
+              </tr>
+              <tr>
+                <td> من </td>
+                <td> إلى </td>
+                <td> عدد الأيام </td>
+                <td> الرصيد المتبقي </td>
+
+              </tr>
+
+
+
+              @{
+                DataTable dt1 = (DataTable)ViewBag.VacationBalance;
+                int balanceDays = 0;
+              }
+              @foreach (DataRow row in dt1.Rows)
+              {
+
+                balanceDays = (int)@row["DefualtDays"];
+                <tr>
+                  <td colspan="2"> رصيد افتراضي </td>
+
+                  <td>@row["DefualtDays"]+ </td>
+                  <td> @balanceDays </td>
+                  <td class="for-print"></td>
+
+                </tr>
+              }
+              @foreach (DataRow row in dt1.Rows)
+              {
+
+                balanceDays = (int)@row["PostponeDays"] + (int)@row["DefualtDays"];
+                <tr>
+                  <td colspan="2"> رصيد مرحل </td>
+
+                  <td> @row["PostponeDays"]+ </td>
+                  <td> @balanceDays </td>
+                  <td class="for-print"></td>
+
+                </tr>
+              }
+
+
+
+              @{
+                DataTable dt2 = (DataTable)ViewBag.AttendanceMonthly;
+              }
+
+              @foreach (DataRow row in Model.data.Rows)
+              {
+                if ((string)row["VacationType"] == "إجازة سنوية"    && (int)row["IsAccredit"] == 1 )
+                {
+                  balanceDays -= (int)row["VacationDays"];
+
+                  <tr>
+                    <td> @row["VacationStartDate"] </td>
+                    <td> @row["VacationEndDate"] </td>
+                    <td>@row["VacationDays"] -</td>
+                    <td>  @balanceDays </td>
+                    <td class="for-print"> </td>
+                  </tr>
+
+                  //var dataRow = dt2.AsEnumerable().First(dr =>
+                  //  dr.Field<string>("year") == Convert.ToDateTime(row["VacationStartDate"]).Year.ToString()
+                  //  && dr.Field<string>("MonthID") == Convert.ToDateTime(row["VacationStartDate"]).Month.ToString()
+                  //  );
+
+
+
+
+
+
+                }
+
+              }
+
+
+              @foreach (DataRow row2 in dt2.Rows)
+              {
+                if ((int)row2["OutDays"] != 0)
+                {
+
+
+                  <tr>
+                    <td colspan="2">
+
+                      ساعات تأخير @row2["Year"] / @row2["MonthID"]
+                      @if (!string.IsNullOrWhiteSpace(row2["DeductedFromSalary"].ToString()))
+                      {
+
+                        <text>
+                          مخصومة
+                        </text>
+                      }
+                      else
+                      {
+                        balanceDays -= (int)row2["OutDays"];
+                      }
+
+                    </td>
+
+                    <td>  @row2["OutDays"] - </td>
+                    <td> @balanceDays </td>
+                    <td class="for-print"></td>
+
+                  </tr>
+
+                }
+
+
+              }
+
+
+
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="col-md-4">
+          <table class="table table-bordered ">
+
+            <tbody>
+              <tr>
+                <td colspan="3" class="info"> الاجازات المرضية </td>
+                <td class="for-print" rowspan="2">توقيع الموظف </td>
+              </tr>
+              <tr>
+                <td> من </td>
+                <td> إلى </td>
+                <td> عدد الأيام </td>
+
+
+              </tr>
+              @foreach (DataRow row in Model.data.Rows)
+              {
+                if ((string)row["VacationType"] == "إجازة مرضية")
+                {
+                  <tr>
+                    <td> @row["VacationStartDate"] </td>
+                    <td> @row["VacationEndDate"] </td>
+                    <td> @row["VacationDays"] </td>
+                    <td class="for-print"></td>
+
+                  </tr>
+                }
+
+              }
+
+
+            </tbody>
+          </table>
+
+        </div>
+        <div class="col-md-4">
+            <table class="table table-bordered ">
+
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="info"> الاجازات العارضة </td>
+                        <td class="for-print" rowspan="2">توقيع الموظف </td>
+                    </tr>
+                    <tr>
+                        <td> من </td>
+                        <td> إلى </td>
+                        <td> عدد الأيام </td>
+
+                    </tr>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        if ((string)row["VacationType"] == "إجازة طارئة")
+                        {
+                            <tr>
+                                <td> @row["VacationStartDate"] </td>
+                                <td> @row["VacationEndDate"] </td>
+                                <td> @row["VacationDays"] </td>
+                                <td class="for-print"></td>
+                            </tr>
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered ">
+
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="info"> إجازات دون راتب </td>
+                        <td class="for-print" rowspan="2">توقيع الموظف </td>
+                    </tr>
+                    <tr>
+                        <td> من </td>
+                        <td> إلى </td>
+                        <td> عدد الأيام </td>
+
+                    </tr>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        if ((string)row["VacationType"] == "إجازة بدون راتب")
+                        {
+                            <tr>
+                                <td> @row["VacationStartDate"] </td>
+                                <td> @row["VacationEndDate"] </td>
+                                <td> @row["VacationDays"] </td>
+                                <td class="for-print"></td>
+                            </tr>
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered ">
+
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="info"> إجازة الحج </td>
+                        <td class="for-print" rowspan="2">توقيع الموظف </td>
+                    </tr>
+                    <tr>
+                        <td> من </td>
+                        <td> إلى </td>
+                        <td> عدد الأيام </td>
+
+                    </tr>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        if ((string)row["VacationType"] == "إجازة حج")
+                        {
+                            <tr>
+                                <td> @row["VacationStartDate"] </td>
+                                <td> @row["VacationEndDate"] </td>
+                                <td> @row["VacationDays"] </td>
+                                <td class="for-print"></td>
+                            </tr>
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>
+
+            <table class="table table-bordered ">
+
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="info"> إجازة أمومة </td>
+                        <td class="for-print" rowspan="2">توقيع الموظف </td>
+                    </tr>
+                    <tr>
+                        <td> من </td>
+                        <td> إلى </td>
+                        <td> عدد الأيام </td>
+
+                    </tr>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        if ((string)row["VacationType"] == "إجازة أمومة")
+                        {
+                            <tr>
+                                <td> @row["VacationStartDate"] </td>
+                                <td> @row["VacationEndDate"] </td>
+                                <td> @row["VacationDays"] </td>
+                                <td class="for-print"></td>
+                            </tr>
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>
+
+            @*<table class="table table-bordered ">
+
+                <tbody>
+                    <tr>
+                        <td colspan="3" class="info"> إجازة حسب الخطة </td>
+                        <td class="for-print" rowspan="2">توقيع الموظف </td>
+                    </tr>
+                    <tr>
+                        <td> من </td>
+                        <td> إلى </td>
+                        <td> عدد الأيام </td>
+
+                    </tr>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        if ((string)row["VacationType"] == "إجازة حسب الخطة")
+                        {
+                            <tr>
+                                <td> @row["VacationStartDate"] </td>
+                                <td> @row["VacationEndDate"] </td>
+                                <td> @row["VacationDays"] </td>
+                                <td class="for-print"></td>
+                            </tr>
+                        }
+
+                    }
+
+
+                </tbody>
+            </table>*@
+
+        </div>
+      </div>
+
+
+
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

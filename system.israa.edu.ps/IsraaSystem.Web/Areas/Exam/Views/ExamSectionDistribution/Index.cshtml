@@ -1,0 +1,254 @@
+﻿@using IsraaSystem.Application.Helper
+@using IsraaSystem.DataAccess.Sql.Academic
+@model IsraaSystem.Web.Areas.Exam.Models.ExamSectionDistributionVM
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@section PageBreadcrumb{
+    <li>
+        <a href="#">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="#">توزيع اعداد طلاب الشعب على القاعات</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a> </a>
+    </li>
+}
+
+
+<div id="refresh-list"></div>
+<div class="row">
+
+
+    <div class="portlet light bordered">
+        <div class="portlet-title">
+            <div class="caption">
+                <i class="icon-social-dribbble font-green"></i>
+                <span class="caption-subject font-green bold uppercase"> ادارة علامات الطلاب</span>
+            </div>
+
+        </div>
+        <div class="portlet-body">
+
+            @{
+                AjaxOptions opt = new AjaxOptions
+                {
+                    InsertionMode = InsertionMode.ReplaceWith,
+                    HttpMethod = "POST",
+                    UpdateTargetId = "datalist"
+                };
+            }
+
+
+            @using (Ajax.BeginForm("Add", null, opt, new { @id = "israa-form" }))
+            {
+                <div class="form">
+                    <div class="form-horizontal">
+                        @Html.AntiForgeryToken()
+                        <div class="form-body ">
+
+
+                            <div class="form-group">
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.ExamDate)
+
+                                </label>
+                                <div class="col-md-3">
+                                    @Html.DropDownListFor(model => model.ExamDate,
+                                        new SelectList(DropDownHelpper.FinalExamDate(), "Value", "Text"),
+                                        "اختر التاريخ",
+                                        new
+                                        {
+                                            @class = "form-control"
+                                        })
+                                </div>
+
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.ExamPeriod)
+
+                                </label>
+                                <div class="col-md-3">
+
+
+                                    @Html.DropDownListFor(model => model.ExamPeriod,
+                                        new SelectList(DropDownHelpper.FinalExamPeriods(null), "Value", "Text"),
+                                        "اختر الفترة",
+                                        new
+                                        {
+                                            @class = "form-control"
+                                        })
+
+                                </div>
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.RoomId)
+
+                                </label>
+                                <div class="col-md-3">
+
+
+                                    @Html.DropDownListFor(model => model.RoomId,
+                                        new SelectList(DropDownHelpper.Rooms(), "Value", "Text"),
+                                        "اختر القاعة",
+                                        new
+                                        {
+                                            @class = "form-control  "
+                                        })
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-group">
+
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.DepartmentID)
+
+                                </label>
+                                <div class="col-md-3">
+
+
+                                    @Html.DropDownListFor(model => model.DepartmentID,
+                                        new SelectList(DropDownHelpper.AcademicDepartments(), "Value", "Text"),
+                                        "اختر القسم",
+                                        new
+                                        {
+                                            @class = "form-control cascadingDropDown form-filter",
+                                            data_group = "product-1",
+                                            data_target = "OfferdCourses",
+                                            data_id = "Departments",
+                                            data_url = "/Exam/ExamSectionDistribution/ddlFilterdOfferdCourses",
+                                            data_replacement = "container1",
+                                            data_default_label = "اختر القسم"
+                                        })
+
+                                </div>
+
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.OfferdCourseID)
+
+                                </label>
+                                <div class="col-md-3">
+
+                                    @Html.DropDownListFor(model => model.OfferdCourseID,
+                                        new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                        "اختر المساق",
+                                        new
+                                        {
+                                            @class = "form-control cascadingDropDown form-filter",
+                                            data_group = "product-1",
+                                            data_id = "OfferdCourses",
+                                            data_target = "Sections",
+                                            data_url = "/Exam/ExamSectionDistribution/ddlSections",
+                                            data_replacement = "container1",
+                                            data_default_label = "اختر المساق",
+                                            disabled = ""
+                                        })
+
+                                </div>
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.SectionID)
+
+                                </label>
+                                <div class="col-md-3">
+
+                                    @Html.DropDownListFor(model => model.SectionID,
+                                        new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                        "اختر الشعبة",
+                                        new
+                                        {
+                                            @class = "form-control cascadingDropDown form-filter",
+                                            data_group = "product-1",
+                                            data_id = "Sections",
+                                            data_replacement = "container1",
+                                            data_default_label = "اختر الشعبة",
+                                            data_final = "",
+                                            disabled = ""
+                                        })
+
+
+                                </div>
+                            </div>
+                            <div class="form-group">
+
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.MaleCount)
+
+                                </label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.MaleCount, new { @class = "form-control " })
+
+
+                                </div>
+
+                                <label class="col-md-1 control-label">
+                                    @Html.DisplayNameFor(model => model.FemaleCount)
+
+                                </label>
+                                <div class="col-md-3">
+
+                                    @Html.TextBoxFor(model => model.FemaleCount, new { @class = "form-control " })
+
+
+                                </div>
+
+
+                                <div class="col-md-1 col-md-offset-11">
+                                    <br />
+                                    <button type="submit" class="btn blue">اضافة</button>
+                                    @*<button id="btnSearch" type="submit" class="btn btn-block default">اضافة</button>*@
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+
+                </div>
+                <div id="datalist" class="row ">
+                
+                </div>
+            }
+
+     
+
+
+        </div>
+    </div>
+</div>
+
+@section PagePlugins {
+
+}
+
+@section PageScripts {
+
+
+    <script>
+        $(function () {
+            israaApp.initSsdCascadingDropDown();
+        });
+
+        function show(param_div_id) {
+            document.getElementById('main_place').innerHTML = document.getElementById(param_div_id).innerHTML;
+        }
+    </script>
+
+}

@@ -1,0 +1,8 @@
+﻿@model IsraaSystem.Core.Classic.Academic.Mark.MarkFilter
+@{
+  Layout = null;
+}
+@Html.DropDownListFor(model => model.OfferdCourseID, new SelectList(Model.Colleges, "Value", "Text"), "إختر الكلية", new { @class = "form-control ddl-dependent", data_url = "/Academic/Mark/ddlFilterdOfferdCourses/", data_target_id = "#filter_OfferdCourseID" })
+
+
+

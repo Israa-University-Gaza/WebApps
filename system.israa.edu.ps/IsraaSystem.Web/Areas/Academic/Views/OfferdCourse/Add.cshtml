@@ -1,0 +1,27 @@
+﻿@model IsraaSystem.Core.Classic.Academic.OfferdCourse.OfferdCourse
+
+@{
+    ViewBag.Title = "الشؤون الأكاديمية - طرح مساق جديد";
+    ViewBag.Menu = "#menu-offerd-course-add";
+    Layout = "~/Areas/Academic/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Academic/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Academic/Section">الجداول الدراسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>طرح مساق جديد</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        @Html.Partial("AddForm", Model)
+    </div>
+</div>

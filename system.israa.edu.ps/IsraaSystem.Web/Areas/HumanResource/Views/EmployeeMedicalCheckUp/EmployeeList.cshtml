@@ -1,0 +1,96 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeMedicalCheckUp.EmployeeMedicalCheckUpVM
+
+@{
+  Layout = null;
+}
+<div id="employee-page">
+  <div id="employee-medical-checkup">
+    @if (TempData["toast-msg"] != null)
+    {
+      int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+      String msg = TempData["toast-msg"].ToString().Split(';')[1];
+      <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+      </script>
+    }
+    <script type="text/javascript">
+      setMenu('#menu-employee-medical-checkup');
+    </script>
+
+
+    <div class="row">
+      <div class="col-md-12">
+        <div class="portlet light bordered">
+          <div class="portlet-title">
+            <div class="caption">
+              <i class="icon-globe theme-font hide"></i>
+              <span class="caption-subject font-blue-madison bold uppercase">الفحوصات الطبية</span>
+            </div>
+            <div class="actions">
+              <a href="/HumanResource/EmployeeMedicalCheckUp/EmployeeAdd?empId=@Model.filter.EmployeeID" class="btn btn-primary pop-up-lg">إضافة فحص طبي جديد</a>
+            </div>
+          </div>
+          <div class="portlet-body">
+            <div class="row">
+              <div class="col-md-12">
+                @if (Model.data != null && Model.data.Rows.Count > 0)
+                {
+                  <table class="table table-striped table-hover">
+                    <thead>
+                      <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp20 text-center">تاريخ الفحص</th>
+                        <th class="wp20 text-center">الحالة</th>
+                        <th class="wp20 text-center">ملاحظات</th>
+
+                        <th class="wp30"></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach (DataRow row in Model.data.Rows)
+                      {
+                        <tr>
+                          <td>@row["RowNo"]</td>
+                          <td class="text-center">@row["CheckUpDate"]</td>
+                          <td class="text-center">@row["MedicalCheckUpStatus"]</td>
+                          <td class="text-center">@row["Notes"]</td>
+
+                          <td class="text-center">
+
+                            @if (@row["MedicalCheckUpStatus"].ToString() == "معتمد")
+                            {
+                              <a href="/HumanResource/EmployeeMedicalCheckUp/HRAccreditation/@row["ID"]" class="btn btn-sm btn-success disabled" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#employee-medical-checkup"><i class="fa fa-check"></i> </a>
+                              <a href="/HumanResource/EmployeeMedicalCheckUp/Delete/@row["ID"]" class="btn btn-sm btn-danger disabled confirm" data-title="حذف مستند" data-msg="هل أنت متأكد من أنك تود حذف العنصر" data-action="حذف" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#employee-medical-checkup"><span class="fa fa-times"></span></a>
+
+                            }
+                            else
+                            {
+                              <a href="/HumanResource/EmployeeMedicalCheckUp/HRAccreditation/@row["ID"]" class="btn btn-sm btn-success" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#employee-medical-checkup"><i class="fa fa-check"></i> </a>
+                              <a href="/HumanResource/EmployeeMedicalCheckUp/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف مستند" data-msg="هل أنت متأكد من أنك تود حذف العنصر" data-action="حذف" data-ajax="true" data-ajax-method="POST" data-ajax-mode="replace-with" data-ajax-update="#employee-medical-checkup"><span class="fa fa-times"></span></a>
+
+                            }
+
+
+
+
+                          </td>
+                        </tr>
+                      }
+                    </tbody>
+                  </table>
+                }
+                else
+                {
+                  <div class="alert alert-info alert-dismissible text-center" role="alert">
+                    <span>لا يوجد بيانات لعرضها</span>
+                  </div>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

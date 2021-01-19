@@ -1,0 +1,131 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Employee.EmployeeVM
+
+@{
+  Layout = null;
+}
+
+<div id="employees">
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "employees"
+    };
+  }
+
+  @using (Ajax.BeginForm("List", "Employees", opt, new { @id = "form-employee" }))
+  {
+    <div class="form">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-md-2 control-label">الرقم الوظيفي</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.EmployeeNo, new { @class = "form-control", placeholder = "الرقم الوظيفي" })
+            </div>
+            <div class="col-md-3">
+              @Html.DropDownListFor(model => model.filter.EmployeeStatusID, new SelectList(Model.filter.EmployeeStatuses, "Value", "Text"), "جميع الحالات", new { @class = "form-control input-change" })
+            </div>
+            <div class="col-md-3">
+              @Html.DropDownListFor(model => model.filter.EmploymentTypeID, new SelectList(Model.filter.EmploymentTypes, "Value", "Text"), "جميع الأنواع", new { @class = "form-control input-change" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">اسم الموظف</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.ArFirstName, new { @class = "form-control", placeholder = "اسم الموظف" })
+            </div>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.ArSecoundName, new { @class = "form-control", placeholder = "اسم الأب" })
+            </div>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.ArThirdName, new { @class = "form-control", placeholder = "اسم الجد" })
+            </div>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.ArFamilyName, new { @class = "form-control", placeholder = "اسم العائلة" })
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="col-md-offset-2 col-md-8">
+              <button type="submit" class="btn blue">تصفية</button>
+              <button type="button" class="btn default">إلغاء</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+      <div class="mt-element-card mt-element-overlay">
+        <div class="row">
+          <div class="col-md-offset-2 col-md-10">
+            @foreach (DataRow row in Model.data.Rows)
+            {
+              <div class="col-lg-2 col-md-3 col-sm-4 col-xs-6">
+                <div class="mt-card-item">
+                  <div class="mt-card-avatar mt-overlay-1">
+                    <img src="@row["EmployeeImageURL"]" />
+                    <div class="mt-overlay">
+                      <ul class="mt-info">
+                        <li>
+
+                          @{
+                            AjaxOptions opt2 = new AjaxOptions
+                            {
+                              InsertionMode = InsertionMode.ReplaceWith,
+                              HttpMethod = "POST",
+                              UpdateTargetId = "employees"
+                            };
+                          }
+
+
+                          @{
+                              var prm2 = new
+                              {
+                                id = @row["ID"]
+                              };
+                          }
+
+
+                          @Ajax.ActionLink("فتح الملف","Index", "Employee", prm2,opt2)
+
+
+
+
+                          @*<a href="/HumanResource/Employee/Index/@row["ID"]" class="btn default btn-outline">
+                            <i class="fa fa-folder-open"></i>
+                            <span>فتح الملف</span>
+                          </a>*@
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="mt-card-content">
+                    <h3 class="mt-card-name">@row["EmployeeName"]</h3>
+                    <p class="mt-card-desc font-grey-mint">@row["EmployeeNo"]</p>
+                  </div>
+                </div>
+              </div>
+
+              if (Convert.ToInt32(row["RowNo"].ToString()) % 6 == 0)
+              {
+                <div class="clearfix"></div>
+              }
+            }
+          </div>
+        </div>
+      </div>
+      @Html.Partial("_paging", Model.pagging)
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

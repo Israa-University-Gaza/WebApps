@@ -1,0 +1,135 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeePersonal.EmployeeContactData
+
+@{
+    Layout = null;
+}
+
+<div id="employee-page">
+    <script type="text/javascript">
+        setMenu('#menu-employee-personal');
+    </script>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title tabbable-line">
+                    <div class="caption">
+                        <i class="icon-globe theme-font hide"></i>
+                        <span class="caption-subject font-blue-madison bold uppercase">بيانات الموظف</span>
+                    </div>
+                    <ul class="nav nav-tabs">
+                        <li>
+                            <a href="/HumanResource/EmployeePersonal/EmployeeMainData/@Model.EmployeeID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">البيانات الشخصية</a>
+                        </li>
+                        <li class="active">
+                            <a href="/HumanResource/EmployeePersonal/EmployeeContactData/@Model.EmployeeID" data-ajax="true" data-ajax-method="Get" data-ajax-mode="replace-with" data-ajax-update="#employee-page">بيانات الإتصال</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="portlet-body form">
+                    @{
+                        AjaxOptions opt = new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.ReplaceWith,
+                            HttpMethod = "POST",
+                            UpdateTargetId = "employee-page"
+                        };
+                    }
+                    @using (Ajax.BeginForm("EmployeeContactData", "EmployeePersonal", opt, new { @class = "form-horizontal" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-body">
+                            <div class="form-group">
+                                <div class="col-md-12">
+                                    @if (TempData["add-msg"] != null)
+                                    {
+                                        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+                                        String msg = TempData["add-msg"].ToString().Split(';')[1];
+                                        <script type="text/javascript">
+                                            showToast("@msg", "@((status > 0) ? "success":"error")");
+                                        </script>
+                                    }
+                                </div>
+                            </div>
+                            @Html.HiddenFor(model => model.EmployeeID)
+                            <div class="form-group">
+                                <label class="col-md-1 control-label">الدولة</label>
+                                <div class="col-md-3">
+                                    @Html.DropDownListFor(model => model.CountryID, new SelectList(Model.Countries, "Value", "Text"), "إختر الدولة", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/EmployeePersonal/ddlGovernorate/", data_target_id = "#GovernorateID" })
+                                    @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-1 control-label">المحافظة</label>
+                                <div class="col-md-3">
+                                    @Html.Partial("ddlGovernorate", Model)
+                                    @Html.ValidationMessageFor(model => model.GovernorateID, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-1 control-label">المدينة</label>
+                                <div class="col-md-3">
+                                    @Html.Partial("ddlCity", Model)
+                                    @Html.ValidationMessageFor(model => model.CityID, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-1 control-label">الحي</label>
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(model => model.Neighborhood, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Neighborhood, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-1 control-label">الشارع</label>
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(model => model.Street, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Street, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-1 control-label">المنزل</label>
+                                <div class="col-md-3">
+                                    @Html.TextBoxFor(model => model.HomeNo, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-1 control-label">العنوان</label>
+                                <div class="col-md-11">
+                                    @Html.TextAreaFor(model => model.AddressDetails, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.AddressDetails, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                            
+                            
+
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">الجوال</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger help-block" })
+                                </div>
+                                <label class="col-md-2 control-label">الهاتف</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-2 control-label">البريد الالكتروني</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger help-block" })
+                                </div>
+
+                                <label class="col-md-2 control-label">البريد الجامعي</label>
+                                <div class="col-md-4">
+                                    @Html.TextBoxFor(model => model.UniversityEmail, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UniversityEmail, "", new { @class = "text-danger help-block" })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <div class="row">
+                                <div class="col-md-offset-1 col-md-10">
+                                    <input type="submit" class="btn green" value="حفظ">
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

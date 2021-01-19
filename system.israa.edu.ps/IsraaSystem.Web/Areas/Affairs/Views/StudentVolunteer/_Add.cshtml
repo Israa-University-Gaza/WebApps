@@ -1,0 +1,156 @@
+﻿@using IsraaSystem.Application.Helper
+@model IsraaSystem.Application.Affairs.StudentVolunteerDto
+
+@{
+    Layout = null;
+}
+
+
+<div id="add-student-volunteer" class="modal-content">
+
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-student-volunteer",
+            OnSuccess = "ModelHideFormSubmit"
+        };
+    }
+    @Html.Partial("_Alerts")
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">اضافة ساعات تطوع</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="col-md-12">
+            @Html.Action("StudentVolunteerRequests", new { studentId = @Model.StudentID })
+            <br/>
+            <hr/>
+            <br/>
+        </div>
+
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Add", "StudentVolunteer", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.StudentID)
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الفصل</label>
+                        <div class="col-md-10">
+                            @Html.DropDownListFor(model => model.SemesterID, DropDownHelpper.SemestersShortName(), "اختر الفصل", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.SemesterID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">نوع التطوع</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.VolunteerTypeID, DropDownHelpper.VolunteerTypes(), "اختر نوع التطوع", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.VolunteerTypeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">تصنيف التطوع</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.VolunteerCategoryID, DropDownHelpper.VolunteerCategores(), "اختر تصنيف التطوع", new { @id = "VolunteerCategoryID", @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.VolunteerCategoryID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">تصنيف أخرى</label>
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(model => model.VolunteerCategoryName, new { @id = "VolunteerCategoryName", @class = "form-control", @disabled = "disabled" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">المؤسسة</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.OrganizationName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.OrganizationName, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">ع.الساعات</label>
+                        <div class="col-md-4">
+                            @Html.TextBoxFor(model => model.OrganizationHour, new { @class = "form-control", @type = "number" })
+                            @Html.ValidationMessageFor(model => model.OrganizationHour, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">من</label>
+
+                        <div class="col-md-4">
+                            <div class="input-group date form_datetime">
+                                @Html.TextBoxFor(model => model.DateFrom, new { @class = "form-control dateTime-picker", @autocomplete = "off" })
+
+                                <span class="input-group-btn">
+                                    <button class="btn default date-set" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger help-block" })
+                        </div>
+
+                        <label class="col-md-2 control-label">إلى</label>
+                        <div class="col-md-4">
+                            <div class="input-group date form_datetime">
+                                @Html.TextBoxFor(model => model.DateTo, new { @class = "form-control dateTime-picker", @autocomplete = "off" })
+
+                                <span class="input-group-btn">
+                                    <button class="btn default date-set" type="button">
+                                        <i class="fa fa-calendar"></i>
+                                    </button>
+                                </span>
+
+
+                            </div>
+                            @Html.ValidationMessageFor(model => model.DateFrom, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input id="submit" type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script>
+    $.validator.unobtrusive.parse($("form"));
+
+    $(function () {
+
+        $('.toggle-checkbox').bootstrapToggle();
+
+    });
+
+    function ModelHideFormSubmit() {
+        $('.modal').modal('hide');
+    }
+
+    $(document).ready(function () {
+
+        $('#VolunteerCategoryID').on('change', function () {
+            if (this.value == 6) {
+                $('#VolunteerCategoryName').removeAttr('disabled');
+            }
+            else {
+                $('#VolunteerCategoryName').attr('disabled', 'disabled');
+            }
+        });
+
+
+        $('.dateTime-picker').datetimepicker();
+
+    });
+
+
+</script>

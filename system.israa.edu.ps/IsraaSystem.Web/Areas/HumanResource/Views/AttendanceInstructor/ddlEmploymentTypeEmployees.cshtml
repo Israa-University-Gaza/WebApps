@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceInstructorVM
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Employees, "Value", "Text"), new { @class = "form-control select2 input-change" })

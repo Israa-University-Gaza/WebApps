@@ -1,0 +1,164 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceInstructorVM
+
+@{
+    Layout = null;
+}
+
+<div id="attendance-instructor">
+    <div id="refresh-list"></div>
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "attendance-instructor"
+        };
+    }
+
+    @using (Ajax.BeginForm("InstructorList", null, opt, new { @id = "form-instructor" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">نوع التعيين</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.EmploymentTypeID, new SelectList(Model.filter.EmploymentTypes, "Value", "Text"), "جميع أنواع التعيينات", new { @class = "form-control ddl-dependent", data_url = "/HumanResource/AttendanceInstructor/ddlEmploymentTypeEmployees/", data_target_id = "#filter_InstructorID" })
+                        </div>
+                        <label class="col-md-1 control-label">المحاضر</label>
+                        <div class="col-md-4">
+                            @Html.Partial("ddlEmploymentTypeEmployees", Model)
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">الفصل</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), new { @class = "form-control", onchange = "$('#form-attendance-instructor-date-range').submit();" })
+                        </div>
+                        <label class="col-md-1 control-label">التاريخ</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.LectureDateFrom, new { @class = "form-control text-center date-picker", placeholder = "التاريخ" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.LectureDateTo, new { @class = "form-control text-center date-picker", placeholder = "التاريخ" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">الحالة</label>
+                        <div class="col-md-4">
+                            @Html.DropDownListFor(model => model.filter.AttendanceInstructorStatusID, new SelectList(Model.filter.AttendanceInstructorStatuses, "Value", "Text"), "جميع الحالات", new { @class = "form-control input-change" })
+                        </div>
+                        <div class="col-md-offset-1 col-md-4">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.contract.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp10 text-center">رقم المحاضر </th>
+                        <th class="wp17 text-center">اسم المحاضر</th>
+                        <th class="wp10 text-center">درجة المحاضر</th>
+                        <th class="wp10 text-center">عبء أكاديمي</th>
+                        <th class="wp10 text-center">عبء فعلي</th>
+                        <th class="wp10 text-center">سعر الساعة</th>
+                        <th class="wp10 text-center">ت.م.الأكاديمي</th>
+                        <th class="wp10 text-center">ت.م.الفعلي</th>
+                        <th class="wp10 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.contract.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["InstructorNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["InstructorID"]">@row["InstructorName"]</a></td>
+                            <td class="text-center">@row["InstructorType"]</td>
+                            <td class="text-center">@row["LectureHours"]</td>
+                            <td class="text-center">@row["InstructorHours"]</td>
+                            <td class="text-center">@row["HourPrice"]</td>
+                            <td class="text-center">@(row["LectureCost"])</td>
+                            <td class="text-center">@(row["InstructorCost"])</td>
+                            <td class="text-center">
+                                <a href="/HumanResource/ContractInstructor/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+                                <a href="/HumanResource/ContractInstructor/Print/@row["ID"]" class="btn btn-sm btn-default"><span class="fa fa-print"></span></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+
+                        <th class="wp10 text-center">التاريخ</th>
+                        <th class="wp18 text-center">المساق</th>
+                        <th class="wp8 text-center">من</th>
+                        <th class="wp8 text-center">الى</th>
+                        <th class="wp8 text-center">من</th>
+                        <th class="wp8 text-center">الى</th>
+                        <th class="wp12 text-center">ع.س المحاضرة</th>
+                        <th class="wp8 text-center">ع.س الدوام</th>
+                        <th class="wp8 text-center">ع.س المحاضر</th>
+                        <th class="wp8 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr class="@((row["IsInstructorLate"].ToString()=="1") ? "font-red": "" )">
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["LectureDate"]</td>
+                            <td class="text-center">@row["CourseName"]</td>
+                            <td class="text-center">@row["LectureFrom"]</td>
+                            <td class="text-center">@row["LectureTo"]</td>
+                            <td class="text-center">@((row["IsExist"].ToString() == "0") ? "غياب" : @row["AttendanceFrom"] )</td>
+                            <td class="text-center">@((row["IsExist"].ToString() == "0") ? "غياب" : @row["AttendanceTo"] )</td>
+                            <td class="text-center">@row["LectureHours"]</td>
+                            <td class="text-center">@row["AttendanceHours"]</td>
+                            <td class="text-center">@row["InstructorHours"]</td>
+                            <td class="text-center">
+                                @if (row["AttendanceHours"].ToString() == "")
+                                {
+                                    <a href="/HumanResource/AttendanceInstructor/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+
+                                }
+                                <a href="/HumanResource/AttendanceInstructor/Delete/@row["ID"]" class="btn btn-sm btn-danger pop-up-md"><span class="fa fa-times"></span></a>
+                                @if (row["IsExist"].ToString() == "1")
+                                {
+                                    <a href="/HumanResource/AttendanceInstructor/Absence/@row["ID"]" class="btn btn-sm purple confirm" data-title="غياب" data-msg="هل أنت متأكد من أنك تود تسجيل غياب المحاضر ؟" data-action="تسجيل غياب" data-ajax-update="#refresh-list"><span>تسجيل غياب</span></a>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

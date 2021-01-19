@@ -1,0 +1,39 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Attendance.AttendanceMonthlyVM
+
+@{
+    ViewBag.Title = "شؤون الموظفين - دوام الموظفين الشهري";
+    ViewBag.Menu = "#menu-attendance,#menu-attendance-monthly";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Index">دوام الموظفين الشهري</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>عرض دوام الموظفين الشهري</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض دوام الموظفين الشهري</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("List", Model)
+            </div>
+        </div>
+    </div>
+</div>

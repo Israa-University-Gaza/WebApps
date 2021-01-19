@@ -1,0 +1,125 @@
+﻿@using IsraaSystem.Application.Helper
+@using IsraaSystem.Application.HumanResource
+@model IsraaSystem.Application.Repository.transaction.TransactionDetailsDto
+@{
+    Layout = null;
+}
+
+<div id="add-ExportDetails" class="modal-content">
+
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "add-ExportDetails",
+            OnSuccess = "ModelHideFormSubmit"
+        };
+    }
+    @Html.Partial("_Alerts")
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">صرف مواد من المخزن</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("AddExportDetail", "TransactionDetails", opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.TransactionId)
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">قسم المخزن</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.RepositoryDepartmentId, DropDownHelpper.Departments(), "اختر قسم المخزن", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.ToRepositoryDepartmentId, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="col-md-3 control-label">إلى قسم المحزن</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.ToRepositoryDepartmentId, DropDownHelpper.Departments(), "اختر قسم المحزن", new { @class = "form-control select2" })
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الصنف</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.MaterialId, DropDownHelpper.GetMaterialsByDepartment(Model.RepositoryDepartmentId), "اختر الصنف", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.MaterialId, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="col-md-3 control-label">الوحدة</label>
+                        <div class="col-md-8">
+                            @Html.DropDownListFor(model => model.UnitId, DropDownHelpper.MaterialUnit(), "اختر الوحدة", new { @class = "form-control select2" })
+                            @Html.ValidationMessageFor(model => model.UnitId, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الكمية</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Quantity, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Quantity, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    
+                    @*<div class="form-group">
+                        <label class="col-md-3 control-label">السعر</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.Price, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>*@
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">فعال</label>
+                        <div class="col-md-8">
+                            @Html.CheckBoxFor(model => model.IsActive, new { @data_toggle = "toggle", @class = "toggle-checkbox" })
+                        </div>
+                    </div>
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+
+                            <input id="submit" type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+</div>
+
+
+
+<script>
+
+    $.validator.unobtrusive.parse($("form"));
+
+    $("#RepositoryDepartmentId").change(function () {
+        $("#MaterialId").children().not(":eq(0)").remove();
+        if ($(this).val() != "") {
+            $.get("/Repository/TransactionDetails/GetMaterialByDepartment?DepartmentId=" + $(this).val(), function (json) {
+                $(json).each(function () {
+                    $("#MaterialId").append("<option value='" + this.Value + "'>" + this.Text + "</option>");
+                });
+            }, "json");
+        }
+    });
+
+    $(function () {
+
+        $('.toggle-checkbox').bootstrapToggle();
+
+    });
+
+    function ModelHideFormSubmit() {
+        $('.modal').modal('hide');
+
+    }
+
+
+</script>

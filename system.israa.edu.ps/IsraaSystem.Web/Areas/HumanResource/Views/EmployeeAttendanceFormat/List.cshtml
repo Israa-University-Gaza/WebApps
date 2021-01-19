@@ -1,0 +1,95 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Attendance.EmployeeAttendanceFormatVM
+
+@{
+  Layout = null;
+}
+
+<div id="employee-attendance-format">
+  @if (TempData["toast-msg"] != null)
+  {
+    int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+    String msg = TempData["toast-msg"].ToString().Split(';')[1];
+    <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+    </script>
+  }
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "employee-attendance-format"
+    };
+  }
+  @using (Ajax.BeginForm("List", "EmployeeAttendance", opt, new { @id = "form-employee-attendance-format" }))
+  {
+    <div class="form">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-md-1 control-label">الموظف</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", placeholder = "رقم أو اسم الموظف" })
+            </div>
+            <label class="col-md-1 control-label">النسق</label>
+            <div class="col-md-2">
+              @Html.DropDownListFor(model => model.filter.AttendanceFormatID, new SelectList(Model.filter.AttendanceFormats, "Value", "Text"), "جميع أنواع نسق الدوام", new { @class = "form-control" })
+            </div>
+            <label class="col-md-1 control-label">التاريخ</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.AttendanceFormatDate, new { @class = "form-control date-picker text-center", placeholder = "تاريخ من" })
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn blue">تصفية</button>
+            </div>
+            <div class="col-md-1">
+              @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-right", onchange = "$('#current-page').val('1');$(this).submit();" })
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="wp5">#</th>
+            <th class="wp15 text-center">رقم الموظف</th>
+            <th class="wp25">اسم الموظف</th>
+            <th class="wp25 text-center">نسق الدوام الإفتراضي</th>
+            <th class="wp15 text-center">من</th>
+            <th class="wp15 text-center">إلى</th>
+            <th class="wp15 text-center"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (DataRow row in Model.data.Rows)
+          {
+            <tr>
+              <td>@row["RowNo"]</td>
+              <td class="text-center">@row["EmployeeNo"]</td>
+              <td><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+              <td class="text-center">@row["AttendanceFormat"]</td>
+              <td class="text-center">@row["ActiveFromDate"]</td>
+              <td class="text-center">@row["ActiveToDate"]</td>
+              <td class="text-center">
+                <a href=@Url.Action("Edit",new{id=@row["ID"] ,activeToDate=@row["ActiveToDate"] }) class="btn btn-sm btn-danger pop-up-lg"><i class="fa fa-edit"></i>تعديل</a>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      @Html.Partial("_paging", Model.pagging)
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,100 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Holiday.HolidayVM
+
+@{
+    Layout = null;
+}
+
+<div id="holiday">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "holiday"
+        };
+    }
+    @using (Ajax.BeginForm("List", "Holiday", opt, new { @id = "form-holiday" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-1 control-label">النوع</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.HolidayTypeID, new SelectList(Model.filter.HolidayTypes, "Value", "Text"), "جميع أنواع العطل", new { @class = "form-control select2" })
+                        </div>
+                        <label class="col-md-1 control-label">من</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.DateFrom, new { @class = "form-control date-picker text-center", placeholder = "من تاريخ" })
+                        </div>
+                        <label class="col-md-1 control-label">إلى</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.DateFrom, new { @class = "form-control date-picker text-center", placeholder = "إلى تاريخ" })
+                        </div>
+                        <div class="col-md-1">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                        <div class="col-md-1">
+                            @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-left", onchange = "$('#current-page').val('1');$(this).submit();" })
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br />
+        if (Model.data != null && Model.data.Rows.Count > 0)
+        {
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp3">#</th>
+                        <th class="wp25 text-center">عنوان العطلة</th>
+                        <th class="wp12 text-center">نوع العطلة</th>
+                        <th class="wp12 text-center">بداية العطلة</th>
+                        <th class="wp12 text-center">نهاية العطلة</th>
+                        <th class="wp15 text-center">ملاحظات</th>
+                        <th class="wp5 text-center">فعال</th>
+                        <th class="wp20 text-center"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center">@row["Title"]</td>
+                            <td class="text-center">@row["HolidayTypeName"]</td>
+                            <td class="text-center">@row["DateFrom"]</td>
+                            <td class="text-center">@row["DateTo"]</td>
+                            <td class="text-center">@row["Notes"]</td>
+                            <td class="text-center">
+                                @Html.CheckBox("isActive", Convert.ToBoolean(row["IsActive"]), new { @disabled = "disabled" })
+                            </td>
+                            <td class="text-center">
+                                <a href="/HumanResource/Holiday/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><i class="fa fa-edit"></i> تحرير</a>
+                                <a href="/HumanResource/Holiday/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف عطلة" data-msg="هل أنت متأكد من أنك تود حذف عطلة ؟" data-action="حذف" data-ajax-update="#holiday"><i class="fa fa-times"></i> حذف</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        }
+        else
+        {
+            <div class="alert alert-info alert-dismissible text-center" role="alert">
+                <span>لا يوجد بيانات لعرضها</span>
+            </div>
+        }
+    }
+</div>

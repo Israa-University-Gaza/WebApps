@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGetEmpVacationData" targetNamespace="http://tempuri.org/dsGetEmpVacationData.xsd" xmlns:mstns="http://tempuri.org/dsGetEmpVacationData.xsd" xmlns="http://tempuri.org/dsGetEmpVacationData.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGetEmpVacationData" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsGetEmpVacationData" msprop:Generator_UserDSName="dsGetEmpVacationData">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsEmpVacationData" msprop:Generator_TableClassName="dsEmpVacationDataDataTable" msprop:Generator_TableVarName="tabledsEmpVacationData" msprop:Generator_TablePropName="dsEmpVacationData" msprop:Generator_RowDeletingName="dsEmpVacationDataRowDeleting" msprop:Generator_RowChangingName="dsEmpVacationDataRowChanging" msprop:Generator_RowEvHandlerName="dsEmpVacationDataRowChangeEventHandler" msprop:Generator_RowDeletedName="dsEmpVacationDataRowDeleted" msprop:Generator_UserTableName="dsEmpVacationData" msprop:Generator_RowChangedName="dsEmpVacationDataRowChanged" msprop:Generator_RowEvArgName="dsEmpVacationDataRowChangeEvent" msprop:Generator_RowClassName="dsEmpVacationDataRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="VacationType" msprop:Generator_ColumnVarNameInTable="columnVacationType" msprop:Generator_ColumnPropNameInRow="VacationType" msprop:Generator_ColumnPropNameInTable="VacationTypeColumn" msprop:Generator_UserColumnName="VacationType" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeNo" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" type="xs:string" minOccurs="0" />
+              <xs:element name="job" msprop:Generator_ColumnVarNameInTable="columnjob" msprop:Generator_ColumnPropNameInRow="job" msprop:Generator_ColumnPropNameInTable="jobColumn" msprop:Generator_UserColumnName="job" type="xs:string" minOccurs="0" />
+              <xs:element name="VacationStartDate" msprop:Generator_ColumnVarNameInTable="columnVacationStartDate" msprop:Generator_ColumnPropNameInRow="VacationStartDate" msprop:Generator_ColumnPropNameInTable="VacationStartDateColumn" msprop:Generator_UserColumnName="VacationStartDate" type="xs:string" minOccurs="0" />
+              <xs:element name="VacationDays" msprop:Generator_ColumnVarNameInTable="columnVacationDays" msprop:Generator_ColumnPropNameInRow="VacationDays" msprop:Generator_ColumnPropNameInTable="VacationDaysColumn" msprop:Generator_UserColumnName="VacationDays" type="xs:string" minOccurs="0" />
+              <xs:element name="DManagerName" msprop:Generator_ColumnVarNameInTable="columnDManagerName" msprop:Generator_ColumnPropNameInRow="DManagerName" msprop:Generator_ColumnPropNameInTable="DManagerNameColumn" msprop:Generator_UserColumnName="DManagerName" type="xs:string" minOccurs="0" />
+              <xs:element name="VacationPlace" msprop:Generator_ColumnVarNameInTable="columnVacationPlace" msprop:Generator_ColumnPropNameInRow="VacationPlace" msprop:Generator_ColumnPropNameInTable="VacationPlaceColumn" msprop:Generator_UserColumnName="VacationPlace" type="xs:string" minOccurs="0" />
+              <xs:element name="VacationReason" msprop:Generator_ColumnVarNameInTable="columnVacationReason" msprop:Generator_ColumnPropNameInRow="VacationReason" msprop:Generator_ColumnPropNameInTable="VacationReasonColumn" msprop:Generator_UserColumnName="VacationReason" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

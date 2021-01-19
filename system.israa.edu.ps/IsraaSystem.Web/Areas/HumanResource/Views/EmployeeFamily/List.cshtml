@@ -1,0 +1,109 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeFamily.EmployeeFamilyVM
+
+
+@{
+    Layout = null;
+}
+
+<div id="employee-family">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-family"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeFamily", opt, new { @id = "form-employee-family" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الاسم</label>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArFirstName, new { @class = "form-control text-center", placeholder = "الاسم الأول" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArSecoundName, new { @class = "form-control text-center", placeholder = "الاسم الثاني" })
+                        </div>
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArThirdName, new { @class = "form-control text-center", placeholder = "الاسم الثالث" })
+                        </div>
+
+                        <div class="col-md-2">
+                            @Html.TextBoxFor(model => model.filter.ArFamilyName, new { @class = "form-control text-center", placeholder = "اسم العائلة" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">صلة القرابة</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.RelativeTypeID, new SelectList(Model.filter.RelativeTypes, "Value", "Text"), "الكل", new { @class = "form-control" })
+                        </div>
+
+                        <label class="col-md-2 control-label">حالة الفرد </label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.PersonStatusID, new SelectList(Model.filter.PersonStatuses, "Value", "Text"), "الكل ", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الحالة الاجتماعية </label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.filter.RelativeTypeID, new SelectList(Model.filter.MaritalStatuses, "Value", "Text"), "الكل", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+
+
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp35">الإسم رباعي</th>
+                        <th class="wp20 text-center">صلة القرابة</th>
+                        <th class="wp20 text-center">الحالة الإجتماعية</th>
+                        <th class="wp20 text-center">الحالة الشخصية</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td>@row["Name"]</td>
+                            <td class="text-center">@row["RelativeType"]</td>
+                            <td class="text-center">@row["MaritalStatus"]</td>
+                            <td class="text-center">@row["PersonStatus"]</td>
+
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            @Html.Partial("_paging", Model.pagging)
+
+        </div>
+
+    }
+    </div>

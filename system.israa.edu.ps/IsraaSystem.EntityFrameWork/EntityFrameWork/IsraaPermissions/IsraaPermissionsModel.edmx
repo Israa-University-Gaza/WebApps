@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IsraPermissionsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentNo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Accreditation" Type="bit" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="RegBalance" Type="decimal" Precision="7" Scale="2" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsArchive" Type="bit" />
+          <Property Name="IsRead" Type="bit" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="AccreditationDate" Type="datetime" />
+          <Property Name="AccreditationEmployeeID" Type="int" />
+          <Property Name="IsActiveEmployeeID" Type="int" />
+          <Property Name="IsActiveNotes" Type="ntext" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateStudentID" Type="int" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+          <Property Name="StdCardRecieved" Type="bit" />
+          <Property Name="StdBagRecieved" Type="bit" />
+          <Property Name="StdCertificateRecieved" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="IsraPermissionsModelStoreContainer">
+          <EntitySet Name="Student" EntityType="Self.Student" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IsraPermissionsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentNo" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Accreditation" Type="Boolean" Nullable="false" />
+          <Property Name="Balance" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="RegBalance" Type="Decimal" Precision="7" Scale="2" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsArchive" Type="Boolean" />
+          <Property Name="IsRead" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AccreditationEmployeeID" Type="Int32" />
+          <Property Name="IsActiveEmployeeID" Type="Int32" />
+          <Property Name="IsActiveNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateStudentID" Type="Int32" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <Property Name="StdCardRecieved" Type="Boolean" />
+          <Property Name="StdBagRecieved" Type="Boolean" />
+          <Property Name="StdCertificateRecieved" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="IsraPermissionsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Student" EntityType="Self.Student" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IsraPermissionsModelStoreContainer" CdmEntityContainer="IsraPermissionsEntities">
+          <EntitySetMapping Name="Student">
+            <EntityTypeMapping TypeName="IsraPermissionsModel.Student">
+              <MappingFragment StoreEntitySet="Student">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StudentNo" ColumnName="StudentNo" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Accreditation" ColumnName="Accreditation" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="RegBalance" ColumnName="RegBalance" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsArchive" ColumnName="IsArchive" />
+                <ScalarProperty Name="IsRead" ColumnName="IsRead" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="AccreditationDate" ColumnName="AccreditationDate" />
+                <ScalarProperty Name="AccreditationEmployeeID" ColumnName="AccreditationEmployeeID" />
+                <ScalarProperty Name="IsActiveEmployeeID" ColumnName="IsActiveEmployeeID" />
+                <ScalarProperty Name="IsActiveNotes" ColumnName="IsActiveNotes" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="UpdateStudentID" ColumnName="UpdateStudentID" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="StdCardRecieved" ColumnName="StdCardRecieved" />
+                <ScalarProperty Name="StdBagRecieved" ColumnName="StdBagRecieved" />
+                <ScalarProperty Name="StdCertificateRecieved" ColumnName="StdCertificateRecieved" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

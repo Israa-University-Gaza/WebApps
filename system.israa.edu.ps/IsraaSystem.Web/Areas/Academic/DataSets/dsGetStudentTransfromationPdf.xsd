@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGetStudentTransfromationPdf" targetNamespace="http://tempuri.org/dsGetStudentTransfromationPdf.xsd" xmlns:mstns="http://tempuri.org/dsGetStudentTransfromationPdf.xsd" xmlns="http://tempuri.org/dsGetStudentTransfromationPdf.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGetStudentTransfromationPdf" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsGetStudentTransfromationPdf" msprop:Generator_UserDSName="dsGetStudentTransfromationPdf">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsGetStudentTransfromationPdf" msprop:Generator_TableClassName="dsGetStudentTransfromationPdfDataTable" msprop:Generator_TableVarName="tabledsGetStudentTransfromationPdf" msprop:Generator_RowChangedName="dsGetStudentTransfromationPdfRowChanged" msprop:Generator_TablePropName="_dsGetStudentTransfromationPdf" msprop:Generator_RowDeletingName="dsGetStudentTransfromationPdfRowDeleting" msprop:Generator_RowChangingName="dsGetStudentTransfromationPdfRowChanging" msprop:Generator_RowEvHandlerName="dsGetStudentTransfromationPdfRowChangeEventHandler" msprop:Generator_RowDeletedName="dsGetStudentTransfromationPdfRowDeleted" msprop:Generator_RowClassName="dsGetStudentTransfromationPdfRow" msprop:Generator_UserTableName="dsGetStudentTransfromationPdf" msprop:Generator_RowEvArgName="dsGetStudentTransfromationPdfRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CourseArName" msprop:Generator_ColumnVarNameInTable="columnCourseArName" msprop:Generator_ColumnPropNameInRow="CourseArName" msprop:Generator_ColumnPropNameInTable="CourseArNameColumn" msprop:Generator_UserColumnName="CourseArName" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseNumOfHours" msprop:Generator_ColumnVarNameInTable="columnCourseNumOfHours" msprop:Generator_ColumnPropNameInRow="CourseNumOfHours" msprop:Generator_ColumnPropNameInTable="CourseNumOfHoursColumn" msprop:Generator_UserColumnName="CourseNumOfHours" type="xs:string" minOccurs="0" />
+              <xs:element name="ETransWithCourseHours" msprop:Generator_ColumnVarNameInTable="columnETransWithCourseHours" msprop:Generator_ColumnPropNameInRow="ETransWithCourseHours" msprop:Generator_ColumnPropNameInTable="ETransWithCourseHoursColumn" msprop:Generator_UserColumnName="ETransWithCourseHours" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalHours" msprop:Generator_ColumnVarNameInTable="columnTotalHours" msprop:Generator_ColumnPropNameInRow="TotalHours" msprop:Generator_ColumnPropNameInTable="TotalHoursColumn" msprop:Generator_UserColumnName="TotalHours" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalHours2" msprop:Generator_ColumnVarNameInTable="columnTotalHours2" msprop:Generator_ColumnPropNameInRow="TotalHours2" msprop:Generator_ColumnPropNameInTable="TotalHours2Column" msprop:Generator_UserColumnName="TotalHours2" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentID" msprop:Generator_ColumnVarNameInTable="columnStudentID" msprop:Generator_ColumnPropNameInRow="StudentID" msprop:Generator_ColumnPropNameInTable="StudentIDColumn" msprop:Generator_UserColumnName="StudentID" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentNo" msprop:Generator_ColumnVarNameInTable="columnStudentNo" msprop:Generator_ColumnPropNameInRow="StudentNo" msprop:Generator_ColumnPropNameInTable="StudentNoColumn" msprop:Generator_UserColumnName="StudentNo" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentName" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartmentName" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_UserColumnName="DepartmentName" type="xs:string" minOccurs="0" />
+              <xs:element name="TodayDate" msprop:Generator_ColumnVarNameInTable="columnTodayDate" msprop:Generator_ColumnPropNameInRow="TodayDate" msprop:Generator_ColumnPropNameInTable="TodayDateColumn" msprop:Generator_UserColumnName="TodayDate" type="xs:string" minOccurs="0" />
+              <xs:element name="TodayDateformat" msprop:Generator_ColumnVarNameInTable="columnTodayDateformat" msprop:Generator_ColumnPropNameInRow="TodayDateformat" msprop:Generator_ColumnPropNameInTable="TodayDateformatColumn" msprop:Generator_UserColumnName="TodayDateformat" type="xs:string" minOccurs="0" />
+              <xs:element name="ETransWithCourseName" msprop:Generator_ColumnVarNameInTable="columnETransWithCourseName" msprop:Generator_ColumnPropNameInRow="ETransWithCourseName" msprop:Generator_ColumnPropNameInTable="ETransWithCourseNameColumn" msprop:Generator_UserColumnName="ETransWithCourseName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

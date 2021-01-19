@@ -1,0 +1,2045 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="IsraDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="AccountName" Type="nvarchar" MaxLength="150" />
+          <Property Name="DisplayName" Type="nvarchar" MaxLength="150" />
+          <Property Name="Balance" Type="float" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="AccountTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="SemesterID" Type="int" />
+          <Property Name="CDFlag" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="AccountVoucherID" Type="int" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertStudentID" Type="int" />
+          <Property Name="InsertEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteStudentID" Type="int" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="AccountVoucher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountID" Type="int" Nullable="false" />
+          <Property Name="VoucherNum" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="VoucherTypeID" Type="int" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="AccountVoucherDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AccountVoucherID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="CurrencyID" Type="int" Nullable="false" />
+          <Property Name="CurrencyPriceID" Type="int" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Code" Type="nvarchar" MaxLength="10" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="SpecialArName" Type="nvarchar" MaxLength="300" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="FGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Value" Type="float" />
+          <Property Name="CurrencyID" Type="int" />
+          <Property Name="CDType" Type="int" Nullable="false" />
+          <Property Name="RVType" Type="int" Nullable="false" />
+          <Property Name="ActionTypeID" Type="int" />
+          <Property Name="SpecialActionTypeID" Type="int" />
+          <Property Name="IsScholarship" Type="bit" Nullable="false" />
+          <Property Name="IsLoan" Type="bit" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="FractionsNo" Type="int" Nullable="false" />
+          <Property Name="FractionName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="CurrencyPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CurrencyID" Type="int" Nullable="false" />
+          <Property Name="Price" Type="decimal" Precision="7" Scale="3" Nullable="false" />
+          <Property Name="PriceDate" Type="datetime" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="HelpRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" />
+          <Property Name="SemesterID" Type="int" />
+          <Property Name="HelpType" Type="int" />
+          <Property Name="FamilyCountNo" Type="int" />
+          <Property Name="UnivStudentNo" Type="int" />
+          <Property Name="FamilySchoolNo" Type="int" />
+          <Property Name="SpecialNeedsNo" Type="int" />
+          <Property Name="FatherWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="MotherWork" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsPerentDead" Type="bit" />
+          <Property Name="FamilyIncome" Type="nvarchar" MaxLength="50" />
+          <Property Name="SocialCaseType" Type="int" />
+          <Property Name="HouseType" Type="int" />
+          <Property Name="RentValue" Type="nvarchar" MaxLength="50" />
+          <Property Name="FurnitureStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="BulidingType" Type="nvarchar" MaxLength="50" />
+          <Property Name="BulidingStatus" Type="nvarchar" MaxLength="50" />
+          <Property Name="BulidingArea" Type="nvarchar" MaxLength="50" />
+          <Property Name="HouseDescription" Type="nvarchar" MaxLength="2000" />
+          <Property Name="HouseNature" Type="int" />
+          <Property Name="ResidencePlace" Type="int" />
+          <Property Name="Others" Type="nvarchar" MaxLength="200" />
+          <Property Name="IsBenefit" Type="bit" />
+          <Property Name="IsDelete" Type="bit" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="TypeRequestID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="InstallmentOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="NumOfHours" Type="int" Nullable="false" />
+          <Property Name="PaidAmount" Type="float" Nullable="false" />
+          <Property Name="RemainingAmount" Type="float" Nullable="false" />
+          <Property Name="Accreditation" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="AccreditationDate" Type="datetime" />
+          <Property Name="AccreditationEmployeeID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+          <Property Name="GrantPercentage" Type="int" />
+          <Property Name="LastFinancialPayment" Type="int" />
+          <Property Name="AffairsManagerAccreditation" Type="bit" Nullable="false" />
+          <Property Name="AffairsManagerAccreditationDate" Type="datetime" />
+          <Property Name="AffairsManagerAccreditationEmpID" Type="int" />
+          <Property Name="LoansDivisionAccerdiation" Type="bit" Nullable="false" />
+          <Property Name="LoansDivisionAccerdiationDate" Type="datetime" />
+          <Property Name="LoansDivisionAccerdiationEmpID" Type="int" />
+          <Property Name="AcademicAccerdiation" Type="bit" Nullable="false" />
+          <Property Name="AcademicAccerdiationDate" Type="datetime" />
+          <Property Name="AcademicAccerdiationEmpID" Type="int" />
+          <Property Name="ManagmentAccreditation" Type="bit" Nullable="false" />
+          <Property Name="ManagmentAccreditationEmpID" Type="int" />
+          <Property Name="ManagmentAccreditationDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="StringNumber">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Number" Type="int" Nullable="false" />
+          <Property Name="NumberString" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentBankInstallment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="RegesterHour" Type="int" Nullable="false" />
+          <Property Name="BankBranchID" Type="int" Nullable="false" />
+          <Property Name="HeadAccreditation" Type="bit" Nullable="false" />
+          <Property Name="MangerAccreditation" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertStudentID" Type="int" Nullable="false" />
+          <Property Name="HeadAccreditationDate" Type="datetime" />
+          <Property Name="HeadAccreditationEmployeeID" Type="int" />
+          <Property Name="MangerAccreditationDate" Type="datetime" />
+          <Property Name="MangerAccreditationEmployeeID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="StudentNo" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Balance" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="ArFirstName" Type="nvarchar" MaxLength="15" />
+          <Property Name="ArSecoundName" Type="nvarchar" MaxLength="15" />
+          <Property Name="ArThirdName" Type="nvarchar" MaxLength="15" />
+          <Property Name="ArFamilyName" Type="nvarchar" MaxLength="15" />
+          <Property Name="EnFirstName" Type="nvarchar" MaxLength="15" />
+          <Property Name="EnSecoundName" Type="nvarchar" MaxLength="15" />
+          <Property Name="EnThirdName" Type="nvarchar" MaxLength="15" />
+          <Property Name="EnFamilyName" Type="nvarchar" MaxLength="15" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="IsActiveNotes" Type="ntext" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateStudentID" Type="int" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentHelps">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="HelpRequestID" Type="int" />
+          <Property Name="HelpType" Type="nvarchar" MaxLength="50" />
+          <Property Name="HelpOrganization" Type="nvarchar" MaxLength="50" />
+          <Property Name="HelpValue" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="StudentInstallment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="InstallmentOrderID" Type="int" />
+          <Property Name="InstallmentName" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="InstallmentValue" Type="float" Nullable="false" />
+          <Property Name="RequestDate" Type="date" />
+          <Property Name="RepayDate" Type="date" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="InstallmentType" Type="int" />
+          <Property Name="AcademicAccreditation" Type="bit" Nullable="false" />
+          <Property Name="IsPaid" Type="bit" />
+          <Property Name="IsClosed" Type="bit" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="datetime" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="int" />
+          <Property Name="PaidDate" Type="datetime" />
+          <Property Name="PaidEmployeeID" Type="int" />
+          <Property Name="ClosedDate" Type="datetime" />
+          <Property Name="ClosedEmployeeID" Type="int" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentLoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="LoanValue" Type="float" Nullable="false" />
+          <Property Name="RequestDate" Type="date" />
+          <Property Name="RepayDate" Type="date" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="AcademicAccreditation" Type="bit" Nullable="false" />
+          <Property Name="TransactionID" Type="int" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="datetime" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentScholarship">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="ScholarshipValue" Type="float" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="AcademicAccreditation" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="datetime" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="StudentSocialSolidarity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SemesterID" Type="int" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="SolidarityValue" Type="float" Nullable="false" />
+          <Property Name="RequestDate" Type="date" Nullable="false" />
+          <Property Name="Note" Type="ntext" />
+          <Property Name="TransactionID" Type="int" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="SemesterID" Type="int" />
+          <Property Name="CDFlag" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="VoucherID" Type="int" />
+          <Property Name="AccountID" Type="int" />
+          <Property Name="Quantity" Type="float" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertStudentID" Type="int" />
+          <Property Name="InsertEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteStudentID" Type="int" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentID" Type="int" Nullable="false" />
+          <Property Name="VoucherNum" Type="int" Nullable="false" />
+          <Property Name="TotalAmount" Type="float" Nullable="false" />
+          <Property Name="ActionID" Type="int" Nullable="false" />
+          <Property Name="VoucherTypeID" Type="int" Nullable="false" />
+          <Property Name="Note" Type="nvarchar(max)" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="VoucherDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VoucherID" Type="int" Nullable="false" />
+          <Property Name="Amount" Type="decimal" Precision="7" Scale="2" Nullable="false" />
+          <Property Name="CurrencyID" Type="int" Nullable="false" />
+          <Property Name="CurrencyPriceID" Type="int" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <EntityType Name="VoucherType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ArName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="EnName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="IsDelete" Type="bit" Nullable="false" />
+          <Property Name="InsertDate" Type="datetime" Nullable="false" />
+          <Property Name="InsertEmployeeID" Type="int" Nullable="false" />
+          <Property Name="UpdateDate" Type="datetime" />
+          <Property Name="UpdateEmployeeID" Type="int" />
+          <Property Name="DeleteDate" Type="datetime" />
+          <Property Name="DeleteEmployeeID" Type="int" />
+        </EntityType>
+        <Association Name="FK_Action_ActionType">
+          <End Role="ActionType" Type="Self.ActionType" Multiplicity="0..1" />
+          <End Role="Action" Type="Self.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="ActionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Action_Currency">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="0..1" />
+          <End Role="Action" Type="Self.Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrencyPrice_Currency">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="CurrencyPrice" Type="Self.CurrencyPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CurrencyPrice">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_InstallmentOrder_StudentData">
+          <End Role="StudentData" Type="Self.StudentData" Multiplicity="1" />
+          <End Role="InstallmentOrder" Type="Self.InstallmentOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InstallmentOrder">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInstallment_InstallmentOrder">
+          <End Role="InstallmentOrder" Type="Self.InstallmentOrder" Multiplicity="0..1" />
+          <End Role="StudentInstallment" Type="Self.StudentInstallment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstallmentOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentInstallment">
+              <PropertyRef Name="InstallmentOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInstallment_StudentData">
+          <End Role="StudentData" Type="Self.StudentData" Multiplicity="1" />
+          <End Role="StudentInstallment" Type="Self.StudentInstallment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentInstallment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentScholarship_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="StudentScholarship" Type="Self.StudentScholarship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentScholarship">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentScholarship_StudentData">
+          <End Role="StudentData" Type="Self.StudentData" Multiplicity="1" />
+          <End Role="StudentScholarship" Type="Self.StudentScholarship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentScholarship">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Account">
+          <End Role="Account" Type="Self.Account" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_StudentData">
+          <End Role="StudentData" Type="Self.StudentData" Multiplicity="1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Voucher">
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="0..1" />
+          <End Role="Transaction" Type="Self.Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_Action">
+          <End Role="Action" Type="Self.Action" Multiplicity="1" />
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_StudentData">
+          <End Role="StudentData" Type="Self.StudentData" Multiplicity="1" />
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_VoucherType">
+          <End Role="VoucherType" Type="Self.VoucherType" Multiplicity="1" />
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VoucherType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="VoucherTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VoucherDetails_Currency">
+          <End Role="Currency" Type="Self.Currency" Multiplicity="1" />
+          <End Role="VoucherDetails" Type="Self.VoucherDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VoucherDetails">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VoucherDetails_Voucher">
+          <End Role="Voucher" Type="Self.Voucher" Multiplicity="1" />
+          <End Role="VoucherDetails" Type="Self.VoucherDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VoucherDetails">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IsraDataModelStoreContainer">
+          <EntitySet Name="Account" EntityType="Self.Account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountTransaction" EntityType="Self.AccountTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountVoucher" EntityType="Self.AccountVoucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AccountVoucherDetails" EntityType="Self.AccountVoucherDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Action" EntityType="Self.Action" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ActionType" EntityType="Self.ActionType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Currency" EntityType="Self.Currency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CurrencyPrice" EntityType="Self.CurrencyPrice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HelpRequest" EntityType="Self.HelpRequest" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="InstallmentOrder" EntityType="Self.InstallmentOrder" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StringNumber" EntityType="Self.StringNumber" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentBankInstallment" EntityType="Self.StudentBankInstallment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentData" EntityType="Self.StudentData" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentHelps" EntityType="Self.StudentHelps" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentInstallment" EntityType="Self.StudentInstallment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentLoan" EntityType="Self.StudentLoan" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentScholarship" EntityType="Self.StudentScholarship" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StudentSocialSolidarity" EntityType="Self.StudentSocialSolidarity" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Transaction" EntityType="Self.Transaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Voucher" EntityType="Self.Voucher" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherDetails" EntityType="Self.VoucherDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VoucherType" EntityType="Self.VoucherType" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Action_ActionType" Association="Self.FK_Action_ActionType">
+            <End Role="ActionType" EntitySet="ActionType" />
+            <End Role="Action" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Action_Currency" Association="Self.FK_Action_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Action" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrencyPrice_Currency" Association="Self.FK_CurrencyPrice_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="CurrencyPrice" EntitySet="CurrencyPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_InstallmentOrder_StudentData" Association="Self.FK_InstallmentOrder_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="InstallmentOrder" EntitySet="InstallmentOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInstallment_InstallmentOrder" Association="Self.FK_StudentInstallment_InstallmentOrder">
+            <End Role="InstallmentOrder" EntitySet="InstallmentOrder" />
+            <End Role="StudentInstallment" EntitySet="StudentInstallment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInstallment_StudentData" Association="Self.FK_StudentInstallment_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="StudentInstallment" EntitySet="StudentInstallment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentScholarship_Action" Association="Self.FK_StudentScholarship_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="StudentScholarship" EntitySet="StudentScholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentScholarship_StudentData" Association="Self.FK_StudentScholarship_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="StudentScholarship" EntitySet="StudentScholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Account" Association="Self.FK_Transaction_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Action" Association="Self.FK_Transaction_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_StudentData" Association="Self.FK_Transaction_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Voucher" Association="Self.FK_Transaction_Voucher">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_Action" Association="Self.FK_Voucher_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_StudentData" Association="Self.FK_Voucher_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_VoucherType" Association="Self.FK_Voucher_VoucherType">
+            <End Role="VoucherType" EntitySet="VoucherType" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VoucherDetails_Currency" Association="Self.FK_VoucherDetails_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="VoucherDetails" EntitySet="VoucherDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VoucherDetails_Voucher" Association="Self.FK_VoucherDetails_Voucher">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="VoucherDetails" EntitySet="VoucherDetails" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IsraDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="IsraDataEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="InstallmentOrder" EntityType="IsraDataModel.InstallmentOrder" />
+          <EntitySet Name="StudentInstallment" EntityType="IsraDataModel.StudentInstallment" />
+          <EntitySet Name="StudentData" EntityType="IsraDataModel.StudentData" />
+          <AssociationSet Name="FK_InstallmentOrder_StudentData" Association="IsraDataModel.FK_InstallmentOrder_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="InstallmentOrder" EntitySet="InstallmentOrder" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInstallment_StudentData" Association="IsraDataModel.FK_StudentInstallment_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="StudentInstallment" EntitySet="StudentInstallment" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentInstallment_InstallmentOrder" Association="IsraDataModel.FK_StudentInstallment_InstallmentOrder">
+            <End Role="InstallmentOrder" EntitySet="InstallmentOrder" />
+            <End Role="StudentInstallment" EntitySet="StudentInstallment" />
+          </AssociationSet>
+          <EntitySet Name="Action" EntityType="IsraDataModel.Action" />
+          <EntitySet Name="ActionType" EntityType="IsraDataModel.ActionType" />
+          <EntitySet Name="Currency" EntityType="IsraDataModel.Currency" />
+          <EntitySet Name="CurrencyPrice" EntityType="IsraDataModel.CurrencyPrice" />
+          <EntitySet Name="Transaction" EntityType="IsraDataModel.Transaction" />
+          <EntitySet Name="Voucher" EntityType="IsraDataModel.Voucher" />
+          <EntitySet Name="VoucherDetails" EntityType="IsraDataModel.VoucherDetails" />
+          <EntitySet Name="VoucherType" EntityType="IsraDataModel.VoucherType" />
+          <AssociationSet Name="FK_Action_ActionType" Association="IsraDataModel.FK_Action_ActionType">
+            <End Role="ActionType" EntitySet="ActionType" />
+            <End Role="Action" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Action_Currency" Association="IsraDataModel.FK_Action_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="Action" EntitySet="Action" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Action" Association="IsraDataModel.FK_Transaction_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_Action" Association="IsraDataModel.FK_Voucher_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CurrencyPrice_Currency" Association="IsraDataModel.FK_CurrencyPrice_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="CurrencyPrice" EntitySet="CurrencyPrice" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VoucherDetails_Currency" Association="IsraDataModel.FK_VoucherDetails_Currency">
+            <End Role="Currency" EntitySet="Currency" />
+            <End Role="VoucherDetails" EntitySet="VoucherDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_StudentData" Association="IsraDataModel.FK_Transaction_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_StudentData" Association="IsraDataModel.FK_Voucher_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Transaction_Voucher" Association="IsraDataModel.FK_Transaction_Voucher">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Voucher_VoucherType" Association="IsraDataModel.FK_Voucher_VoucherType">
+            <End Role="VoucherType" EntitySet="VoucherType" />
+            <End Role="Voucher" EntitySet="Voucher" />
+          </AssociationSet>
+          <AssociationSet Name="FK_VoucherDetails_Voucher" Association="IsraDataModel.FK_VoucherDetails_Voucher">
+            <End Role="Voucher" EntitySet="Voucher" />
+            <End Role="VoucherDetails" EntitySet="VoucherDetails" />
+          </AssociationSet>
+          <EntitySet Name="StudentScholarship" EntityType="IsraDataModel.StudentScholarship" />
+          <AssociationSet Name="FK_StudentScholarship_Action" Association="IsraDataModel.FK_StudentScholarship_Action">
+            <End Role="Action" EntitySet="Action" />
+            <End Role="StudentScholarship" EntitySet="StudentScholarship" />
+          </AssociationSet>
+          <AssociationSet Name="FK_StudentScholarship_StudentData" Association="IsraDataModel.FK_StudentScholarship_StudentData">
+            <End Role="StudentData" EntitySet="StudentData" />
+            <End Role="StudentScholarship" EntitySet="StudentScholarship" />
+          </AssociationSet>
+          <EntitySet Name="Account" EntityType="IsraDataModel.Account" />
+          <EntitySet Name="AccountTransaction" EntityType="IsraDataModel.AccountTransaction" />
+          <EntitySet Name="AccountVoucher" EntityType="IsraDataModel.AccountVoucher" />
+          <EntitySet Name="AccountVoucherDetails" EntityType="IsraDataModel.AccountVoucherDetails" />
+          <EntitySet Name="HelpRequest" EntityType="IsraDataModel.HelpRequest" />
+          <EntitySet Name="StringNumber" EntityType="IsraDataModel.StringNumber" />
+          <EntitySet Name="StudentBankInstallment" EntityType="IsraDataModel.StudentBankInstallment" />
+          <EntitySet Name="StudentHelps" EntityType="IsraDataModel.StudentHelps" />
+          <EntitySet Name="StudentLoan" EntityType="IsraDataModel.StudentLoan" />
+          <EntitySet Name="StudentSocialSolidarity" EntityType="IsraDataModel.StudentSocialSolidarity" />
+          <AssociationSet Name="FK_Transaction_Account" Association="IsraDataModel.FK_Transaction_Account">
+            <End Role="Account" EntitySet="Account" />
+            <End Role="Transaction" EntitySet="Transaction" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="InstallmentOrder">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="NumOfHours" Type="Int32" Nullable="false" />
+          <Property Name="PaidAmount" Type="Double" Nullable="false" />
+          <Property Name="RemainingAmount" Type="Double" Nullable="false" />
+          <Property Name="Accreditation" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AccreditationEmployeeID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <Property Name="GrantPercentage" Type="Int32" />
+          <Property Name="LastFinancialPayment" Type="Int32" />
+          <Property Name="AffairsManagerAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="AffairsManagerAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AffairsManagerAccreditationEmpID" Type="Int32" />
+          <Property Name="LoansDivisionAccerdiation" Type="Boolean" Nullable="false" />
+          <Property Name="LoansDivisionAccerdiationDate" Type="DateTime" Precision="3" />
+          <Property Name="LoansDivisionAccerdiationEmpID" Type="Int32" />
+          <Property Name="AcademicAccerdiation" Type="Boolean" Nullable="false" />
+          <Property Name="AcademicAccerdiationDate" Type="DateTime" Precision="3" />
+          <Property Name="AcademicAccerdiationEmpID" Type="Int32" />
+          <Property Name="ManagmentAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="ManagmentAccreditationEmpID" Type="Int32" />
+          <Property Name="ManagmentAccreditationDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="StudentData" Relationship="IsraDataModel.FK_InstallmentOrder_StudentData" FromRole="InstallmentOrder" ToRole="StudentData" />
+          <NavigationProperty Name="StudentInstallment" Relationship="IsraDataModel.FK_StudentInstallment_InstallmentOrder" FromRole="InstallmentOrder" ToRole="StudentInstallment" />
+        </EntityType>
+        <EntityType Name="StudentInstallment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="InstallmentName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="InstallmentValue" Type="Double" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="0" />
+          <Property Name="RepayDate" Type="DateTime" Precision="0" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="InstallmentType" Type="Int32" />
+          <Property Name="AcademicAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="IsPaid" Type="Boolean" />
+          <Property Name="IsClosed" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="Int32" />
+          <Property Name="PaidDate" Type="DateTime" Precision="3" />
+          <Property Name="PaidEmployeeID" Type="Int32" />
+          <Property Name="ClosedDate" Type="DateTime" Precision="3" />
+          <Property Name="ClosedEmployeeID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="StudentData" Relationship="IsraDataModel.FK_StudentInstallment_StudentData" FromRole="StudentInstallment" ToRole="StudentData" />
+          <Property Name="InstallmentOrderID" Type="Int32" />
+          <NavigationProperty Name="InstallmentOrder" Relationship="IsraDataModel.FK_StudentInstallment_InstallmentOrder" FromRole="StudentInstallment" ToRole="InstallmentOrder" />
+        </EntityType>
+        <EntityType Name="StudentData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StudentNo" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Balance" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="ArFirstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ArSecoundName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ArThirdName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ArFamilyName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EnFirstName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EnSecoundName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EnThirdName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="EnFamilyName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="IsActiveNotes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateStudentID" Type="Int32" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="InstallmentOrder" Relationship="IsraDataModel.FK_InstallmentOrder_StudentData" FromRole="StudentData" ToRole="InstallmentOrder" />
+          <NavigationProperty Name="StudentInstallment" Relationship="IsraDataModel.FK_StudentInstallment_StudentData" FromRole="StudentData" ToRole="StudentInstallment" />
+          <NavigationProperty Name="Transaction" Relationship="IsraDataModel.FK_Transaction_StudentData" FromRole="StudentData" ToRole="Transaction" />
+          <NavigationProperty Name="Voucher" Relationship="IsraDataModel.FK_Voucher_StudentData" FromRole="StudentData" ToRole="Voucher" />
+          <NavigationProperty Name="StudentScholarship" Relationship="IsraDataModel.FK_StudentScholarship_StudentData" FromRole="StudentData" ToRole="StudentScholarship" />
+        </EntityType>
+        <Association Name="FK_InstallmentOrder_StudentData">
+          <End Type="IsraDataModel.StudentData" Role="StudentData" Multiplicity="1" />
+          <End Type="IsraDataModel.InstallmentOrder" Role="InstallmentOrder" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="InstallmentOrder">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInstallment_StudentData">
+          <End Type="IsraDataModel.StudentData" Role="StudentData" Multiplicity="1" />
+          <End Type="IsraDataModel.StudentInstallment" Role="StudentInstallment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentInstallment">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentInstallment_InstallmentOrder">
+          <End Type="IsraDataModel.InstallmentOrder" Role="InstallmentOrder" Multiplicity="0..1" />
+          <End Type="IsraDataModel.StudentInstallment" Role="StudentInstallment" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="InstallmentOrder">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentInstallment">
+              <PropertyRef Name="InstallmentOrderID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Action">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Code" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ArName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="SpecialArName" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" Nullable="false" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="FGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Value" Type="Double" />
+          <Property Name="CurrencyID" Type="Int32" />
+          <Property Name="CDType" Type="Int32" Nullable="false" />
+          <Property Name="RVType" Type="Int32" Nullable="false" />
+          <Property Name="ActionTypeID" Type="Int32" />
+          <Property Name="SpecialActionTypeID" Type="Int32" />
+          <Property Name="IsScholarship" Type="Boolean" Nullable="false" />
+          <Property Name="IsLoan" Type="Boolean" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="ActionType" Relationship="IsraDataModel.FK_Action_ActionType" FromRole="Action" ToRole="ActionType" />
+          <NavigationProperty Name="Currency" Relationship="IsraDataModel.FK_Action_Currency" FromRole="Action" ToRole="Currency" />
+          <NavigationProperty Name="Transaction" Relationship="IsraDataModel.FK_Transaction_Action" FromRole="Action" ToRole="Transaction" />
+          <NavigationProperty Name="Voucher" Relationship="IsraDataModel.FK_Voucher_Action" FromRole="Action" ToRole="Voucher" />
+          <NavigationProperty Name="StudentScholarship" Relationship="IsraDataModel.FK_StudentScholarship_Action" FromRole="Action" ToRole="StudentScholarship" />
+        </EntityType>
+        <EntityType Name="ActionType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="IsraDataModel.FK_Action_ActionType" FromRole="ActionType" ToRole="Action" />
+        </EntityType>
+        <EntityType Name="Currency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FractionsNo" Type="Int32" Nullable="false" />
+          <Property Name="FractionName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="IsraDataModel.FK_Action_Currency" FromRole="Currency" ToRole="Action" />
+          <NavigationProperty Name="CurrencyPrice" Relationship="IsraDataModel.FK_CurrencyPrice_Currency" FromRole="Currency" ToRole="CurrencyPrice" />
+          <NavigationProperty Name="VoucherDetails" Relationship="IsraDataModel.FK_VoucherDetails_Currency" FromRole="Currency" ToRole="VoucherDetails" />
+        </EntityType>
+        <EntityType Name="CurrencyPrice">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CurrencyID" Type="Int32" Nullable="false" />
+          <Property Name="Price" Type="Decimal" Nullable="false" Precision="7" Scale="3" />
+          <Property Name="PriceDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Currency" Relationship="IsraDataModel.FK_CurrencyPrice_Currency" FromRole="CurrencyPrice" ToRole="Currency" />
+        </EntityType>
+        <EntityType Name="Transaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="SemesterID" Type="Int32" />
+          <Property Name="CDFlag" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherID" Type="Int32" />
+          <Property Name="AccountID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertStudentID" Type="Int32" />
+          <Property Name="InsertEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteStudentID" Type="Int32" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="IsraDataModel.FK_Transaction_Action" FromRole="Transaction" ToRole="Action" />
+          <NavigationProperty Name="StudentData" Relationship="IsraDataModel.FK_Transaction_StudentData" FromRole="Transaction" ToRole="StudentData" />
+          <NavigationProperty Name="Voucher" Relationship="IsraDataModel.FK_Transaction_Voucher" FromRole="Transaction" ToRole="Voucher" />
+          <NavigationProperty Name="Account" Relationship="IsraDataModel.FK_Transaction_Account" FromRole="Transaction" ToRole="Account" />
+        </EntityType>
+        <EntityType Name="Voucher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherNum" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherTypeID" Type="Int32" Nullable="false" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="IsraDataModel.FK_Voucher_Action" FromRole="Voucher" ToRole="Action" />
+          <NavigationProperty Name="StudentData" Relationship="IsraDataModel.FK_Voucher_StudentData" FromRole="Voucher" ToRole="StudentData" />
+          <NavigationProperty Name="Transaction" Relationship="IsraDataModel.FK_Transaction_Voucher" FromRole="Voucher" ToRole="Transaction" />
+          <NavigationProperty Name="VoucherType" Relationship="IsraDataModel.FK_Voucher_VoucherType" FromRole="Voucher" ToRole="VoucherType" />
+          <NavigationProperty Name="VoucherDetails" Relationship="IsraDataModel.FK_VoucherDetails_Voucher" FromRole="Voucher" ToRole="VoucherDetails" />
+        </EntityType>
+        <EntityType Name="VoucherDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VoucherID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="CurrencyID" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyPriceID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Currency" Relationship="IsraDataModel.FK_VoucherDetails_Currency" FromRole="VoucherDetails" ToRole="Currency" />
+          <NavigationProperty Name="Voucher" Relationship="IsraDataModel.FK_VoucherDetails_Voucher" FromRole="VoucherDetails" ToRole="Voucher" />
+        </EntityType>
+        <EntityType Name="VoucherType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ArName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EnName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Voucher" Relationship="IsraDataModel.FK_Voucher_VoucherType" FromRole="VoucherType" ToRole="Voucher" />
+        </EntityType>
+        <Association Name="FK_Action_ActionType">
+          <End Type="IsraDataModel.ActionType" Role="ActionType" Multiplicity="0..1" />
+          <End Type="IsraDataModel.Action" Role="Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ActionType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="ActionTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Action_Currency">
+          <End Type="IsraDataModel.Currency" Role="Currency" Multiplicity="0..1" />
+          <End Type="IsraDataModel.Action" Role="Action" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Action">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Action">
+          <End Type="IsraDataModel.Action" Role="Action" Multiplicity="1" />
+          <End Type="IsraDataModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_Action">
+          <End Type="IsraDataModel.Action" Role="Action" Multiplicity="1" />
+          <End Type="IsraDataModel.Voucher" Role="Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CurrencyPrice_Currency">
+          <End Type="IsraDataModel.Currency" Role="Currency" Multiplicity="1" />
+          <End Type="IsraDataModel.CurrencyPrice" Role="CurrencyPrice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CurrencyPrice">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VoucherDetails_Currency">
+          <End Type="IsraDataModel.Currency" Role="Currency" Multiplicity="1" />
+          <End Type="IsraDataModel.VoucherDetails" Role="VoucherDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Currency">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VoucherDetails">
+              <PropertyRef Name="CurrencyID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_StudentData">
+          <End Type="IsraDataModel.StudentData" Role="StudentData" Multiplicity="1" />
+          <End Type="IsraDataModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_StudentData">
+          <End Type="IsraDataModel.StudentData" Role="StudentData" Multiplicity="1" />
+          <End Type="IsraDataModel.Voucher" Role="Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Transaction_Voucher">
+          <End Type="IsraDataModel.Voucher" Role="Voucher" Multiplicity="0..1" />
+          <End Type="IsraDataModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Voucher_VoucherType">
+          <End Type="IsraDataModel.VoucherType" Role="VoucherType" Multiplicity="1" />
+          <End Type="IsraDataModel.Voucher" Role="Voucher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VoucherType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Voucher">
+              <PropertyRef Name="VoucherTypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_VoucherDetails_Voucher">
+          <End Type="IsraDataModel.Voucher" Role="Voucher" Multiplicity="1" />
+          <End Type="IsraDataModel.VoucherDetails" Role="VoucherDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Voucher">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="VoucherDetails">
+              <PropertyRef Name="VoucherID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="StudentScholarship">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="ScholarshipValue" Type="Double" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AcademicAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Action" Relationship="IsraDataModel.FK_StudentScholarship_Action" FromRole="StudentScholarship" ToRole="Action" />
+          <NavigationProperty Name="StudentData" Relationship="IsraDataModel.FK_StudentScholarship_StudentData" FromRole="StudentScholarship" ToRole="StudentData" />
+        </EntityType>
+        <Association Name="FK_StudentScholarship_Action">
+          <End Type="IsraDataModel.Action" Role="Action" Multiplicity="1" />
+          <End Type="IsraDataModel.StudentScholarship" Role="StudentScholarship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Action">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentScholarship">
+              <PropertyRef Name="ActionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_StudentScholarship_StudentData">
+          <End Type="IsraDataModel.StudentData" Role="StudentData" Multiplicity="1" />
+          <End Type="IsraDataModel.StudentScholarship" Role="StudentScholarship" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StudentData">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="StudentScholarship">
+              <PropertyRef Name="StudentID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Account">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AccountName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="DisplayName" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Balance" Type="Double" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+          <NavigationProperty Name="Transaction" Relationship="IsraDataModel.FK_Transaction_Account" FromRole="Account" ToRole="Transaction" />
+        </EntityType>
+        <EntityType Name="AccountTransaction">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="SemesterID" Type="Int32" />
+          <Property Name="CDFlag" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="AccountVoucherID" Type="Int32" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="Quantity" Type="Double" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertStudentID" Type="Int32" />
+          <Property Name="InsertEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteStudentID" Type="Int32" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AccountVoucher">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherNum" Type="Int32" Nullable="false" />
+          <Property Name="TotalAmount" Type="Double" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="VoucherTypeID" Type="Int32" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="AccountVoucherDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AccountVoucherID" Type="Int32" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Nullable="false" Precision="7" Scale="2" />
+          <Property Name="CurrencyID" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyPriceID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="HelpRequest">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentID" Type="Int32" />
+          <Property Name="SemesterID" Type="Int32" />
+          <Property Name="HelpType" Type="Int32" />
+          <Property Name="FamilyCountNo" Type="Int32" />
+          <Property Name="UnivStudentNo" Type="Int32" />
+          <Property Name="FamilySchoolNo" Type="Int32" />
+          <Property Name="SpecialNeedsNo" Type="Int32" />
+          <Property Name="FatherWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MotherWork" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsPerentDead" Type="Boolean" />
+          <Property Name="FamilyIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="SocialCaseType" Type="Int32" />
+          <Property Name="HouseType" Type="Int32" />
+          <Property Name="RentValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FurnitureStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BulidingType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BulidingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="BulidingArea" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HouseDescription" Type="String" MaxLength="2000" FixedLength="false" Unicode="true" />
+          <Property Name="HouseNature" Type="Int32" />
+          <Property Name="ResidencePlace" Type="Int32" />
+          <Property Name="Others" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="IsBenefit" Type="Boolean" />
+          <Property Name="IsDelete" Type="Boolean" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="TypeRequestID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StringNumber">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Number" Type="Int32" Nullable="false" />
+          <Property Name="NumberString" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentBankInstallment">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="RegesterHour" Type="Int32" Nullable="false" />
+          <Property Name="BankBranchID" Type="Int32" Nullable="false" />
+          <Property Name="HeadAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="MangerAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertStudentID" Type="Int32" Nullable="false" />
+          <Property Name="HeadAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="HeadAccreditationEmployeeID" Type="Int32" />
+          <Property Name="MangerAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="MangerAccreditationEmployeeID" Type="Int32" />
+          <Property Name="UpdateDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdateEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StudentHelps">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="HelpRequestID" Type="Int32" />
+          <Property Name="HelpType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HelpOrganization" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HelpValue" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="StudentLoan">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="LoanValue" Type="Double" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Precision="0" />
+          <Property Name="RepayDate" Type="DateTime" Precision="0" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AcademicAccreditation" Type="Boolean" Nullable="false" />
+          <Property Name="TransactionID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="AcademicAccreditationDate" Type="DateTime" Precision="3" />
+          <Property Name="AcademicAccreditationEmployeeID" Type="Int32" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StudentSocialSolidarity">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SemesterID" Type="Int32" Nullable="false" />
+          <Property Name="StudentID" Type="Int32" Nullable="false" />
+          <Property Name="ActionID" Type="Int32" Nullable="false" />
+          <Property Name="SolidarityValue" Type="Double" Nullable="false" />
+          <Property Name="RequestDate" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TransactionID" Type="Int32" />
+          <Property Name="IsDelete" Type="Boolean" Nullable="false" />
+          <Property Name="InsertDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="InsertEmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="DeleteDate" Type="DateTime" Precision="3" />
+          <Property Name="DeleteEmployeeID" Type="Int32" />
+        </EntityType>
+        <Association Name="FK_Transaction_Account">
+          <End Type="IsraDataModel.Account" Role="Account" Multiplicity="0..1" />
+          <End Type="IsraDataModel.Transaction" Role="Transaction" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Account">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Transaction">
+              <PropertyRef Name="AccountID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IsraDataModelStoreContainer" CdmEntityContainer="IsraDataEntities">
+          <EntitySetMapping Name="InstallmentOrder">
+            <EntityTypeMapping TypeName="IsraDataModel.InstallmentOrder">
+              <MappingFragment StoreEntitySet="InstallmentOrder">
+                <ScalarProperty Name="ManagmentAccreditationDate" ColumnName="ManagmentAccreditationDate" />
+                <ScalarProperty Name="ManagmentAccreditationEmpID" ColumnName="ManagmentAccreditationEmpID" />
+                <ScalarProperty Name="ManagmentAccreditation" ColumnName="ManagmentAccreditation" />
+                <ScalarProperty Name="AcademicAccerdiationEmpID" ColumnName="AcademicAccerdiationEmpID" />
+                <ScalarProperty Name="AcademicAccerdiationDate" ColumnName="AcademicAccerdiationDate" />
+                <ScalarProperty Name="AcademicAccerdiation" ColumnName="AcademicAccerdiation" />
+                <ScalarProperty Name="LoansDivisionAccerdiationEmpID" ColumnName="LoansDivisionAccerdiationEmpID" />
+                <ScalarProperty Name="LoansDivisionAccerdiationDate" ColumnName="LoansDivisionAccerdiationDate" />
+                <ScalarProperty Name="LoansDivisionAccerdiation" ColumnName="LoansDivisionAccerdiation" />
+                <ScalarProperty Name="AffairsManagerAccreditationEmpID" ColumnName="AffairsManagerAccreditationEmpID" />
+                <ScalarProperty Name="AffairsManagerAccreditationDate" ColumnName="AffairsManagerAccreditationDate" />
+                <ScalarProperty Name="AffairsManagerAccreditation" ColumnName="AffairsManagerAccreditation" />
+                <ScalarProperty Name="LastFinancialPayment" ColumnName="LastFinancialPayment" />
+                <ScalarProperty Name="GrantPercentage" ColumnName="GrantPercentage" />
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="AccreditationEmployeeID" ColumnName="AccreditationEmployeeID" />
+                <ScalarProperty Name="AccreditationDate" ColumnName="AccreditationDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Accreditation" ColumnName="Accreditation" />
+                <ScalarProperty Name="RemainingAmount" ColumnName="RemainingAmount" />
+                <ScalarProperty Name="PaidAmount" ColumnName="PaidAmount" />
+                <ScalarProperty Name="NumOfHours" ColumnName="NumOfHours" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentInstallment">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentInstallment">
+              <MappingFragment StoreEntitySet="StudentInstallment">
+                <ScalarProperty Name="InstallmentOrderID" ColumnName="InstallmentOrderID" />
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="ClosedEmployeeID" ColumnName="ClosedEmployeeID" />
+                <ScalarProperty Name="ClosedDate" ColumnName="ClosedDate" />
+                <ScalarProperty Name="PaidEmployeeID" ColumnName="PaidEmployeeID" />
+                <ScalarProperty Name="PaidDate" ColumnName="PaidDate" />
+                <ScalarProperty Name="AcademicAccreditationEmployeeID" ColumnName="AcademicAccreditationEmployeeID" />
+                <ScalarProperty Name="AcademicAccreditationDate" ColumnName="AcademicAccreditationDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsClosed" ColumnName="IsClosed" />
+                <ScalarProperty Name="IsPaid" ColumnName="IsPaid" />
+                <ScalarProperty Name="AcademicAccreditation" ColumnName="AcademicAccreditation" />
+                <ScalarProperty Name="InstallmentType" ColumnName="InstallmentType" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RepayDate" ColumnName="RepayDate" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="InstallmentValue" ColumnName="InstallmentValue" />
+                <ScalarProperty Name="InstallmentName" ColumnName="InstallmentName" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentData">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentData">
+              <MappingFragment StoreEntitySet="StudentData">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateStudentID" ColumnName="UpdateStudentID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="IsActiveNotes" ColumnName="IsActiveNotes" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="EnFamilyName" ColumnName="EnFamilyName" />
+                <ScalarProperty Name="EnThirdName" ColumnName="EnThirdName" />
+                <ScalarProperty Name="EnSecoundName" ColumnName="EnSecoundName" />
+                <ScalarProperty Name="EnFirstName" ColumnName="EnFirstName" />
+                <ScalarProperty Name="ArFamilyName" ColumnName="ArFamilyName" />
+                <ScalarProperty Name="ArThirdName" ColumnName="ArThirdName" />
+                <ScalarProperty Name="ArSecoundName" ColumnName="ArSecoundName" />
+                <ScalarProperty Name="ArFirstName" ColumnName="ArFirstName" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="StudentNo" ColumnName="StudentNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Action">
+            <EntityTypeMapping TypeName="IsraDataModel.Action">
+              <MappingFragment StoreEntitySet="Action">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="IsLoan" ColumnName="IsLoan" />
+                <ScalarProperty Name="IsScholarship" ColumnName="IsScholarship" />
+                <ScalarProperty Name="SpecialActionTypeID" ColumnName="SpecialActionTypeID" />
+                <ScalarProperty Name="ActionTypeID" ColumnName="ActionTypeID" />
+                <ScalarProperty Name="RVType" ColumnName="RVType" />
+                <ScalarProperty Name="CDType" ColumnName="CDType" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="Value" ColumnName="Value" />
+                <ScalarProperty Name="FGroup" ColumnName="FGroup" />
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="SpecialArName" ColumnName="SpecialArName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="Code" ColumnName="Code" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ActionType">
+            <EntityTypeMapping TypeName="IsraDataModel.ActionType">
+              <MappingFragment StoreEntitySet="ActionType">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Currency">
+            <EntityTypeMapping TypeName="IsraDataModel.Currency">
+              <MappingFragment StoreEntitySet="Currency">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="FractionName" ColumnName="FractionName" />
+                <ScalarProperty Name="FractionsNo" ColumnName="FractionsNo" />
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CurrencyPrice">
+            <EntityTypeMapping TypeName="IsraDataModel.CurrencyPrice">
+              <MappingFragment StoreEntitySet="CurrencyPrice">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Transaction">
+            <EntityTypeMapping TypeName="IsraDataModel.Transaction">
+              <MappingFragment StoreEntitySet="Transaction">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteStudentID" ColumnName="DeleteStudentID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertStudentID" ColumnName="InsertStudentID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CDFlag" ColumnName="CDFlag" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Voucher">
+            <EntityTypeMapping TypeName="IsraDataModel.Voucher">
+              <MappingFragment StoreEntitySet="Voucher">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="VoucherTypeID" ColumnName="VoucherTypeID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="VoucherNum" ColumnName="VoucherNum" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherDetails">
+            <EntityTypeMapping TypeName="IsraDataModel.VoucherDetails">
+              <MappingFragment StoreEntitySet="VoucherDetails">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CurrencyPriceID" ColumnName="CurrencyPriceID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="VoucherID" ColumnName="VoucherID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VoucherType">
+            <EntityTypeMapping TypeName="IsraDataModel.VoucherType">
+              <MappingFragment StoreEntitySet="VoucherType">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EnName" ColumnName="EnName" />
+                <ScalarProperty Name="ArName" ColumnName="ArName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentScholarship">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentScholarship">
+              <MappingFragment StoreEntitySet="StudentScholarship">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="AcademicAccreditationEmployeeID" ColumnName="AcademicAccreditationEmployeeID" />
+                <ScalarProperty Name="AcademicAccreditationDate" ColumnName="AcademicAccreditationDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="AcademicAccreditation" ColumnName="AcademicAccreditation" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="ScholarshipValue" ColumnName="ScholarshipValue" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Account">
+            <EntityTypeMapping TypeName="IsraDataModel.Account">
+              <MappingFragment StoreEntitySet="Account">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Balance" ColumnName="Balance" />
+                <ScalarProperty Name="DisplayName" ColumnName="DisplayName" />
+                <ScalarProperty Name="AccountName" ColumnName="AccountName" />
+                <ScalarProperty Name="AccountNo" ColumnName="AccountNo" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountTransaction">
+            <EntityTypeMapping TypeName="IsraDataModel.AccountTransaction">
+              <MappingFragment StoreEntitySet="AccountTransaction">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteStudentID" ColumnName="DeleteStudentID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertStudentID" ColumnName="InsertStudentID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="AccountVoucherID" ColumnName="AccountVoucherID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="CDFlag" ColumnName="CDFlag" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountVoucher">
+            <EntityTypeMapping TypeName="IsraDataModel.AccountVoucher">
+              <MappingFragment StoreEntitySet="AccountVoucher">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="VoucherTypeID" ColumnName="VoucherTypeID" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="VoucherNum" ColumnName="VoucherNum" />
+                <ScalarProperty Name="AccountID" ColumnName="AccountID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AccountVoucherDetails">
+            <EntityTypeMapping TypeName="IsraDataModel.AccountVoucherDetails">
+              <MappingFragment StoreEntitySet="AccountVoucherDetails">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="CurrencyPriceID" ColumnName="CurrencyPriceID" />
+                <ScalarProperty Name="CurrencyID" ColumnName="CurrencyID" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+                <ScalarProperty Name="AccountVoucherID" ColumnName="AccountVoucherID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HelpRequest">
+            <EntityTypeMapping TypeName="IsraDataModel.HelpRequest">
+              <MappingFragment StoreEntitySet="HelpRequest">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="TypeRequestID" ColumnName="TypeRequestID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="IsBenefit" ColumnName="IsBenefit" />
+                <ScalarProperty Name="Others" ColumnName="Others" />
+                <ScalarProperty Name="ResidencePlace" ColumnName="ResidencePlace" />
+                <ScalarProperty Name="HouseNature" ColumnName="HouseNature" />
+                <ScalarProperty Name="HouseDescription" ColumnName="HouseDescription" />
+                <ScalarProperty Name="BulidingArea" ColumnName="BulidingArea" />
+                <ScalarProperty Name="BulidingStatus" ColumnName="BulidingStatus" />
+                <ScalarProperty Name="BulidingType" ColumnName="BulidingType" />
+                <ScalarProperty Name="FurnitureStatus" ColumnName="FurnitureStatus" />
+                <ScalarProperty Name="RentValue" ColumnName="RentValue" />
+                <ScalarProperty Name="HouseType" ColumnName="HouseType" />
+                <ScalarProperty Name="SocialCaseType" ColumnName="SocialCaseType" />
+                <ScalarProperty Name="FamilyIncome" ColumnName="FamilyIncome" />
+                <ScalarProperty Name="IsPerentDead" ColumnName="IsPerentDead" />
+                <ScalarProperty Name="MotherWork" ColumnName="MotherWork" />
+                <ScalarProperty Name="FatherWork" ColumnName="FatherWork" />
+                <ScalarProperty Name="SpecialNeedsNo" ColumnName="SpecialNeedsNo" />
+                <ScalarProperty Name="FamilySchoolNo" ColumnName="FamilySchoolNo" />
+                <ScalarProperty Name="UnivStudentNo" ColumnName="UnivStudentNo" />
+                <ScalarProperty Name="FamilyCountNo" ColumnName="FamilyCountNo" />
+                <ScalarProperty Name="HelpType" ColumnName="HelpType" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StringNumber">
+            <EntityTypeMapping TypeName="IsraDataModel.StringNumber">
+              <MappingFragment StoreEntitySet="StringNumber">
+                <ScalarProperty Name="NumberString" ColumnName="NumberString" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentBankInstallment">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentBankInstallment">
+              <MappingFragment StoreEntitySet="StudentBankInstallment">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="UpdateEmployeeID" ColumnName="UpdateEmployeeID" />
+                <ScalarProperty Name="UpdateDate" ColumnName="UpdateDate" />
+                <ScalarProperty Name="MangerAccreditationEmployeeID" ColumnName="MangerAccreditationEmployeeID" />
+                <ScalarProperty Name="MangerAccreditationDate" ColumnName="MangerAccreditationDate" />
+                <ScalarProperty Name="HeadAccreditationEmployeeID" ColumnName="HeadAccreditationEmployeeID" />
+                <ScalarProperty Name="HeadAccreditationDate" ColumnName="HeadAccreditationDate" />
+                <ScalarProperty Name="InsertStudentID" ColumnName="InsertStudentID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="MangerAccreditation" ColumnName="MangerAccreditation" />
+                <ScalarProperty Name="HeadAccreditation" ColumnName="HeadAccreditation" />
+                <ScalarProperty Name="BankBranchID" ColumnName="BankBranchID" />
+                <ScalarProperty Name="RegesterHour" ColumnName="RegesterHour" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentHelps">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentHelps">
+              <MappingFragment StoreEntitySet="StudentHelps">
+                <ScalarProperty Name="HelpValue" ColumnName="HelpValue" />
+                <ScalarProperty Name="HelpOrganization" ColumnName="HelpOrganization" />
+                <ScalarProperty Name="HelpType" ColumnName="HelpType" />
+                <ScalarProperty Name="HelpRequestID" ColumnName="HelpRequestID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentLoan">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentLoan">
+              <MappingFragment StoreEntitySet="StudentLoan">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="AcademicAccreditationEmployeeID" ColumnName="AcademicAccreditationEmployeeID" />
+                <ScalarProperty Name="AcademicAccreditationDate" ColumnName="AcademicAccreditationDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="AcademicAccreditation" ColumnName="AcademicAccreditation" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RepayDate" ColumnName="RepayDate" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="LoanValue" ColumnName="LoanValue" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StudentSocialSolidarity">
+            <EntityTypeMapping TypeName="IsraDataModel.StudentSocialSolidarity">
+              <MappingFragment StoreEntitySet="StudentSocialSolidarity">
+                <ScalarProperty Name="DeleteEmployeeID" ColumnName="DeleteEmployeeID" />
+                <ScalarProperty Name="DeleteDate" ColumnName="DeleteDate" />
+                <ScalarProperty Name="InsertEmployeeID" ColumnName="InsertEmployeeID" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="IsDelete" ColumnName="IsDelete" />
+                <ScalarProperty Name="TransactionID" ColumnName="TransactionID" />
+                <ScalarProperty Name="Note" ColumnName="Note" />
+                <ScalarProperty Name="RequestDate" ColumnName="RequestDate" />
+                <ScalarProperty Name="SolidarityValue" ColumnName="SolidarityValue" />
+                <ScalarProperty Name="ActionID" ColumnName="ActionID" />
+                <ScalarProperty Name="StudentID" ColumnName="StudentID" />
+                <ScalarProperty Name="SemesterID" ColumnName="SemesterID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

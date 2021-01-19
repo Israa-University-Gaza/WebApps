@@ -1,0 +1,78 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeSkill.EmployeeSkillVM
+
+@{
+    Layout = null;
+}
+
+<div id="employee-skill">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-skill"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeSkill", opt, new { @id = "form-employee-skill" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">نوع المهارة</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.SkillTypeID, new SelectList(Model.filter.SkillTypes, "Value", "Text"), "المهارات", new { @class = "form-control" })
+                        </div>
+                        <label class="col-md-2 control-label">مستوى المهارة</label>
+                        <div class="col-md-2">
+                            @Html.DropDownListFor(model => model.filter.KnowLevelID, new SelectList(Model.filter.KnowLevels, "Value", "Text"), "المستويات", new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-2">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp30">الموظف</th>
+                        <th class="wp25 text-center">نوع المهارة</th>
+                        <th class="wp25 text-center">اسم المهارة</th>
+                        <th class="wp15 text-center">مستوى المهارة</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["SkillType"]</td>
+                            <td class="text-center">@row["Name"]</td>
+                            <td class="text-center">@row["KnowLevel"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        </div>
+
+    }
+</div>

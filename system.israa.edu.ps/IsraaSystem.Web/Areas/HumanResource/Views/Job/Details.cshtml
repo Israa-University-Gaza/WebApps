@@ -1,0 +1,147 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.Job.JobDetail
+@using System.Data
+@{
+    ViewBag.Title = "شؤون الموظفين - تفاصيل الوظيفة";
+    ViewBag.Menu = "menu-jobs";
+    Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/HumanResource/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/HumanResource/Job">وظائف الجامعة</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>تفاصيل الوظيفة</a>
+    </li>
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">الوظيفة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/Job" class="btn btn-success">
+                        <i class="fa fa-arrow-right"></i>
+                        <span>عرض جميع الوظائف</span>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th class="text-center" colspan="2">معلومات خاصة بالوظيفة</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="wp25">المسمى الوظيفي</td>
+                            <td class="wp75">@Model.Job.Rows[0]["JobTitle"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>الهدف من الوظيفة</td>
+                            <td>@Model.Job.Rows[0]["JobGoal"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>القسم</td>
+                            <td>@Model.Job.Rows[0]["DepartmentName"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>كادر الوظيفة</td>
+                            <td>@Model.Job.Rows[0]["CaderName"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>الفئة الوظيفية</td>
+                            <td>@Model.Job.Rows[0]["CaderDegreeName"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>المسؤول المباشر عن الوظيفة</td>
+                            <td>@Model.Job.Rows[0]["ManagerJobName"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>العلاقة مع الوظائف الأخرى</td>
+                            <td>@Model.Job.Rows[0]["OtherJobRelation"].ToString()</td>
+                        </tr>
+                        <tr>
+                            <td>حالة الوظيفة</td>
+                            <td>@Model.Job.Rows[0]["ActiveStatus"].ToString()</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">مهام الوظيفة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/JobTask/Add?jobId=@Model.Job.Rows[0]["ID"].ToString()" class="btn btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        <span>إضافة مهمة جديد</span>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("~/Areas/HumanResource/Views/JobTask/List.cshtml", Model.JobTasks)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">مؤشرات أداء الوظيفة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/JobTaskPointer/Add?jobId=@Model.Job.Rows[0]["ID"].ToString()" class="btn btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        <span>إضافة مؤشر جديد</span>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("~/Areas/HumanResource/Views/JobTaskPointer/List.cshtml", Model.JobTaskPointers)
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">متطلبات شغل الوظيفة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/JobRequirement/JobPersonalAdd" class="btn btn-success pop-up-md">
+                        <i class="fa fa-plus"></i>
+                        <span>إضافة متطلبات شغل الوظيفة</span>
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                @Html.Partial("~/Areas/HumanResource/Views/JobRequirement/List.cshtml", Model.JobPersonals)
+            </div>
+        </div>
+    </div>
+</div>

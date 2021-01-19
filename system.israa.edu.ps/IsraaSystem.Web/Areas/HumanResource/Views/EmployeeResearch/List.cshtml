@@ -1,0 +1,73 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.EmployeeResearch.EmployeeResearchVM
+
+@{
+    Layout = null;
+}
+
+<div id="employee-research">
+    @if (TempData["toast-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "employee-research"
+        };
+    }
+
+    @using (Ajax.BeginForm("List", "EmployeeResearch", opt, new { @id = "form-employee-research" }))
+    {
+        <div class="form">
+            <div class="form-horizontal">
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">عنوان البحث</label>
+                        <div class="col-md-8">
+                            @Html.TextBoxFor(model => model.filter.ResearchTitle, new { @class = "form-control text-center", placeholder = "عنوان البحث" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label"></label>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn blue">تصفية</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th class="wp5">#</th>
+                        <th class="wp30">الموظف</th>
+                        <th class="wp25 text-center">عنوان البحث</th>
+                        <th class="wp25 text-center">الجهة المقدمة لها</th>
+                        <th class="wp15 text-center">التاريخ</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (DataRow row in Model.data.Rows)
+                    {
+                        <tr>
+                            <td>@row["RowNo"]</td>
+                            <td class="text-center"><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+                            <td class="text-center">@row["ResearchTitle"]</td>
+                            <td class="text-center">@row["ResearchOrganization"]</td>
+                            <td class="text-center">@row["ResearchDate"]</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            @Html.Partial("_paging", Model.pagging)
+        </div>
+    }
+</div>

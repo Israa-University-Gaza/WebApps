@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGetEmployeeBonuses" targetNamespace="http://tempuri.org/dsGetEmployeeBonuses.xsd" xmlns:mstns="http://tempuri.org/dsGetEmployeeBonuses.xsd" xmlns="http://tempuri.org/dsGetEmployeeBonuses.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="IsraaHumanResourceConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IsraaHumanResourceConnectionString (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.IsraaHumanResourceConnectionString.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGetEmployeeBonuses" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsGetEmployeeBonuses" msprop:Generator_UserDSName="dsGetEmployeeBonuses">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetEmployeeBonuses" msprop:Generator_TableClassName="GetEmployeeBonusesDataTable" msprop:Generator_TableVarName="tableGetEmployeeBonuses" msprop:Generator_RowChangedName="GetEmployeeBonusesRowChanged" msprop:Generator_TablePropName="GetEmployeeBonuses" msprop:Generator_RowDeletingName="GetEmployeeBonusesRowDeleting" msprop:Generator_RowChangingName="GetEmployeeBonusesRowChanging" msprop:Generator_RowEvHandlerName="GetEmployeeBonusesRowChangeEventHandler" msprop:Generator_RowDeletedName="GetEmployeeBonusesRowDeleted" msprop:Generator_RowClassName="GetEmployeeBonusesRow" msprop:Generator_UserTableName="GetEmployeeBonuses" msprop:Generator_RowEvArgName="GetEmployeeBonusesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateFrom" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="BasicSalaryID" msprop:Generator_ColumnVarNameInTable="columnBasicSalaryID" msprop:Generator_ColumnPropNameInRow="BasicSalaryID" msprop:Generator_ColumnPropNameInTable="BasicSalaryIDColumn" msprop:Generator_UserColumnName="BasicSalaryID" type="xs:int" />
+              <xs:element name="BonusID" msprop:Generator_ColumnVarNameInTable="columnBonusID" msprop:Generator_ColumnPropNameInRow="BonusID" msprop:Generator_ColumnPropNameInTable="BonusIDColumn" msprop:Generator_UserColumnName="BonusID" type="xs:int" />
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:double" />
+              <xs:element name="CurrencyID" msprop:Generator_ColumnVarNameInTable="columnCurrencyID" msprop:Generator_ColumnPropNameInRow="CurrencyID" msprop:Generator_ColumnPropNameInTable="CurrencyIDColumn" msprop:Generator_UserColumnName="CurrencyID" type="xs:int" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateFrom1" msprop:Generator_ColumnVarNameInTable="columnDateFrom1" msprop:Generator_ColumnPropNameInRow="DateFrom1" msprop:Generator_ColumnPropNameInTable="DateFrom1Column" msprop:Generator_UserColumnName="DateFrom1" type="xs:dateTime" />
+              <xs:element name="DateTo1" msprop:Generator_ColumnVarNameInTable="columnDateTo1" msprop:Generator_ColumnPropNameInRow="DateTo1" msprop:Generator_ColumnPropNameInTable="DateTo1Column" msprop:Generator_UserColumnName="DateTo1" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="IsDelete" msprop:Generator_ColumnVarNameInTable="columnIsDelete" msprop:Generator_ColumnPropNameInRow="IsDelete" msprop:Generator_ColumnPropNameInTable="IsDeleteColumn" msprop:Generator_UserColumnName="IsDelete" type="xs:boolean" />
+              <xs:element name="InsertDate" msprop:Generator_ColumnVarNameInTable="columnInsertDate" msprop:Generator_ColumnPropNameInRow="InsertDate" msprop:Generator_ColumnPropNameInTable="InsertDateColumn" msprop:Generator_UserColumnName="InsertDate" type="xs:dateTime" />
+              <xs:element name="InsertEmployeeID" msprop:Generator_ColumnVarNameInTable="columnInsertEmployeeID" msprop:Generator_ColumnPropNameInRow="InsertEmployeeID" msprop:Generator_ColumnPropNameInTable="InsertEmployeeIDColumn" msprop:Generator_UserColumnName="InsertEmployeeID" type="xs:int" />
+              <xs:element name="UpdateDate" msprop:Generator_ColumnVarNameInTable="columnUpdateDate" msprop:Generator_ColumnPropNameInRow="UpdateDate" msprop:Generator_ColumnPropNameInTable="UpdateDateColumn" msprop:Generator_UserColumnName="UpdateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateEmployeeID" msprop:Generator_ColumnVarNameInTable="columnUpdateEmployeeID" msprop:Generator_ColumnPropNameInRow="UpdateEmployeeID" msprop:Generator_ColumnPropNameInTable="UpdateEmployeeIDColumn" msprop:Generator_UserColumnName="UpdateEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="DeleteDate" msprop:Generator_ColumnVarNameInTable="columnDeleteDate" msprop:Generator_ColumnPropNameInRow="DeleteDate" msprop:Generator_ColumnPropNameInTable="DeleteDateColumn" msprop:Generator_UserColumnName="DeleteDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeleteEmployeeID" msprop:Generator_ColumnVarNameInTable="columnDeleteEmployeeID" msprop:Generator_ColumnPropNameInRow="DeleteEmployeeID" msprop:Generator_ColumnPropNameInTable="DeleteEmployeeIDColumn" msprop:Generator_UserColumnName="DeleteEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="BonusName" msprop:Generator_ColumnVarNameInTable="columnBonusName" msprop:Generator_ColumnPropNameInRow="BonusName" msprop:Generator_ColumnPropNameInTable="BonusNameColumn" msprop:Generator_UserColumnName="BonusName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetEmployeeBonuses" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

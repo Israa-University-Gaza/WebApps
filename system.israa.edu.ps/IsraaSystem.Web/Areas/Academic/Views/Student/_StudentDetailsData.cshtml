@@ -1,0 +1,273 @@
+﻿@model IsraaSystem.Application.Academic.StudentManager.StudentDto
+<div class="portlet light">
+
+<div class="portlet-title">
+
+    <div class="caption caption-md">
+        <i class="icon-bar-chart theme-font hide"></i>
+        <span class="caption-subject font-blue-madison bold uppercase">معلومات عامة</span>
+        <span class="caption-helper hide">weekly stats...</span>
+    </div>
+    <div class="actions">
+        <div class="btn-group open">
+            <a class="btn btn-circle green-haze btn-outline btn-circle btn-sm" href="javascript:;" data-toggle="dropdown" data-hover="dropdown" data-close-others="true" aria-expanded="true">
+                اجراءات
+                <i class="fa fa-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu pull-right">
+                <li>
+                    <a href="javascript:;">
+                        <a href="/Affairs/StudentVolunteer/Add" class="pop-up-lg"> اضافة ساعات تطوع </a>
+                    </a>
+                </li>
+                <li class="divider"> </li>
+                <li>
+                    <a href="javascript:;">Option 2</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Option 3</a>
+                </li>
+                <li>
+                    <a href="javascript:;">Option 4</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="portlet-body">
+    <table id="user" class="table table-bordered table-striped">
+
+        <tbody>
+
+
+            <tr>
+                <td class="">
+
+                    رقم الطالب
+                </td>
+
+                <td>
+
+                    @Model.studentNo
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    البرنامج
+                </td>
+
+
+                <td>
+
+                    @Model.programName
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الكلية
+                </td>
+
+                <td>
+                    @Model.collegeName
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    القسم
+                </td>
+
+                <td>
+                    @Model.departmentName
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    الرصيد
+                </td>
+
+                <td>
+                    @Model.studentbalncename
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    نوع الطالب
+                </td>
+                <td>
+                    @Model.studentType
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    حالة الطالب
+                </td>
+                <td>
+                    @Model.studentstatus
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    المستوي الدراسي
+                </td>
+
+                <td>
+                    @Model.StudyLevel
+
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    المعدل التراكمي
+                </td>
+
+                <td>
+
+                    @Model.GPAGraduate
+
+                </td>
+
+
+            </tr>
+
+
+            <tr>
+                <td>
+                    المعدل قبل المعادلة
+                </td>
+
+                <td></td>
+            </tr>
+
+            <tr>
+                <td>
+                    ساعات الدراسة
+                </td>
+
+                <td>
+                    0
+
+                </td>
+
+
+            </tr>
+            <tr>
+
+                <td>
+                    ساعات النجاح
+                </td>
+
+                <td>
+                    @Model.SucceedHour
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    ساعات الخطة
+                </td>
+
+                <td>
+
+                    @Model.PlanSucceedHour
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    ساعات الإنجاز
+                </td>
+
+                <td>
+                    @Model.StudiedHour
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    ساعات معادلة داخلية
+                </td>
+
+                <td>
+                    @Model.internaltransformaitionNumofHours
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    سعر الساعة
+                </td>
+
+                <td></td>
+            </tr>
+            <tr>
+                <td>
+                    حالة التخرج
+                </td>
+
+                <td>
+                    @Model.GraduationStatus
+
+                </td>
+
+            </tr>
+            <tr>
+                <td>
+                    حالة الطالب أكاديمياً
+                </td>
+
+                <td>
+
+                    @Model.CurrentWarningNo
+
+                </td>
+
+            </tr>
+
+            <tr>
+                <td>
+                    حالة صفحة الطالب
+                </td>
+
+                <td>
+
+                    @Model.SuspendedStatus
+
+                </td>
+            </tr>
+
+            <tr>
+
+                <td>
+                    رقم الملف
+                </td>
+
+                <td>
+                    @Model.FileNumber
+
+                </td>
+            </tr>
+
+
+            <tr></tr>
+
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+
+</div>

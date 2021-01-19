@@ -1,0 +1,320 @@
+﻿<!-- BEGIN SIDEBAR MENU -->
+<!-- DOC: Apply "page-sidebar-menu-light" class right after "page-sidebar-menu" to enable light sidebar menu style(without borders) -->
+<!-- DOC: Apply "page-sidebar-menu-hover-submenu" class right after "page-sidebar-menu" to enable hoverable(hover vs accordion) sub menu mode -->
+<!-- DOC: Apply "page-sidebar-menu-closed" class right after "page-sidebar-menu" to collapse("page-sidebar-closed" class must be applied to the body element) the sidebar sub menu mode -->
+<!-- DOC: Set data-auto-scroll="false" to disable the sidebar from auto scrolling/focusing -->
+<!-- DOC: Set data-keep-expand="true" to keep the submenues expanded -->
+<!-- DOC: Set data-auto-speed="200" to adjust the sub menu slide up/down speed -->
+<ul class="page-sidebar-menu" data-keep-expanded="false" data-auto-scroll="true" data-slide-speed="200">
+
+
+
+  @* todo Add Permession here *@
+
+  @if (User.Identity.ToString() != "5087")
+  {
+    <li id="menu-dashboard" class="nav-item start ">
+      <a href="/HumanResource/Dashboard" class="nav-link">
+        <i class="icon-bar-chart"></i>
+        <span class="title">الصفحة الرئيسية</span>
+      </a>
+    </li>
+    <li class="heading">
+      <h3 class="uppercase">الموظفين</h3>
+    </li>
+    <li id="menu-employee-add" class="nav-item">
+      <a href="/HumanResource/EmployeeAddNew" class="nav-link">
+        <i class="icon-user-follow"></i>
+        <span class="title">إضافة موظف جديد</span>
+      </a>
+    </li>
+    <li id="menu-employees" class="nav-item">
+      <a href="/HumanResource/Employee" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">ملفات الموظفين</span>
+      </a>
+    </li>
+    <li id="menu-employees-Personal" class="nav-item">
+      <a href="/HumanResource/EmployeesPersonal" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">بيانات الموظفين الأساسية</span>
+      </a>
+    </li>
+    <li id="menu-country" class="nav-item">
+      <a href="/HumanResource/Country" class="nav-link">
+        <i class="icon-compass"></i>
+        <span class="title">المدن</span>
+      </a>
+    </li>
+    <li id="menu-employee-document" class="nav-item">
+      <a href="/HumanResource/EmployeeDocument" class="nav-link">
+        <i class="icon-doc"></i>
+        <span class="title">مستندات الموظفين</span>
+      </a>
+    </li>
+    <li id="menu-employee-document" class="nav-item">
+      <a href="/HumanResource/EmployeeRport/Report" class="nav-link">
+        <i class="icon-doc"></i>
+        <span class="title">تقرير الموظفين</span>
+      </a>
+    </li>
+    <li class="heading">
+      <h3 class="uppercase">الهيكلية والوظائف</h3>
+    </li>
+    <li id="menu-departments" class="nav-item">
+      <a href="/HumanResource/Department" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">أقسام الجامعة</span>
+      </a>
+    </li>
+    <li id="menu-jobs" class="nav-item">
+      <a href="/HumanResource/Job" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">وظائف الجامعة</span>
+      </a>
+    </li>
+    <li id="menu-employee-location" class="nav-item">
+      <a class="nav-link nav-toggle">
+        <i class="icon-users"></i>
+        <span class="title">الهيكلية الإدارية</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-employee-placement" class="nav-item">
+          <a href="/HumanResource/EmployeePlacement" class="nav-link ">
+            <span class="title">المواقع الوظيفية</span>
+          </a>
+        </li>
+        <li id="menu-emp-employment-type" class="nav-item">
+          <a href="/HumanResource/EmpEmploymentType" class="nav-link ">
+            <span class="title">أنواع تعينات الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-emp-status" class="nav-item">
+          <a href="/HumanResource/EmpStatus" class="nav-link ">
+            <span class="title">حالات الموظفين</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="heading">
+      <h3 class="uppercase">التعينات والعقود</h3>
+    </li>
+    <li id="menu-contract-instructor" class="nav-item">
+      <a href="/HumanResource/ContractInstructor" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">عقود المحاضرين</span>
+      </a>
+    </li>
+    <li class="heading">
+      <h3 class="uppercase">الدوام والتحركات</h3>
+    </li>
+    <li id="menu-employee-attendance-format" class="nav-item">
+      <a href="/HumanResource/EmployeeAttendanceFormat" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">الدوام الإفتراضي</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <li id="menu-attendance" class="nav-item">
+      <a href="javascript:;" class="nav-link nav-toggle">
+        <i class="icon-users"></i>
+        <span class="title">دوام الموظفين</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-attendance-daily" class="nav-item">
+          <a href="/HumanResource/AttendanceDaily" class="nav-link ">
+            <span class="title">كشف دوام الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-attendance-monthly" class="nav-item">
+          <a href="/HumanResource/AttendanceMonthly" class="nav-link">
+            <span class="title">دوام الموظفين الشهري</span>
+          </a>
+        </li>
+        <li id="menu-employee-attendance-late" class="nav-item">
+          <a href="/HumanResource/EmployeeAttendanceLate" class="nav-link">
+            <span class="title">كشف تأخير الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-employees-date-range-statuses" class="nav-item">
+          <a href="/HumanResource/EmployeesDateRangeStatuses" class="nav-link">
+            <span class="title">كشف حالة دوام الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-attendance-instructor" class="nav-item">
+          <a href="/HumanResource/AttendanceInstructor/InstructorIndex" class="nav-link">
+            <span class="title">كشف دوام المحاضر</span>
+          </a>
+        </li>
+        <li id="menu-attendance-instructors" class="nav-item">
+          <a href="/HumanResource/AttendanceInstructor/InstructorsIndex" class="nav-link">
+            <span class="title">كشف دوام المحاضرين</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li id="menu-attendance-exit" class="nav-item">
+      <a href="/HumanResource/AttendanceExit" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">أذونات الموظفين</span>
+        <span class="arrow"></span>
+      </a>
+    </li>
+    <li id="menu-fingerprint" class="nav-item">
+      <a class="nav-link nav-toggle">
+        <i class="icon-users"></i>
+        <span class="title">بصمات الموظفين</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-machine-fingerprint" class="nav-item">
+          <a href="/HumanResource/MachineFingerprint" class="nav-link">
+            <span class="title">جهاز البصمة</span>
+          </a>
+        </li>
+        <li id="menu-manual-fingerprint" class="nav-item">
+          <a href="/HumanResource/ManualFingerprint" class="nav-link">
+            <span class="title">البصمات اليدوية</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="heading">
+      <h3 class="uppercase">العطل والإجازات</h3>
+    </li>
+    <li id="menu-holiday" class="nav-item">
+      <a class="nav-link nav-toggle">
+        <i class="icon-users"></i>
+        <span class="title">العطل الرسمية</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-holiday-list" class="nav-item">
+          <a href="/HumanResource/Holiday" class="nav-link">
+            <span class="title">العطل الرسمية السنوية</span>
+          </a>
+        </li>
+        <li id="menu-holiday-type" class="nav-item">
+          <a href="/HumanResource/HolidayType" class="nav-link">
+            <span class="title">أنواع العطل الرسمية</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li id="menu-vacation" class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">إجازات الموظفين</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+
+        <li id="menu-vacation-balance" class="nav-item">
+          <a href="/HumanResource/EmployeeVacationStatistics" class="nav-link">
+            <span class="title">احصاء إجازات الموظف</span>
+          </a>
+        </li>
+
+        <li id="menu-vacation-balance" class="nav-item">
+          <a href="/HumanResource/VacationBalance" class="nav-link">
+            <span class="title">أرصدة إجازات الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-employee-vacation" class="nav-item">
+          <a href="/HumanResource/EmployeeVacation" class="nav-link">
+            <span class="title">إجازات الموظفين</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+
+
+    <li class="heading">
+      <h3 class="uppercase">الامتحانات</h3>
+    </li>
+    <li id="menu-salary" class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">ادارة المراقبين</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-salary-box" class="nav-item">
+          <a href="/HumanResource/Observer" class="nav-link">
+            <span class="title">ادارة المراقبين</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+    <li class="heading">
+      <h3 class="uppercase">الجداول الدراسية</h3>
+    </li>
+    <li id="menu-study-table" class="nav-item">
+      <a href="/Academic/StudyTable/InstructorTable" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">جدول المحاضر</span>
+      </a>
+    </li>
+
+  }
+  @if (User.Identity.ToString() == "5087")
+
+  {
+    <li class="heading">
+      <h3 class="uppercase">رواتب الموظفين</h3>
+    </li>
+    <li id="menu-salary" class="nav-item">
+      <a href="#" class="nav-link">
+        <i class="icon-users"></i>
+        <span class="title">رواتب الموظفين</span>
+        <span class="arrow"></span>
+      </a>
+      <ul class="sub-menu">
+        <li id="menu-salary-box" class="nav-item">
+          <a href="/HumanResource/SalaryBox" class="nav-link">
+            <span class="title">صناديق الرواتب</span>
+          </a>
+        </li>
+        <li id="menu-salary-bonus" class="nav-item">
+          <a href="/HumanResource/Bonus" class="nav-link">
+            <span class="title">العلاوات</span>
+          </a>
+        </li>
+        <li id="menu-salary-deduction" class="nav-item">
+          <a href="/HumanResource/Deduction" class="nav-link">
+            <span class="title">الخصميات</span>
+          </a>
+        </li>
+        <li id="menu-salary-basic-salary" class="nav-item">
+          <a href="/HumanResource/BasicSalary" class="nav-link">
+            <span class="title">الرواتب الأساسية</span>
+          </a>
+        </li>
+        <li id="menu-salary-employee-bonus" class="nav-item">
+          <a href="/HumanResource/EmployeeBonus" class="nav-link">
+            <span class="title">علاوات الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-salary-employee-deduction" class="nav-item">
+          <a href="/HumanResource/EmployeeDeduction" class="nav-link">
+            <span class="title">خصميات الموظفين</span>
+          </a>
+        </li>
+        <li id="menu-salary-employee-salary" class="nav-item">
+          <a href="/HumanResource/EmployeeSalary" class="nav-link">
+            <span class="title">الرواتب الشهرية</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  }
+
+
+
+
+</ul>
+<!-- END SIDEBAR MENU -->

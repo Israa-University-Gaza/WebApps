@@ -1,0 +1,17 @@
+﻿.israa-grid-dropdown-menu {
+    right: -100%
+}
+
+
+    .israa-grid-dropdown-menu :after {
+        right: 70px !important
+    }
+
+    .israa-grid-dropdown-menu :before {
+        right: 70px !important
+    }
+
+.sortable {
+    cursor: pointer;
+
+}

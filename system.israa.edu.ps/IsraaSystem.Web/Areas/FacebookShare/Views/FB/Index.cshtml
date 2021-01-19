@@ -1,0 +1,69 @@
+﻿
+@model IsraaSystem.Web.Areas.FacebookShare.Models.Posts
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/FacebookShare/Views/Shared/_Layout.cshtml";
+}
+
+
+@section PageBreadcrumb{
+    <li>
+        <a>الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>شؤون الموظفين</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>الرئيسية</a>
+    </li>
+}
+
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">عرض وظائف الجامعة</span>
+                </div>
+                <div class="actions">
+                    <a href="/HumanResource/Job/Add" class="btn btn-sm btn-success pop-up-lg">
+                        <i class="fa fa-plus"></i>
+                        إضافة وظيفة جديدة
+                    </a>
+                </div>
+            </div>
+            <div class="portlet-body">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>id</th>
+                            <th>message</th>
+                            <th>story</th>
+                            <th>created_time</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model.data)
+                        {
+                            <tr>
+                                <td>@item.id</td>
+                                <td>@item.message</td>
+                                <td>@item.story</td>
+                                <td>@item.created_time</td>
+                                <td>
+                                    <a href="/FacebookShare/FB/Share?link=@item.permalink_url&postId=@item.id" class="btn btn-sm btn-primary"><i class="fa fa-share"></i> مشاركة</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+

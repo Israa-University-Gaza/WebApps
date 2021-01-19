@@ -1,0 +1,40 @@
+﻿<!-- BEGIN PAGE ACTIONS -->
+<div class="page-actions">
+  <div class="btn-group">
+    <button type="button" class="btn red-haze btn-sm dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
+      <span class="hidden-sm hidden-xs">الــــبــرامـــــج</span>
+      <i class="fa fa-angle-down"></i>
+    </button>
+    <ul class="dropdown-menu" role="menu">
+
+      @if (ThisUser.IsInArea("HumanResource"))
+      {
+        <li>
+          <a href="/HumanResource/Dashboard">
+            <i class="icon-settings"></i>
+            <span> شؤون الموظفين</span>
+          </a>
+        </li>
+      }
+      @if (ThisUser.IsInArea("Academic"))
+      {
+        <li>
+          <a href="/Academic/Dashboard">
+            <i class="icon-settings"></i>
+            <span> الشؤون الأكاديمية</span>
+          </a>
+        </li>
+      }
+      @if (ThisUser.IsInArea("Exam"))
+      {
+        <li>
+          <a href="/Exam/Dashboard">
+            <i class="icon-settings"></i>
+            <span> الامتحانات الدراسية </span>
+          </a>
+        </li>
+      }
+    </ul>
+  </div>
+</div>
+<!-- END PAGE ACTIONS -->

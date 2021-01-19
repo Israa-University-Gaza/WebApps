@@ -1,0 +1,130 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.Salary.EmployeeSalaryVM
+
+@{
+  Layout = null;
+}
+
+
+@if (TempData["add-msg"] != null)
+{
+  int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+  String msg = TempData["add-msg"].ToString().Split(';')[1];
+  <script type="text/javascript">
+    showToast("@msg", "@((status > 0) ? "success":"error")");
+  </script>
+  if (status > 0)
+  {
+    <script type="text/javascript">
+      $('.modal').modal('hide');
+      $("#bonuses").load("/HumanResource/Bonus/List");
+    </script>
+  }
+}
+
+
+<div id="employee-salary">
+
+  <div id="refresh-list"></div>
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "employee-salary"
+    };
+  }
+  @using (Ajax.BeginForm("List", null, opt, new { @id = "form-employee-salary" }))
+  {
+    <div class="form">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+
+
+
+
+            <label class="col-md-2 control-label">الموظف</label>
+            <div class="col-md-3">
+              @Html.DropDownListFor(model => model.filter.EmployeeID, new SelectList(Model.filter.Employees, "Value", "Text"), "جميع الموظفين", new { @class = "form-control select2" })
+              @Html.ValidationMessageFor(model => model.filter.EmployeeID, "", new { @class = "text-danger help-block" })
+            </div>
+            <label class="col-md-2 control-label">العملة</label>
+            <div class="col-md-2">
+              @Html.DropDownListFor(model => model.filter.CurrencyID, new SelectList(Model.filter.Currencies, "Value", "Text"), "جميع العملات", new { @class = "form-control" })
+            </div>
+            <div class="col-md-offset-1 col-md-2">
+              @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-right", onchange = "$('#current-page').val('1');$(this).submit();" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">الشهر</label>
+            <div class="col-md-3">
+              @Html.DropDownListFor(model => model.filter.MonthID, new SelectList(Model.filter.Months, "Value", "Text"), "جميع الأشهر", new { @class = "form-control" })
+            </div>
+            <label class="col-md-2 control-label">السنة</label>
+            <div class="col-md-2">
+              @Html.TextBoxFor(model => model.filter.Year, new { @class = "form-control text-center", placeholder = "السنة" })
+            </div>
+            <div class="col-md-offset-1 col-md-2">
+              @*<button type="submit" class="btn blue">تصفية</button>*@
+              @*<input type="submit" name="response" id="btn-one" class="btn btn-primary" />*@
+              <input type="submit" name="answer" value="عرض" class="btn btn-primary" />
+              <input type="submit" name="answer" value="احتساب الراتب" class="btn btn-primary" />
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+      <table class="table table-striped table-hover">
+        <thead>
+          <tr>
+            <th class="wp3">#</th>
+            <th class="wp15 text-center">رقم الموظف</th>
+            <th class="wp20">اسم الموظف</th>
+            <th class="wp8 text-center">الشهر</th>
+            <th class="wp8 text-center">السنة</th>
+            <th class="wp8 text-center">الراتب الأساسي</th>
+            <th class="wp8 text-center">مجموع العلاوات</th>
+            <th class="wp8 text-center">مجموع الخصميات</th>
+            <th class="wp8 text-center">صافي الراتب</th>
+            <th class="wp8 text-center">العملة</th>
+            <th class="wp6 text-center"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (DataRow row in Model.data.Rows)
+          {
+            <tr>
+              <td>@row["RowNo"]</td>
+              <td class="text-center">@row["EmployeeNo"]</td>
+              <td><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+              <td class="text-center">@row["Month"]</td>
+              <td class="text-center">@row["Year"]</td>
+              <td class="text-center">@row["BasicSalary"]</td>
+              <td class="text-center">@row["TotalBonus"]</td>
+              <td class="text-center">@row["TotalDeduction"]</td>
+              <td class="text-center">@row["FinalSalary"]</td>
+              <td class="text-center">@row["CurrencyName"]</td>
+              <td class="text-center">
+                @*<a href="/HumanResource/EmployeeBonus/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>*@
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      @Html.Partial("_paging", Model.pagging)
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,56 @@
+﻿@model IsraaSystem.Web.Controllers.NavItemStart
+
+<div class="hor-menu  ">
+    <ul class="nav navbar-nav">
+        <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+            <a href="@Model.Url">
+                @Model.DisplayName
+                <span class="arrow"></span>
+            </a>
+        </li>
+
+
+        @foreach (var navItemHeading in Model.Items)
+        {
+            <li aria-haspopup="true" class="menu-dropdown classic-menu-dropdown ">
+                <a href="javascript:;">
+                    <i class="fa fa-circle"></i> @navItemHeading.DisplayName
+                    <span class="arrow"></span>
+                </a>
+
+                <ul class="dropdown-menu pull-left">
+
+                    @foreach (var navItemDefinition in navItemHeading.Items)
+                    {
+                        <li id="@navItemDefinition.Name" aria-haspopup="true" class="dropdown-submenu ">
+                            <a href="@navItemDefinition.Url" class="nav-link nav-toggle ">
+                                <i class="fa fa-circle"></i> @navItemDefinition.DisplayName
+                                <span class="arrow"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                @foreach (var navSubItem in navItemDefinition.Items)
+                                {
+                                    <li id="@navSubItem.Name" aria-haspopup="true" class=" ">
+                                        <a href="@navSubItem.Url" class="nav-link ">
+                                            <i class="fa fa-circle"></i> @navSubItem.DisplayName
+                                        </a>
+                                    </li>
+
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </li>
+
+        }
+
+
+
+
+
+
+
+
+    </ul>
+</div>

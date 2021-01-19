@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Favorites xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <folders>
+    <Folder>
+      <name>Home</name>
+      <folders />
+      <favorites>
+        <Favorite>
+          <name>Index.cshtml</name>
+          <path>IsraaSystem.Web\Views\Home\Index.cshtml</path>
+          <absolutePath>D:\Israa\IsraaSystem\IsraaSystem.Web\Views\Home\Index.cshtml</absolutePath>
+        </Favorite>
+      </favorites>
+    </Folder>
+  </folders>
+  <favorites />
+</Favorites>

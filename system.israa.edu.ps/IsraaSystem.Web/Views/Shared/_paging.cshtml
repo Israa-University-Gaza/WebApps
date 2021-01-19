@@ -1,0 +1,137 @@
+﻿@model IsraaSystem.Core.Classic.Shared.Pagging
+
+<div class="text-center">
+    <input id="current-page" type="hidden" name="pagging.currentPage" value="@Model.currentPage" />
+    <ul class="pagination pagination-sm">
+        @if (Model.currentPage > 1)
+        {
+            <li>
+                <a onclick="$('#current-page').val('1');$('#@Model.updateTargetId').submit()">الأول</a>
+            </li>
+            <li>
+                <a onclick="$('#current-page').val('@(Model.currentPage - 1)');$('#@Model.updateTargetId').submit()">السابق</a>
+            </li>
+        }
+        else
+        {
+            <li class="disabled"><a>الأول</a></li>
+            <li class="disabled"><a>السابق</a></li>
+        }
+
+        @{
+            int AMin = 0, AMax = 0, BMin = 0, BMax = 0, CMin = 0, CMax = 0;
+            if (Model.pageCount > 0)
+            {
+                if (Model.pageCount <= 3)
+                {
+                    AMin = 1; AMax = Model.pageCount;
+                }
+                else if (Model.pageCount <= 10)
+                {
+                    AMin = 1; AMax = 3;
+                    BMin = 4; BMax = Model.pageCount + 1;
+                }
+                else if (Model.pageCount <= 15)
+                {
+                    AMin = 1; AMax = 3;
+                    BMin = 4; BMax = 11;
+                    CMin = 11; CMax = Model.pageCount + 1;
+                }
+                else
+                {
+                    if (Model.currentPage <= 3)
+                    {
+                        AMin = 1; AMax = Model.currentPage + 3;
+                        BMin = Model.currentPage + 4; BMax = Model.currentPage + 5;
+                        CMin = Model.pageCount - 2; CMax = Model.pageCount + 1;
+                    }
+                    else if (Model.currentPage >= Model.pageCount - 3)
+                    {
+                        AMin = 1; AMax = 3;
+                        BMin = Model.currentPage - 4; BMax = Model.currentPage - 3;
+                        CMin = Model.currentPage - 3; CMax = Model.pageCount + 1;
+                    }
+                    else
+                    {
+                        AMin = 1;
+                        AMax = (Model.currentPage - 3 > 3) ? 3 : Model.currentPage - 4;
+                        BMin = Model.currentPage - 3;
+                        BMax = Model.currentPage + 4;
+                        CMin = (Model.currentPage + 3 > Model.pageCount - 3) ? Model.currentPage + 4 : Model.pageCount - 2;
+                        CMax = Model.pageCount + 1;
+                    }
+                }
+            }
+        }
+
+
+        @for (int i = AMin; i <= AMax; i++)
+        {
+            <li @(i == Model.currentPage ? "class=active" : "")>
+                <a onclick="$('#current-page').val('@i');$('#@Model.updateTargetId').submit()">@i</a>
+            </li>
+        }
+
+        @if (BMin - AMax > 1)
+        {
+            <li>
+                <a onclick="$('#current-page').val('@(AMax + 1)');$('#@Model.updateTargetId').submit()">...</a>
+            </li>
+        }
+
+        @if (BMin != BMax)
+        {
+            for (int i = BMin; i < BMax; i++)
+            {
+                <li @(i == Model.currentPage ? "class=active" : "")>
+                    <a onclick="$('#current-page').val('@i');$('#@Model.updateTargetId').submit()">@i</a>
+                </li>
+            }
+        }
+
+        @if (CMin - BMax > 1)
+        {
+            <li>
+                <a onclick="$('#current-page').val('@(BMax)');$('#@Model.updateTargetId').submit()">...</a>
+            </li>
+        }
+
+        @if (CMin != CMax)
+        {
+            for (int i = CMin; i < CMax; i++)
+            {
+                <li @(i == Model.currentPage ? "class=active" : "")>
+                    <a onclick="$('#current-page').val('@i');$('#@Model.updateTargetId').submit()">@i</a>
+                </li>
+            }
+        }
+
+
+        @if (Model.currentPage < Model.pageCount)
+        {
+            <li>
+                <a onclick="$('#current-page').val('@(Model.currentPage + 1)');$('#@Model.updateTargetId').submit()">التالي</a>
+            </li>
+            <li>
+                <a onclick="$('#current-page').val('@(Model.pageCount)');$('#@Model.updateTargetId').submit()">الأخير</a>
+            </li>
+        }
+        else
+        {
+            <li class="disabled"><a>التالي</a></li>
+            <li class="disabled"><a>الأخير</a></li>
+        }
+    </ul>
+    <div class="pagging-details">
+        <span>عرض من</span>
+        <strong>@(((Model.currentPage - 1) * Model.pageSize) + 1)</strong>
+        <span>إلى</span>
+        @{
+            int to = Model.currentPage * Model.pageSize;
+            to = (to > Model.TotalRecords) ? Model.TotalRecords : to;
+        }
+        <strong>@to</strong>
+        <span>من أصل</span>
+        <strong>@Model.TotalRecords</strong>
+    </div>
+</div>

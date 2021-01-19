@@ -1,0 +1,147 @@
+﻿@using IsraaSystem.Application.Helper
+@using IsraaSystem.Application.HumanResource
+@model IsraaSystem.Application.Repository.supplier.SupplierDto
+@{
+    Layout = null;
+}
+
+<div id="Edit-Supplier" class="modal-content">
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "Edit-Supplier",
+            OnSuccess = "ModelHideFormSubmit"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">
+            اصناف المورد
+            <small>
+                @Html.DisplayTextFor(model => model.Name)
+            </small>
+        </h4>
+    </div>
+
+    @using (Ajax.BeginForm("EditMaterials", "Supplier", opt, new { @class = "form-horizontal" }))
+    {
+        <div class="modal-body modal-form">
+            <div class="portlet-body form">
+                @Html.Partial("_Alerts")
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-body">
+
+
+
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">الأصناف</label>
+
+
+                        <div class="col-md-8">
+                            <select class='searchable' name="Materials" multiple='multiple'>
+                                @foreach (var item in DropDownHelpper.Materials())
+                                {
+
+
+                                    if (Model.Material != null && Model.Material.Any(x => x.Id == Convert.ToInt32(item.Value)))
+                                    {
+                                        <option selected value=@item.Value>@item.Text</option>
+
+                                    }
+                                    else
+                                    {
+                                        <option value=@item.Value>@item.Text</option>
+
+                                    }
+
+                                }
+                            </select>
+
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <input id="submit" type="submit" class="btn green" value="حفظ التعديلات">
+            <button type="button" class="btn dark btn-outline" data-dismiss="modal">إلغاء</button>
+        </div>
+    }
+
+</div>
+
+
+<script>
+    $.validator.unobtrusive.parse($("form"));
+
+    $(function () {
+
+        $('.toggle-checkbox').bootstrapToggle();
+        $('.optgroup').multiSelect({
+            selectableOptgroup: true,
+            selectableHeader: "<div class='custom-header'>الخيارات</div>",
+            selectionHeader: "<div class='custom-header'>العناصر المختارة</div>"
+
+        });
+
+
+        $('.searchable').multiSelect({
+            selectableHeader: "<input type='text' class='form-control' autocomplete='off' placeholder='بحث ..'>",
+            selectionHeader: "<input type='text' class='form-control' autocomplete='off' placeholder='بحث ..'>",
+            afterInit: function (ms) {
+                var that = this,
+                    $selectableSearch = that.$selectableUl.prev(),
+                    $selectionSearch = that.$selectionUl.prev(),
+                    selectableSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selectable:not(.ms-selected)',
+                    selectionSearchString = '#' + that.$container.attr('id') + ' .ms-elem-selection.ms-selected';
+
+                that.qs1 = $selectableSearch.quicksearch(selectableSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which === 40) {
+                            that.$selectableUl.focus();
+                            return false;
+                        }
+                    });
+
+                that.qs2 = $selectionSearch.quicksearch(selectionSearchString)
+                    .on('keydown', function (e) {
+                        if (e.which == 40) {
+                            that.$selectionUl.focus();
+                            return false;
+                        }
+                    });
+            },
+            afterSelect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            },
+            afterDeselect: function () {
+                this.qs1.cache();
+                this.qs2.cache();
+            }
+        });
+
+
+
+
+    });
+
+    function ModelHideFormSubmit() {
+        $('.modal').modal('hide');
+
+    }
+
+
+</script>
+
+
+

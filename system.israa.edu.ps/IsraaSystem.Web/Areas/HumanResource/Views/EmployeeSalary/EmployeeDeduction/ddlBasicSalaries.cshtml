@@ -1,0 +1,7 @@
+﻿@model IsraaSystem.Entity.HumanResource.Salary.EmployeeDeduction
+
+@{
+    Layout = null;
+}
+
+@Html.DropDownListFor(model => model.BasicSalaryID, new SelectList(Model.BasicSalaries, "Value", "Text"), "إختر راتب الموظف", new { @class = "form-control" })

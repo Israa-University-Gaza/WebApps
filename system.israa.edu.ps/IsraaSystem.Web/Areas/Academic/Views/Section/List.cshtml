@@ -1,0 +1,92 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.Academic.Section.SectionVM
+
+@{
+    Layout = null;
+}
+
+<div id="offerd-course-sections">
+    @if (TempData["list-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["list-msg"].ToString().Split(';')[0]);
+        String msg = TempData["list-msg"].ToString().Split(';')[1];
+        //$('#').css('','');
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+    }
+
+    @if (Model.Data.Rows.Count > 0)
+    {
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="wp10 text-center">رقم المساق </th>
+                    <th class="wp20 text-center">اسم المساق</th>
+                    <th class="wp10 text-center">النوع</th>
+                    <th class="wp15 text-center">التصنيف</th>
+                    <th class="wp10 text-center">ع.الشعب</th>
+                    <th class="wp10 text-center">ع.ط الشعب</th>
+                    <th class="wp10 text-center">ع.التخصصات</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Data2.Rows)
+                {
+                    <tr>
+                        <td class="text-center">@row["CourseCode"]</td>
+                        <td class="text-center">@row["CourseName"]</td>
+                        <td class="text-center">@row["CourseType"]</td>
+                        <td class="text-center">@row["CCourseType"]</td>
+                        <td class="text-center">@row["SectionCount"]</td>
+                        <td class="text-center">@(row["StudentCount"])</td>
+                        <td class="text-center">@(row["SectionDepartmentCount"])</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <hr />
+        <table class="table table-striped table-hover">
+            <thead>
+                <tr>
+                    <th class="wp5">#</th>
+                    <th class="wp12 text-center">رقم الشعبة</th>
+                    <th class="wp12 text-center">نوع الشعبة</th>
+                    <th class="wp12 text-center">جنس الشعبة</th>
+                    <th class="wp20 text-center">محاضر الشعبة</th>
+                    <th class="wp12 text-center">سعة الشعبة</th>
+                    <th class="wp12 text-center">عدد الطلاب</th>
+                    <th class="wp5"></th>
+                    <th class="wp15"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (DataRow row in Model.Data.Rows)
+                {
+                    <tr>
+                        <td>@row["RowNo"]</td>
+                        <td class="text-center"><a href="/Academic/Section/Edit/@row["ID"]" class="pop-up-lg">@row["SectionNum"]</a></td>
+                        <td class="text-center">@row["SectionTypeName"]</td>
+                        <td class="text-center">@row["GenderType"]</td>
+                        <td class="text-center"><a href="/Academic/Section/InstructorEdit/@row["ID"]" class="pop-up-md">@row["InstructorName"]</a></td>
+                        <td class="text-center">@row["Capacity"]</td>
+                        <td class="text-center">@row["CountOfStudent"]</td>
+                        <td>
+                            <a href="/Academic/SectionDepartment/List/@row["ID"]" class="btn btn-sm btn-default pop-up-lg"><i class="fa fa-user"></i> الطلاب</a>
+                        </td>
+                        <td class="text-center">
+                            <a href="/Academic/Section/Edit/@row["ID"]" class="btn btn-sm btn-primary pop-up-lg"><span class="fa fa-edit"></span></a>
+                            <a href="/Academic/Section/Delete/@row["ID"]" class="btn btn-sm btn-danger confirm" data-title="حذف شعبة" data-msg="هل أنت متأكد من أنك تود حذف الشعبة ؟" data-action="حذف" data-ajax-update="#offerd-course-sections"><span class="fa fa-times"></span></a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info alert-dismissible text-center" role="alert">
+            <span>لا يوجد شعب لعرضها</span>
+        </div>
+    }
+</div>

@@ -1,0 +1,31 @@
+﻿@{
+        /**/
+
+        ViewBag.Title = "الرئيسية";
+        ViewBag.Menu = "#menu-dashboard";
+        Layout = "~/Areas/HumanResource/Views/Shared/_Layout.cshtml";
+}
+
+@section PageStyles { }
+
+@section PagePlugins { }
+
+@section PageScripts {
+  @*<script>
+        window.history.pushState("object or string", "Title", "/new-url");
+    </script>*@
+}
+
+@section PageBreadcrumb{
+  <li>
+    <a>الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>شؤون الموظفين</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>الرئيسية</a>
+  </li>
+}

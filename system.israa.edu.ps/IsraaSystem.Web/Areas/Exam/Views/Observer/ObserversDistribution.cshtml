@@ -1,0 +1,236 @@
+﻿@using IsraaSystem.Application.Common
+@using IsraaSystem.Core.Exam.Observer.DTO
+@model IsraaSystem.Core.Exam.Observer.DTO.ObserversDistribution_Input
+
+@{
+    ViewBag.Title = "ObserversDistribution";
+    Layout = "~/Views/Shared/_LayoutHorizontalMenu.cshtml";
+
+}
+
+@section PageBreadcrumb{
+    <li>
+        <a href="/Academic/Dashboard">الرئيسية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a href="/Academic/OfferdCourse">إدارة الامتحانات النهائية</a>
+        <i class="fa fa-circle"></i>
+    </li>
+    <li>
+        <a>توزيع المراقبين</a>
+    </li>
+
+}
+
+
+
+
+<div class="row">
+    <div class="col-md-12">
+
+
+        <div class="portlet light bordered">
+            <div class="portlet-title">
+                <div class="caption">
+                    <i class="icon-social-dribbble font-green"></i>
+                    <span class="caption-subject font-green bold uppercase">توزيع المراقبين</span>
+                </div>
+                <div class="actions">
+                </div>
+            </div>
+            <div class="portlet-body">
+
+
+
+                <div id="student-mark">
+                    @if (TempData["toast-msg"] != null)
+                    {
+                        int status = Convert.ToInt32(TempData["toast-msg"].ToString().Split(';')[0]);
+                        String msg = TempData["toast-msg"].ToString().Split(';')[1];
+                        <script type="text/javascript">
+                            showToast("@msg", "@((status > 0) ? "success":"error")");
+                        </script>
+                    }
+
+
+
+                    @{
+                        AjaxOptions opt = new AjaxOptions
+                        {
+                            InsertionMode = InsertionMode.ReplaceWith,
+                            HttpMethod = "POST",
+                            UpdateTargetId = "data-list"
+                        };
+                    }
+
+                    @using (Ajax.BeginForm("ObserversDistributionList", "", opt, new { @id = "israa-form" }))
+                    {
+
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form">
+                            <div class="form-horizontal">
+                                @Html.AntiForgeryToken()
+                                <div class="form-body">
+                                    <div class="form-group">
+
+
+                                        <label class="col-md-1 control-label">نوع الامتحان</label>
+                                        <div class="col-md-2">
+
+                                            @Html.DropDownListFor(model => model.ExamType,
+                                                new SelectList(new List<SelectListItem>{new SelectListItem(){Text = "نصفي",Value = "1"}, new SelectListItem() { Text = "نهائي", Value = "2" } }, "Value", "Text"),
+                                                "اختر نوع الامتحان",
+                                                new
+                                                { @class = "form-control cascadingDropDown",
+                                                    @data_group = "group-1",
+                                                    @data_target = "Days",
+                                                    @data_url = "/Exam/Observer/ddlDays",
+                                                    @data_replacement = "container1"
+                                                })
+                                            @Html.ValidationMessageFor(model => model.ExamType)
+                                        </div>
+
+                                        <label class="col-md-1 control-label">اليوم</label>
+                                        <div class="col-md-3">
+
+                                            @Html.DropDownListFor(model => model.Date,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر اليوم",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "group-1",
+                                                    @data_id = "Days",
+                                                    @data_target = "periods",
+                                                    @data_default_label = "اختر اليوم",
+                                                    @data_url = "/Exam/Observer/ddlPeriods",
+                                                    @data_replacement = "container1",
+                                                    @disabled = ""
+                                                })
+                                            @Html.ValidationMessageFor(model => model.Date)
+                                        </div>
+
+                                        <label class="col-md-1 control-label">الفترة</label>
+                                        <div class="col-md-3">
+
+                                            @Html.DropDownListFor(model => model.TimeFrom,
+                                                new SelectList(new List<SelectListItem>(), "Value", "Text"),
+                                                "اختر الفترة",
+                                                new
+                                                {
+                                                    @class = "form-control cascadingDropDown",
+                                                    @data_group = "group-1",
+                                                    @data_id = "periods",
+                                                    @data_replacement = "container1",
+                                                    @data_default_label = "اختر الفترة",
+                                                    @data_final = "",
+                                                    @disabled = ""
+                                                })
+                                            @Html.ValidationMessageFor(model => model.TimeFrom)
+
+
+                                        </div>
+
+                                        <div class="col-md-1 ">
+                                            <button type="submit" class="btn btn-block btn-success">عرض</button>
+                                        </div>
+
+
+                                    </div>
+
+                                </div>
+                                <hr />
+
+                                @Html.Partial("ObserverList", new List<ObserversDistributionList_Output>())
+
+
+                            </div>
+                        </div>
+
+                    }
+                </div>
+
+                @section PageScripts
+                {
+                    <script src="~/assets/global/plugins/cascading-dropdown/jquery.cascading-drop-down.js"></script>
+
+                    <script>
+                        $(document).ready(function() {
+
+                            $('#ObserversDistribution').click(function() {
+
+                                $.post('ObserversDistribution',
+                                    $("#israa-form").serialize(),
+                                    function(data) {
+                                        $("#data-list").html(data);
+                                    });
+
+                            });
+                        });
+                    </script>
+
+
+
+                    <script>
+                        $('.cascadingDropDown').ssdCascadingDropDown({
+                            startCall: function (trigger, props) {
+
+                                var spinner = '<div class="spinner"><i class="fa fa-spinner fa-spin"></i> processing</div>';
+
+                                trigger.hide();
+                                trigger.parent().prepend(spinner);
+
+                            },
+                            endCall: function (trigger, props) {
+
+                                trigger.parent().find('.spinner').remove();
+                                trigger.show();
+
+                            },
+                            nonFinalEmptyCallback: function (trigger, props, self) {
+
+                                console.log('non final');
+
+                            },
+                            nonFinalCallback: function (trigger, props, data, self) {
+
+                                trigger.closest('form')
+                                    .find('input[type="submit"]')
+                                    .attr('disabled', true);
+
+                            },
+                            finalEmptyCallback: function (trigger, props, self) {
+
+                                console.log('final');
+
+                            },
+                            finalCallback: function (trigger, props, data) {
+
+                                if (props.isValueEmpty()) {
+                                    trigger.closest('form')
+                                        .find('input[type="submit"]')
+                                        .attr('disabled', true);
+                                } else {
+                                    trigger.closest('form')
+                                        .find('input[type="submit"]')
+                                        .attr('disabled', false);
+                                }
+
+                            }
+                        });
+                    </script>
+
+                }
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

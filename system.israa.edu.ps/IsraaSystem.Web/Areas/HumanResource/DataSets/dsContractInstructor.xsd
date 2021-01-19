@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsContractInstructor" targetNamespace="http://tempuri.org/dsContractInstructor.xsd" xmlns:mstns="http://tempuri.org/dsContractInstructor.xsd" xmlns="http://tempuri.org/dsContractInstructor.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsContractInstructor" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsContractInstructor" msprop:Generator_UserDSName="dsContractInstructor">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsContractInstructor" msprop:Generator_TableClassName="dsContractInstructorDataTable" msprop:Generator_TableVarName="tabledsContractInstructor" msprop:Generator_TablePropName="_dsContractInstructor" msprop:Generator_RowDeletingName="dsContractInstructorRowDeleting" msprop:Generator_RowChangingName="dsContractInstructorRowChanging" msprop:Generator_RowEvHandlerName="dsContractInstructorRowChangeEventHandler" msprop:Generator_RowDeletedName="dsContractInstructorRowDeleted" msprop:Generator_UserTableName="dsContractInstructor" msprop:Generator_RowChangedName="dsContractInstructorRowChanged" msprop:Generator_RowEvArgName="dsContractInstructorRowChangeEvent" msprop:Generator_RowClassName="dsContractInstructorRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorName" msprop:Generator_ColumnVarNameInTable="columnInstructorName" msprop:Generator_ColumnPropNameInRow="InstructorName" msprop:Generator_ColumnPropNameInTable="InstructorNameColumn" msprop:Generator_UserColumnName="InstructorName" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorType" msprop:Generator_ColumnVarNameInTable="columnInstructorType" msprop:Generator_ColumnPropNameInRow="InstructorType" msprop:Generator_ColumnPropNameInTable="InstructorTypeColumn" msprop:Generator_UserColumnName="InstructorType" type="xs:string" minOccurs="0" />
+              <xs:element name="DateTo" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" type="xs:string" minOccurs="0" />
+              <xs:element name="DateFrom" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" type="xs:string" minOccurs="0" />
+              <xs:element name="Currency" msprop:Generator_ColumnVarNameInTable="columnCurrency" msprop:Generator_ColumnPropNameInRow="Currency" msprop:Generator_ColumnPropNameInTable="CurrencyColumn" msprop:Generator_UserColumnName="Currency" type="xs:string" minOccurs="0" />
+              <xs:element name="DateDayName" msprop:Generator_ColumnVarNameInTable="columnDateDayName" msprop:Generator_ColumnPropNameInRow="DateDayName" msprop:Generator_ColumnPropNameInTable="DateDayNameColumn" msprop:Generator_UserColumnName="DateDayName" type="xs:string" minOccurs="0" />
+              <xs:element name="DateDay" msprop:Generator_ColumnVarNameInTable="columnDateDay" msprop:Generator_ColumnPropNameInRow="DateDay" msprop:Generator_ColumnPropNameInTable="DateDayColumn" msprop:Generator_UserColumnName="DateDay" type="xs:string" minOccurs="0" />
+              <xs:element name="MonthName" msprop:Generator_ColumnVarNameInTable="columnMonthName" msprop:Generator_ColumnPropNameInRow="MonthName" msprop:Generator_ColumnPropNameInTable="MonthNameColumn" msprop:Generator_UserColumnName="MonthName" type="xs:string" minOccurs="0" />
+              <xs:element name="Year" msprop:Generator_ColumnVarNameInTable="columnYear" msprop:Generator_ColumnPropNameInRow="Year" msprop:Generator_ColumnPropNameInTable="YearColumn" msprop:Generator_UserColumnName="Year" type="xs:string" minOccurs="0" />
+              <xs:element name="SSN" msprop:Generator_ColumnVarNameInTable="columnSSN" msprop:Generator_ColumnPropNameInRow="SSN" msprop:Generator_ColumnPropNameInTable="SSNColumn" msprop:Generator_UserColumnName="SSN" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeAddress" msprop:Generator_ColumnVarNameInTable="columnEmployeeAddress" msprop:Generator_ColumnPropNameInRow="EmployeeAddress" msprop:Generator_ColumnPropNameInTable="EmployeeAddressColumn" msprop:Generator_UserColumnName="EmployeeAddress" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorCostName" msprop:Generator_ColumnVarNameInTable="columnInstructorCostName" msprop:Generator_ColumnPropNameInRow="InstructorCostName" msprop:Generator_ColumnPropNameInTable="InstructorCostNameColumn" msprop:Generator_UserColumnName="InstructorCostName" type="xs:string" minOccurs="0" />
+              <xs:element name="HourPriceName" msprop:Generator_ColumnVarNameInTable="columnHourPriceName" msprop:Generator_ColumnPropNameInRow="HourPriceName" msprop:Generator_ColumnPropNameInTable="HourPriceNameColumn" msprop:Generator_UserColumnName="HourPriceName" type="xs:string" minOccurs="0" />
+              <xs:element name="ReportDate" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorHours" msprop:Generator_ColumnVarNameInTable="columnInstructorHours" msprop:Generator_ColumnPropNameInRow="InstructorHours" msprop:Generator_ColumnPropNameInTable="InstructorHoursColumn" msprop:Generator_UserColumnName="InstructorHours" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorCost" msprop:Generator_ColumnVarNameInTable="columnInstructorCost" msprop:Generator_ColumnPropNameInRow="InstructorCost" msprop:Generator_ColumnPropNameInTable="InstructorCostColumn" msprop:Generator_UserColumnName="InstructorCost" type="xs:string" minOccurs="0" />
+              <xs:element name="HourPrice" msprop:Generator_ColumnVarNameInTable="columnHourPrice" msprop:Generator_ColumnPropNameInRow="HourPrice" msprop:Generator_ColumnPropNameInTable="HourPriceColumn" msprop:Generator_UserColumnName="HourPrice" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

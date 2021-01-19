@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsInstructorStudyTableInfo" targetNamespace="http://tempuri.org/dsStudyTableInfo.xsd" xmlns:mstns="http://tempuri.org/dsStudyTableInfo.xsd" xmlns="http://tempuri.org/dsStudyTableInfo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsInstructorStudyTableInfo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="_dsInstructorStudyTableInfo" msprop:Generator_UserDSName="dsInstructorStudyTableInfo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsInstructorStudyTableInfo" msprop:Generator_TableClassName="dsInstructorStudyTableInfoDataTable" msprop:Generator_TableVarName="tabledsInstructorStudyTableInfo" msprop:Generator_RowChangedName="dsInstructorStudyTableInfoRowChanged" msprop:Generator_TablePropName="dsInstructorStudyTableInfo" msprop:Generator_RowDeletingName="dsInstructorStudyTableInfoRowDeleting" msprop:Generator_RowChangingName="dsInstructorStudyTableInfoRowChanging" msprop:Generator_RowEvHandlerName="dsInstructorStudyTableInfoRowChangeEventHandler" msprop:Generator_RowDeletedName="dsInstructorStudyTableInfoRowDeleted" msprop:Generator_RowClassName="dsInstructorStudyTableInfoRow" msprop:Generator_UserTableName="dsInstructorStudyTableInfo" msprop:Generator_RowEvArgName="dsInstructorStudyTableInfoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InstructorName" msprop:Generator_ColumnVarNameInTable="columnInstructorName" msprop:Generator_ColumnPropNameInRow="InstructorName" msprop:Generator_ColumnPropNameInTable="InstructorNameColumn" msprop:Generator_UserColumnName="InstructorName" type="xs:string" minOccurs="0" />
+              <xs:element name="SumOfHours" msprop:Generator_ColumnVarNameInTable="columnSumOfHours" msprop:Generator_ColumnPropNameInRow="SumOfHours" msprop:Generator_ColumnPropNameInTable="SumOfHoursColumn" msprop:Generator_UserColumnName="SumOfHours" type="xs:string" minOccurs="0" />
+              <xs:element name="InstructorHours" msprop:Generator_ColumnVarNameInTable="columnInstructorHours" msprop:Generator_ColumnPropNameInRow="InstructorHours" msprop:Generator_ColumnPropNameInTable="InstructorHoursColumn" msprop:Generator_UserColumnName="InstructorHours" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

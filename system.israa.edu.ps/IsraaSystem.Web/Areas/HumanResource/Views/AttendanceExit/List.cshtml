@@ -1,0 +1,151 @@
+﻿@using System.Data
+@model IsraaSystem.Core.Classic.HumanResource.AttendanceExit.AttendanceExitsVM
+
+@{
+  Layout = null;
+}
+
+<div id="attendance-exit">
+  <div id="refresh-list"></div>
+  @{
+    AjaxOptions opt = new AjaxOptions
+    {
+      InsertionMode = InsertionMode.ReplaceWith,
+      HttpMethod = "POST",
+      UpdateTargetId = "attendance-exit"
+    };
+  }
+
+  @using (Ajax.BeginForm("List", "AttendanceExit", opt, new { @id = "form-attendance-exit" }))
+  {
+    <div class="form">
+      <div class="form-horizontal">
+        @Html.AntiForgeryToken()
+        <div class="form-body">
+          <div class="form-group">
+            <label class="col-md-2 control-label">الموظف</label>
+            <div class="col-md-3">
+              @Html.TextBoxFor(model => model.filter.EmployeeName, new { @class = "form-control text-center", placeholder = "رقم أو اسم الموظف" })
+            </div>
+            <label class="col-md-1 control-label">نوع الإذن</label>
+            <div class="col-md-3">
+              @Html.DropDownListFor(model => model.filter.AttendanceExitTypeID, new SelectList(Model.filter.AttendanceExitTypes, "Value", "Text"), "جميع أنواع الأذونات", new { @class = "form-control" })
+            </div>
+            <div class="col-md-offset-2 col-md-1">
+              @Html.DropDownListFor(model => model.pagging.pageSize, new SelectList(new Dictionary<string, int> { { "25", 25 }, { "50", 50 }, { "75", 75 }, { "100", 100 } }, "Key", "Value"), new { @class = "form-control pull-left", onchange = "$('#current-page').val('1');$(this).submit();" })
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-2 control-label">من</label>
+            <div class="col-md-3">
+              @Html.TextBoxFor(model => model.filter.DateFrom, new { @class = "form-control date-picker text-center", placeholder = "من تاريخ" })
+            </div>
+            <label class="col-md-1 control-label">إلى</label>
+            <div class="col-md-3">
+              @Html.TextBoxFor(model => model.filter.DateTo, new { @class = "form-control date-picker text-center", placeholder = "إلى تاريخ" })
+            </div>
+            <div class="col-md-2">
+              <button type="submit" class="btn blue">تصفية</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br />
+    if (Model.data != null && Model.data.Rows.Count > 0)
+    {
+      <table class="table table-striped ">
+        <thead>
+          <tr>
+            <th class="wp5">#</th>
+            <th class="wp10 text-center">رقم الموظف</th>
+            <th class="wp20 text-center">اسم الموظف</th>
+            <th class="wp10 text-center">نوع الاذن</th>
+            <th class="wp10 text-center">تاريخ الاذن</th>
+            <th class="wp10 text-center">وقت الخروج</th>
+            <th class="wp10 text-center">وقت العودة</th>
+            <th class="wp10 text-center">حالة الإذن</th>
+            <th class="wp15"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @foreach (DataRow row in Model.data.Rows)
+          {
+            string c = "";
+            double t = 0;
+            DateTime ActualTimeTo;
+            DateTime ExpectedTimeTo;
+            var canParse = DateTime.TryParse(@row["ActualTimeTo"].ToString(), out ActualTimeTo) & DateTime.TryParse(@row["ExpectedTimeTo"].ToString(), out ExpectedTimeTo);
+
+            if (canParse)
+            {
+              var tt = Convert.ToDateTime(@row["ActualTimeTo"].ToString()) - Convert.ToDateTime(@row["ExpectedTimeTo"].ToString());
+              t = tt.TotalMinutes;
+            }
+
+
+            if (t > 0)
+            {
+              c = "warning";
+
+            }
+            <tr class="@c">
+
+              <td>@row["RowNo"]</td>
+              <td class="text-center">@row["EmployeeNo"]</td>
+              <td class="text-center"><a href="/HumanResource/Employee/Index/@row["EmployeeID"]">@row["EmployeeName"]</a></td>
+              <td class="text-center">@row["AttendanceExitType"]</td>
+              <td class="text-center">@row["ExitDate"]</td>
+              <td class="text-center">@row["ActualTimeFrom"]</td>
+
+              <td class="text-center">@row["ActualTimeTo"]</td>
+              <td class="text-center">@row["AttendanceExitStatus"]</td>
+              <td class="text-center">
+
+
+
+                <div class="btn-group ">
+                  <a class="btn green" href="javascript:;" data-toggle="dropdown" aria-expanded="true">
+                    @*<i class="fa fa-user"></i>*@ إجراءات
+                    <i class="fa fa-angle-down"></i>
+                  </a>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a href="/HumanResource/AttendanceExit/Details/@row["ID"]" class="pop-up-lg"><i class="fa fa-list"></i> تفاصيل</a>
+
+                    </li>
+                    <li>
+                      <a href="/HumanResource/AttendanceExit/TimeUpdate/@row["ID"]" class="pop-up-lg"><i class="fa fa-edit"></i> تعديل التوقيت</a>
+
+                    </li>
+                    <li>
+                      <a href="/HumanResource/AttendanceExit/Edit/@row["ID"]" class="pop-up-lg"><i class="fa fa-edit"></i>تعديل</a>
+
+                    </li>
+                    <li class="divider"> </li>
+                    <li>
+                      <a href="/HumanResource/AttendanceExit/Delete/@row["ID"]" class="pop-up-lg"><i class="fa fa-times"></i>حذف</a>
+
+                    </li>
+                  </ul>
+                </div>
+
+
+
+
+
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+      @Html.Partial("_paging", Model.pagging)
+    }
+    else
+    {
+      <div class="alert alert-info alert-dismissible text-center" role="alert">
+        <span>لا يوجد بيانات لعرضها</span>
+      </div>
+    }
+  }
+</div>

@@ -1,0 +1,144 @@
+﻿@model IsraaSystem.Core.Classic.HumanResource.EmployeeQualification.EmployeeQualification
+
+@{
+    Layout = null;
+}
+
+<div id="edit-employee-qualification" class="modal-content">
+    @if (TempData["add-msg"] != null)
+    {
+        int status = Convert.ToInt32(TempData["add-msg"].ToString().Split(';')[0]);
+        String msg = TempData["add-msg"].ToString().Split(';')[1];
+        <script type="text/javascript">
+            showToast("@msg", "@((status > 0) ? "success":"error")");
+        </script>
+        if (status > 0)
+        {
+            <script type="text/javascript">
+                $("#employee-page").load("/HumanResource/EmployeeQualification/EmployeeList/@Model.EmployeeID");
+                $('#pop-up-lg').modal('hide');
+            </script>
+        }
+    }
+    @{
+        AjaxOptions opt = new AjaxOptions
+        {
+            InsertionMode = InsertionMode.ReplaceWith,
+            HttpMethod = "POST",
+            UpdateTargetId = "edit-employee-qualification"
+        };
+    }
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">تعديل المؤهل العلمي</h4>
+    </div>
+    <div class="modal-body modal-form">
+        <div class="portlet-body form">
+            @using (Ajax.BeginForm("Edit", null, opt, new { @class = "form-horizontal" }))
+            {
+                @Html.AntiForgeryToken()
+                <div class="form-body">
+                    @Html.HiddenFor(model => model.EmployeeID)
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">نوع المؤهل</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.QualificationTypeID, new SelectList(Model.QualificationTypes, "Value", "Text"), "إختر نوع المؤهل", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.QualificationTypeID, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">الدولة</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.CountryID, new SelectList(Model.Countries, "Value", "Text"), "إختر الوظيفة", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.CountryID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الجامعة</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.UniversityName, new { @class = "form-control text-center", placeholder = "اسم الجامعة" })
+                            @Html.ValidationMessageFor(model => model.UniversityName, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">المعدل</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.GPAGraduate, new { @class = "form-control text-center", placeholder = "المعدل" })
+                            @Html.ValidationMessageFor(model => model.GPAGraduate, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">سنة التخرج</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.GraduateYear, new { @class = "form-control text-center", placeholder = "سنة التخرج" })
+                            @Html.ValidationMessageFor(model => model.GraduateYear, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">الشهر</label>
+                        <div class="col-md-3">
+                            @Html.DropDownListFor(model => model.GraduateMonthID, new SelectList(Model.Months, "Value", "Text"), "إختر شهر التخرج", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(model => model.GraduateMonthID, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-2 control-label">الكلية</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.College, new { @class = "form-control text-center", placeholder = "اسم الكلية" })
+                            @Html.ValidationMessageFor(model => model.College, "", new { @class = "text-danger help-block" })
+                        </div>
+                        <label class="col-md-2 control-label">القسم</label>
+                        <div class="col-md-3">
+                            @Html.TextBoxFor(model => model.Department, new { @class = "form-control text-center", placeholder = "اسم القسم" })
+                            @Html.ValidationMessageFor(model => model.Department, "", new { @class = "text-danger help-block" })
+                        </div>
+                    </div>
+                    @*<div class="form-group">
+                        <label class="col-md-2 control-label">رفع الشهادة</label>
+                        <div class="col-md-3">
+                            <form id="Myform" action="/HumanResourse/EmployeeQualification/Edit" method="post" enctype="multipart/form-data">
+                                <input type="file" name="file" />
+                            </form>
+                            <div class="progress" style="width:50%">
+                                <div class="progress-bar"></div>
+                                <div class="percent">0%</div>
+                            </div>
+                            <div id="status"></div>
+                        </div>
+                        <label class="col-md-2 control-label">معتمد</label>
+                    <div class="col-md-3">
+                        @Html.CheckBoxFor(model => model.IsAccredit)
+                    </div>
+                    </div>*@
+                </div>
+                <div class="form-actions">
+                    <div class="row">
+                        <div class="col-md-offset-3 col-md-8">
+                            <input type="submit" class="btn btn-primary" value="حفظ">
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">إلغاء</button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<script>
+    $(document).ready(function () {
+        var bar = $('.progress-bar');
+        var percent = $('.percent');
+        var status = $('#status');
+
+        $('#Myform').ajaxForm({
+            beforeSend: function () {
+                status.empty();
+                var percentVal = '0%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            uploadProgress: function (event, position, total, percentComplete) {
+                var percentVal = percentComplete + '%';
+                bar.width(percentVal);
+                percent.html(percentVal);
+            },
+            complete: function (xhr) {
+                //status.html(xhr.responseText);
+            }
+        });
+    });
+</script>

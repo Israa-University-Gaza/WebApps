@@ -1,0 +1,306 @@
+﻿@model IsraaSystem.Core.Classic.Academic.StudyTable.StudyTableVM
+@{
+  ViewBag.Title = "الشؤون الأكاديمية - برنامج الجدول الدراسي";
+  ViewBag.Menu = "#menu-study-table";
+  Layout = "~/Areas/Academic/Views/Shared/_Layout.cshtml";
+}
+
+@section PageStyles {
+  <link href="/assets/global/plugins/fullcalendar/fullcalendar.min.css" rel="stylesheet" type="text/css" />
+}
+
+@section PagePlugins {
+  <script src="/assets/global/plugins/moment.min.js" type="text/javascript"></script>
+  <script src="/assets/global/plugins/fullcalendar/fullcalendar.js" type="text/javascript"></script>
+  <script src="/assets/global/plugins/fullcalendar/lang/ar.js"></script>
+}
+
+@section PageScripts {
+  <script src="/assets/layouts/global/scripts/study-table.js?v=16"></script>
+}
+
+@section PageBreadcrumb{
+  <li>
+    <a>الرئيسية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>الشؤون الأكاديمية</a>
+    <i class="fa fa-circle"></i>
+  </li>
+  <li>
+    <a>الجداول الدراسية</a>
+  </li>
+}
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="portlet light bordered">
+      <div class="portlet-title tabbable-line">
+        <div class="actions pull-left" style="margin-left:20px;">
+          <a class="btn btn-circle btn-icon-only btn-default fullscreen tooltips" data-original-title="شاشة كاملة" href="javascript:;"></a>
+        </div>
+        <div class="caption">
+          <span class="caption-subject font-green bold uppercase">برنامج الجداول الدراسية</span>
+
+        </div>
+        <ul class="nav nav-tabs font-ta">
+          <li class="active">
+            <a href="#study-table-tab" data-toggle="tab" aria-expanded="false">الجداول الدراسية</a>
+          </li>
+          <li>
+            <a href="#section-study-table-tab" data-toggle="tab" aria-expanded="false">الجداول الدراسية 2</a>
+          </li>
+          <li>
+            <a href="#student-tab" data-toggle="tab" aria-expanded="false">جدول الطالب</a>
+          </li>
+          <li>
+            <a href="#instructor-tab" data-toggle="tab" aria-expanded="false">جدول المحاضر</a>
+          </li>
+          <li>
+            <a href="#room-tab" data-toggle="tab" aria-expanded="true">جدول القاعة</a>
+          </li>
+          <li>
+            <a href="#course-tab" data-toggle="tab" aria-expanded="true">جدول المساق</a>
+          </li>
+          <li>
+            <a href="#section-tab" data-toggle="tab" aria-expanded="true">جدول الشعبة</a>
+          </li>
+          <li>
+            <a href="#lecture-tab" data-toggle="tab" aria-expanded="true">حجز موعد</a>
+          </li>
+        </ul>
+      </div>
+      <div class="portlet-body font-ta">
+        <div class="tab-content">
+          <div id="study-table-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-5">
+                          <label class="control-label">الفصل </label>
+                          @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { id = "study-table-semester", @class = "form-control select2 study-table-change" })
+                        </div>
+
+                        <div class="col-md-4">
+                          <label class="control-label">القسم</label>
+                          @Html.DropDownListFor(model => model.filter.DepartmentID, new SelectList(Model.filter.Departments, "Value", "Text"), null, new { id = "study-table-department", @class = "form-control study-table-change select2" })
+                        </div>
+
+
+                        <div class="col-md-2">
+                          <a id="study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-3">
+                          <label class="control-label">المحاضر</label>
+                          @Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Instructors, "Value", "Text"), null, new { id = "study-table-instructor", @class = "form-control select2 study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <label class="control-label">القاعة</label>
+                          @Html.DropDownListFor(model => model.filter.RoomID, new SelectList(Model.filter.Rooms, "Value", "Text"), null, new { id = "study-table-room", @class = "form-control select2 study-table-change" })
+                        </div>
+
+                        <div class="col-md-2">
+                          <label class="control-label">المستوى</label>
+                          @Html.DropDownListFor(model => model.filter.StudyLevelID, new SelectList(Model.filter.StudyLevels, "Value", "Text"), null, new { id = "study-table-study-level", @class = "form-control study-table-change" })
+                        </div>
+
+                        <div class="col-md-2">
+                          <label class="control-label">الجندر</label>
+                          @Html.DropDownListFor(model => model.filter.GenderID, new SelectList(Model.filter.Genders, "Value", "Text"), null, new { id = "study-table-gender", @class = "form-control study-table-change" })
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="calendar1" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="section-study-table-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-9">
+                          <label class="control-label">الشعبة</label>
+                          @Html.DropDownListFor(model => model.filter.SectionID, new SelectList(Model.filter.Sections, "Value", "Text"), null, new { id = "section-study-table-section1", @class = "form-control select2 section-study-table-change1" })
+                        </div>
+                        <div class="col-md-2">
+                          <a id="section-study-table-refresh1" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="section-study-table-calendar" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="student-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-4">
+                          <label class="control-label">الفصل الدراسي</label>
+                          @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { id = "student-study-table-semester", @class = "form-control student-study-table-change" })
+                        </div>
+                        <div class="col-md-5">
+                          <label class="control-label">القسم</label>
+                          @Html.DropDownListFor(model => model.filter.DepartmentID, new SelectList(Model.filter.Departments, "Value", "Text"), null, new { id = "student-study-table-department", @class = "form-control student-study-table-change select2" })
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-2">
+                          <label class="control-label">المستوى</label>
+                          @Html.DropDownListFor(model => model.filter.StudyLevelID, new SelectList(Model.filter.StudyLevels, "Value", "Text"), null, new { id = "student-study-table-study-level", @class = "form-control student-study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <label class="control-label">الجندر</label>
+                          @Html.DropDownListFor(model => model.filter.GenderID, new SelectList(Model.filter.Genders, "Value", "Text"), null, new { id = "student-study-table-gender", @class = "form-control student-study-table-change" })
+                        </div>
+                        <div class="col-md-4">
+                          <label class="control-label">الفرع</label>
+                          @Html.DropDownListFor(model => model.filter.BranchID, new SelectList(Model.filter.Branches, "Value", "Text"), null, new { id = "student-study-table-branch", @class = "form-control student-study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <a id="student-study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+                <div id="student-calendar" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="instructor-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-5">
+                          <label class="control-label">الفصل الدراسي</label>
+                          @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { id = "instructor-study-table-semester", @class = "form-control select2 instructor-study-table-change" })
+                        </div>
+                        <div class="col-md-4">
+                          <label class="control-label">المحاضر</label>
+                          @Html.DropDownListFor(model => model.filter.InstructorID, new SelectList(Model.filter.Instructors, "Value", "Text"), null, new { id = "instructor-study-table-instructor", @class = "form-control select2 instructor-study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <a id="instructor-study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="calendar3" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="room-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-5">
+
+                          <label class="control-label">الفصل الدراسي</label>
+                          @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { id = "room-study-table-semester", @class = "form-control select2 room-study-table-change" })
+                        </div>
+                        <div class="col-md-4">
+                          <label class="control-label">القاعة</label>
+                          @Html.DropDownListFor(model => model.filter.RoomID, new SelectList(Model.filter.Rooms, "Value", "Text"), null, new { id = "room-study-table-room", @class = "form-control select2 room-study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <a id="room-study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="calendar4" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="course-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-5">
+                          <label class="control-label">الفصل الدراسي</label>
+
+                          @Html.DropDownListFor(model => model.filter.SemesterID, new SelectList(Model.filter.Semesters, "Value", "Text"), null, new { id = "course-study-table-semester", @class = "form-control ddl-dependent select2 course-study-table-change", data_url = "/Academic/StudyTable/ddlCourseStudyTableCourse/", data_target_id = "#course-study-table-course" })
+
+
+                        </div>
+                        <div class="col-md-4">
+                          <label class="control-label">المساق</label>
+                          @Html.Partial("ddlCourseStudyTableCourse", Model)
+
+                          @*@Html.DropDownListFor(model => model.filter.CourseID, new SelectList(Model.filter.Courses, "Value", "Text"), null, new { id = "course-study-table-course", @class = "form-control select2 course-study-table-change" })*@
+                        </div>
+                        <div class="col-md-2">
+                          <a id="course-study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="calendar5" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="section-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div class="form">
+                  <div class="form-horizontal">
+                    <div class="form-body" style="padding-top:0;">
+                      <div class="form-group">
+                        <div class="col-md-offset-1 col-md-9">
+                          <label class="control-label">الشعبة</label>
+                          @Html.DropDownListFor(model => model.filter.SectionID, new SelectList(Model.filter.Sections, "Value", "Text"), null, new { id = "section-study-table-section", @class = "form-control select2 section-study-table-change" })
+                        </div>
+                        <div class="col-md-2">
+                          <a id="section-study-table-refresh" class="btn btn-success" style="margin-top: 27px">تحديث</a>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="section-calendar" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+          <div id="lecture-tab" class="tab-pane active">
+            <div class="row">
+              <div class="col-md-12 col-sm-12">
+                <div id="calendar6" class="span8 calendar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

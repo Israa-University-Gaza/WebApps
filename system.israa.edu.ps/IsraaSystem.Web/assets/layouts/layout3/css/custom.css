@@ -1,0 +1,31 @@
+/* here you can put your own css to customize and override the theme */
+
+.logo-default {
+    height: 60px;
+    margin-top: 5px !important;
+}
+
+.form-control {
+    padding: 0px 12px;
+}
+
+.dropdown-notification ul {
+    max-width: 360px !important;
+    width: 360px !important;
+}
+
+.jstree-default .jstree-wholerow-clicked, .jstree-wholerow .jstree-wholerow-clicked {
+    background: #b1e7ff;
+}
+
+.jstree-default .jstree-wholerow-hovered, .jstree-wholerow .jstree-wholerow-hovered {
+    background-color: #e4f7ff;
+}
+
+.vakata-context, .vakata-context ul {
+    border: 1px solid #bebebe;
+}
+
+i {
+    margin-left: 4px !important;
+}
