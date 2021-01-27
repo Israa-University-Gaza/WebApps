@@ -1,0 +1,308 @@
+/***
+Responsive Theme. 
+Based on http://getbootstrap.com/css/#responsive-utilities-classes
+***/
+
+/***
+Form Medium Devices Up To Large Devices
+***/
+
+@media (min-width: 992px) and (max-width: 1200px) {  
+
+	.page-boxed .header .dropdown .username {
+		display: none;
+	}	
+
+}
+
+/***
+From Medium Devices Up To Larger Devices
+***/
+
+@media (min-width: 992px) { 
+
+ 	/***
+ 	Page sidebar
+ 	***/
+ 	.page-sidebar {
+		position: absolute;
+ 		width: 225px;
+  	}
+
+  	.page-sidebar.navbar-collapse {
+  		max-height: none !important;
+  	}
+
+	.page-sidebar-fixed .page-sidebar {
+	  	position: fixed !important;
+	 	top: 41px;
+	}
+
+	.page-sidebar-fixed ul.page-sidebar-menu > li.last {
+		margin-bottom: 15px !important;
+	}
+
+	.page-sidebar-fixed.page-sidebar-hover-on .page-sidebar {
+		z-index: 10000;		
+		width: 35px;		
+	}
+
+	.page-sidebar-fixed.page-sidebar-hover-on .page-sidebar .selected {
+		display: none;
+	}
+
+	.page-sidebar-fixed.page-sidebar-hover-on .page-content {
+		margin-right: 35px;
+	}
+	.page-sidebar-fixed.page-sidebar-hover-on .footer {
+		margin-right: 35px;
+	}
+
+	.page-sidebar-fixed .page-sidebar-closed .page-sidebar .sidebar-search .submit,
+	.page-sidebar-fixed .page-sidebar .sidebar-toggler {
+		-webkit-transition: all  0.3s ease;
+	     -moz-transition: all  0.3s ease;
+	       -o-transition: all  0.3s ease;
+	          transition: all  0.3s ease;
+	}
+
+	.page-sidebar-hovering {
+		overflow: hidden !important;
+	}
+
+	.page-sidebar-hovering .sub-menu,
+	.page-sidebar-hovering span.title,
+	.page-sidebar-hovering span.arrow {		  
+		display: none !important;
+	}
+
+	.page-sidebar-hovering .submit {
+		opacity: 0;
+		width: 0 !important;
+		height: 0 !important;
+	}
+
+  	/***
+  	Page content
+  	***/
+  	.page-content { 
+  		margin-right: 225px; 
+		margin-top: 0px;
+		min-height: 760px; 
+		padding: 25px 20px 20px 20px;
+        background:#fff;
+	}
+
+	.page-sidebar-fixed .page-content {
+		min-height: 600px; 
+	}
+
+	.page-content.no-min-height {
+		min-height: auto;
+	}
+
+	/***
+	Footer
+	***/
+
+	/* fixed sidebar */
+	.page-footer-fixed .footer {
+	  position: fixed;
+	  right: 0;
+	  left: 0;
+	  z-index: 10000;
+	  bottom: 0;
+	}
+
+	.page-footer-fixed .page-container {
+	  margin-bottom: 32px;
+	}
+
+	.page-footer-fixed.page-sidebar-fixed .footer {
+	  margin-right: 0 !important;
+	}
+	/* end: fixed footer */
+
+	.page-boxed .footer {
+  		padding: 8px 0 5px 0; 
+	}
+
+	.page-sidebar-fixed .footer {
+	  margin-right: 225px;
+	  background-color: #fff;
+	  padding: 8px 20px 5px 20px;
+	}
+
+	.page-sidebar-fixed .footer .footer-inner {
+	  color: #333;
+	}
+
+	.page-sidebar-fixed.page-sidebar-closed .footer {
+	  margin-right: 35px;
+	}
+
+	.page-sidebar-fixed .footer .footer-tools .go-top { 
+	  background-color: #666;
+	}
+
+	.page-sidebar-fixed .footer .footer-tools .go-top i {
+	  color: #ddd;
+	}
+
+	/* boxed layout */
+	.page-boxed	.header .navbar-brand {
+  		margin-right: 0px !important;
+  		width: 226px;
+	}
+
+	.page-boxed .header .navbar-brand img {
+		margin-right: 10px;
+	}
+
+	.page-boxed .header .navbar-nav {
+	  margin-left: 0px;
+	}
+
+}
+
+/***
+Up To Medium Devices
+***/
+
+@media (max-width:991px) { 
+	
+	/***
+ 	Page header
+ 	***/
+ 	.header {
+ 		padding: 0;
+ 		position: relative;
+ 		clear: both;
+ 	}
+
+ 	.header .navbar-toggle {
+ 		display: inline-block;
+ 	}
+
+ 	.page-sidebar.navbar-collapse {
+  		max-height: 340px;
+  	}
+
+ 	.page-sidebar.navbar-collapse.collapse {
+	    display: none !important;
+	}
+
+	.page-sidebar.navbar-collapse.in {	 	
+	 	overflow: hidden !important;
+	 	overflow-y: auto !important;
+	 }
+
+	.header .nav li.dropdown i {
+		display: inline-block;
+		position: relative;
+		top:1px;
+		left:0px;
+	}
+
+	.header .navbar-nav {
+		display: block;
+		margin-bottom: 0px !important;
+	}
+
+	.header .navbar-nav .open .dropdown-menu  {
+		position: absolute;
+	}
+
+	.header .navbar-nav {
+		display: inline-block;
+    	float: left;
+    	margin: 0;
+  	}
+  
+ 	.header .navbar-nav > li {
+    	float: right;
+  	}
+  	
+	.header .navbar-brand {
+  		margin-right: 0px !important;
+  		padding-right: 0px !important; 
+	}
+
+	.header .navbar-brand img {
+		margin-right: 4px !important;
+	}
+
+	/***
+	Page container
+	***/
+	.page-container {
+		margin: 0 !important;
+		padding: 0 !important;
+	}
+
+	/***
+  	Page content
+  	***/
+  	.page-content {
+  		margin: 0px !important;
+  		padding: 20px 20px 20px 20px !important;  		
+		min-height: 280px; 
+  	}
+
+	/***
+	Page sidebar
+	***/
+	.page-sidebar {
+		border-top: 0 !important;
+		margin: 20px;
+	}
+
+	.page-sidebar.in {
+		border-top: 0 !important;
+		margin: 20px;
+		position: relative;
+		z-index: 5;
+	}
+
+	.page-sidebar .sidebar-toggler {
+		display: none;
+	}
+
+	.page-sidebar ul {
+		margin-top:0px;
+		width:100%;
+	}
+
+	.page-sidebar .selected {
+		display: none !important;
+	}
+
+	.page-sidebar .sidebar-search .input-box {
+	  width: 220px;
+	}
+
+	/***
+	Styler panel
+	***/
+	.styler-panel {
+		top:55px;
+		left:20px;
+	}
+
+	/***
+	Boxed Layout
+	***/
+ 	.page-boxed .header > .container,
+ 	.page-boxed .footer > .container,
+ 	.page-boxed > .container {
+ 		max-width: none !important;
+ 		margin: 0 !important;
+ 		padding: 0 !important;
+ 	}
+
+}
+
+/***
+From Small Devices Up To Medium Devices
+***/
+ 

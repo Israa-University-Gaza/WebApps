@@ -1,0 +1,7 @@
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Ibrahim Al Hussaina','1101','30/8/2015 9:41 AM','C/In','1','','Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Alaa musalm','1102','30/8/2015 8:06 AM','C/In','1','','Fingerpint','');

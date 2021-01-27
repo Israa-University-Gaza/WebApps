@@ -1,0 +1,764 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="APP_HRM_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>جامعة الاسراء</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="MobileOptimized" content="320" />
+    <link href="../assets/css/isra-style.css" rel="stylesheet" />
+    <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+
+    <!-- BEGIN PAGE LEVEL STYLES -->
+    <link href="../assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/css/style-metronic-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/style-responsive-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/plugins-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/themes/default-rtl.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets/css/pages/inbox-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/custom-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/plugins-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/pages/tasks-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/bootstrap-toastr/toastr-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2_metro_rtl.css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        .input-xsmall {
+            width: 100% !important;
+        }
+
+        .btn {
+            font-family: hasanin;
+        }
+    </style>
+    <script type="text/javascript">
+        $('document').ready(function () {
+            $('.page-sidebar-menu li').removeClass("active");
+            $('#menu1').addClass("active");
+        });
+    </script>
+
+    <!--Bigin script-->
+    <script src="../assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2.min.js"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN: Page level plugins -->
+    <script src="../assets/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="../assets/scripts/form-samples.js"></script>
+    <script src="../assets/scripts/app.js"></script>
+
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+            FormSamples.init();
+        });
+    </script>
+    <style>
+        .form-horizontal .control-label {
+            text-align: right;
+        }
+    </style>
+    <!-- END JAVASCRIPTS -->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-sidebar-fixed">
+    <form id="tabs" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="header navbar navbar-inverse navbar-fixed-top isra-header">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="logo" style="">
+                    <a href="index.html">
+                        <img src="../images/logo.png" />
+                    </a>
+                </div>
+                <div class="isra-name">
+                    <a class="isra-namein font-ha">جـــامعة الإســـــراء - غـزة
+                    </a>
+                </div>
+                <!-- END LOGO -->
+                <ul class="nav navbar-nav pull-right font-ha">
+                    <!-- BEGIN NOTIFICATION DROPDOWN -->
+
+                    <!-- END TODO DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown user">
+                        <asp:Label ID="lblEmployeeID" runat="server" Visible="false"></asp:Label>
+                        <% 
+                            UserPage userpage = new UserPage();
+                            lblEmployeeID.Text = Context.User.Identity.Name;
+                        %>
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img src="#" runat="server" id="image" class="isra-nave-person-img" />
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                                <ItemTemplate>
+
+                                    <span class="username"><%# Eval("DisplayName") %></span>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:isra3 %>"
+                                SelectCommand="GetEmployeeData" SelectCommandType="StoredProcedure">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="lblEmployeeID" PropertyName="Text" Name="EmployeeID" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="../APP_HRM/ChangePassword.aspx"><i class="fa fa-user"></i>تغير كلمة المرور</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a id="trigger_fullscreen" href="javascript:;"><i class="fa fa-move"></i>ملئ الشاشة</a>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lb" runat="server" OnClick="lb_Click"><i class="fa fa-key"></i>تسجيل الخروج</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+
+        </div>
+        <!-- END HEADER -->
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container isra-contner">
+            <div class="page-sidebar navbar-collapse collapse isra-rightbare">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 327px;">
+                    <ul class="page-sidebar-menu font-ha">
+
+                        <li class="start isra-user">
+                            <a>
+                                <img class="title" runat="server" id="Image1" width=" 120" height="120" src="#" />
+
+                                <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource1">
+                                    <ItemTemplate>
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("DisplayName") %></span>
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("JobTitle") %></span>
+                                        <span class="selected"></span>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </a>
+                        </li>
+                        <%--          <li id="menu1">
+                            <a href="../APP_HRM/Emp_Info_AddEdit.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">الصفحة الرئيسية</span>
+                                <span class="selected"></span>
+                            </a>
+
+                        </li>--%>
+                        <li id="menu1">
+                            <asp:LinkButton ID="LinkButton2" runat="server" OnClick="LinkButton2_Click"><i class="fa fa-home"></i>الصفحة الرئيسية</asp:LinkButton>
+                            <span class="selected"></span>
+                        </li>
+                        <li id="Task">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span class="title">مهام الموظف</span>
+                                <span class="selected"></span>
+
+                                <span class="arrow "></span>
+
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="../EmpTasks/TaskAddEdit.aspx">اضافة مهام الموظف</a>
+
+                                </li>
+
+
+                                <%  System.Data.DataTable DT = DataAccessTasks.GetManger(lblEmployeeID.Text);
+                                    if (DT.Rows[0]["Manger"].ToString() == "1")
+                                    { %>
+                                <li>
+                                    <a href="../EmpTasks/TasksAllEmp.aspx">عرض مهمات الموظفين  </a>
+
+                                </li>
+                                <%} %>
+                            </ul>
+                        </li>
+                        <li id="EmpExams">
+                            <a href="../APP_HRM/EmpFinalExamSections.aspx">
+                                <i class="fa fa-user"></i>
+                                <span class="title">جدول مراقبات الموظف</span>
+                                <span class="selected"></span>
+                            </a>
+
+                        </li>
+
+                        <li id="Telephone">
+                            <a href="../APP_HRM/SearchTelephone.aspx">
+                                <i class="fa fa-phone"></i>
+                                <span class="title">دليل هواتف الموظفين  </span>
+                                <span class="selected"></span>
+                            </a>
+                            <%  if (userpage.Permissions.Contains("AddTelephone"))
+                                { %>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a href="../APP_HRM/AddTelephone.aspx">اضافة هواتف الموظفين </a>
+
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/SearchTelephone.aspx">بحث  هواتف الموظفين </a>
+
+                                </li>
+                            </ul>
+                            <%} %>
+
+                        </li>
+
+                        <% if (userpage.Permissions.Contains("EmpApp"))
+                            { %>
+                        <li id="menu2">
+                            <a href="javascript:;">
+                                <i class="fa fa-user"></i>
+                                <span class="title">ملف الموظف</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <%  if (userpage.Permissions.Contains("AddNewEmployee"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/AddNewEmployee.aspx">تسجيل موظف</a>
+
+                                </li>
+                                  <li  id="menu2_2">
+                                    <a href="../APP_HRM/ChangeEmployeeNumber.aspx">تغيير الرقم الوظيفي</a>
+                                   
+                                </li>
+                                <li>
+                                    <a href="../Finanical/AddEmployeeDegree.aspx">اضافة درجات الموظفين</a>
+
+                                </li>
+                                <li>
+                                    <a href="../Finanical/AddEmployeeSeniority.aspx">اضافة أقدميات الموظفين</a>
+
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("ContractView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Contract_Emp_AddEdit.aspx">تسجيل عقد الموظف </a>
+
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/LoadHoursContractAddEdit.aspx">عقود نظام الساعة </a>
+
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/ShowEmployeeContracts.aspx">عرض عقود الموظفين </a>
+
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/GetEmployeeData.aspx">عرض تصنيفات الموظفين </a>
+
+                                </li>
+                                <%} %>
+
+                                <%--  <ul class="sub-menu">--%>
+                                <% if (userpage.Permissions.Contains("ProfileView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Employees.aspx">عرض صفحات الموظفين</a>
+
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/ShowEmployeeInfo.aspx">بناء تقارير بيانات الموظفين</a>
+
+                                </li>
+                                 <li>
+                                    <a href="../APP_HRM/EmployeeStatistics.aspx">احصائيات الموظفين</a>
+
+                                </li>
+                                <%} %>
+                            </ul>
+
+
+                        </li>
+                        <%} %>
+                       <%-- <% if (userpage.Permissions.Contains("EmpAffairs"))
+                            { %>--%>
+                        <li id="menu3">
+                            <a href="javascript:;">
+                                <i class="fa fa-group"></i>
+                                <span class="title">الشؤون الإدارية</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <% if (userpage.Permissions.Contains("JobTitleView"))
+                                    { %>
+                                 <li>
+                                    <a target="_blank" href="../OrgChart/color-coded/index.html"> الهيكلية</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/Emp_JobTitle.aspx">مسميات الموظفين</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/EmployeeManagerAddEdit.aspx">المسؤول المباشر </a>
+                                </li>
+                                <%} %>
+        <%--                        <% if (userpage.Permissions.Contains("AddEmpVacBalance"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/EmpVacBalanceAddEdit.aspx">اضافة رصيد الاجازات</a>
+                                </li>
+                               
+                                <%} %>--%>
+
+                                 <li>
+                                    <a href="../APP_HRM/VacationBalanceTrans.aspx">حركة رصيد الاجازات</a>
+                                </li>
+                                
+                               <%-- <% if (userpage.Permissions.Contains("VacationEmpRequestAdd"))
+                                    { %>--%>
+                                <li>
+                                    <a href="../APP_HRM/EmployeeVacationAddEdit.aspx">تقديم طلب اجازة (خاص للموظف)</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/VacationEmpRequestAccrediate.aspx">إعتماد إجازات الموظفين(خاص بالمسئول المباشر)</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/EmployeeExitAdd.aspx">تقديم طلب إذن خروج</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/employeeExitAccrediate.aspx">اعتماد الأذونات</a>
+                                </li>
+                                
+                                <% if (userpage.UserID == "5085")
+                                    {%>
+
+                                      <li>
+                                          <a href="../APP_HRM/SickVacationAccrediate.aspx">إعتماد الإجازات المرضية</a>
+                                      </li>
+
+                                    <%}%>
+
+                                <% if (userpage.UserID == "5015")
+                                    {%>
+
+                                      <li id="menu5">
+                                          <a href="../APP_HRM/ManagePermissions.aspx">إدارة الصلاحيات</a>
+                                      </li>
+                                       <li id="menu8">
+                                          <a href="../APP_HRM/ManageColleges.aspx">إدارة عمداء الكليات</a>
+                                      </li>
+                                       <li id="menu9">
+                                          <a href="../APP_HRM/ManageDepts.aspx">إدارة رؤساء الأقسام</a>
+                                      </li>
+
+                                    <%}%>
+                              <%--  <%} %>--%>
+
+<%--                                <% if (DataAccess.IsDirectManager(userpage.UserID).Rows.Count > 0)
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Follow_Emp_Vacation.aspx">متابعة طلبات اجازات الموظفين</a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("VacationManagerAdoptFollow"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/HRVacationsEdit.aspx">تقديم طلب اجازة شئون الموظفين</a>
+                                </li>
+                                <li>
+                                    <a href="../APP_HRM/Accept_Vacation_Request.aspx">اعتماد طلبات اجازات الموظفين</a>
+                                </li>
+                                <%} %>
+                           <%--     <% if (userpage.Permissions.Contains("WExitRequestView") || userpage.Permissions.Contains("ExitRequestView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Emp_WExit_AddEdit.aspx">تقديم الأذونات   </a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("ExitManagerFollowView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Follow_Emp_Exit.aspx">متابعة طلبات أذونات  الموظفين</a>
+                                </li>
+                                <%} %>
+
+                                <% if (userpage.Permissions.Contains("WExitManagerAdoptFollow") || userpage.Permissions.Contains("ExitManagerAdoptFollow"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Accept_Emp_Exit.aspx">اعتماد طلبات  الاذونات للموظفين</a>
+                                </li>
+                                <%} %>--%>
+                            </ul>
+
+
+                        </li>
+                       <%-- <%} %>--%>
+
+                        <% if (userpage.Permissions.Contains("Attendance"))
+                            { %>
+                        <li id="menu4">
+                            <a href="#">
+                                <i class="fa fa-edit "></i>
+                                <span class="title">الدوام </span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <% if (userpage.Permissions.Contains("AttRegister"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/AttRegister.aspx">تسجيل الحضور</a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("AttendanceDefaultView"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/Attendance_Default.aspx">الدوام الافتراضي</a>
+                                </li>
+                                <li id="menu4_3">
+                                    <a href="../Attendance/EmployeeDefualtAttendanceAdd.aspx">تنسيب الدوام الافتراضي للموظفين </a>
+                                </li>
+                                <li id="menu4_4">
+                                    <a href="../Attendance/GetEmployeeDefualtAttendance.aspx">عرض نسق الدوام الافتراضي للموظفين </a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("RegistrationAttendanceEdit") || userpage.Permissions.Contains("EmpSecurityAttendance"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/EmpDailyAttendance.aspx">تسجيل دوام الموظفين</a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("RegistrationExit"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/ExitRegister.aspx">تسجيل تحركات الموظفين</a>
+                                </li>
+                                <%} %>
+
+                                <% if (userpage.Permissions.Contains("WorkOverTimeAddEdit"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/OverTimeAddEdit.aspx">تسجيل  الساعات الاضافية</a>
+                                </li>
+                                <%} %>
+
+                               <%-- <% if (userpage.Permissions.Contains("AttenadanceCalclation"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/CalculateAtt.aspx">احتساب دوام الموظفين</a>
+                                </li>
+                                <li>
+                                    <a href="../Attendance/AttendanceSurvayYearly.aspx">حصر الاجازات السنوية </a>
+                                </li>
+                                <%} %>--%>
+                                <% if (userpage.Permissions.Contains("MonthAttendanceManagerAdopt"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/EmpAttendanceReport.aspx">كشف الدوام للموظف</a>
+                                </li>
+                                <li>
+                                    <a href="../Attendance/InstructorAttendance.aspx">كشف دوام المحاضرين</a>
+                                </li>
+                                <li id="menu4_8">
+                                    <a href="../Attendance/InstructorAttendance3.aspx">كشف دوام المحاضر</a>
+                                </li>
+                                <%} %>
+                            </ul>
+                        </li>
+                        <%} %>
+
+                        <% if (userpage.Permissions.Contains("FinanicalAffairs"))
+                            { %>
+
+                      <%--  <li id="menu5">
+                            <a href="javascript:;">
+                                <i class="fa fa-money"></i>
+                                <span class="title">الشؤون المالية</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+
+                            <ul class="sub-menu">
+                                <% if (userpage.Permissions.Contains("CurrancyPriceView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/CurPrice_AddEdit.aspx">أسعار العملات</a>
+                                </li>
+                                <%} %>
+                               <% if (userpage.Permissions.Contains("AllowanceView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Emp_Allownace_AddEdit.aspx">مستحقات وخصميات الموظفين</a>
+                                </li>
+
+                                <%} %>
+                                <%  if (userpage.Permissions.Contains("AdvanceView"))
+                                    { %>
+                                <li>
+                                    <a href="../Finanical/Emp_Advance_AddEdit.aspx">السلفيات</a>
+                                </li>
+                                <%} %>
+                                <% if (userpage.Permissions.Contains("DifferencesAdopt"))
+                                    { %>
+                                <li>
+                                    <a href="../Finanical/Differances_AddEdit.aspx">الفروقات</a>
+                                </li>
+                                <%} %>
+                            </ul>
+
+                        </li>--%>
+                        <%} %>
+                        <% if (userpage.Permissions.Contains("SalaryCalculate"))
+                            { %>
+                        <li id="menu6">
+                            <a href="javascript:;">
+                                <i class="fa fa-list-alt"></i>
+                                <span class="title">الرواتب</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                               <%-- <li>
+                                    <a href="../Finanical/MainSalaryAddEdit.aspx">ادخال رواتب الموظفين  </a>
+                                </li>--%>
+                                <% if (userpage.Permissions.Contains("CurrancyPriceView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/CurPrice_AddEdit.aspx">أسعار العملات</a>
+                                </li>
+                                <%} %>
+                                <li>
+                                    <a href="../Finanical/SalaryDetailsAdd.aspx">ادخال  تفاصيل الراتب  </a>
+                                </li>
+                                <li id="menu6_3">
+                                    <a href="../Finanical/SalaryDeductionAddEdit.aspx">ادخال  خصميات الراتب  </a>
+                                </li>
+                                <li id="menu6_4">
+                                    <a href="../Finanical/SalaryDeductionView.aspx">عرض  خصميات الراتب  </a>
+                                </li>
+                                <li id="menu6_5">
+                                    <a href="../Finanical/Salary_Month.aspx">احتساب رواتب الموظفين </a>
+                                </li>
+                                <li id="menu6_9">
+                                    <a href="../Finanical/AddDegreeBasicSalary.aspx">ادخال راتب الدرجة </a>
+                                </li>
+                           <%--       <li id="menu6_81">
+                                    <a href="../Finanical/BounsAddEdit.aspx">  العلاوات الافتراضية </a>
+                                </li>
+                                <li id="menu6_8">
+                                    <a href="../Finanical/AddEmployeeBouns.aspx">ادخال علاوات الكادر </a>
+                                </li>--%>
+                                <li id="menu6_6">
+                                    <a href="../Finanical/CalculateEmployeeSalaries.aspx">احتساب رواتب الكادر </a>
+                                </li>
+                                <li id="menu6_7">
+                                    <a href="../Finanical/EmployeeTaxValueAddEdit.aspx">اضافة قيمة ضريبة الدخل </a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <%} %>
+                        <% if (userpage.Permissions.Contains("SalaryCalculate"))
+                            { %>
+                        <li id="Academic">
+                            <a href="javascript:;">
+                                <i class="fa fa-folder"></i>
+                                <span class="title">الشؤون الاكاديمية </span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="../APP_HRM/SemesterEmployeesTotalHours.aspx">العبء الأكاديمي</a>
+
+                                </li>
+                                 <li id="Academic_1">
+                                    <a href="../Attendance/LectureIrregularAddEdit.aspx">اضافة المحاضرات التعويضية</a>
+
+                                </li>
+                                  <li id="Academic_2">
+                                    <a href="../Attendance/LectureIrregular.aspx">اعتماد المحاضرات التعويضية</a>
+
+                                </li>
+                                <% if (userpage.Permissions.Contains("AddObserver"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Observer.aspx">تحديد المراقبين </a>
+
+                                </li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <% } %>
+                        <% if (userpage.Permissions.Contains("ConstantView"))
+                            { %>
+                        <li id="menu7">
+                            <a href="javascript:;">
+                                <i class="fa fa-folder"></i>
+                                <span class="title">الثوابت</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="../APP_HRM/Department.aspx">الدوائر والاقسام</a>
+                                </li>
+
+
+                                <li>
+                                    <a href="../APP_HRM/EmployeeDepartment.aspx">الموظفين والدوائر</a>
+                                </li>
+
+
+
+                                <li>
+                                    <a href="../APP_HRM/Job_AddEdit.aspx">المسميات الوظيفية </a>
+                                </li>
+
+                                <li>
+                                    <a href="../Finanical/Tax_Bracket_AddEdit.aspx">الشرائح الضريبية</a>
+                                </li>
+
+                                <%--    <% if (userpage.Permissions.Contains("ExemptionView"))
+                              { %>
+                                  <li>
+                                    <a href="../Finanical/Emp_Exemption.aspx">  اعفاءات الموظف</a>
+                                </li><%} %>--%>
+
+                                <% if (userpage.Permissions.Contains("AllowanceTypeView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Variables_AddEdit.aspx">أنواع الاستحقاقات والاستقطاعات </a>
+                                </li>
+
+                                <%} %>
+
+                                <li>
+                                    <a href="../APP_HRM/Currancy_AddEdit.aspx">انواع العملات</a>
+                                </li>
+
+                                <% if (userpage.Permissions.Contains("VacationTypeView"))
+                                    { %>
+                                <li>
+                                    <a href="../Attendance/AttVariables.aspx">انواع الاجازات</a>
+                                </li>
+                                <%} %>
+                                <li>
+                                    <a href="../Attendance/AttVariables.aspx">العطلات الرسمية</a>
+                                </li>
+
+                                <li>
+                                    <a href="../Finanical/Exemption_AddEdit.aspx">انواع الاعفاءات</a>
+                                </li>
+
+
+                                <% if (userpage.Permissions.Contains("ContractTypeView"))
+                                    { %>
+                                <li>
+                                    <a href="../APP_HRM/Contract.aspx">أنواع العقود</a>
+                                </li>
+                                <%} %>
+                            </ul>
+                        </li>
+                        <%} %>
+                    </ul>
+                    <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; left: 1px; height: 152.974px;"></div>
+                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN PAGE -->
+            <div class="page-content isra-contaner-heder-proparets">
+                <div class="row isra-contaner-heder isra-contaner-heder-pading">
+                    <div class="col-md-11">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div style="clear: both"></div>
+                <!-- BEGIN isra-content -->
+                <div class="isra-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- END isra-content -->
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer isra-contaner-foter-pading">
+            <div class="footer-inner font-ha isra-color6">
+                جامعة الاسراء&copy;2015 
+            </div>
+            <div class="nav navbar-nav pull-right">
+                <div style="display: block; color: #fff; padding: 0px 15px; width: 250px;">
+                    <i class="fa fa-calendar"></i>
+                    <span class="font-ha isra-color6"><% DateTime.Now.ToString("dddd dd MMMM yyyy - hh:mm tt");%></span>
+                </div>
+            </div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </form>
+</body>
+</html>

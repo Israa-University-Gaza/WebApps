@@ -1,0 +1,79 @@
+/* here you can put your own css to customize and override the theme */
+
+/* here you can put your own css to customize and override the theme */
+
+.sale-summary li .sale-num {
+    color: #169ef4;
+    font-family: hasanin;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.sale-summary li .sale-info {
+    color: #646464;
+    float: right;
+    font-family: hasanin;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.sale-summary li {
+    border-top: none;
+    overflow: hidden;
+    padding: 1.9px 0;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    padding: 7px;
+    width: 20%;
+}
+
+    .fileUpload input.upload {
+        position: absolute;
+        top: 0;
+        right: 0;
+        margin: 0;
+        padding: 0;
+        font-size: 20px;
+        cursor: pointer;
+        opacity: 0;
+        filter: alpha(opacity=0);
+    }
+
+.dropdown-menu li > a {
+    clear: both;
+    color: #333;
+    display: block;
+    font-weight: normal;
+    line-height: 18px;
+    padding: 0;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+.dropdown.open .dropdown-toggle {
+    background: #e0eaf0 !important;
+    color: #121212;
+}
+
+.button-link {
+    padding: 10px 15px;
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.isra-inline {
+    display: inline-block !important;
+    width: 45% !important;
+    margin: 5px 2.2% !important;
+    font-size: 14px !important;
+}
+
+.isra-inline-1 {
+    display: inline-block !important;
+    width: 100% !important;
+    font-size: 14px !important;
+}

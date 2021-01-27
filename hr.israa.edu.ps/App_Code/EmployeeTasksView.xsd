@@ -1,0 +1,246 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="EmployeeTasksView" targetNamespace="http://tempuri.org/EmployeeTasksView.xsd" xmlns:mstns="http://tempuri.org/EmployeeTasksView.xsd" xmlns="http://tempuri.org/EmployeeTasksView.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="1" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EmployeeTasks" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmployeeTasks (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EmployeeTasks.ConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HumanResources" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HumanResources (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HumanResources.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="EmployeeTasksView" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="EmployeeTasksView" msprop:Generator_UserDSName="EmployeeTasksView">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetDepartmentName" msprop:Generator_TableClassName="GetDepartmentNameDataTable" msprop:Generator_TableVarName="tableGetDepartmentName" msprop:Generator_TablePropName="GetDepartmentName" msprop:Generator_RowDeletingName="GetDepartmentNameRowDeleting" msprop:Generator_RowChangingName="GetDepartmentNameRowChanging" msprop:Generator_RowEvHandlerName="GetDepartmentNameRowChangeEventHandler" msprop:Generator_RowDeletedName="GetDepartmentNameRowDeleted" msprop:Generator_UserTableName="GetDepartmentName" msprop:Generator_RowChangedName="GetDepartmentNameRowChanged" msprop:Generator_RowEvArgName="GetDepartmentNameRowChangeEvent" msprop:Generator_RowClassName="GetDepartmentNameRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DepartmentName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_UserColumnName="DepartmentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="19" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DepartmentCompleteTasksView" msprop:Generator_TableClassName="DepartmentCompleteTasksViewDataTable" msprop:Generator_TableVarName="tableDepartmentCompleteTasksView" msprop:Generator_RowChangedName="DepartmentCompleteTasksViewRowChanged" msprop:Generator_TablePropName="DepartmentCompleteTasksView" msprop:Generator_RowDeletingName="DepartmentCompleteTasksViewRowDeleting" msprop:Generator_RowChangingName="DepartmentCompleteTasksViewRowChanging" msprop:Generator_RowEvHandlerName="DepartmentCompleteTasksViewRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentCompleteTasksViewRowDeleted" msprop:Generator_RowClassName="DepartmentCompleteTasksViewRow" msprop:Generator_UserTableName="DepartmentCompleteTasksView" msprop:Generator_RowEvArgName="DepartmentCompleteTasksViewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompleteTasks" msprop:Generator_ColumnVarNameInTable="columnCompleteTasks" msprop:Generator_ColumnPropNameInRow="CompleteTasks" msprop:Generator_ColumnPropNameInTable="CompleteTasksColumn" msprop:Generator_UserColumnName="CompleteTasks">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayNameARABIC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDayNameARABIC" msprop:Generator_ColumnPropNameInRow="DayNameARABIC" msprop:Generator_ColumnPropNameInTable="DayNameARABICColumn" msprop:Generator_UserColumnName="DayNameARABIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" />
+              <xs:element name="status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_UserColumnName="DepartmentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DepartmentInCompleteTasksView" msprop:Generator_TableClassName="DepartmentInCompleteTasksViewDataTable" msprop:Generator_TableVarName="tableDepartmentInCompleteTasksView" msprop:Generator_RowChangedName="DepartmentInCompleteTasksViewRowChanged" msprop:Generator_TablePropName="DepartmentInCompleteTasksView" msprop:Generator_RowDeletingName="DepartmentInCompleteTasksViewRowDeleting" msprop:Generator_RowChangingName="DepartmentInCompleteTasksViewRowChanging" msprop:Generator_RowEvHandlerName="DepartmentInCompleteTasksViewRowChangeEventHandler" msprop:Generator_RowDeletedName="DepartmentInCompleteTasksViewRowDeleted" msprop:Generator_RowClassName="DepartmentInCompleteTasksViewRow" msprop:Generator_UserTableName="DepartmentInCompleteTasksView" msprop:Generator_RowEvArgName="DepartmentInCompleteTasksViewRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InCompleteTasks" msprop:Generator_ColumnVarNameInTable="columnInCompleteTasks" msprop:Generator_ColumnPropNameInRow="InCompleteTasks" msprop:Generator_ColumnPropNameInTable="InCompleteTasksColumn" msprop:Generator_UserColumnName="InCompleteTasks">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayNameARABIC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDayNameARABIC" msprop:Generator_ColumnPropNameInRow="DayNameARABIC" msprop:Generator_ColumnPropNameInTable="DayNameARABICColumn" msprop:Generator_UserColumnName="DayNameARABIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" type="xs:dateTime" />
+              <xs:element name="status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DepartmentName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDepartmentName" msprop:Generator_ColumnPropNameInRow="DepartmentName" msprop:Generator_ColumnPropNameInTable="DepartmentNameColumn" msprop:Generator_UserColumnName="DepartmentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeCompleteTasksView" msprop:Generator_TableClassName="EmployeeCompleteTasksViewDataTable" msprop:Generator_TableVarName="tableEmployeeCompleteTasksView" msprop:Generator_TablePropName="EmployeeCompleteTasksView" msprop:Generator_RowDeletingName="EmployeeCompleteTasksViewRowDeleting" msprop:Generator_RowChangingName="EmployeeCompleteTasksViewRowChanging" msprop:Generator_RowEvHandlerName="EmployeeCompleteTasksViewRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeCompleteTasksViewRowDeleted" msprop:Generator_UserTableName="EmployeeCompleteTasksView" msprop:Generator_RowChangedName="EmployeeCompleteTasksViewRowChanged" msprop:Generator_RowEvArgName="EmployeeCompleteTasksViewRowChangeEvent" msprop:Generator_RowClassName="EmployeeCompleteTasksViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CompleteTasks" msprop:Generator_ColumnVarNameInTable="columnCompleteTasks" msprop:Generator_ColumnPropNameInRow="CompleteTasks" msprop:Generator_ColumnPropNameInTable="CompleteTasksColumn" msprop:Generator_UserColumnName="CompleteTasks">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayNameARABIC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDayNameARABIC" msprop:Generator_ColumnPropNameInRow="DayNameARABIC" msprop:Generator_ColumnPropNameInTable="DayNameARABICColumn" msprop:Generator_UserColumnName="DayNameARABIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNumber" msprop:Generator_ColumnVarNameInTable="columnEmployeeNumber" msprop:Generator_ColumnPropNameInRow="EmployeeNumber" msprop:Generator_ColumnPropNameInTable="EmployeeNumberColumn" msprop:Generator_UserColumnName="EmployeeNumber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EmployeeInCompleteTasksView" msprop:Generator_TableClassName="EmployeeInCompleteTasksViewDataTable" msprop:Generator_TableVarName="tableEmployeeInCompleteTasksView" msprop:Generator_TablePropName="EmployeeInCompleteTasksView" msprop:Generator_RowDeletingName="EmployeeInCompleteTasksViewRowDeleting" msprop:Generator_RowChangingName="EmployeeInCompleteTasksViewRowChanging" msprop:Generator_RowEvHandlerName="EmployeeInCompleteTasksViewRowChangeEventHandler" msprop:Generator_RowDeletedName="EmployeeInCompleteTasksViewRowDeleted" msprop:Generator_UserTableName="EmployeeInCompleteTasksView" msprop:Generator_RowChangedName="EmployeeInCompleteTasksViewRowChanged" msprop:Generator_RowEvArgName="EmployeeInCompleteTasksViewRowChangeEvent" msprop:Generator_RowClassName="EmployeeInCompleteTasksViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="InCompleteTasks" msprop:Generator_ColumnVarNameInTable="columnInCompleteTasks" msprop:Generator_ColumnPropNameInRow="InCompleteTasks" msprop:Generator_ColumnPropNameInTable="InCompleteTasksColumn" msprop:Generator_UserColumnName="InCompleteTasks">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DayNameARABIC" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDayNameARABIC" msprop:Generator_ColumnPropNameInRow="DayNameARABIC" msprop:Generator_ColumnPropNameInTable="DayNameARABICColumn" msprop:Generator_UserColumnName="DayNameARABIC" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNumber" msprop:Generator_ColumnVarNameInTable="columnEmployeeNumber" msprop:Generator_ColumnPropNameInRow="EmployeeNumber" msprop:Generator_ColumnPropNameInTable="EmployeeNumberColumn" msprop:Generator_UserColumnName="EmployeeNumber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="NoTasks" msprop:Generator_TableClassName="NoTasksDataTable" msprop:Generator_TableVarName="tableNoTasks" msprop:Generator_TablePropName="NoTasks" msprop:Generator_RowDeletingName="NoTasksRowDeleting" msprop:Generator_RowChangingName="NoTasksRowChanging" msprop:Generator_RowEvHandlerName="NoTasksRowChangeEventHandler" msprop:Generator_RowDeletedName="NoTasksRowDeleted" msprop:Generator_UserTableName="NoTasks" msprop:Generator_RowChangedName="NoTasksRowChanged" msprop:Generator_RowEvArgName="NoTasksRowChangeEvent" msprop:Generator_RowClassName="NoTasksRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeNO" msprop:Generator_ColumnVarNameInTable="columnEmployeeNO" msprop:Generator_ColumnPropNameInRow="EmployeeNO" msprop:Generator_ColumnPropNameInTable="EmployeeNOColumn" msprop:Generator_UserColumnName="EmployeeNO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RowNumber" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRowNumber" msprop:Generator_ColumnPropNameInRow="RowNumber" msprop:Generator_ColumnPropNameInTable="RowNumberColumn" msprop:Generator_UserColumnName="RowNumber" type="xs:long" minOccurs="0" />
+              <xs:element name="FromDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromDate" msprop:Generator_ColumnPropNameInRow="FromDate" msprop:Generator_ColumnPropNameInTable="FromDateColumn" msprop:Generator_UserColumnName="FromDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ToDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToDate" msprop:Generator_ColumnPropNameInRow="ToDate" msprop:Generator_ColumnPropNameInTable="ToDateColumn" msprop:Generator_UserColumnName="ToDate" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

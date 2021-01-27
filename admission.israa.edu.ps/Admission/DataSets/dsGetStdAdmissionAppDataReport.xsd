@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsGetStdAdmissionAppDataReport" targetNamespace="http://tempuri.org/dsGetStdAdmissionAppDataReport.xsd" xmlns:mstns="http://tempuri.org/dsGetStdAdmissionAppDataReport.xsd" xmlns="http://tempuri.org/dsGetStdAdmissionAppDataReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsGetStdAdmissionAppDataReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsGetStdAdmissionAppDataReport">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ReportDate" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentNo" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="ArStudentName" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartID3" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartID2" type="xs:string" minOccurs="0" />
+              <xs:element name="DepartID1" type="xs:string" minOccurs="0" />
+              <xs:element name="EnStudentName" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentCollege" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentDepartment" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaceOfBirth" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="DateOfBirth" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="SSN" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Passport" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StdNationality" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Religion" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StdStatus" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="SuperiorName" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="SuperiorLink" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="SuperiorPhone" type="xs:string" minOccurs="0" />
+              <xs:element name="Governorates" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="City" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Neighborhood" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Street" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Phone" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Mobile" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="Email" type="xs:string" minOccurs="0" />
+              <xs:element name="HomeNo" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="HealthStatus" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="DiseaseType" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="DisabilityStatus" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehyNo" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehyCountry" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehyType" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehyYear" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehyGPA" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="TawjehySchool" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentImage" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentType" type="xs:string" minOccurs="0" />
+              <xs:element name="OldUniversity" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="OldDepartment" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="OldUniversityGPA" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="ShamelRate" msdata:Caption="DataColumn1" type="xs:string" minOccurs="0" />
+              <xs:element name="ExpertYears" type="xs:string" minOccurs="0" />
+              <xs:element name="SuperiorMobile" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentCollegeEn" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentDepartmentEn" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentProgram" type="xs:string" minOccurs="0" />
+              <xs:element name="OldUniversityHours" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="StdHowKnows" type="xs:string" minOccurs="0" />
+              <xs:element name="SuperiorJop" type="xs:string" minOccurs="0" />
+              <xs:element name="PlaceOfStudy" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

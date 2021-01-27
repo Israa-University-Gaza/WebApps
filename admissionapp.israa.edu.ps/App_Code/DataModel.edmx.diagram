@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2f18b57545cf44888cbdb51f692de264" Name="Diagram1">
+        <EntityTypeShape EntityType="IsraaAcademicModel.AccreditationDepartment" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.AccreditationSeries" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.AccreditationSeriesOrder" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.AccreditationType" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.AdmissionConditions" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Advertisement" Width="1.5" PointX="4.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Attendance" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Block" Width="1.5" PointX="6.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.BlockSection" Width="1.5" PointX="8.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Book" Width="1.5" PointX="8.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Branch" Width="1.5" PointX="10.5" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Building" Width="1.5" PointX="12.75" PointY="37" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.City" Width="1.5" PointX="18.75" PointY="83.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.College" Width="1.5" PointX="3" PointY="58" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CollegeEmployee" Width="1.5" PointX="5.25" PointY="54.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CollegeEmployeeOld" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CollegePTEHours" Width="1.5" PointX="0.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CollegeRoom" Width="1.5" PointX="2.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Conditions" Width="1.5" PointX="4.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Constant" Width="1.5" PointX="10.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ConstantDetails" Width="1.5" PointX="18.75" PointY="70.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Country" Width="1.5" PointX="14.25" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Course" Width="1.5" PointX="7.5" PointY="59.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseBook" Width="1.5" PointX="6.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseBookRequest" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseCategory" Width="1.5" PointX="5.25" PointY="69.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseStatus" Width="1.5" PointX="21.25" PointY="41.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseType" Width="1.5" PointX="5.25" PointY="72.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Day" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Department" Width="1.5" PointX="5.25" PointY="59.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.DepartmentEmployee" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.DepartmentSection" Width="1.5" PointX="12.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.EFinalExamSection" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ELearningVideo" Width="1.5" PointX="17.25" PointY="47.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ELearningVideoType" Width="1.5" PointX="15" PointY="34" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.EMidtermExamSection" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.EmployeeDetails" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.EmployeeType" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExamSection" Width="1.5" PointX="20.25" PointY="48" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExamSectionDistribution" Width="1.5" PointX="20.25" PointY="44.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExceptionCategory" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExceptionStudentCourse" Width="1.5" PointX="2.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExceptionStudentGeneral" Width="1.5" PointX="14.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExceptionType" Width="1.5" PointX="14.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.FinalExamSection" Width="1.5" PointX="17.25" PointY="42.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.FinalMarkIncomplete" Width="1.5" PointX="14.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Form" Width="1.5" PointX="4.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.FormAccreditationSeries" Width="1.5" PointX="16.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ForStudentCard" Width="1.5" PointX="16.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Gender" Width="1.5" PointX="16.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Governorates" Width="1.5" PointX="16.5" PointY="83.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.GraduationStatus" Width="1.5" PointX="7.5" PointY="56.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.HowKnow" Width="1.5" PointX="16.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Infraction" Width="1.5" PointX="16.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.InfractionType" Width="1.5" PointX="6.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Lecture" Width="1.5" PointX="20.25" PointY="52.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.LectureIrregular" Width="1.5" PointX="8.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Mark" Width="1.5" PointX="25.75" PointY="51.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MarkDeduction" Width="1.5" PointX="10.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MarkLog" Width="1.5" PointX="18.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MarkRevision" Width="1.5" PointX="18.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MarkTitle" Width="1.5" PointX="0.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.MidtermExamSection" Width="1.5" PointX="17.25" PointY="52.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Observers" Width="1.5" PointX="20.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ObserversHelper" Width="1.5" PointX="2.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfferdCourse" Width="1.5" PointX="12.75" PointY="59.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfferdCourseType" Width="1.5" PointX="20.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfferdPlanCourse" Width="1.5" PointX="20.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.OfficeHour" Width="1.5" PointX="12.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PlaceOfStudy" Width="1.5" PointX="20.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Plan" Width="1.5" PointX="7.5" PointY="69.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PlanCourse" Width="1.5" PointX="12.75" PointY="70" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PlanSemester" Width="1.5" PointX="14.75" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PreRequest" Width="1.5" PointX="9.75" PointY="79.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Program" Width="1.5" PointX="0.75" PointY="59" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ProgramEmployee" Width="1.5" PointX="20.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ProgramLevel" Width="1.5" PointX="4.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.PTEmployee" Width="1.5" PointX="22.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Room" Width="1.5" PointX="15" PointY="37.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.RoomType" Width="1.5" PointX="12.75" PointY="41.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Section" Width="1.5" PointX="15" PointY="45.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SectionDepartment" Width="1.5" PointX="17.25" PointY="58.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SectionType" Width="1.5" PointX="22.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Semester" Width="1.5" PointX="10.5" PointY="47.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SemesterStatus" Width="1.5" PointX="12.75" PointY="54.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SemesterType" Width="1.5" PointX="22.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Setting" Width="1.5" PointX="22.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SMSArchive" Width="1.5" PointX="22.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdAcademicWarning" Width="1.5" PointX="15" PointY="65.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdDocument" Width="1.5" PointX="22.75" PointY="17.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdDocumentType" Width="1.5" PointX="20.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdGraduateAvowal" Width="1.5" PointX="22.75" PointY="22.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdHowKnow" Width="1.5" PointX="14.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdInfraction" Width="1.5" PointX="24.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdInternalEquation" Width="1.5" PointX="2.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdInternalTransformation" Width="1.5" PointX="25.75" PointY="65" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdMessage" Width="1.5" PointX="4.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdSection" Width="1.5" PointX="23.5" PointY="52.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdSemester" Width="1.5" PointX="15" PointY="55.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdStatus" Width="1.5" PointX="18" PointY="65.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StdTransformationCourses" Width="1.5" PointX="24.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentAcademic" Width="1.5" PointX="9.75" PointY="57.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentAcademicCalendar" Width="1.5" PointX="6.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentAcademicLog" Width="1.5" PointX="8.75" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentBook" Width="1.5" PointX="24.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentBranch" Width="1.5" PointX="24.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentCondition" Width="1.5" PointX="24.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentCourse" Width="1.5" PointX="10.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentFromAccountAPI" Width="1.5" PointX="16.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentPersonal" Width="1.5" PointX="21" PointY="60.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentProblems" Width="1.5" PointX="26.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentsActivities" Width="1.5" PointX="26.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentsFreeFromTwentyPercCondAPI" Width="1.5" PointX="26.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentStatus" Width="1.5" PointX="15.75" PointY="77.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentSuspended" Width="1.5" PointX="12" PointY="100.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentSuspendedCondition" Width="1.5" PointX="26.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentTypes" Width="1.5" PointX="7.5" PointY="78.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudentVolunteer" Width="1.5" PointX="15" PointY="70.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.StudyLevel" Width="1.5" PointX="7.5" PointY="82.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.Syllabus" Width="1.5" PointX="26.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusAccreditation" Width="1.5" PointX="18.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusActivity" Width="1.5" PointX="26.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusBook" Width="1.5" PointX="24.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusDetailedDescription" Width="1.5" PointX="26.75" PointY="25.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusEvaluation" Width="1.5" PointX="20.75" PointY="27.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusGoal" Width="1.5" PointX="28.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusOutcome" Width="1.5" PointX="28.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.SyllabusReference" Width="1.5" PointX="28.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.TawjehyType" Width="1.5" PointX="28.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.TransformationReason" Width="1.5" PointX="12.75" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.VolunteerCategory" Width="1.5" PointX="12.75" PointY="80.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.VolunteerType" Width="1.5" PointX="12.75" PointY="88.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WarningStatus" Width="1.5" PointX="12.75" PointY="75.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WarningType" Width="1.5" PointX="12.75" PointY="78.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WorkMark" Width="1.5" PointX="28.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WorkMarkAccreditation" Width="1.5" PointX="28.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WorkMarkRevision" Width="1.5" PointX="28.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.WorkMarkTitle" Width="1.5" PointX="30.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.CourseOptionalCourses" Width="1.5" PointX="9.75" PointY="83.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.ExamSectionEmployee" Width="1.5" PointX="8.75" PointY="29.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IsraaAcademicModel.UnSuspendEmp" Width="1.5" PointX="30.75" PointY="9.75" IsExpanded="true" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Building_Branch" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Room_Building" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_City_Governorates" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_City" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_College_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_CollegeEmployee_College" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Department_College" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_ConstantDetails" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_ConstantDetails1" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_ConstantDetails2" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Governorates_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_Country" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_CourseCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_CourseType" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Course_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_CourseOptionalCourses_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_OfferdCourse_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PlanCourse_Course_CourseID" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PreRequest_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Course" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Course1" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_CourseStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Plan_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ELearningVideo_ELearningVideoType" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ELearningVideo_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSection_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSection_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSectionDistribution_ExamSectionDistribution" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_ExamSectionDistribution_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_FinalExamSection_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_FinalExamSection_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_FinalExamSection" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_Governorates" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_GraduationStatus_GraduationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_GraduationStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Lecture_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Lecture_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Mark_StdSection" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_MidtermExamSection_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_MidtermExamSection_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_MidtermExamSection" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_AvailableCourse_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Section_OfferdCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_OfferdCourse" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_PlanCourse_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Plan" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_Program" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_Room_RoomType" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_Section" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_SectionDepartment_StudyLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_Semester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_SemesterStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_StdSemester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_WarningStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdAcademicWarning_WarningType" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdInternalTransformation_StdSection" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdInternalTransformation_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_StdSemester" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSection_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdSemester_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StdStatus_StudentStatus" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudentAcademic1" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudentTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentAcademic_StudyLevel" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentPersonal_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentSuspended_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_StudentAcademic" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_VolunteerCategory" ManuallyRouted="false" />
+        <AssociationConnector Association="IsraaAcademicModel.FK_StudentVolunteer_VolunteerType" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

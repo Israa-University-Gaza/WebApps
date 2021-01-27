@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="GetTestimonyReport" targetNamespace="http://tempuri.org/GetTestimonyReport.xsd" xmlns:mstns="http://tempuri.org/GetTestimonyReport.xsd" xmlns="http://tempuri.org/GetTestimonyReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="GetTestimonyReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="GetTestimonyReport" msprop:Generator_UserDSName="GetTestimonyReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetTestimonyReport" msprop:Generator_TableClassName="GetTestimonyReportDataTable" msprop:Generator_TableVarName="tableGetTestimonyReport" msprop:Generator_TablePropName="_GetTestimonyReport" msprop:Generator_RowDeletingName="GetTestimonyReportRowDeleting" msprop:Generator_RowChangingName="GetTestimonyReportRowChanging" msprop:Generator_RowEvHandlerName="GetTestimonyReportRowChangeEventHandler" msprop:Generator_RowDeletedName="GetTestimonyReportRowDeleted" msprop:Generator_UserTableName="GetTestimonyReport" msprop:Generator_RowChangedName="GetTestimonyReportRowChanged" msprop:Generator_RowEvArgName="GetTestimonyReportRowChangeEvent" msprop:Generator_RowClassName="GetTestimonyReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Gender" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGender" msprop:Generator_ColumnPropNameInRow="Gender" msprop:Generator_ColumnPropNameInTable="GenderColumn" msprop:Generator_UserColumnName="Gender" type="xs:int" minOccurs="0" />
+              <xs:element name="StudentNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentNo" msprop:Generator_ColumnPropNameInRow="StudentNo" msprop:Generator_ColumnPropNameInTable="StudentNoColumn" msprop:Generator_UserColumnName="StudentNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentCollege" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentCollege" msprop:Generator_ColumnPropNameInRow="StudentCollege" msprop:Generator_ColumnPropNameInTable="StudentCollegeColumn" msprop:Generator_UserColumnName="StudentCollege" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentDepartment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentDepartment" msprop:Generator_ColumnPropNameInRow="StudentDepartment" msprop:Generator_ColumnPropNameInTable="StudentDepartmentColumn" msprop:Generator_UserColumnName="StudentDepartment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="47" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentSemester" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentSemester" msprop:Generator_ColumnPropNameInRow="StudentSemester" msprop:Generator_ColumnPropNameInTable="StudentSemesterColumn" msprop:Generator_UserColumnName="StudentSemester" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudiedYearx" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudiedYearx" msprop:Generator_ColumnPropNameInRow="StudiedYearx" msprop:Generator_ColumnPropNameInTable="StudiedYearxColumn" msprop:Generator_UserColumnName="StudiedYearx" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="12" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="HoursPlan" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnHoursPlan" msprop:Generator_ColumnPropNameInRow="HoursPlan" msprop:Generator_ColumnPropNameInTable="HoursPlanColumn" msprop:Generator_UserColumnName="HoursPlan" type="xs:int" minOccurs="0" />
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SucceedHour" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSucceedHour" msprop:Generator_ColumnPropNameInRow="SucceedHour" msprop:Generator_ColumnPropNameInTable="SucceedHourColumn" msprop:Generator_UserColumnName="SucceedHour" type="xs:int" minOccurs="0" />
+              <xs:element name="GPAUniversity" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentLevel" type="xs:string" minOccurs="0" />
+              <xs:element name="PlanSucceedHour" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

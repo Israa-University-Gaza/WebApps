@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDailyAcquitEmpStatistic" targetNamespace="http://tempuri.org/dsDailyAcquitEmpStatistic.xsd" xmlns:mstns="http://tempuri.org/dsDailyAcquitEmpStatistic.xsd" xmlns="http://tempuri.org/dsDailyAcquitEmpStatistic.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDailyAcquitEmpStatistic" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDailyAcquitEmpStatistic" msprop:Generator_UserDSName="dsDailyAcquitEmpStatistic">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsDailyAcquitEmpStatistic" msprop:Generator_TableClassName="dsDailyAcquitEmpStatisticDataTable" msprop:Generator_TableVarName="tabledsDailyAcquitEmpStatistic" msprop:Generator_TablePropName="_dsDailyAcquitEmpStatistic" msprop:Generator_RowDeletingName="dsDailyAcquitEmpStatisticRowDeleting" msprop:Generator_RowChangingName="dsDailyAcquitEmpStatisticRowChanging" msprop:Generator_RowEvHandlerName="dsDailyAcquitEmpStatisticRowChangeEventHandler" msprop:Generator_RowDeletedName="dsDailyAcquitEmpStatisticRowDeleted" msprop:Generator_UserTableName="dsDailyAcquitEmpStatistic" msprop:Generator_RowChangedName="dsDailyAcquitEmpStatisticRowChanged" msprop:Generator_RowEvArgName="dsDailyAcquitEmpStatisticRowChangeEvent" msprop:Generator_RowClassName="dsDailyAcquitEmpStatisticRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CurrencyName" msprop:Generator_ColumnVarNameInTable="columnCurrencyName" msprop:Generator_ColumnPropNameInRow="CurrencyName" msprop:Generator_ColumnPropNameInTable="CurrencyNameColumn" msprop:Generator_UserColumnName="CurrencyName" type="xs:string" minOccurs="0" />
+              <xs:element name="SumOfAmount" msprop:Generator_ColumnVarNameInTable="columnSumOfAmount" msprop:Generator_ColumnPropNameInRow="SumOfAmount" msprop:Generator_ColumnPropNameInTable="SumOfAmountColumn" msprop:Generator_UserColumnName="SumOfAmount" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

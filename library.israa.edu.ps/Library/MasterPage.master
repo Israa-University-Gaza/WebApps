@@ -1,0 +1,399 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Library_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>جامعة الاسراء</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="MobileOptimized" content="320" />
+
+    <link href="/assets/css/isra-style.css" rel="stylesheet" />
+    <link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="/assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="/assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="/assets/css/style-metronic-rtl.css" rel="stylesheet" />
+    <link href="/assets/css/style-rtl.css" rel="stylesheet" />
+    <link href="/assets/css/style-responsive-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="/assets/plugins/gritter/css/jquery.gritter-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/plugins/bootstrap-toastr/toastr-rtl.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="/assets/plugins/select2/select2_metro_rtl.css" />
+
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="/assets/css/plugins-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/css/pages/tasks-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="/assets/css/themes/default-rtl.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="/assets/css/custom-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="/assets/datepicker/clockface.css" rel="stylesheet" />
+    <link href="/assets/datepicker/datepicker3.css" rel="stylesheet" />
+    <link href="/assets/datepicker/daterangepicker-bs3.css" rel="stylesheet" />
+    <link href="/assets/datepicker/datetimepicker.css" rel="stylesheet" />
+    <style>
+        .input-large {
+            width: 100% !important;
+        }
+    </style>
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="/assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="/assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN: Page level plugins -->
+    <script src="/assets/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="/assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+    <script type="text/javascript" src="/assets/plugins/select2/select2.min.js"></script>
+    <script src="/assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+    <!-- BEGIN:File Upload Plugin JS files-->
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <script type="text/javascript" src="/assets/datepicker/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/bootstrap-timepicker.min.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/clockface.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/moment.min.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/daterangepicker.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/bootstrap-colorpicker.js"></script>
+    <script type="text/javascript" src="/assets/datepicker/bootstrap-datetimepicker.min.js"></script>
+    <!-- END PAGE LEVEL PLUGINS -->
+    <script src="/assets/datepicker/metronic.js" type="text/javascript"></script>
+
+    <script src="/assets/datepicker/quick-sidebar.js" type="text/javascript"></script>
+    <script src="/assets/datepicker/demo.js" type="text/javascript"></script>
+    <script src="/assets/datepicker/components-pickers.js"></script>
+    <!-- END: Page level plugins -->
+    <script src="/assets/scripts/form-samples.js"></script>
+    <script src="/assets/scripts/app.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+            FormSamples.init();
+            Demo.init(); // init demo features
+            ComponentsPickers.init();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-sidebar-fixed">
+    <form id="form1" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="header navbar navbar-inverse navbar-fixed-top isra-header">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="logo" style="">
+                    <a href="http://israa.edu.ps/">
+                        <img src="/images/logo.png" alt="logo" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="isra-name">
+                    <a class="isra-namein font-ha" href="http://israa.edu.ps/">جـــامعة الإســـــراء - غـزة
+                    </a>
+                </div>
+                <!-- END LOGO -->
+                <ul class="nav navbar-nav pull-right font-ha">
+
+                    <!-- END TODO DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown user">
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img src="#" class="isra-nave-person-img" alt="" id="image" runat="server" />
+                            <span class="username">
+                                <asp:Label ID="lblName" runat="server" Text="Label"></asp:Label></span>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li class="divider"></li>
+                            <li>
+                                <asp:LinkButton ID="lb" runat="server" OnClick="lb_Click"><i class="fa fa-key"></i>تسجيل الخروج</asp:LinkButton>
+                            </li>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+
+        </div>
+        <asp:Label ID="lblEmployeeID" runat="server" Visible="false"></asp:Label>
+        <% 
+            UserPage userpage = new UserPage();
+            lblEmployeeID.Text = userpage.User.Identity.Name;
+        %>
+        <!-- END HEADER -->
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container isra-contner">
+            <div class="page-sidebar navbar-collapse collapse isra-rightbare">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 327px;">
+
+                    <ul class="page-sidebar-menu font-ha">
+                        <li class="start isra-user">
+                            <a>
+                                <span class="title font-ha"></span>
+                                <br />
+                                <span class="title font-ha"></span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start active ">
+                            <a href="Default.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">الصفحة الرئيسية</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="new-library" class="">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span class="title">المكتبة جديد</span>
+                                <span class="selected"></span>
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <li id="new-library1">
+                                    <a href="/Library/NewLibrary/Containers.aspx">العناوين</a>
+                                </li>
+
+                                <li id="new-library1-2">
+                                    <a href="/Library/NewLibrary/ContainerCategoryAddEdit.aspx">تصنيفات العناوين</a>
+                                </li>
+                                <li id="new-library2">
+                                    <a href="/Library/NewLibrary/Books.aspx">الكتب</a>
+                                </li>
+                                <li id="new-library11">
+                                    <a href="/Library/NewLibrary/Periodicals.aspx">الدوريات</a>
+                                </li>
+                                <li id="new-library3">
+                                    <a href="/Library/NewLibrary/PublisherAddEdit.aspx">الناشرين</a>
+                                </li>
+                                <li id="new-library4">
+                                    <a href="/Library/NewLibrary/Employees.aspx">الموظفين</a>
+                                </li>
+                                <li id="new-library5">
+                                    <a href="/Library/NewLibrary/Students.aspx">الطلاب</a>
+                                </li>
+                                <li id="new-library6">
+                                    <a href="/Library/NewLibrary/Visitors.aspx">الزوار</a>
+                                </li>
+                                <li id="new-library7">
+                                    <a href="/Library/NewLibrary/VisitorAddEdit.aspx">إضافة زائر</a>
+                                </li>
+                                <li id="new-library8">
+                                    <a href="/Library/NewLibrary/BooksBorrowDetails.aspx">الكتب المستعارة</a>
+                                </li>
+                                <li id="new-library9">
+                                    <a href="/Library/NewLibrary/BookLanguageTypeStatistic.aspx">إحصائية كتب  اللغات و الأنواع</a>
+                                </li>
+
+                                <li id="new-library10">
+                                    <a href="/Library/NewLibrary/BookContainerCategoryStatistic.aspx">إحصائية كتب  التصنيفات</a>
+                                </li>
+
+                            </ul>
+                        </li>
+
+                        <li class="start ">
+                            <a href="/Library/LibraryLogin.aspx">
+                                <i class="fa fa-bookmark"></i>
+                                <span class="title">تسجيل  دخول الطلاب</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/InsertBook.aspx">
+                                <i class="glyphicon glyphicon-book"></i>
+                                <span class="title">اضافة كتب</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/E_BookAddEdit.aspx">
+                                <i class="glyphicon glyphicon-book"></i>
+                                <span class="title">اضافة الكتب الالكترونية</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <%--  <li class="start ">
+                            <a href="AllBooksView.aspx">
+                                <i class="fa fa-book"></i>
+                                <span class="title"> عرض الكتب</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>--%>
+                        <li class="start ">
+                            <a href="/Library/E_BookAllView.aspx">
+                                <i class="fa fa-book"></i>
+                                <span class="title">عرض جميع الكتب الالكترونية </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/E_BookView.aspx">
+                                <i class="fa fa-book"></i>
+                                <span class="title">عرض الكتب الالكترونية للموظف</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="search.aspx">
+                                <i class="fa fa-search"></i>
+                                <span class="title">البحث</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/BorrowCat.aspx">
+                                <i class="glyphicon glyphicon-book"></i>
+                                <span class="title">فئات المستعيرين</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/VisitorAddEdit.aspx">
+                                <i class="fa fa-user"></i>
+                                <span class="title">الزوار</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/BorrowBook.aspx">
+                                <i class="fa fa-asterisk"></i>
+                                <span class="title">الاعارة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="/Library/DelayNotification.aspx">
+                                <i class="fa fa-asterisk"></i>
+                                <span class="title">التنبيهات</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li class="start ">
+                            <a href="#">
+                                <i class="fa fa-book"></i>
+                                <span class="title">التقارير الاحصائية</span>
+                                <span class="selected"></span>
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="/Library/BookSurvay.aspx">حصر الكتب</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/BookCategorySearch.aspx">حصر الكتب حسب التصنيف</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/PeriodicBookSurvay.aspx">حصر الدوريات</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/LibraryRegisterReport.aspx">تقرير دخول المكتبة</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/MostRequestedBook.aspx">تقرير سنوي للكتب الأكثر طلبا</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/LostBooks.aspx">تقرير سنوي للكتب  المفقودة</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/DelayBorrowView.aspx">تقرير متابعة المتأخرين</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/BookStatusView.aspx">تقرير حالة الكتاب</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/borrowDataView.aspx">تقرير متابعة عملية الاعارة</a>
+                                </li>
+                                <li>
+                                    <a href="/Library/DelayNotificationReport.aspx">تقرير متابعة تنبيهات المتاخرين</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; left: 1px; height: 152.974px;"></div>
+                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN PAGE -->
+            <div class="page-content isra-contaner-heder-proparets">
+                <div class="row isra-contaner-heder isra-contaner-heder-pading">
+                    <div class="col-md-11">
+                        <ul class="page-breadcrumb breadcrumb  isra-contaner-heder">
+                            <li>
+                                <i class="fa fa-book"></i>
+                                <a href="Default.aspx" class="font-ha">المكتبة المركزية</a>
+                                <i class="fa fa-angle-left"></i>
+                            </li>
+
+                            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                            </asp:ContentPlaceHolder>
+                        </ul>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div style="clear: both"></div>
+                <!-- BEGIN isra-content -->
+                <div class="isra-content">
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- END isra-content -->
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <div class="footer-inner font-ha isra-color6">
+                جامعة الاسراء&copy;2015 
+            </div>
+            <div class="nav navbar-nav pull-right">
+                <div style="display: block; color: #fff; padding: 0px 15px; width: 250px;">
+                    <i class="fa fa-calendar"></i>
+                    <span class="font-ha isra-color6"><%= DateTime.Now.ToString("dddd dd MMMM yyyy - hh:mm tt") %></span>
+                </div>
+            </div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </form>
+</body>
+</html>
+

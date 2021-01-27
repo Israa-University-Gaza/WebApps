@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="BorrowerDataGet" targetNamespace="http://tempuri.org/BorrowerDataGet.xsd" xmlns:mstns="http://tempuri.org/BorrowerDataGet.xsd" xmlns="http://tempuri.org/BorrowerDataGet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="LibrarySystem" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="LibrarySystem (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.LibrarySystem.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="BorrowerDataGet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="False" msprop:Generator_DataSetName="BorrowerDataGet" msprop:Generator_UserDSName="BorrowerDataGet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BorrowerDataGet" msprop:Generator_TableClassName="BorrowerDataGetDataTable" msprop:Generator_TableVarName="tableBorrowerDataGet" msprop:Generator_TablePropName="_BorrowerDataGet" msprop:Generator_RowDeletingName="BorrowerDataGetRowDeleting" msprop:Generator_RowChangingName="BorrowerDataGetRowChanging" msprop:Generator_RowEvHandlerName="BorrowerDataGetRowChangeEventHandler" msprop:Generator_RowDeletedName="BorrowerDataGetRowDeleted" msprop:Generator_UserTableName="BorrowerDataGet" msprop:Generator_RowChangedName="BorrowerDataGetRowChanged" msprop:Generator_RowEvArgName="BorrowerDataGetRowChangeEvent" msprop:Generator_RowClassName="BorrowerDataGetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DisplayName" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ClientNumber" msprop:Generator_ColumnVarNameInTable="columnClientNumber" msprop:Generator_ColumnPropNameInRow="ClientNumber" msprop:Generator_ColumnPropNameInTable="ClientNumberColumn" msprop:Generator_UserColumnName="ClientNumber" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Phone" msprop:Generator_ColumnVarNameInTable="columnPhone" msprop:Generator_ColumnPropNameInRow="Phone" msprop:Generator_ColumnPropNameInTable="PhoneColumn" msprop:Generator_UserColumnName="Phone" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mobile" msprop:Generator_ColumnVarNameInTable="columnMobile" msprop:Generator_ColumnPropNameInRow="Mobile" msprop:Generator_ColumnPropNameInTable="MobileColumn" msprop:Generator_UserColumnName="Mobile" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Email" msprop:Generator_ColumnVarNameInTable="columnEmail" msprop:Generator_ColumnPropNameInRow="Email" msprop:Generator_ColumnPropNameInTable="EmailColumn" msprop:Generator_UserColumnName="Email" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Address" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAddress" msprop:Generator_ColumnPropNameInRow="Address" msprop:Generator_ColumnPropNameInTable="AddressColumn" msprop:Generator_UserColumnName="Address" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BorrowCatID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBorrowCatID" msprop:Generator_ColumnPropNameInRow="BorrowCatID" msprop:Generator_ColumnPropNameInTable="BorrowCatIDColumn" msprop:Generator_UserColumnName="BorrowCatID" type="xs:int" minOccurs="0" />
+              <xs:element name="BorrowCatType" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBorrowCatType" msprop:Generator_ColumnPropNameInRow="BorrowCatType" msprop:Generator_ColumnPropNameInTable="BorrowCatTypeColumn" msprop:Generator_UserColumnName="BorrowCatType" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BorrowMaxBookCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBorrowMaxBookCount" msprop:Generator_ColumnPropNameInRow="BorrowMaxBookCount" msprop:Generator_ColumnPropNameInTable="BorrowMaxBookCountColumn" msprop:Generator_UserColumnName="BorrowMaxBookCount" type="xs:int" minOccurs="0" />
+              <xs:element name="BorrowMaxDayCount" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBorrowMaxDayCount" msprop:Generator_ColumnPropNameInRow="BorrowMaxDayCount" msprop:Generator_ColumnPropNameInTable="BorrowMaxDayCountColumn" msprop:Generator_UserColumnName="BorrowMaxDayCount" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

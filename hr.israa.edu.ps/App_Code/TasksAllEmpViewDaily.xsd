@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="TasksAllEmpViewDaily" targetNamespace="http://tempuri.org/TasksAllEmpViewDaily.xsd" xmlns:mstns="http://tempuri.org/TasksAllEmpViewDaily.xsd" xmlns="http://tempuri.org/TasksAllEmpViewDaily.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="EmployeeTasks" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="EmployeeTasks (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.EmployeeTasks.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="TasksAllEmpViewDaily" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="TasksAllEmpViewDaily" msprop:Generator_UserDSName="TasksAllEmpViewDaily">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="TasksAllEmpViewDaily" msprop:Generator_TableClassName="TasksAllEmpViewDailyDataTable" msprop:Generator_TableVarName="tableTasksAllEmpViewDaily" msprop:Generator_TablePropName="_TasksAllEmpViewDaily" msprop:Generator_RowDeletingName="TasksAllEmpViewDailyRowDeleting" msprop:Generator_RowChangingName="TasksAllEmpViewDailyRowChanging" msprop:Generator_RowEvHandlerName="TasksAllEmpViewDailyRowChangeEventHandler" msprop:Generator_RowDeletedName="TasksAllEmpViewDailyRowDeleted" msprop:Generator_UserTableName="TasksAllEmpViewDaily" msprop:Generator_RowChangedName="TasksAllEmpViewDailyRowChanged" msprop:Generator_RowEvArgName="TasksAllEmpViewDailyRowChangeEvent" msprop:Generator_RowClassName="TasksAllEmpViewDailyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="TaskText" msprop:Generator_ColumnVarNameInTable="columnTaskText" msprop:Generator_ColumnPropNameInRow="TaskText" msprop:Generator_ColumnPropNameInTable="TaskTextColumn" msprop:Generator_UserColumnName="TaskText">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
+              <xs:element name="TaskStatusID" msprop:Generator_ColumnVarNameInTable="columnTaskStatusID" msprop:Generator_ColumnPropNameInRow="TaskStatusID" msprop:Generator_ColumnPropNameInTable="TaskStatusIDColumn" msprop:Generator_UserColumnName="TaskStatusID" type="xs:int" />
+              <xs:element name="Accreditation" msprop:Generator_ColumnVarNameInTable="columnAccreditation" msprop:Generator_ColumnPropNameInRow="Accreditation" msprop:Generator_ColumnPropNameInTable="AccreditationColumn" msprop:Generator_UserColumnName="Accreditation" type="xs:boolean" />
+              <xs:element name="IsDelete" msprop:Generator_ColumnVarNameInTable="columnIsDelete" msprop:Generator_ColumnPropNameInRow="IsDelete" msprop:Generator_ColumnPropNameInTable="IsDeleteColumn" msprop:Generator_UserColumnName="IsDelete" type="xs:boolean" />
+              <xs:element name="InsertDate" msprop:Generator_ColumnVarNameInTable="columnInsertDate" msprop:Generator_ColumnPropNameInRow="InsertDate" msprop:Generator_ColumnPropNameInTable="InsertDateColumn" msprop:Generator_UserColumnName="InsertDate" type="xs:dateTime" />
+              <xs:element name="InsertEmployeeID" msprop:Generator_ColumnVarNameInTable="columnInsertEmployeeID" msprop:Generator_ColumnPropNameInRow="InsertEmployeeID" msprop:Generator_ColumnPropNameInTable="InsertEmployeeIDColumn" msprop:Generator_UserColumnName="InsertEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="DeleteDate" msprop:Generator_ColumnVarNameInTable="columnDeleteDate" msprop:Generator_ColumnPropNameInRow="DeleteDate" msprop:Generator_ColumnPropNameInTable="DeleteDateColumn" msprop:Generator_UserColumnName="DeleteDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeleteEmployeeID" msprop:Generator_ColumnVarNameInTable="columnDeleteEmployeeID" msprop:Generator_ColumnPropNameInRow="DeleteEmployeeID" msprop:Generator_ColumnPropNameInTable="DeleteEmployeeIDColumn" msprop:Generator_UserColumnName="DeleteEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="UpdateDate" msprop:Generator_ColumnVarNameInTable="columnUpdateDate" msprop:Generator_ColumnPropNameInRow="UpdateDate" msprop:Generator_ColumnPropNameInTable="UpdateDateColumn" msprop:Generator_UserColumnName="UpdateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateEmployeeID" msprop:Generator_ColumnVarNameInTable="columnUpdateEmployeeID" msprop:Generator_ColumnPropNameInRow="UpdateEmployeeID" msprop:Generator_ColumnPropNameInTable="UpdateEmployeeIDColumn" msprop:Generator_UserColumnName="UpdateEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="AccreditationDate" msprop:Generator_ColumnVarNameInTable="columnAccreditationDate" msprop:Generator_ColumnPropNameInRow="AccreditationDate" msprop:Generator_ColumnPropNameInTable="AccreditationDateColumn" msprop:Generator_UserColumnName="AccreditationDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AccreditationEmployeeID" msprop:Generator_ColumnVarNameInTable="columnAccreditationEmployeeID" msprop:Generator_ColumnPropNameInRow="AccreditationEmployeeID" msprop:Generator_ColumnPropNameInTable="AccreditationEmployeeIDColumn" msprop:Generator_UserColumnName="AccreditationEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="displayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndisplayName" msprop:Generator_ColumnPropNameInRow="displayName" msprop:Generator_ColumnPropNameInTable="displayNameColumn" msprop:Generator_UserColumnName="displayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="TasksAllEmpView" msprop:Generator_TableClassName="TasksAllEmpViewDataTable" msprop:Generator_TableVarName="tableTasksAllEmpView" msprop:Generator_TablePropName="TasksAllEmpView" msprop:Generator_RowDeletingName="TasksAllEmpViewRowDeleting" msprop:Generator_RowChangingName="TasksAllEmpViewRowChanging" msprop:Generator_RowEvHandlerName="TasksAllEmpViewRowChangeEventHandler" msprop:Generator_RowDeletedName="TasksAllEmpViewRowDeleted" msprop:Generator_UserTableName="TasksAllEmpView" msprop:Generator_RowChangedName="TasksAllEmpViewRowChanged" msprop:Generator_RowEvArgName="TasksAllEmpViewRowChangeEvent" msprop:Generator_RowClassName="TasksAllEmpViewRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="TaskText" msprop:Generator_ColumnVarNameInTable="columnTaskText" msprop:Generator_ColumnPropNameInRow="TaskText" msprop:Generator_ColumnPropNameInTable="TaskTextColumn" msprop:Generator_UserColumnName="TaskText">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1073741823" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" />
+              <xs:element name="TaskStatusID" msprop:Generator_ColumnVarNameInTable="columnTaskStatusID" msprop:Generator_ColumnPropNameInRow="TaskStatusID" msprop:Generator_ColumnPropNameInTable="TaskStatusIDColumn" msprop:Generator_UserColumnName="TaskStatusID" type="xs:int" />
+              <xs:element name="Accreditation" msprop:Generator_ColumnVarNameInTable="columnAccreditation" msprop:Generator_ColumnPropNameInRow="Accreditation" msprop:Generator_ColumnPropNameInTable="AccreditationColumn" msprop:Generator_UserColumnName="Accreditation" type="xs:boolean" />
+              <xs:element name="IsDelete" msprop:Generator_ColumnVarNameInTable="columnIsDelete" msprop:Generator_ColumnPropNameInRow="IsDelete" msprop:Generator_ColumnPropNameInTable="IsDeleteColumn" msprop:Generator_UserColumnName="IsDelete" type="xs:boolean" />
+              <xs:element name="InsertDate" msprop:Generator_ColumnVarNameInTable="columnInsertDate" msprop:Generator_ColumnPropNameInRow="InsertDate" msprop:Generator_ColumnPropNameInTable="InsertDateColumn" msprop:Generator_UserColumnName="InsertDate" type="xs:dateTime" />
+              <xs:element name="InsertEmployeeID" msprop:Generator_ColumnVarNameInTable="columnInsertEmployeeID" msprop:Generator_ColumnPropNameInRow="InsertEmployeeID" msprop:Generator_ColumnPropNameInTable="InsertEmployeeIDColumn" msprop:Generator_UserColumnName="InsertEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="DeleteDate" msprop:Generator_ColumnVarNameInTable="columnDeleteDate" msprop:Generator_ColumnPropNameInRow="DeleteDate" msprop:Generator_ColumnPropNameInTable="DeleteDateColumn" msprop:Generator_UserColumnName="DeleteDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeleteEmployeeID" msprop:Generator_ColumnVarNameInTable="columnDeleteEmployeeID" msprop:Generator_ColumnPropNameInRow="DeleteEmployeeID" msprop:Generator_ColumnPropNameInTable="DeleteEmployeeIDColumn" msprop:Generator_UserColumnName="DeleteEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="UpdateDate" msprop:Generator_ColumnVarNameInTable="columnUpdateDate" msprop:Generator_ColumnPropNameInRow="UpdateDate" msprop:Generator_ColumnPropNameInTable="UpdateDateColumn" msprop:Generator_UserColumnName="UpdateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateEmployeeID" msprop:Generator_ColumnVarNameInTable="columnUpdateEmployeeID" msprop:Generator_ColumnPropNameInRow="UpdateEmployeeID" msprop:Generator_ColumnPropNameInTable="UpdateEmployeeIDColumn" msprop:Generator_UserColumnName="UpdateEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="AccreditationDate" msprop:Generator_ColumnVarNameInTable="columnAccreditationDate" msprop:Generator_ColumnPropNameInRow="AccreditationDate" msprop:Generator_ColumnPropNameInTable="AccreditationDateColumn" msprop:Generator_UserColumnName="AccreditationDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="AccreditationEmployeeID" msprop:Generator_ColumnVarNameInTable="columnAccreditationEmployeeID" msprop:Generator_ColumnPropNameInRow="AccreditationEmployeeID" msprop:Generator_ColumnPropNameInTable="AccreditationEmployeeIDColumn" msprop:Generator_UserColumnName="AccreditationEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="status" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnstatus" msprop:Generator_ColumnPropNameInRow="status" msprop:Generator_ColumnPropNameInTable="statusColumn" msprop:Generator_UserColumnName="status" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="displayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndisplayName" msprop:Generator_ColumnPropNameInRow="displayName" msprop:Generator_ColumnPropNameInTable="displayNameColumn" msprop:Generator_UserColumnName="displayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TasksAllEmpViewDaily" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="TasksAllEmpView_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:TasksAllEmpView" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

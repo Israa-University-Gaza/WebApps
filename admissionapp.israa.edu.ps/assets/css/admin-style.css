@@ -1,0 +1,105 @@
+﻿body {
+    background-image: url('../../images/bg.png')!important;
+    padding: 20px 0!important;
+}
+
+@font-face {
+    font-family: "hasan";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/isra/hasan.woff") format("woff"), url("../fonts/hasan.ttf") format("truetype"), url("../fonts/hasan.svg") format("svg");
+}
+
+@font-face {
+    font-family: "haneen";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/isra/haneen.woff") format("woff"), url("../fonts/haneen.ttf") format("truetype"), url("../fonts/haneen.svg") format("svg");
+}
+
+@font-face {
+    font-family: "fedaa";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/isra/fedaa.woff") format("woff"), url("../fonts/fedaa.ttf") format("truetype"), url("../fonts/fedaa.svg") format("svg");
+}
+
+@font-face {
+    font-family: "hasanin";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/isra/hasanin.woff") format("woff"), url("../fonts/hasanin.ttf") format("truetype"), url("../fonts/hasanin.svg") format("svg");
+}
+
+@font-face {
+    font-family: "lina";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/isra/lina.woff") format("woff"), url("../fonts/lina.ttf") format("truetype"), url("../fonts/lina.svg") format("svg");
+}
+
+.font-ha {
+    font-family: hasanin!important;
+    text-decoration: none!important;
+}
+
+.loginmain {
+    width: 800px;
+    margin: 0px auto;
+    direction: rtl;
+}
+
+.main {
+    max-width: 900px;
+    margin: 0px auto;
+    direction: rtl;
+    overflow:hidden;
+}
+
+.input-error {
+    border-color: #ee7f6d !important;
+}
+
+.wizard-header {
+    width: 14.28%;
+}
+.pad-zero {
+    padding:0px!important;
+}
+.pad-bottom-zero {
+    padding-bottom:0px!important;
+}
+    .wizard-header a span {
+        font-size:20px;
+        padding:10px 0;
+    }
+
+.dropdown-control {
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 1px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    color: #555;
+    display: block;
+    font-size: 14px;
+    height: 28px;
+    line-height: 1.42857;
+    padding: 3px 10px;
+}
+
+.w70 {
+    width:70px !important;
+}
+.w80 {
+    width:80px !important;
+}
+.w100 {
+    width:100px !important;
+}
+.w120 {
+    width:120px !important;
+}
+.w200 {
+    width:200px !important;
+}

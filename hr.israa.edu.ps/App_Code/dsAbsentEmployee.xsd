@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAbsentEmployee" targetNamespace="http://tempuri.org/dsAbsentEmployee.xsd" xmlns:mstns="http://tempuri.org/dsAbsentEmployee.xsd" xmlns="http://tempuri.org/dsAbsentEmployee.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HumanResources" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HumanResources (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HumanResources.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAbsentEmployee" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsAbsentEmployee" msprop:Generator_UserDSName="dsAbsentEmployee">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="AbsentEmpGet" msprop:Generator_TableClassName="AbsentEmpGetDataTable" msprop:Generator_TableVarName="tableAbsentEmpGet" msprop:Generator_TablePropName="AbsentEmpGet" msprop:Generator_RowDeletingName="AbsentEmpGetRowDeleting" msprop:Generator_RowChangingName="AbsentEmpGetRowChanging" msprop:Generator_RowEvHandlerName="AbsentEmpGetRowChangeEventHandler" msprop:Generator_RowDeletedName="AbsentEmpGetRowDeleted" msprop:Generator_UserTableName="AbsentEmpGet" msprop:Generator_RowChangedName="AbsentEmpGetRowChanged" msprop:Generator_RowEvArgName="AbsentEmpGetRowChangeEvent" msprop:Generator_RowClassName="AbsentEmpGetRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowNo" msprop:Generator_ColumnVarNameInTable="columnRowNo" msprop:Generator_ColumnPropNameInRow="RowNo" msprop:Generator_ColumnPropNameInTable="RowNoColumn" msprop:Generator_UserColumnName="RowNo" type="xs:long" minOccurs="0" />
+              <xs:element name="Emp_ID" msprop:Generator_ColumnVarNameInTable="columnEmp_ID" msprop:Generator_ColumnPropNameInRow="Emp_ID" msprop:Generator_ColumnPropNameInTable="Emp_IDColumn" msprop:Generator_UserColumnName="Emp_ID" type="xs:int" />
+              <xs:element name="EmpCategoryID" msprop:Generator_ColumnVarNameInTable="columnEmpCategoryID" msprop:Generator_ColumnPropNameInRow="EmpCategoryID" msprop:Generator_ColumnPropNameInTable="EmpCategoryIDColumn" msprop:Generator_UserColumnName="EmpCategoryID" type="xs:int" minOccurs="0" />
+              <xs:element name="Emp_Status_ID" msprop:Generator_ColumnVarNameInTable="columnEmp_Status_ID" msprop:Generator_ColumnPropNameInRow="Emp_Status_ID" msprop:Generator_ColumnPropNameInTable="Emp_Status_IDColumn" msprop:Generator_UserColumnName="Emp_Status_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="StartDate" msprop:Generator_ColumnVarNameInTable="columnStartDate" msprop:Generator_ColumnPropNameInRow="StartDate" msprop:Generator_ColumnPropNameInTable="StartDateColumn" msprop:Generator_UserColumnName="StartDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNo" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ContractTypeID" msprop:Generator_ColumnVarNameInTable="columnContractTypeID" msprop:Generator_ColumnPropNameInRow="ContractTypeID" msprop:Generator_ColumnPropNameInTable="ContractTypeIDColumn" msprop:Generator_UserColumnName="ContractTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="SubContractTypeID" msprop:Generator_ColumnVarNameInTable="columnSubContractTypeID" msprop:Generator_ColumnPropNameInRow="SubContractTypeID" msprop:Generator_ColumnPropNameInTable="SubContractTypeIDColumn" msprop:Generator_UserColumnName="SubContractTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeCatID" msprop:Generator_ColumnVarNameInTable="columnEmployeeCatID" msprop:Generator_ColumnPropNameInRow="EmployeeCatID" msprop:Generator_ColumnPropNameInTable="EmployeeCatIDColumn" msprop:Generator_UserColumnName="EmployeeCatID" type="xs:int" minOccurs="0" />
+              <xs:element name="Attendance_From1" msprop:Generator_ColumnVarNameInTable="columnAttendance_From1" msprop:Generator_ColumnPropNameInRow="Attendance_From1" msprop:Generator_ColumnPropNameInTable="Attendance_From1Column" msprop:Generator_UserColumnName="Attendance_From1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Attendance_From" msprop:Generator_ColumnVarNameInTable="columnAttendance_From" msprop:Generator_ColumnPropNameInRow="Attendance_From" msprop:Generator_ColumnPropNameInTable="Attendance_FromColumn" msprop:Generator_UserColumnName="Attendance_From" type="xs:duration" minOccurs="0" />
+              <xs:element name="Attendance_To" msprop:Generator_ColumnVarNameInTable="columnAttendance_To" msprop:Generator_ColumnPropNameInRow="Attendance_To" msprop:Generator_ColumnPropNameInTable="Attendance_ToColumn" msprop:Generator_UserColumnName="Attendance_To" type="xs:duration" minOccurs="0" />
+              <xs:element name="Notes" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Date" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="Date1" msprop:Generator_ColumnVarNameInTable="columnDate1" msprop:Generator_ColumnPropNameInRow="Date1" msprop:Generator_ColumnPropNameInTable="Date1Column" msprop:Generator_UserColumnName="Date1" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:AbsentEmpGet" />
+      <xs:field xpath="mstns:Emp_ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

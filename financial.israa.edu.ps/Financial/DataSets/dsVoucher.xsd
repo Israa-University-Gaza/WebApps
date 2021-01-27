@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsVoucher" targetNamespace="http://tempuri.org/dsVoucher.xsd" xmlns:mstns="http://tempuri.org/dsVoucher.xsd" xmlns="http://tempuri.org/dsVoucher.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsVoucher" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVoucher" msprop:Generator_UserDSName="dsVoucher">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsVoucher" msprop:Generator_TableClassName="dsVoucherDataTable" msprop:Generator_TableVarName="tabledsVoucher" msprop:Generator_RowChangedName="dsVoucherRowChanged" msprop:Generator_TablePropName="_dsVoucher" msprop:Generator_RowDeletingName="dsVoucherRowDeleting" msprop:Generator_RowChangingName="dsVoucherRowChanging" msprop:Generator_RowEvHandlerName="dsVoucherRowChangeEventHandler" msprop:Generator_RowDeletedName="dsVoucherRowDeleted" msprop:Generator_RowClassName="dsVoucherRow" msprop:Generator_UserTableName="dsVoucher" msprop:Generator_RowEvArgName="dsVoucherRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="VoucherNum" msprop:Generator_ColumnVarNameInTable="columnVoucherNum" msprop:Generator_ColumnPropNameInRow="VoucherNum" msprop:Generator_ColumnPropNameInTable="VoucherNumColumn" msprop:Generator_UserColumnName="VoucherNum" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAmount" msprop:Generator_ColumnVarNameInTable="columnTotalAmount" msprop:Generator_ColumnPropNameInRow="TotalAmount" msprop:Generator_ColumnPropNameInTable="TotalAmountColumn" msprop:Generator_UserColumnName="TotalAmount" type="xs:string" minOccurs="0" />
+              <xs:element name="InsertDate" msprop:Generator_ColumnVarNameInTable="columnInsertDate" msprop:Generator_ColumnPropNameInRow="InsertDate" msprop:Generator_ColumnPropNameInTable="InsertDateColumn" msprop:Generator_UserColumnName="InsertDate" type="xs:string" minOccurs="0" />
+              <xs:element name="AmountString" msprop:Generator_ColumnVarNameInTable="columnAmountString" msprop:Generator_ColumnPropNameInRow="AmountString" msprop:Generator_ColumnPropNameInTable="AmountStringColumn" msprop:Generator_UserColumnName="AmountString" type="xs:string" minOccurs="0" />
+              <xs:element name="ActionName" msprop:Generator_ColumnVarNameInTable="columnActionName" msprop:Generator_ColumnPropNameInRow="ActionName" msprop:Generator_ColumnPropNameInTable="ActionNameColumn" msprop:Generator_UserColumnName="ActionName" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentNo" msprop:Generator_ColumnVarNameInTable="columnStudentNo" msprop:Generator_ColumnPropNameInRow="StudentNo" msprop:Generator_ColumnPropNameInTable="StudentNoColumn" msprop:Generator_UserColumnName="StudentNo" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentName" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentCollege" msprop:Generator_ColumnVarNameInTable="columnStudentCollege" msprop:Generator_ColumnPropNameInRow="StudentCollege" msprop:Generator_ColumnPropNameInTable="StudentCollegeColumn" msprop:Generator_UserColumnName="StudentCollege" type="xs:string" minOccurs="0" />
+              <xs:element name="StudentDepartment" msprop:Generator_ColumnVarNameInTable="columnStudentDepartment" msprop:Generator_ColumnPropNameInRow="StudentDepartment" msprop:Generator_ColumnPropNameInTable="StudentDepartmentColumn" msprop:Generator_UserColumnName="StudentDepartment" type="xs:string" minOccurs="0" />
+              <xs:element name="EmployeeName" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="Note" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

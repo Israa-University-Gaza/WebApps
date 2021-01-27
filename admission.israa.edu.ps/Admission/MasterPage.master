@@ -1,0 +1,853 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Admission_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>جامعة الاسراء</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="MobileOptimized" content="320" />
+
+    <link href="../assets/css/isra-style.css" rel="stylesheet" />
+    <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="../assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/style-metronic-rtl.css" rel="stylesheet" />
+    <link href="../assets/css/style-rtl.css" rel="stylesheet" />
+    <link href="../assets/css/style-responsive-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="../assets/plugins/gritter/css/jquery.gritter-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/bootstrap-toastr/toastr-rtl.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../assets/plugins/select2/select2_metro_rtl.css" />
+
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/css/plugins-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/pages/tasks-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/css/themes/default-rtl.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets/css/custom-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style>
+        .control-label {
+            margin-top: 6px;
+        }
+
+        .isra-p-10 {
+            padding: 10px !important;
+        }
+    </style>
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="../assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN: Page level plugins -->
+    <script src="../assets/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../assets/plugins/select2/select2.min.js"></script>
+    <script src="../assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+    <!-- BEGIN:File Upload Plugin JS files-->
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <!-- END: Page level plugins -->
+    <script src="../assets/scripts/form-samples.js"></script>
+    <script src="../assets/scripts/app.js"></script>
+    <script src="../assets/plugins/arabic-input.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+            FormSamples.init();
+
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+
+    <script src="../Scripts/jquery.signalR-2.1.2.min.js" type="text/javascript"></script>
+    <script src="../signalr/hubs"></script>
+    <script src="../assets/scripts/israa.js"></script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-sidebar-fixed">
+    <form id="form1" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="header navbar navbar-inverse navbar-fixed-top isra-header">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="logo" style="">
+
+                    <asp:Repeater ID="Repeater3" runat="server" DataSourceID="SqlDataSource1">
+                        <ItemTemplate>
+                            <img src='<%# Eval("Emp_Picture") %>' alt="logo" class="img-responsive" />
+                        </ItemTemplate>
+                    </asp:Repeater>
+
+                </div>
+                <div class="isra-name">
+                    <a class="isra-namein font-ha">جـــامعة الإســـــراء - غـزة
+                    </a>
+                </div>
+                <!-- END LOGO -->
+                <ul class="nav navbar-nav pull-right font-ha">
+
+                    <li class="dropdown user">
+                        <asp:Label ID="lblEmployeeID" runat="server" Visible="false"></asp:Label>
+                        <%
+                            UserPage userpage = new UserPage();
+                            lblEmployeeID.Text = userpage.EmployeeID;
+                        %>
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <%--<img runat="server" id="image1" class="isra-nave-person-img" alt="" />--%>
+                            <asp:Repeater ID="Repeater4" runat="server" DataSourceID="SqlDataSource1">
+                                <ItemTemplate>
+                                    <img src='<%# Eval("Emp_Picture") %>' alt="logo" class="isra-nave-person-img" />
+                                </ItemTemplate>
+                            </asp:Repeater>
+
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                                <ItemTemplate>
+                                    <span class="username"><%# Eval("DisplayName") %></span>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                SelectCommand="GetEmployeeData" SelectCommandType="StoredProcedure">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="lblEmployeeID" PropertyName="Text" Name="EmployeeID" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="isra-p-10" href="ChangePassword.aspx"><i class="fa fa-user"></i>تغير كلمة المرور</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a id="trigger_fullscreen" class="isra-p-10" href="javascript:;"><i class="fa fa-move"></i>ملئ الشاشة</a>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lb" runat="server" OnClick="lb_Click" CssClass="isra-p-10"><i class="fa fa-key"></i>تسجيل الخروج</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+
+        </div>
+        <!-- END HEADER -->
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container isra-contner">
+            <div class="page-sidebar navbar-collapse collapse isra-rightbare">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 327px;">
+                    <ul class="page-sidebar-menu font-ha">
+                        <li class="start isra-user">
+                            <a>
+                                <%--<img runat="server" id="image2" class="title" width=" 120" height="120" />--%>
+                                <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource1">
+                                    <ItemTemplate>
+                                        <img runat="server" src='<%# Eval("Emp_Picture") %>' id="image2" class="title" width=" 120" height="120" />
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("DisplayName") %></span>
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("JobTitle") %></span>
+                                        <span class="selected"></span>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </a>
+                        </li>
+                        <li class="start active ">
+                            <a href="Default.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">الصفحة الرئيسية</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+
+                        <% if (userpage.IsPermissionsContains("ShowAdmissionApplication"))
+                            { %>
+                        <li class="" id="ShowAdmissionApplication">
+                            <a href="javascript:;">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">طلبات الالتحاق</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <% if (userpage.IsPermissionsContains("ShowAdmissionApplication"))
+                                    { %>
+                                <li id="ShowAdmissionApplication_1">
+                                    <a href="ShowAdmissionApplication.aspx">طلبات التحاق - طالب جديد</a>
+                                </li>
+                                <% } %>
+                                <li id="ShowAdmissionApplication_2">
+                                    <a href="AcceptStudentCondition.aspx">طلبات التحاق - طالب مجسر</a>
+                                </li>
+                                <% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                                    { %>
+                                <li id="ShowAdmissionApplication_3">
+                                    <a href="AcceptAdmissionApplication.aspx">قبول رغبات الطلاب</a>
+                                </li>
+                                <% } %>
+                                <li id="StdHowKnowStatistics">
+                                    <a href="StdHowKnowStatistics.aspx">إحصائية وسيلة المعرفة</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <% } %>
+
+
+                        <% if (userpage.IsPermissionsContains("Students"))
+                            { %>
+                        <li id="Student" class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">الطالب</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <% if (userpage.IsPermissionsContains("StudentsView"))
+                                    { %>
+                                <li id="Student_1">
+                                    <a href="Students.aspx">الطلاب النظاميين</a>
+                                </li>
+                                <li id="Student_6">
+                                    <a href="StudentsAcademicWarning.aspx">طلاب التحذير الأكاديمي</a>
+                                </li>
+                        </li>
+                        <li id="Student_7">
+                            <a href="StudentsNotRegisterdStdSection.aspx">طلاب الغاء التسجيل الفصلي</a>
+                        </li>
+                        <%--       <li id="Student_StudentsInterrupted">
+                                 <a href="StudentsInterrupted.aspx">الطلاب المنقطعين</a>
+                                </li>
+                                <li id="Student_StudentsGiveUp">
+                                    <a href="StudentsGiveUp.aspx">الطلاب المنسحبين</a>
+                                </li>
+                                <li id="Student_2">
+                                    <a href="RefusalStudents.aspx">الطلاب المرفوضين</a>
+                                </li>
+                                <li id="Student_3">
+                                    <a href="ReturnAdmissionStudents.aspx">الطلاب المرجعين</a>
+                                </li>
+                                <li id="Student_4">
+                                    <a href="DeletedStudents.aspx">الطلاب المحذوفين</a>
+                                </li>--%>
+                        <li id="Student_5">
+                            <a href="StudentsImages.aspx">صور الطلاب</a>
+                        </li>
+                        <% if (lblEmployeeID.Text == "9" || lblEmployeeID.Text == "5083" || lblEmployeeID.Text == "12" || lblEmployeeID.Text == "5123")
+                            { %>
+                        <li id="Student_8">
+                            <a href="StudentsPasswordNotupdated.aspx">إعادة تعيين كلمات المرور</a>
+                        </li>
+                        <% } %>
+                        <% } %>
+                    </ul>
+                    </li>
+                        <% } %>
+
+                    <li id="OfferdCourseManage" class="Block">
+                        <a href="OfferdCourseManage.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">المساقات المطروحة</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <% if (lblEmployeeID.Text != "5390" && lblEmployeeID.Text != "5301")
+                        { %>
+                    <li id="OfferdCourseStudentCounts" class="Block">
+                        <a href="OfferdCourseStudentCounts.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">اعداد طلبة المساقات المطروحة</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+
+                    <li id="StudentAcademicCalendar" class="Block">
+                        <a href="StudentAcademicCalendar.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">التقويم الأكاديمي</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <% } %>
+                    <li id="StudentsToCards" class="Block">
+                        <a href="StudentsToCards.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">بطاقات الطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+
+                    <% if (lblEmployeeID.Text != "5390" && lblEmployeeID.Text != "5301")
+                        { %>
+                    <li id="UpdateOfferdCourseMidtermExamDetails2">
+                        <a href="MidtermExamDetails.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">مواعيد الإمتحانات النصفية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+
+                    <li id="FinalExamDetails">
+                        <a href="FinalExamDetails.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">مواعيد الإمتحانات النهائية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+
+                    <li id="Statistics">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">الاحصائيات</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="StdDocumentTypeStatistics">
+                                <a href="StdDocumentTypeStatistics.aspx">الاحصائيات المالية</a>
+                            </li>
+
+                            <li id="StdSectionRegistreStatistics">
+                                <a href="StdSectionRegistreStatistics.aspx">احصائية تسجيل الطلبة</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <%--         <li id="DepartmentCourseNotInPlan">
+                            <a href="DepartmentCourseNotInPlan.aspx">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">مشاكل أكواد الأقسام</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>
+
+                        <li id="StudentCourseNotInPlan">
+                            <a href="StudentCourseNotInPlan.aspx">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">طلاب مشاكل أكواد الأقسام</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>--%>
+                    <li id="StudentsCourses" class="Block">
+                        <a href="StudentsCourses.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">طلبات تسجيل الطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <li id="StudentsGraduateAvowal" class="Block">
+                        <a href="StudentsGraduateAvowal.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">اقرار التخرج للطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <li id="Syllabus" class="Block">
+                        <a href="AdmissionSyllabus.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">توصيف المساقات</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <li id="menu3">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">قضايا طلابية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+
+
+                            <li id="menu3_1">
+                                <a href="AdmissionIssueShow.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">عرض القضايا</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+
+                            <li id="menu3_2">
+                                <a href="AdmissionIssueSearch.aspx">
+                                    <i class="fa fa-search"></i>
+                                    <span class="title">بحث عن قضايا الطلاب</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <% if (userpage.IsPermissionsContains("IssueEdit"))
+                                { %>
+                            <li id="menu3_3">
+                                <a href="AdmissionIssueEdit.aspx">
+                                    <i class="fa fa-edit"></i>
+                                    <span class="title">تعديل القضايا</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% if (lblEmployeeID.Text != "5390" && lblEmployeeID.Text != "5301")
+                        { %>
+                    <li id="menu15">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">طلبات المراجعة</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+
+
+                            <li id="menu15_1">
+                                <a href="MidtermMarkRevision.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">طلبات المراجعة النصفية</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+
+                            <li id="menu15_2">
+                                <a href="MarkRevision.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">طلبات المراجعة النهائية</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li id="menu9">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">مخالفات الطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="menu9_1">
+                                <a href="Infraction.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">عرض المخالفات</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li id="menu9_2">
+                                <a href="InfractionTypeAddEdit.aspx">
+                                    <i class="fa fa-edit"></i>
+                                    <span class="title">إضافة انواع المخالفات </span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li id="menu9_3">
+                                <a href="InfractionAddEdit.aspx">
+                                    <i class="fa fa-edit"></i>
+                                    <span class="title">إضافة المخالفات </span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <% } %>
+                    <%--                        <li class="Block">
+                            <a href="StudentSemesterRegisterStatistics.aspx">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">إحصائيات تسجيل الطلاب</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>--%>
+                    <% if (lblEmployeeID.Text != "5390" && lblEmployeeID.Text != "5301")
+                        { %>
+                    <li id="SemesterSectionStatistics">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">إحصائيات طلاب الشعب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="SemesterSectionStatistics_1">
+                                <a href="AcademicSectionStudents.aspx">
+                                    <i class="fa fa-cogs"></i>
+                                    <span class="title">إحصائيات طلاب شعبة</span>
+                                    <!-- اسم القائمة -->
+                                    <!-- ألسهم -->
+                                </a>
+                            </li>
+                            <li id="SemesterSectionStatistics_2" class="">
+                                <a href="SemesterSectionStatistics.aspx">
+                                    <i class="fa fa-user"></i>
+                                    <span class="title">إحصائيات أعداد الشعب  </span>
+
+                                </a>
+                            </li>
+                            <li id="SemesterSectionStatistics_3" class="">
+                                <a href="SemesterSectionStudentStatistics.aspx">
+                                    <i class="fa fa-user"></i>
+                                    <span class="title">إحصائيات طلاب الشعب  </span>
+
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <%--      <% if (userpage.IsPermissionsContains("ShowAdmissionApplication"))
+                            { %>--%>
+
+                    <li class="StudyTable">
+                        <a href="Block.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">الحزم</span>
+                            <span class="arrow"></span>
+                        </a>
+
+                    </li>
+                    <% } %>
+                    <%--                <% } %>--%>
+
+                    <%--<% if (userpage.IsPermissionsContains("Conditions"))
+                           { %>--%>
+                    <li class="Block">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">الشروط</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <%--    <% if (userpage.IsPermissionsContains("ConditionsAdd"))
+                                   { %>--%>
+                            <li>
+                                <a href="Conditions.aspx">اضافة وتعديل الشروط  </a>
+                            </li>
+                            <%--        <% } %>
+                                    <% if (userpage.IsPermissionsContains("AdmissionConditionsAdd"))
+                                   { %>--%>
+                            <li>
+                                <a href="AdmissionConditions.aspx">اضافة وتعديل تنسيب الشروط لنوع الطالب  </a>
+                            </li>
+                            <%--      <% } %>--%>
+                        </ul>
+                    </li>
+                    <%-- <% } %>--%>
+
+                    <% if (lblEmployeeID.Text != "5390" && lblEmployeeID.Text != "5301")
+                        { %>
+                    <% if (userpage.IsPermissionsContains("Advertisement"))
+                        { %>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">اعلانات الطلبة</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <% if (userpage.IsPermissionsContains("AdvertisementAdd"))
+                                { %>
+                            <li>
+                                <a href="Advertisement.aspx">اضافة وتعديل اعلانات الطلبة</a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% } %>
+                    <%--  <% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                           { %>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="fa fa-cogs"></i>
+                                <span class="title">قبول رغبات الطلاب</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow"></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                                   { %>
+                                <li>
+                                    <a href="AcceptAdmissionApplication.aspx">قبول رغبات الطلاب</a>
+                                </li>
+                                <% } %>
+                            </ul>
+                        </li>
+                        <% } %>--%>
+
+                    <%--    <% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                           { %>--%>
+                    <li id="menu_5">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">رسائل جوال</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="SendSMS">
+                                <a href="SendSMS.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">ارسال رسائل جوال</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                            <li id="TawjihiSMS">
+                                <a href="TawjihiSMS.aspx">
+                                    <i class="fa fa-stack-exchange"></i>
+                                    <span class="title">ارسال رسائل جوال اكسل</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+
+                            <li id="StdMessages">
+                                <a href="StdMessages.aspx">
+                                    <i class="fa fa-edit"></i>
+                                    <span class="title">عرض رسائل الجوال</span>
+                                    <span class="selected"></span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <%--    <% } %>--%>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">الإمتحانات</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="UpdateOfferdCourseFinalExamDetails.aspx">مواعيد الإمتحانات</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <% } %>
+                    <li id="StudentDocumentStatistic" class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">مستندات الطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li id="StudentDocumentStatistic_1">
+                                <a href="StudentDocumentStatistic.aspx">احصائية مستندات الطلاب</a>
+                            </li>
+                            <li id="StudentDocumentStatistic_2">
+                                <a href="DocumentStudents.aspx">احصائية طلاب المستند</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">إيقاف صفحات الطلاب</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <li>
+                                <a href="StudentSuspendedConditionAddEdit.aspx">شروط إيقاف صفحات الطلاب</a>
+                            </li>
+                            <li>
+                                <a href="SuspendedStudents.aspx">الطلاب الموقوفين</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <%--    <% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                           { %>--%>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">الخطط الدراسية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <%--<% if (userpage.IsPermissionsContains("AcceptAdmissionApplication"))
+                                   { %>--%>
+                            <li>
+                                <a href="PlanReport.aspx">طباعة الخطط الدراسية</a>
+                            </li>
+                            <%--  <% } %>--%>
+                        </ul>
+                    </li>
+                    <%--    <% } %>--%>
+
+                    <% if (userpage.IsPermissionsContains("AdmissionReportData"))
+                        { %>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">التقارير الدورية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <% if (userpage.IsPermissionsContains("AdmissionReportData"))
+                                { %>
+                            <li>
+                                <a href="ReportData.aspx">بناء التقارير الدورية</a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if (userpage.IsPermissionsContains("AdmissionModelReport"))
+                        { %>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">النماذج والتقارير</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                        <ul class="sub-menu">
+                            <% if (userpage.IsPermissionsContains("AdmissionModelReport"))
+                                { %>
+                            <li>
+                                <a href="ModelReport.aspx">النماذج والتقارير</a>
+                            </li>
+
+                            <li>
+                                <a href="StudentStatistics.aspx">إحصائية اعداد الطلاب لكل كلية</a>
+                            </li>
+
+                            <li>
+                                <a href="SemesterStudentPaiedFees.aspx">الطلاب مسددي الرسوم</a>
+                            </li>
+                            <% } %>
+                        </ul>
+                    </li>
+                    <% } %>
+
+                    <% if (userpage.IsPermissionsContains("AdmissionModelReport"))
+                        { %>
+                    <li class="">
+                        <a href="AcademicStudentStatistics.aspx">
+                            <i class="fa fa-cogs"></i>
+                            <span class="title">إحصائية اعداد الطلاب لكل كلية</span>
+                            <!-- اسم القائمة -->
+                            <span class="arrow"></span>
+                            <!-- ألسهم -->
+                        </a>
+                    </li>
+                    <% } %>
+                    </ul>
+                    <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; left: 1px; height: 152.974px;"></div>
+                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN PAGE -->
+            <div class="page-content isra-contaner-heder-proparets">
+                <div class="row isra-contaner-heder isra-contaner-heder-pading">
+                    <div class="col-md-11">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div style="clear: both"></div>
+                <!-- BEGIN isra-content -->
+                <div class="isra-content">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- END isra-content -->
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <div class="footer-inner font-ha isra-color6">
+                جامعة الاسراء&copy;2015
+            </div>
+            <div class="nav navbar-nav pull-right">
+                <div style="display: block; color: #fff; padding: 0px 15px; width: 250px;">
+                    <i class="fa fa-calendar"></i>
+                    <span class="font-ha isra-color6"><%= DateTime.Now.ToString("dddd dd MMMM yyyy - hh:mm tt") %></span>
+                </div>
+            </div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </form>
+</body>
+</html>

@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="CalculatedSalary" targetNamespace="http://tempuri.org/CalculatedSalary.xsd" xmlns:mstns="http://tempuri.org/CalculatedSalary.xsd" xmlns="http://tempuri.org/CalculatedSalary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HumanResources" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HumanResources (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HumanResources.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="CalculatedSalary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="CalculatedSalary" msprop:Generator_UserDSName="CalculatedSalary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetEmployessBankSalaryWithCurrency" msprop:Generator_TableClassName="GetEmployessBankSalaryWithCurrencyDataTable" msprop:Generator_TableVarName="tableGetEmployessBankSalaryWithCurrency" msprop:Generator_TablePropName="GetEmployessBankSalaryWithCurrency" msprop:Generator_RowDeletingName="GetEmployessBankSalaryWithCurrencyRowDeleting" msprop:Generator_RowChangingName="GetEmployessBankSalaryWithCurrencyRowChanging" msprop:Generator_RowEvHandlerName="GetEmployessBankSalaryWithCurrencyRowChangeEventHandler" msprop:Generator_RowDeletedName="GetEmployessBankSalaryWithCurrencyRowDeleted" msprop:Generator_UserTableName="GetEmployessBankSalaryWithCurrency" msprop:Generator_RowChangedName="GetEmployessBankSalaryWithCurrencyRowChanged" msprop:Generator_RowEvArgName="GetEmployessBankSalaryWithCurrencyRowChangeEvent" msprop:Generator_RowClassName="GetEmployessBankSalaryWithCurrencyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="EmployeeID" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="Month" msprop:Generator_ColumnVarNameInTable="columnMonth" msprop:Generator_ColumnPropNameInRow="Month" msprop:Generator_ColumnPropNameInTable="MonthColumn" msprop:Generator_UserColumnName="Month" type="xs:int" />
+              <xs:element name="YearName" msprop:Generator_ColumnVarNameInTable="columnYearName" msprop:Generator_ColumnPropNameInRow="YearName" msprop:Generator_ColumnPropNameInTable="YearNameColumn" msprop:Generator_UserColumnName="YearName" type="xs:int" />
+              <xs:element name="BankSalary" msprop:Generator_ColumnVarNameInTable="columnBankSalary" msprop:Generator_ColumnPropNameInRow="BankSalary" msprop:Generator_ColumnPropNameInTable="BankSalaryColumn" msprop:Generator_UserColumnName="BankSalary" type="xs:double" />
+              <xs:element name="BankCurrencyID" msprop:Generator_ColumnVarNameInTable="columnBankCurrencyID" msprop:Generator_ColumnPropNameInRow="BankCurrencyID" msprop:Generator_ColumnPropNameInTable="BankCurrencyIDColumn" msprop:Generator_UserColumnName="BankCurrencyID" type="xs:int" minOccurs="0" />
+              <xs:element name="UnivSalary" msprop:Generator_ColumnVarNameInTable="columnUnivSalary" msprop:Generator_ColumnPropNameInRow="UnivSalary" msprop:Generator_ColumnPropNameInTable="UnivSalaryColumn" msprop:Generator_UserColumnName="UnivSalary" type="xs:double" />
+              <xs:element name="UnivCurrencyID" msprop:Generator_ColumnVarNameInTable="columnUnivCurrencyID" msprop:Generator_ColumnPropNameInRow="UnivCurrencyID" msprop:Generator_ColumnPropNameInTable="UnivCurrencyIDColumn" msprop:Generator_UserColumnName="UnivCurrencyID" type="xs:int" minOccurs="0" />
+              <xs:element name="ExternalSalary" msprop:Generator_ColumnVarNameInTable="columnExternalSalary" msprop:Generator_ColumnPropNameInRow="ExternalSalary" msprop:Generator_ColumnPropNameInTable="ExternalSalaryColumn" msprop:Generator_UserColumnName="ExternalSalary" type="xs:double" />
+              <xs:element name="ExternalCurrencyID" msprop:Generator_ColumnVarNameInTable="columnExternalCurrencyID" msprop:Generator_ColumnPropNameInRow="ExternalCurrencyID" msprop:Generator_ColumnPropNameInTable="ExternalCurrencyIDColumn" msprop:Generator_UserColumnName="ExternalCurrencyID" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalExternalDeduction" msprop:Generator_ColumnVarNameInTable="columnTotalExternalDeduction" msprop:Generator_ColumnPropNameInRow="TotalExternalDeduction" msprop:Generator_ColumnPropNameInTable="TotalExternalDeductionColumn" msprop:Generator_UserColumnName="TotalExternalDeduction" type="xs:double" />
+              <xs:element name="TotalHRDeduction" msprop:Generator_ColumnVarNameInTable="columnTotalHRDeduction" msprop:Generator_ColumnPropNameInRow="TotalHRDeduction" msprop:Generator_ColumnPropNameInTable="TotalHRDeductionColumn" msprop:Generator_UserColumnName="TotalHRDeduction" type="xs:double" />
+              <xs:element name="ReceviedBank" msprop:Generator_ColumnVarNameInTable="columnReceviedBank" msprop:Generator_ColumnPropNameInRow="ReceviedBank" msprop:Generator_ColumnPropNameInTable="ReceviedBankColumn" msprop:Generator_UserColumnName="ReceviedBank" type="xs:double" minOccurs="0" />
+              <xs:element name="ReceviedUniv" msprop:Generator_ColumnVarNameInTable="columnReceviedUniv" msprop:Generator_ColumnPropNameInRow="ReceviedUniv" msprop:Generator_ColumnPropNameInTable="ReceviedUnivColumn" msprop:Generator_UserColumnName="ReceviedUniv" type="xs:double" minOccurs="0" />
+              <xs:element name="IsDelete" msprop:Generator_ColumnVarNameInTable="columnIsDelete" msprop:Generator_ColumnPropNameInRow="IsDelete" msprop:Generator_ColumnPropNameInTable="IsDeleteColumn" msprop:Generator_UserColumnName="IsDelete" type="xs:boolean" />
+              <xs:element name="InsertDate" msprop:Generator_ColumnVarNameInTable="columnInsertDate" msprop:Generator_ColumnPropNameInRow="InsertDate" msprop:Generator_ColumnPropNameInTable="InsertDateColumn" msprop:Generator_UserColumnName="InsertDate" type="xs:dateTime" />
+              <xs:element name="InsertEmployeeID" msprop:Generator_ColumnVarNameInTable="columnInsertEmployeeID" msprop:Generator_ColumnPropNameInRow="InsertEmployeeID" msprop:Generator_ColumnPropNameInTable="InsertEmployeeIDColumn" msprop:Generator_UserColumnName="InsertEmployeeID" type="xs:int" />
+              <xs:element name="UpdateDate" msprop:Generator_ColumnVarNameInTable="columnUpdateDate" msprop:Generator_ColumnPropNameInRow="UpdateDate" msprop:Generator_ColumnPropNameInTable="UpdateDateColumn" msprop:Generator_UserColumnName="UpdateDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="UpdateEmployeeID" msprop:Generator_ColumnVarNameInTable="columnUpdateEmployeeID" msprop:Generator_ColumnPropNameInRow="UpdateEmployeeID" msprop:Generator_ColumnPropNameInTable="UpdateEmployeeIDColumn" msprop:Generator_UserColumnName="UpdateEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="DeleteDate" msprop:Generator_ColumnVarNameInTable="columnDeleteDate" msprop:Generator_ColumnPropNameInRow="DeleteDate" msprop:Generator_ColumnPropNameInTable="DeleteDateColumn" msprop:Generator_UserColumnName="DeleteDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DeleteEmployeeID" msprop:Generator_ColumnVarNameInTable="columnDeleteEmployeeID" msprop:Generator_ColumnPropNameInRow="DeleteEmployeeID" msprop:Generator_ColumnPropNameInTable="DeleteEmployeeIDColumn" msprop:Generator_UserColumnName="DeleteEmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SSN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSSN" msprop:Generator_ColumnPropNameInRow="SSN" msprop:Generator_ColumnPropNameInTable="SSNColumn" msprop:Generator_UserColumnName="SSN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="BankAccountNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnBankAccountNo" msprop:Generator_ColumnPropNameInRow="BankAccountNo" msprop:Generator_ColumnPropNameInTable="BankAccountNoColumn" msprop:Generator_UserColumnName="BankAccountNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CurrencyName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCurrencyName" msprop:Generator_ColumnPropNameInRow="CurrencyName" msprop:Generator_ColumnPropNameInTable="CurrencyNameColumn" msprop:Generator_UserColumnName="CurrencyName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MonthName" msprop:Generator_ColumnVarNameInTable="columnMonthName" msprop:Generator_ColumnPropNameInRow="MonthName" msprop:Generator_ColumnPropNameInTable="MonthNameColumn" msprop:Generator_UserColumnName="MonthName" type="xs:string" minOccurs="0" />
+              <xs:element name="BankName" msprop:Generator_ColumnVarNameInTable="columnBankName" msprop:Generator_ColumnPropNameInRow="BankName" msprop:Generator_ColumnPropNameInTable="BankNameColumn" msprop:Generator_UserColumnName="BankName" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetTotalEmployeesSalary" msprop:Generator_TableClassName="GetTotalEmployeesSalaryDataTable" msprop:Generator_TableVarName="tableGetTotalEmployeesSalary" msprop:Generator_TablePropName="GetTotalEmployeesSalary" msprop:Generator_RowDeletingName="GetTotalEmployeesSalaryRowDeleting" msprop:Generator_RowChangingName="GetTotalEmployeesSalaryRowChanging" msprop:Generator_RowEvHandlerName="GetTotalEmployeesSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="GetTotalEmployeesSalaryRowDeleted" msprop:Generator_UserTableName="GetTotalEmployeesSalary" msprop:Generator_RowChangedName="GetTotalEmployeesSalaryRowChanged" msprop:Generator_RowEvArgName="GetTotalEmployeesSalaryRowChangeEvent" msprop:Generator_RowClassName="GetTotalEmployeesSalaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:int" />
+              <xs:element name="year" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_UserColumnName="year" type="xs:int" />
+              <xs:element name="TotalDinarBankSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarBankSalary" msprop:Generator_ColumnPropNameInRow="TotalDinarBankSalary" msprop:Generator_ColumnPropNameInTable="TotalDinarBankSalaryColumn" msprop:Generator_UserColumnName="TotalDinarBankSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDinarBankSalaryInWord" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarBankSalaryInWord" msprop:Generator_ColumnPropNameInRow="TotalDinarBankSalaryInWord" msprop:Generator_ColumnPropNameInTable="TotalDinarBankSalaryInWordColumn" msprop:Generator_UserColumnName="TotalDinarBankSalaryInWord" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalShikelsBankSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsBankSalary" msprop:Generator_ColumnPropNameInRow="TotalShikelsBankSalary" msprop:Generator_ColumnPropNameInTable="TotalShikelsBankSalaryColumn" msprop:Generator_UserColumnName="TotalShikelsBankSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalShikelsBankSalaryInWord" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsBankSalaryInWord" msprop:Generator_ColumnPropNameInRow="TotalShikelsBankSalaryInWord" msprop:Generator_ColumnPropNameInTable="TotalShikelsBankSalaryInWordColumn" msprop:Generator_UserColumnName="TotalShikelsBankSalaryInWord" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Today" msprop:Generator_ColumnVarNameInTable="columnToday" msprop:Generator_ColumnPropNameInRow="Today" msprop:Generator_ColumnPropNameInTable="TodayColumn" msprop:Generator_UserColumnName="Today" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDollarsBankSalary" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsBankSalary" msprop:Generator_ColumnPropNameInRow="TotalDollarsBankSalary" msprop:Generator_ColumnPropNameInTable="TotalDollarsBankSalaryColumn" msprop:Generator_UserColumnName="TotalDollarsBankSalary" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDollarsBankSalaryInWord" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsBankSalaryInWord" msprop:Generator_ColumnPropNameInRow="TotalDollarsBankSalaryInWord" msprop:Generator_ColumnPropNameInTable="TotalDollarsBankSalaryInWordColumn" msprop:Generator_UserColumnName="TotalDollarsBankSalaryInWord" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetEmployeeUnivSalary" msprop:Generator_TableClassName="GetEmployeeUnivSalaryDataTable" msprop:Generator_TableVarName="tableGetEmployeeUnivSalary" msprop:Generator_TablePropName="GetEmployeeUnivSalary" msprop:Generator_RowDeletingName="GetEmployeeUnivSalaryRowDeleting" msprop:Generator_RowChangingName="GetEmployeeUnivSalaryRowChanging" msprop:Generator_RowEvHandlerName="GetEmployeeUnivSalaryRowChangeEventHandler" msprop:Generator_RowDeletedName="GetEmployeeUnivSalaryRowDeleted" msprop:Generator_UserTableName="GetEmployeeUnivSalary" msprop:Generator_RowChangedName="GetEmployeeUnivSalaryRowChanged" msprop:Generator_RowEvArgName="GetEmployeeUnivSalaryRowChangeEvent" msprop:Generator_RowClassName="GetEmployeeUnivSalaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="UnivSalary" msprop:Generator_ColumnVarNameInTable="columnUnivSalary" msprop:Generator_ColumnPropNameInRow="UnivSalary" msprop:Generator_ColumnPropNameInTable="UnivSalaryColumn" msprop:Generator_UserColumnName="UnivSalary" type="xs:double" />
+              <xs:element name="UnivCurrency" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnUnivCurrency" msprop:Generator_ColumnPropNameInRow="UnivCurrency" msprop:Generator_ColumnPropNameInTable="UnivCurrencyColumn" msprop:Generator_UserColumnName="UnivCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ExternalSalary" msprop:Generator_ColumnVarNameInTable="columnExternalSalary" msprop:Generator_ColumnPropNameInRow="ExternalSalary" msprop:Generator_ColumnPropNameInTable="ExternalSalaryColumn" msprop:Generator_UserColumnName="ExternalSalary" type="xs:double" />
+              <xs:element name="ExternalCurrency" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnExternalCurrency" msprop:Generator_ColumnPropNameInRow="ExternalCurrency" msprop:Generator_ColumnPropNameInTable="ExternalCurrencyColumn" msprop:Generator_UserColumnName="ExternalCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalExternalDeduction" msprop:Generator_ColumnVarNameInTable="columnTotalExternalDeduction" msprop:Generator_ColumnPropNameInRow="TotalExternalDeduction" msprop:Generator_ColumnPropNameInTable="TotalExternalDeductionColumn" msprop:Generator_UserColumnName="TotalExternalDeduction" type="xs:double" />
+              <xs:element name="TotalHRDeduction" msprop:Generator_ColumnVarNameInTable="columnTotalHRDeduction" msprop:Generator_ColumnPropNameInRow="TotalHRDeduction" msprop:Generator_ColumnPropNameInTable="TotalHRDeductionColumn" msprop:Generator_UserColumnName="TotalHRDeduction" type="xs:double" />
+              <xs:element name="ReceviedUniv" msprop:Generator_ColumnVarNameInTable="columnReceviedUniv" msprop:Generator_ColumnPropNameInRow="ReceviedUniv" msprop:Generator_ColumnPropNameInTable="ReceviedUnivColumn" msprop:Generator_UserColumnName="ReceviedUniv" type="xs:double" minOccurs="0" />
+              <xs:element name="ReceviedUnivCurrency" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReceviedUnivCurrency" msprop:Generator_ColumnPropNameInRow="ReceviedUnivCurrency" msprop:Generator_ColumnPropNameInTable="ReceviedUnivCurrencyColumn" msprop:Generator_UserColumnName="ReceviedUnivCurrency" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:string" minOccurs="0" />
+              <xs:element name="year" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_UserColumnName="year" type="xs:string" minOccurs="0" />
+              <xs:element name="UnivCurrencyID" msprop:Generator_ColumnVarNameInTable="columnUnivCurrencyID" msprop:Generator_ColumnPropNameInRow="UnivCurrencyID" msprop:Generator_ColumnPropNameInTable="UnivCurrencyIDColumn" msprop:Generator_UserColumnName="UnivCurrencyID" type="xs:string" minOccurs="0" />
+              <xs:element name="UnivAfterDeduct" msprop:Generator_ColumnVarNameInTable="columnUnivAfterDeduct" msprop:Generator_ColumnPropNameInRow="UnivAfterDeduct" msprop:Generator_ColumnPropNameInTable="UnivAfterDeductColumn" msprop:Generator_UserColumnName="UnivAfterDeduct" type="xs:string" minOccurs="0" />
+              <xs:element name="ExternalAfterDeduct" msprop:Generator_ColumnVarNameInTable="columnExternalAfterDeduct" msprop:Generator_ColumnPropNameInRow="ExternalAfterDeduct" msprop:Generator_ColumnPropNameInTable="ExternalAfterDeductColumn" msprop:Generator_UserColumnName="ExternalAfterDeduct" type="xs:string" minOccurs="0" />
+              <xs:element name="ReceviedUnivCurrencyID" msprop:Generator_ColumnVarNameInTable="columnReceviedUnivCurrencyID" msprop:Generator_ColumnPropNameInRow="ReceviedUnivCurrencyID" msprop:Generator_ColumnPropNameInTable="ReceviedUnivCurrencyIDColumn" msprop:Generator_UserColumnName="ReceviedUnivCurrencyID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetTotalUnivSalaryStatistics" msprop:Generator_TableClassName="GetTotalUnivSalaryStatisticsDataTable" msprop:Generator_TableVarName="tableGetTotalUnivSalaryStatistics" msprop:Generator_RowChangedName="GetTotalUnivSalaryStatisticsRowChanged" msprop:Generator_TablePropName="GetTotalUnivSalaryStatistics" msprop:Generator_RowDeletingName="GetTotalUnivSalaryStatisticsRowDeleting" msprop:Generator_RowChangingName="GetTotalUnivSalaryStatisticsRowChanging" msprop:Generator_RowEvHandlerName="GetTotalUnivSalaryStatisticsRowChangeEventHandler" msprop:Generator_RowDeletedName="GetTotalUnivSalaryStatisticsRowDeleted" msprop:Generator_RowClassName="GetTotalUnivSalaryStatisticsRow" msprop:Generator_UserTableName="GetTotalUnivSalaryStatistics" msprop:Generator_RowEvArgName="GetTotalUnivSalaryStatisticsRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="TotalUnivShikelSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalUnivShikelSalary" msprop:Generator_ColumnPropNameInRow="TotalUnivShikelSalary" msprop:Generator_ColumnPropNameInTable="TotalUnivShikelSalaryColumn" msprop:Generator_UserColumnName="TotalUnivShikelSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalExternalShikelSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalExternalShikelSalary" msprop:Generator_ColumnPropNameInRow="TotalExternalShikelSalary" msprop:Generator_ColumnPropNameInTable="TotalExternalShikelSalaryColumn" msprop:Generator_UserColumnName="TotalExternalShikelSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="DinarUnivSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDinarUnivSalary" msprop:Generator_ColumnPropNameInRow="DinarUnivSalary" msprop:Generator_ColumnPropNameInTable="DinarUnivSalaryColumn" msprop:Generator_UserColumnName="DinarUnivSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="DollarUnivSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDollarUnivSalary" msprop:Generator_ColumnPropNameInRow="DollarUnivSalary" msprop:Generator_ColumnPropNameInTable="DollarUnivSalaryColumn" msprop:Generator_UserColumnName="DollarUnivSalary" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetSalayVolunteerMotivation" msprop:Generator_TableClassName="GetSalayVolunteerMotivationDataTable" msprop:Generator_TableVarName="tableGetSalayVolunteerMotivation" msprop:Generator_RowChangedName="GetSalayVolunteerMotivationRowChanged" msprop:Generator_TablePropName="GetSalayVolunteerMotivation" msprop:Generator_RowDeletingName="GetSalayVolunteerMotivationRowDeleting" msprop:Generator_RowChangingName="GetSalayVolunteerMotivationRowChanging" msprop:Generator_RowEvHandlerName="GetSalayVolunteerMotivationRowChangeEventHandler" msprop:Generator_RowDeletedName="GetSalayVolunteerMotivationRowDeleted" msprop:Generator_RowClassName="GetSalayVolunteerMotivationRow" msprop:Generator_UserTableName="GetSalayVolunteerMotivation" msprop:Generator_RowEvArgName="GetSalayVolunteerMotivationRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="EmployeeNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SSN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSSN" msprop:Generator_ColumnPropNameInRow="SSN" msprop:Generator_ColumnPropNameInTable="SSNColumn" msprop:Generator_UserColumnName="SSN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="MotivationSalary" msprop:Generator_ColumnVarNameInTable="columnMotivationSalary" msprop:Generator_ColumnPropNameInRow="MotivationSalary" msprop:Generator_ColumnPropNameInTable="MotivationSalaryColumn" msprop:Generator_UserColumnName="MotivationSalary" type="xs:double" />
+              <xs:element name="DateNow" msprop:Generator_ColumnVarNameInTable="columnDateNow" msprop:Generator_ColumnPropNameInRow="DateNow" msprop:Generator_ColumnPropNameInTable="DateNowColumn" msprop:Generator_UserColumnName="DateNow" type="xs:string" minOccurs="0" />
+              <xs:element name="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:string" minOccurs="0" />
+              <xs:element name="year" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_UserColumnName="year" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetTotalSalariesStatistics" msprop:Generator_TableClassName="GetTotalSalariesStatisticsDataTable" msprop:Generator_TableVarName="tableGetTotalSalariesStatistics" msprop:Generator_TablePropName="GetTotalSalariesStatistics" msprop:Generator_RowDeletingName="GetTotalSalariesStatisticsRowDeleting" msprop:Generator_RowChangingName="GetTotalSalariesStatisticsRowChanging" msprop:Generator_RowEvHandlerName="GetTotalSalariesStatisticsRowChangeEventHandler" msprop:Generator_RowDeletedName="GetTotalSalariesStatisticsRowDeleted" msprop:Generator_UserTableName="GetTotalSalariesStatistics" msprop:Generator_RowChangedName="GetTotalSalariesStatisticsRowChanged" msprop:Generator_RowEvArgName="GetTotalSalariesStatisticsRowChangeEvent" msprop:Generator_RowClassName="GetTotalSalariesStatisticsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="month" msprop:Generator_ColumnVarNameInTable="columnmonth" msprop:Generator_ColumnPropNameInRow="month" msprop:Generator_ColumnPropNameInTable="monthColumn" msprop:Generator_UserColumnName="month" type="xs:int" />
+              <xs:element name="year" msprop:Generator_ColumnVarNameInTable="columnyear" msprop:Generator_ColumnPropNameInRow="year" msprop:Generator_ColumnPropNameInTable="yearColumn" msprop:Generator_UserColumnName="year" type="xs:int" />
+              <xs:element name="ShikalTotalBankSalary" msprop:Generator_ColumnVarNameInTable="columnShikalTotalBankSalary" msprop:Generator_ColumnPropNameInRow="ShikalTotalBankSalary" msprop:Generator_ColumnPropNameInTable="ShikalTotalBankSalaryColumn" msprop:Generator_UserColumnName="ShikalTotalBankSalary" type="xs:double" />
+              <xs:element name="DinarTotalBankSalary" msprop:Generator_ColumnVarNameInTable="columnDinarTotalBankSalary" msprop:Generator_ColumnPropNameInRow="DinarTotalBankSalary" msprop:Generator_ColumnPropNameInTable="DinarTotalBankSalaryColumn" msprop:Generator_UserColumnName="DinarTotalBankSalary" type="xs:double" />
+              <xs:element name="DollarTotalBankSalary" msprop:Generator_ColumnVarNameInTable="columnDollarTotalBankSalary" msprop:Generator_ColumnPropNameInRow="DollarTotalBankSalary" msprop:Generator_ColumnPropNameInTable="DollarTotalBankSalaryColumn" msprop:Generator_UserColumnName="DollarTotalBankSalary" type="xs:double" />
+              <xs:element name="ShikalTotalUnivSalary" msprop:Generator_ColumnVarNameInTable="columnShikalTotalUnivSalary" msprop:Generator_ColumnPropNameInRow="ShikalTotalUnivSalary" msprop:Generator_ColumnPropNameInTable="ShikalTotalUnivSalaryColumn" msprop:Generator_UserColumnName="ShikalTotalUnivSalary" type="xs:double" />
+              <xs:element name="DinarTotalUnivSalary" msprop:Generator_ColumnVarNameInTable="columnDinarTotalUnivSalary" msprop:Generator_ColumnPropNameInRow="DinarTotalUnivSalary" msprop:Generator_ColumnPropNameInTable="DinarTotalUnivSalaryColumn" msprop:Generator_UserColumnName="DinarTotalUnivSalary" type="xs:double" />
+              <xs:element name="DollarTotalUnivSalary" msprop:Generator_ColumnVarNameInTable="columnDollarTotalUnivSalary" msprop:Generator_ColumnPropNameInRow="DollarTotalUnivSalary" msprop:Generator_ColumnPropNameInTable="DollarTotalUnivSalaryColumn" msprop:Generator_UserColumnName="DollarTotalUnivSalary" type="xs:double" />
+              <xs:element name="ShikalTotalExternalSalary" msprop:Generator_ColumnVarNameInTable="columnShikalTotalExternalSalary" msprop:Generator_ColumnPropNameInRow="ShikalTotalExternalSalary" msprop:Generator_ColumnPropNameInTable="ShikalTotalExternalSalaryColumn" msprop:Generator_UserColumnName="ShikalTotalExternalSalary" type="xs:double" />
+              <xs:element name="DinarTotalExternalSalary" msprop:Generator_ColumnVarNameInTable="columnDinarTotalExternalSalary" msprop:Generator_ColumnPropNameInRow="DinarTotalExternalSalary" msprop:Generator_ColumnPropNameInTable="DinarTotalExternalSalaryColumn" msprop:Generator_UserColumnName="DinarTotalExternalSalary" type="xs:double" />
+              <xs:element name="DollarTotalExternalSalary" msprop:Generator_ColumnVarNameInTable="columnDollarTotalExternalSalary" msprop:Generator_ColumnPropNameInRow="DollarTotalExternalSalary" msprop:Generator_ColumnPropNameInTable="DollarTotalExternalSalaryColumn" msprop:Generator_UserColumnName="DollarTotalExternalSalary" type="xs:double" />
+              <xs:element name="ShikalTotalMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnShikalTotalMotivationSalary" msprop:Generator_ColumnPropNameInRow="ShikalTotalMotivationSalary" msprop:Generator_ColumnPropNameInTable="ShikalTotalMotivationSalaryColumn" msprop:Generator_UserColumnName="ShikalTotalMotivationSalary" type="xs:double" />
+              <xs:element name="DinarTotalMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnDinarTotalMotivationSalary" msprop:Generator_ColumnPropNameInRow="DinarTotalMotivationSalary" msprop:Generator_ColumnPropNameInTable="DinarTotalMotivationSalaryColumn" msprop:Generator_UserColumnName="DinarTotalMotivationSalary" type="xs:double" />
+              <xs:element name="DollarTotalMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnDollarTotalMotivationSalary" msprop:Generator_ColumnPropNameInRow="DollarTotalMotivationSalary" msprop:Generator_ColumnPropNameInTable="DollarTotalMotivationSalaryColumn" msprop:Generator_UserColumnName="DollarTotalMotivationSalary" type="xs:double" />
+              <xs:element name="DinarPriceToShikel" msprop:Generator_ColumnVarNameInTable="columnDinarPriceToShikel" msprop:Generator_ColumnPropNameInRow="DinarPriceToShikel" msprop:Generator_ColumnPropNameInTable="DinarPriceToShikelColumn" msprop:Generator_UserColumnName="DinarPriceToShikel" type="xs:double" />
+              <xs:element name="DollarPriceToShikel" msprop:Generator_ColumnVarNameInTable="columnDollarPriceToShikel" msprop:Generator_ColumnPropNameInRow="DollarPriceToShikel" msprop:Generator_ColumnPropNameInTable="DollarPriceToShikelColumn" msprop:Generator_UserColumnName="DollarPriceToShikel" type="xs:double" />
+              <xs:element name="TotalBankSalaryInShikel" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalBankSalaryInShikel" msprop:Generator_ColumnPropNameInRow="TotalBankSalaryInShikel" msprop:Generator_ColumnPropNameInTable="TotalBankSalaryInShikelColumn" msprop:Generator_UserColumnName="TotalBankSalaryInShikel" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalUnivsalaryInShikel" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalUnivsalaryInShikel" msprop:Generator_ColumnPropNameInRow="TotalUnivsalaryInShikel" msprop:Generator_ColumnPropNameInTable="TotalUnivsalaryInShikelColumn" msprop:Generator_UserColumnName="TotalUnivsalaryInShikel" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalExternalSalaryInShikel" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalExternalSalaryInShikel" msprop:Generator_ColumnPropNameInRow="TotalExternalSalaryInShikel" msprop:Generator_ColumnPropNameInTable="TotalExternalSalaryInShikelColumn" msprop:Generator_UserColumnName="TotalExternalSalaryInShikel" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalMotivationInShikel" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalMotivationInShikel" msprop:Generator_ColumnPropNameInRow="TotalMotivationInShikel" msprop:Generator_ColumnPropNameInTable="TotalMotivationInShikelColumn" msprop:Generator_UserColumnName="TotalMotivationInShikel" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetTotalBankSalaryStatistics" msprop:Generator_TableClassName="GetTotalBankSalaryStatisticsDataTable" msprop:Generator_TableVarName="tableGetTotalBankSalaryStatistics" msprop:Generator_TablePropName="GetTotalBankSalaryStatistics" msprop:Generator_RowDeletingName="GetTotalBankSalaryStatisticsRowDeleting" msprop:Generator_RowChangingName="GetTotalBankSalaryStatisticsRowChanging" msprop:Generator_RowEvHandlerName="GetTotalBankSalaryStatisticsRowChangeEventHandler" msprop:Generator_RowDeletedName="GetTotalBankSalaryStatisticsRowDeleted" msprop:Generator_UserTableName="GetTotalBankSalaryStatistics" msprop:Generator_RowChangedName="GetTotalBankSalaryStatisticsRowChanged" msprop:Generator_RowEvArgName="GetTotalBankSalaryStatisticsRowChangeEvent" msprop:Generator_RowClassName="GetTotalBankSalaryStatisticsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Today" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnToday" msprop:Generator_ColumnPropNameInRow="Today" msprop:Generator_ColumnPropNameInTable="TodayColumn" msprop:Generator_UserColumnName="Today" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalDinarBankSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarBankSalary" msprop:Generator_ColumnPropNameInRow="TotalDinarBankSalary" msprop:Generator_ColumnPropNameInTable="TotalDinarBankSalaryColumn" msprop:Generator_UserColumnName="TotalDinarBankSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalShikelsBankSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsBankSalary" msprop:Generator_ColumnPropNameInRow="TotalShikelsBankSalary" msprop:Generator_ColumnPropNameInTable="TotalShikelsBankSalaryColumn" msprop:Generator_UserColumnName="TotalShikelsBankSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDollarsBankSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsBankSalary" msprop:Generator_ColumnPropNameInRow="TotalDollarsBankSalary" msprop:Generator_ColumnPropNameInTable="TotalDollarsBankSalaryColumn" msprop:Generator_UserColumnName="TotalDollarsBankSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDinarBankSalary2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarBankSalary2" msprop:Generator_ColumnPropNameInRow="TotalDinarBankSalary2" msprop:Generator_ColumnPropNameInTable="TotalDinarBankSalary2Column" msprop:Generator_UserColumnName="TotalDinarBankSalary2" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalShikelsBankSalary2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsBankSalary2" msprop:Generator_ColumnPropNameInRow="TotalShikelsBankSalary2" msprop:Generator_ColumnPropNameInTable="TotalShikelsBankSalary2Column" msprop:Generator_UserColumnName="TotalShikelsBankSalary2" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDollarsBankSalary2" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsBankSalary2" msprop:Generator_ColumnPropNameInRow="TotalDollarsBankSalary2" msprop:Generator_ColumnPropNameInTable="TotalDollarsBankSalary2Column" msprop:Generator_UserColumnName="TotalDollarsBankSalary2" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDinarUinvSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarUinvSalary" msprop:Generator_ColumnPropNameInRow="TotalDinarUinvSalary" msprop:Generator_ColumnPropNameInTable="TotalDinarUinvSalaryColumn" msprop:Generator_UserColumnName="TotalDinarUinvSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalShikelsUnivSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsUnivSalary" msprop:Generator_ColumnPropNameInRow="TotalShikelsUnivSalary" msprop:Generator_ColumnPropNameInTable="TotalShikelsUnivSalaryColumn" msprop:Generator_UserColumnName="TotalShikelsUnivSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDollarsUnivSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsUnivSalary" msprop:Generator_ColumnPropNameInRow="TotalDollarsUnivSalary" msprop:Generator_ColumnPropNameInTable="TotalDollarsUnivSalaryColumn" msprop:Generator_UserColumnName="TotalDollarsUnivSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDinarExternalSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDinarExternalSalary" msprop:Generator_ColumnPropNameInRow="TotalDinarExternalSalary" msprop:Generator_ColumnPropNameInTable="TotalDinarExternalSalaryColumn" msprop:Generator_UserColumnName="TotalDinarExternalSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalShikelsExternalSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsExternalSalary" msprop:Generator_ColumnPropNameInRow="TotalShikelsExternalSalary" msprop:Generator_ColumnPropNameInTable="TotalShikelsExternalSalaryColumn" msprop:Generator_UserColumnName="TotalShikelsExternalSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDollarsExternalSalary" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsExternalSalary" msprop:Generator_ColumnPropNameInRow="TotalDollarsExternalSalary" msprop:Generator_ColumnPropNameInTable="TotalDollarsExternalSalaryColumn" msprop:Generator_UserColumnName="TotalDollarsExternalSalary" type="xs:double" minOccurs="0" />
+              <xs:element name="TotalDinarMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnTotalDinarMotivationSalary" msprop:Generator_ColumnPropNameInRow="TotalDinarMotivationSalary" msprop:Generator_ColumnPropNameInTable="TotalDinarMotivationSalaryColumn" msprop:Generator_UserColumnName="TotalDinarMotivationSalary" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalShikelsMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnTotalShikelsMotivationSalary" msprop:Generator_ColumnPropNameInRow="TotalShikelsMotivationSalary" msprop:Generator_ColumnPropNameInTable="TotalShikelsMotivationSalaryColumn" msprop:Generator_UserColumnName="TotalShikelsMotivationSalary" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalDollarsMotivationSalary" msprop:Generator_ColumnVarNameInTable="columnTotalDollarsMotivationSalary" msprop:Generator_ColumnPropNameInRow="TotalDollarsMotivationSalary" msprop:Generator_ColumnPropNameInTable="TotalDollarsMotivationSalaryColumn" msprop:Generator_UserColumnName="TotalDollarsMotivationSalary" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetEmployessBankSalaryWithCurrency" />
+      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:EmployeeID" />
+      <xs:field xpath="mstns:Month" />
+      <xs:field xpath="mstns:YearName" />
+    </xs:unique>
+    <xs:unique name="GetTotalSalariesStatistics_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetTotalSalariesStatistics" />
+      <xs:field xpath="mstns:ID" />
+      <xs:field xpath="mstns:month" />
+      <xs:field xpath="mstns:year" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

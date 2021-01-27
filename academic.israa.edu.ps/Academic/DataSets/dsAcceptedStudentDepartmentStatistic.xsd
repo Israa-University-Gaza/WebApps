@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsAcceptedStudentDepartmentStatistic" targetNamespace="http://tempuri.org/dsAcceptedStudentDepartmentStatistic.xsd" xmlns:mstns="http://tempuri.org/dsAcceptedStudentDepartmentStatistic.xsd" xmlns="http://tempuri.org/dsAcceptedStudentDepartmentStatistic.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsAcceptedStudentDepartmentStatistic" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsAcceptedStudentDepartmentStatistic">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ArName" type="xs:string" minOccurs="0" />
+              <xs:element name="StdMCapacity" type="xs:string" minOccurs="0" />
+              <xs:element name="MAcceptedStudent" type="xs:string" minOccurs="0" />
+              <xs:element name="MRemain" type="xs:string" minOccurs="0" />
+              <xs:element name="StdFMCapacity" type="xs:string" minOccurs="0" />
+              <xs:element name="FMAcceptedStudent" type="xs:string" minOccurs="0" />
+              <xs:element name="FMRemain" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAcceptedStudent" type="xs:string" minOccurs="0" />
+              <xs:element name="MAcceptedStudentOk" type="xs:string" minOccurs="0" />
+              <xs:element name="FMAcceptedStudentOk" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAcceptedStudentOk" type="xs:string" minOccurs="0" />
+              <xs:element name="MAcceptedStudentOkType1" type="xs:string" minOccurs="0" />
+              <xs:element name="MAcceptedStudentOkType2" type="xs:string" minOccurs="0" />
+              <xs:element name="FMAcceptedStudentOkType1" type="xs:string" minOccurs="0" />
+              <xs:element name="FMAcceptedStudentOkType2" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAcceptedStudentOkType1" type="xs:string" minOccurs="0" />
+              <xs:element name="TotalAcceptedStudentOkType2" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

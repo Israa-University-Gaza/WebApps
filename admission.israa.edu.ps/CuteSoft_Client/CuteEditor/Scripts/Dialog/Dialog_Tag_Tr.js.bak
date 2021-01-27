@@ -1,0 +1,132 @@
+
+
+//----------------------------------------------------------------
+//----------------------------------------------------------------
+
+var inp_width=Window_GetElement(window,"inp_width",true);
+var inp_height=Window_GetElement(window,"inp_height",true);
+var sel_align=Window_GetElement(window,"sel_align",true);
+var sel_valign=Window_GetElement(window,"sel_valign",true);
+var inp_bgColor=Window_GetElement(window,"inp_bgColor",true);
+var inp_borderColor=Window_GetElement(window,"inp_borderColor",true);
+var inp_borderColorLight=Window_GetElement(window,"inp_borderColorLight",true);
+var inp_borderColorDark=Window_GetElement(window,"inp_borderColorDark",true);
+var inp_class=Window_GetElement(window,"inp_class",true);
+var inp_id=Window_GetElement(window,"inp_id",true);
+var inp_tooltip=Window_GetElement(window,"inp_tooltip",true);
+
+SyncToView=function SyncToView_Tr()
+{
+	inp_bgColor.value=element.getAttribute("bgColor")||element.style.backgroundColor;
+	inp_id.value=element.getAttribute("id");
+	inp_bgColor.style.backgroundColor=inp_bgColor.value;
+	inp_borderColor.value=element.getAttribute("borderColor");
+	inp_borderColor.style.backgroundColor=inp_borderColor.value;
+	inp_borderColorLight.value=element.getAttribute("borderColorLight");
+	inp_borderColorLight.style.backgroundColor=inp_borderColorLight.value;
+	inp_borderColorDark.value=element.getAttribute("borderColorDark");	
+	inp_borderColorDark.style.backgroundColor=inp_borderColorDark.value;
+	
+	inp_class.value=element.className;
+	
+	inp_width.value=element.getAttribute("width")||element.style.width;
+	inp_height.value=element.getAttribute("height")||element.style.height; 
+	
+	sel_align.value=element.getAttribute("align");
+	sel_valign.value=element.getAttribute("vAlign");
+	inp_tooltip.value=element.getAttribute("title");
+}
+SyncTo=function SyncTo_Tr(element)
+{	
+	if(inp_bgColor.value)
+	{
+		if(element.style.backgroundColor)
+			element.style.backgroundColor = inp_bgColor.value;
+		else
+			element.bgColor=inp_bgColor.value;
+	}	
+	else
+	{		
+		element.removeAttribute("bgColor");
+	}
+	element.borderColor=inp_borderColor.value;	
+	element.borderColorLight=inp_borderColorLight.value;	
+	element.borderColorDark=inp_borderColorDark.value;
+	element.className=inp_class.value;	
+	
+	if(element.style.width||element.style.height)
+	{	
+		try { 
+			element.style.width=inp_width.value;
+			element.style.height=inp_height.value;
+		} 
+		catch(er) {
+			alert("[[ValidNumber]]");
+		} 
+	
+	}
+	else
+	{
+		try { 
+			element.width=inp_width.value;
+			element.height=inp_height.value;
+		} 
+		catch(er) {
+			alert("[[ValidNumber]]");
+		} 
+	}
+	var invalidCharactersRegExp = /[^a-z\d]/i;				
+	if(invalidCharactersRegExp.test(inp_id.value))
+	{
+		alert("[[ValidID]]");
+		return;
+	}
+	element.align=sel_align.value;
+	element.id=inp_id.value;
+	element.vAlign=sel_valign.value;
+	element.title=inp_tooltip.value;	
+	
+	if(element.id=="")
+		element.removeAttribute("id");	
+	if(element.bgColor=="")
+		element.removeAttribute("bgColor");	
+	if(element.borderColor=="")
+		element.removeAttribute("borderColor");	
+	if(element.borderColorLight=="")
+		element.removeAttribute("borderColorLight");
+	if(element.inp_borderColorDark=="")
+		element.removeAttribute("inp_borderColorDark");
+	if(element.className=="")
+		element.removeAttribute("className");
+	if(element.className=="")
+		element.removeAttribute("class");
+	if(element.align=="")
+		element.removeAttribute("align");	
+	if(element.vAlign=="")
+		element.removeAttribute("valign");
+	if(element.title=="")
+		element.removeAttribute("title");
+	if(element.width=="")
+		element.removeAttribute("width");
+	if(element.height=="")
+		element.removeAttribute("height");
+	if (element.style.cssText == "border-image: none;")
+	    element.removeAttribute("style");
+}
+inp_borderColor.onclick=function inp_borderColor_onclick()
+{
+	SelectColor(inp_borderColor);
+}
+inp_bgColor.onclick=function inp_bgColor_onclick()
+{
+	SelectColor(inp_bgColor);
+}
+
+inp_borderColorLight.onclick=function inp_borderColorLight_onclick()
+{
+	SelectColor(inp_borderColorLight);
+}
+inp_borderColorDark.onclick=function inp_borderColorDark_onclick()
+{
+	SelectColor(inp_borderColorDark);
+}

@@ -1,0 +1,145 @@
+﻿body {
+}
+
+@font-face {
+    font-family: "hasan";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/hasan.woff") format("woff"), url("../fonts/hasan.ttf") format("truetype"), url("../fonts/hasan.svg") format("svg");
+}
+
+@font-face {
+    font-family: "haneen";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/haneen.woff") format("woff"), url("../fonts/haneen.ttf") format("truetype"), url("../fonts/haneen.svg") format("svg");
+}
+
+@font-face {
+    font-family: "fedaa";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/fedaa.woff") format("woff"), url("../fonts/fedaa.ttf") format("truetype"), url("../fonts/fedaa.svg") format("svg");
+}
+
+@font-face {
+    font-family: "hasanin";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/hasanin.woff") format("woff"), url("../fonts/hasanin.ttf") format("truetype"), url("../fonts/hasanin.svg") format("svg");
+}
+
+@font-face {
+    font-family: "lina";
+    font-style: normal;
+    font-weight: normal;
+    src: local("☺"), url("../fonts/lina.woff") format("woff"), url("../fonts/lina.ttf") format("truetype"), url("../fonts/lina.svg") format("svg");
+}
+
+.font-ha {
+    font-family: hasanin!important;
+    text-decoration: none!important;
+}
+
+.isra-color6 {
+    color: #666!important;
+}
+
+.isra-error {
+    border-color: #ee7f6d !important;
+}
+
+.isra-nave-person-img {
+    width: 30px!important;
+    height: 30px!important;
+    margin-left: 8px;
+}
+
+.logo {
+    float: right;
+    padding: 7px 30px 7px 0;
+}
+
+    .logo img {
+        width: 30px;
+        height: 30px;
+    }
+
+.isra-contner {
+}
+
+.isra-header {
+    background-color: #fff!important;
+}
+
+.isra-name {
+    float: right;
+    padding: 12px;
+}
+
+.isra-namein {
+    width: 100%;
+    color: #000;
+    text-align: right;
+    font-size: 17px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+    .isra-namein a {
+        transition: all 0.5s ease-in;
+        color: #666;
+        text-decoration: none!important;
+    }
+
+        .isra-namein a:hover {
+            color: #aaa;
+        }
+
+.isra-user {
+    color: #fff;
+    text-align: center!important;
+}
+
+    .isra-user a {
+        padding-top: 30px !important;
+    }
+
+.isra-rightbare {
+    height: 100% !important;
+}
+
+.isra-contaner-heder {
+    background: #fafafa;
+    background-color: #fafafa!important;
+    margin: 0px !important;
+}
+
+.isra-contaner-heder-pading {
+    padding: 5px 10px;
+    height: 50px;
+    border-bottom: 1px#e2e2e2 solid !important;
+}
+
+.isra-ul-heder-margin {
+    margin-top: 15px!important;
+}
+
+.isra-contaner-heder-proparets {
+    padding: 0px !important;
+}
+
+.isra-icon-font {
+    color: #70829a;
+    opacity: 1!important;
+    font-size: 20px;
+    text-align: justify!important;
+    background-color: none!important;
+}
+
+.isra-content {
+    width: 100%;
+    min-height: 400px;
+    padding: 20px 1%;
+    position: relative;
+}

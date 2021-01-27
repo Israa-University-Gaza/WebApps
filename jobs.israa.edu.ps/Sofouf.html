@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)https://www.sofouf.net/ -->
+<html dir="rtl" lang="ar" xml:lang="ar"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="صفوف منصة تعليمية تحتوي على مئات دروس الفيديو في مختلف المناهج التعليمية ومن بينها التوجيهي الفلسطيني ،رياضيات،فيزياء،كيمياء،أحياء،عربي،لغة انجليزية">
+    <meta name="author" content="Sofouf|صفوف">
+    <meta name="keywords" content="صفوف,sofouf,توجيهي,tawjihi,ثانوية عامة,دروس,Courses,Lessons,تعليم,Education,رياضيات,فيزياء,كيمياء,أحياء,انجليزي,Maths,Mathematics,Physics,Biology,English">
+    <link rel="icon" href="https://www.sofouf.net/new_frontend_assets/favicon.ico">
+    <meta property="og:image" content="https://www.sofouf.net/new_frontend_assets/assets/img/facebook-sofouf-logo.png">
+    
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Sofouf|صفوف">
+    <meta itemprop="description" content="صفوف منصة تعليمية تحتوي على مئات دروس الفيديو في مختلف المناهج التعليمية ومن بينها التوجيهي الفلسطيني ،رياضيات،فيزياء،كيمياء،أحياء،عربي،لغة انجليزية">
+    <meta itemprop="image" content="https://www.sofouf.net/new_frontend_assets/assets/img/facebook-sofouf-logo.png">
+
+
+    <meta property="og:url" content="https://www.sofouf.net">
+    <meta property="og:type" content="site">
+    <meta property="og:title" content="Sofouf|صفوف">
+    <meta property="og:description" content="صفوف منصة تعليمية تحتوي على مئات دروس الفيديو في مختلف المناهج التعليمية ومن بينها التوجيهي الفلسطيني ،رياضيات،فيزياء،كيمياء،أحياء،عربي،لغة انجليزية">
+
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="https://www.sofouf.net/new_frontend_assets/assets/img/facebook-sofouf-logo.png">
+    <meta name="twitter:title" content="Sofouf|صفوف">
+    <meta name="twitter:description" content="صفوف منصة تعليمية تحتوي على مئات دروس الفيديو في مختلف المناهج التعليمية ومن بينها التوجيهي الفلسطيني ،رياضيات،فيزياء،كيمياء،أحياء،عربي،لغة انجليزية">
+    <meta name="twitter:image" content="https://www.sofouf.net/new_frontend_assets/assets/img/facebook-sofouf-logo.png">
+
+
+    
+    <title>Sofouf | صفوف</title>
+    <!-- Bootstrap core CSS -->
+            <link href="./Sofouf_files/bootstrap.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="./Sofouf_files/all.css">
+    <!-- Custom styles for this template -->
+    <link href="./Sofouf_files/custom-style.css" rel="stylesheet">
+    <link href="./Sofouf_files/css" rel="stylesheet">
+            <link href="./Sofouf_files/login-ar.css" rel="stylesheet">
+        <link rel="stylesheet" href="./Sofouf_files/jquery-confirm.min.css">
+    <style type="text/css">
+        #error_msg{
+            color: #ff5854;
+        }
+        .red-color{
+            color: #ff5854;
+            font-size: 14px;
+            width: 335px;
+            display: block;
+        }
+    </style>
+</head>
+<body class="bg-box">
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-xl-6 col-md-12 col-12  login-right  text-center">
+            <h2 class="mb-30">نتعلم معاً...</h2>
+            <p>دروس مجانية . دروس مباشر</p><p>تدريبات ذهنية . امتحانات تجريبية . تواصل اجتماعي</p>
+        </div>
+        <div class="col-1 col-xl-1 col-md-4 col-sm-2"> </div>
+        <div class="col-xl-4 col-md-4 col-sm-8 col-12 white-bg">
+            <ul class="top-menu col-md-12">
+                <li class="lang pull-right"><a href="javascript:void(0)"><i class="fas fa-globe-asia"></i> اللغة <i class="fas fa-chevron-down"></i></a>
+                    <ul class="submenu col-md-4 col-4">
+                        <li><a href="https://www.sofouf.net/lang/2" class="english"><span> إنجليزي</span></a></li>
+                        <li><a href="https://www.sofouf.net/lang/1" class="arabic"><span>عربي</span></a></li>
+                    </ul>
+                </li>
+                <li class=" pull-left "><a href="https://www.sofouf.net/support"><i class="far fa-question-circle"></i> الدعم الفني </a></li>
+            </ul>
+
+            <picture>
+                <img src="./Sofouf_files/SOFOUF.png" alt="" width="140">
+            </picture>
+            <h1 class="text-center mt-0 mb-20">دخول</h1>
+           <div class="mb-5">
+            <span hidden="" id="activation_link" style="color: #fd2c25;">حسابك غير مفعل، قم باعادة ارسال رابط التفعيل من <a style="color: #0276d1;cursor: pointer;" id="resend_active">هنا</a></span>
+            <span id="success_msg"></span>
+            <span style="color:#000;" id="resend_active_msg"></span>
+            <span id="error_msg"></span>
+           </div>
+            <form method="POST" class="form-horizontal login-form" id="login-form" action="https://www.sofouf.net/checkLogin">
+                <input type="hidden" name="_token" value="JyzfXUjfRiGsRgiPGcQLVu5bZOhLsLJJq5g4x20t">
+                <div class="form-group">
+                    <input type="text" name="email" id="email" class="form-control" placeholder="البريد الالكتروني">
+                </div>
+                <span class="red-color" id="email_msg"></span>
+                <div class="form-group">
+                    <input type="password" name="password" class="form-control" placeholder="كلمة المرور">
+                </div>
+                <span class="red-color" id="password_msg"></span>
+                <div class="form-action  text-right ">
+                    <img hidden="" width="40" id="loading" style="  margin-left: 30% ;" src="./Sofouf_files/spin.gif">
+                    <button type="submit" style="margin-top: 10px;" class="btn text-center" id="login">دخول</button>
+                    <!--<a href="https://www.sofouf.net/Reset">نسيت كلمة السر</a>-->
+                    <a style="color: #1b6bac;cursor: pointer" data-toggle="modal" data-target="#exampleModal">نسيت كلمة السر</a>
+                    <a href="https://www.sofouf.net/Subscription" class="hover">إنشاء حساب</a>
+                </div>
+            </form>
+        </div>
+        <div class="col-1 col-xl-1 col-md-4 col-sm-2"> </div>
+    </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">إعادة تعيين كلمة السر</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="form-style1 clearfix" method="POST" id="reset-form" action="https://www.sofouf.net/resetPassword">
+                        <input type="hidden" name="_token" value="JyzfXUjfRiGsRgiPGcQLVu5bZOhLsLJJq5g4x20t">
+                        <div class="form-body overflow-hide m-0">
+                            <div class="form-group col-lg-12 col-md-12 col-12">
+                                <label class="control-label mb-10" for="exampleInputEmail_01">البريد الالكتروني*</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon"><i class="icon-envelope-open"></i></div>
+                                    <input type="email" name="email" class="form-control" id="exampleInputEmail_01" placeholder="البريد الالكتروني">
+                                </div>
+                                <span id="reset_msg" style="color: #ff5854;text-align: center;display: block;"></span>
+                                <div class="form-actions" style="text-align: center;">
+                                    <button type="submit" id="reset" class="btn btn-primary mr-10 mb-30 mt-25 btn-sm">ارسال   <img hidden="" width="25" id="loading_reset" src="./Sofouf_files/spin.gif">
+                                    </button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script src="./Sofouf_files/jquery.min.js.تنزيل"></script>
+
+
+<script src="./Sofouf_files/bootstrap.min.js.تنزيل"></script>
+<script src="./Sofouf_files/jquery-confirm.min.js.تنزيل"></script>
+<script>
+$("#reset-form").submit(function (e) {
+        $("#loading_reset").removeAttr("hidden");
+        $('#loading_reset').show();
+        e.preventDefault();
+        $action = $(this).attr("action");
+        $data = $(this).serialize();
+        $.ajax({
+            url: $action,
+            type: "POST",
+            data: $data,
+            dataType: "json",
+            success: function (response) {
+                if (response.status == true) {
+                    $('#exampleModal').modal('toggle');
+                    var a=  $.confirm({
+                        title: '<h5 style="color:#1b6bac">'+response.msg+'</h5>',
+                        content: '<i style="font-size: 50px;color:#1b6bac;text-align:center;display:block;" class="fa fa-check" ></i>',
+                        type: 'blue',
+                        buttons: {
+                            Close: {
+                                text: 'إغلاق',
+                                action: function () {
+                                    a.close();
+                                }
+                            }
+                        }
+                    });
+                     $('#exampleInputEmail_01').val('');
+                    setTimeout(function(){ a.close(); },1500);
+                     $("#loading_reset").hide();
+                     $("#reset_msg").html('');
+                } else {
+                     $("#loading_reset").hide();
+                     $("#reset_msg").html(response.msg);
+                }
+            },error: function(data){
+                var error = data.responseJSON;
+                var errors= error.errors;
+                if(typeof(errors['email']) != "undefined"){
+                    $("#reset_msg").html(errors['email'][0]);
+                }
+                $('#loading').hide();
+                $("#loading_reset").hide();
+            }
+        });
+    });
+    
+    $("#login-form").submit(function (e) {
+        $("#loading").removeAttr("hidden");
+        $('#loading').show();
+        $("#success_msg").html('');
+        $("#error_msg").html('');
+        e.preventDefault();
+        $action = $(this).attr("action");
+        $data = $(this).serialize();
+        $.ajax({
+            url: $action,
+            type: "POST",
+            data: $data,
+            dataType: "json",
+            success: function (response) {
+                if (response.status == true) {
+                    // document.getElementById("success_msg").innerHTML = response.msg;
+                    $("#email_msg").html('');
+                    $("#password_msg").html('');
+                    window.location.href = "https://www.sofouf.net/user/home";
+                } else {
+                    document.getElementById("error_msg").innerHTML = response.msg;
+                    if(response.code==true){
+                        $("#activation_link").removeAttr("hidden");
+                        $("#activation_link").show();
+                        $("#email_msg").html('');
+                        $("#password_msg").html('');
+                        $('#loading').hide();
+                        $('#resend_active_msg').text('');
+                    }else{
+                        $("#email_msg").html('');
+                        $("#password_msg").html('');
+                        $('#loading').hide();
+                        $("#activation_link").hide();
+                    }
+                }
+            },error: function(data){
+                $("#success_msg").html('');
+                $("#email_msg").html('');
+                $("#password_msg").html('');
+
+                var error = data.responseJSON;
+                var errors= error.errors;
+                if(typeof(errors['password']) != "undefined"){
+                    $("#password_msg").html(errors['password'][0]);
+                }
+                if(typeof(errors['email']) != "undefined"){
+                    $("#email_msg").html(errors['email'][0]);
+                }
+                $('#loading').hide();
+                $("#activation_link").hide();
+            }
+        });
+    });
+    $( "#resend_active" ).click(function() {
+        var email = $("#email").val();
+        if(email!=null && email !=''){
+            $.get('https://www.sofouf.net/resend/activation',{email:email},function(data){
+                $("#resend_active_msg").html(data.msg);
+                $("#activation_link").hide();
+
+            });
+        }else{
+            $msg='حقل الايميل مطلوب';
+            $('#email_msg').text($msg);
+        }
+    });
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('.lang').on('click',function(e){
+            if($(this).hasClass('active')){
+                $(this).removeClass('active');
+                $('.submenu').removeClass('active');
+            }else{
+                $(this).addClass('active');
+                $('.submenu').addClass('active');
+            }
+        });
+
+
+        $('.submenu li').on('click',function(){
+            $('.lang span').html($(this).children('a').children('span').html());
+        });
+
+
+        $(document).on('click',function(e){
+            if (!$(e.target).is('.lang , .lang *')) {
+                $('.lang').removeClass('active');
+                $('.submenu').removeClass('active');
+            }
+        });
+    });
+</script>
+
+
+
+
+</body></html>

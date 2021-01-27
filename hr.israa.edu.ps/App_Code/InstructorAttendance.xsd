@@ -1,0 +1,155 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="InstructorAttendance" targetNamespace="http://tempuri.org/InstructorAttendance.xsd" xmlns:mstns="http://tempuri.org/InstructorAttendance.xsd" xmlns="http://tempuri.org/InstructorAttendance.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="HumanResources" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="HumanResources (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.HumanResources.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="InstructorAttendance" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="InstructorAttendance" msprop:Generator_UserDSName="InstructorAttendance">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetInstructorAttendance" msprop:Generator_TableClassName="GetInstructorAttendanceDataTable" msprop:Generator_TableVarName="tableGetInstructorAttendance" msprop:Generator_RowChangedName="GetInstructorAttendanceRowChanged" msprop:Generator_TablePropName="GetInstructorAttendance" msprop:Generator_RowDeletingName="GetInstructorAttendanceRowDeleting" msprop:Generator_RowChangingName="GetInstructorAttendanceRowChanging" msprop:Generator_RowEvHandlerName="GetInstructorAttendanceRowChangeEventHandler" msprop:Generator_RowDeletedName="GetInstructorAttendanceRowDeleted" msprop:Generator_RowClassName="GetInstructorAttendanceRow" msprop:Generator_UserTableName="GetInstructorAttendance" msprop:Generator_RowEvArgName="GetInstructorAttendanceRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRowNo" msprop:Generator_ColumnPropNameInRow="RowNo" msprop:Generator_ColumnPropNameInTable="RowNoColumn" msprop:Generator_UserColumnName="RowNo" type="xs:long" minOccurs="0" />
+              <xs:element name="RowNo1" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRowNo1" msprop:Generator_ColumnPropNameInRow="RowNo1" msprop:Generator_ColumnPropNameInTable="RowNo1Column" msprop:Generator_UserColumnName="RowNo1" type="xs:long" minOccurs="0" />
+              <xs:element name="EmployeeID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" />
+              <xs:element name="Date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDate" msprop:Generator_ColumnPropNameInRow="Date" msprop:Generator_ColumnPropNameInTable="DateColumn" msprop:Generator_UserColumnName="Date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Attendance_From" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendance_From" msprop:Generator_ColumnPropNameInRow="Attendance_From" msprop:Generator_ColumnPropNameInTable="Attendance_FromColumn" msprop:Generator_UserColumnName="Attendance_From" type="xs:duration" minOccurs="0" />
+              <xs:element name="Attendance_To" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendance_To" msprop:Generator_ColumnPropNameInRow="Attendance_To" msprop:Generator_ColumnPropNameInTable="Attendance_ToColumn" msprop:Generator_UserColumnName="Attendance_To" type="xs:duration" minOccurs="0" />
+              <xs:element name="Notes" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnNotes" msprop:Generator_ColumnPropNameInRow="Notes" msprop:Generator_ColumnPropNameInTable="NotesColumn" msprop:Generator_UserColumnName="Notes" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="IsLate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIsLate" msprop:Generator_ColumnPropNameInRow="IsLate" msprop:Generator_ColumnPropNameInTable="IsLateColumn" msprop:Generator_UserColumnName="IsLate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="Emp_Status_ID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmp_Status_ID" msprop:Generator_ColumnPropNameInRow="Emp_Status_ID" msprop:Generator_ColumnPropNameInTable="Emp_Status_IDColumn" msprop:Generator_UserColumnName="Emp_Status_ID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmpSubStatusID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmpSubStatusID" msprop:Generator_ColumnPropNameInRow="EmpSubStatusID" msprop:Generator_ColumnPropNameInTable="EmpSubStatusIDColumn" msprop:Generator_UserColumnName="EmpSubStatusID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmpCategoryID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmpCategoryID" msprop:Generator_ColumnPropNameInRow="EmpCategoryID" msprop:Generator_ColumnPropNameInTable="EmpCategoryIDColumn" msprop:Generator_UserColumnName="EmpCategoryID" type="xs:int" minOccurs="0" />
+              <xs:element name="ContractTypeID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnContractTypeID" msprop:Generator_ColumnPropNameInRow="ContractTypeID" msprop:Generator_ColumnPropNameInTable="ContractTypeIDColumn" msprop:Generator_UserColumnName="ContractTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="SubContractTypeID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSubContractTypeID" msprop:Generator_ColumnPropNameInRow="SubContractTypeID" msprop:Generator_ColumnPropNameInTable="SubContractTypeIDColumn" msprop:Generator_UserColumnName="SubContractTypeID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeCatID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeCatID" msprop:Generator_ColumnPropNameInRow="EmployeeCatID" msprop:Generator_ColumnPropNameInTable="EmployeeCatIDColumn" msprop:Generator_UserColumnName="EmployeeCatID" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetInstructorAttendance3" msprop:Generator_TableClassName="GetInstructorAttendance3DataTable" msprop:Generator_TableVarName="tableGetInstructorAttendance3" msprop:Generator_TablePropName="GetInstructorAttendance3" msprop:Generator_RowDeletingName="GetInstructorAttendance3RowDeleting" msprop:Generator_RowChangingName="GetInstructorAttendance3RowChanging" msprop:Generator_RowEvHandlerName="GetInstructorAttendance3RowChangeEventHandler" msprop:Generator_RowDeletedName="GetInstructorAttendance3RowDeleted" msprop:Generator_UserTableName="GetInstructorAttendance3" msprop:Generator_RowChangedName="GetInstructorAttendance3RowChanged" msprop:Generator_RowEvArgName="GetInstructorAttendance3RowChangeEvent" msprop:Generator_RowClassName="GetInstructorAttendance3Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="DateFrom" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDateFrom" msprop:Generator_ColumnPropNameInRow="DateFrom" msprop:Generator_ColumnPropNameInTable="DateFromColumn" msprop:Generator_UserColumnName="DateFrom" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDateTo" msprop:Generator_ColumnPropNameInRow="DateTo" msprop:Generator_ColumnPropNameInTable="DateToColumn" msprop:Generator_UserColumnName="DateTo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="date" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columndate" msprop:Generator_ColumnPropNameInRow="date" msprop:Generator_ColumnPropNameInTable="dateColumn" msprop:Generator_UserColumnName="date" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeID" msprop:Generator_ColumnPropNameInRow="EmployeeID" msprop:Generator_ColumnPropNameInTable="EmployeeIDColumn" msprop:Generator_UserColumnName="EmployeeID" type="xs:int" minOccurs="0" />
+              <xs:element name="LectureID" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLectureID" msprop:Generator_ColumnPropNameInRow="LectureID" msprop:Generator_ColumnPropNameInTable="LectureIDColumn" msprop:Generator_UserColumnName="LectureID" type="xs:int" minOccurs="0" />
+              <xs:element name="EmployeeNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DisplayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDisplayName" msprop:Generator_ColumnPropNameInRow="DisplayName" msprop:Generator_ColumnPropNameInTable="DisplayNameColumn" msprop:Generator_UserColumnName="DisplayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseArName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCourseArName" msprop:Generator_ColumnPropNameInRow="CourseArName" msprop:Generator_ColumnPropNameInTable="CourseArNameColumn" msprop:Generator_UserColumnName="CourseArName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Room" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRoom" msprop:Generator_ColumnPropNameInRow="Room" msprop:Generator_ColumnPropNameInTable="RoomColumn" msprop:Generator_UserColumnName="Room" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FromHour" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnFromHour" msprop:Generator_ColumnPropNameInRow="FromHour" msprop:Generator_ColumnPropNameInTable="FromHourColumn" msprop:Generator_UserColumnName="FromHour" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="LectureTime" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnLectureTime" msprop:Generator_ColumnPropNameInRow="LectureTime" msprop:Generator_ColumnPropNameInTable="LectureTimeColumn" msprop:Generator_UserColumnName="LectureTime" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="13" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CDayName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCDayName" msprop:Generator_ColumnPropNameInRow="CDayName" msprop:Generator_ColumnPropNameInTable="CDayNameColumn" msprop:Generator_UserColumnName="CDayName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Attendance_From" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendance_From" msprop:Generator_ColumnPropNameInRow="Attendance_From" msprop:Generator_ColumnPropNameInTable="Attendance_FromColumn" msprop:Generator_UserColumnName="Attendance_From" type="xs:duration" minOccurs="0" />
+              <xs:element name="Attendance_To" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendance_To" msprop:Generator_ColumnPropNameInRow="Attendance_To" msprop:Generator_ColumnPropNameInTable="Attendance_ToColumn" msprop:Generator_UserColumnName="Attendance_To" type="xs:duration" minOccurs="0" />
+              <xs:element name="AttendancePeriod" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAttendancePeriod" msprop:Generator_ColumnPropNameInRow="AttendancePeriod" msprop:Generator_ColumnPropNameInTable="AttendancePeriodColumn" msprop:Generator_UserColumnName="AttendancePeriod" type="xs:double" minOccurs="0" />
+              <xs:element name="lectureHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnlectureHours" msprop:Generator_ColumnPropNameInRow="lectureHours" msprop:Generator_ColumnPropNameInTable="lectureHoursColumn" msprop:Generator_UserColumnName="lectureHours" type="xs:double" minOccurs="0" />
+              <xs:element name="IsLate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnIsLate" msprop:Generator_ColumnPropNameInRow="IsLate" msprop:Generator_ColumnPropNameInTable="IsLateColumn" msprop:Generator_UserColumnName="IsLate" type="xs:boolean" minOccurs="0" />
+              <xs:element name="InstructorLectureAttendanceHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnInstructorLectureAttendanceHours" msprop:Generator_ColumnPropNameInRow="InstructorLectureAttendanceHours" msprop:Generator_ColumnPropNameInTable="InstructorLectureAttendanceHoursColumn" msprop:Generator_UserColumnName="InstructorLectureAttendanceHours" type="xs:double" minOccurs="0" />
+              <xs:element name="GetInstructorLectureCalculatedHour" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnGetInstructorLectureCalculatedHour" msprop:Generator_ColumnPropNameInRow="GetInstructorLectureCalculatedHour" msprop:Generator_ColumnPropNameInTable="GetInstructorLectureCalculatedHourColumn" msprop:Generator_UserColumnName="GetInstructorLectureCalculatedHour" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetInstructorAttendance" />
+      <xs:field xpath="mstns:EmployeeID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,374 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="Financial_MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>جامعة الاسراء</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="MobileOptimized" content="320">
+
+    <link href="../assets/css/isra-style.css" rel="stylesheet" />
+    <link href="../assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/plugins/uniform/css/uniform.default.css" rel="stylesheet" type="text/css" />
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <link href="../assets/plugins/bootstrap/css/bootstrap-rtl.min.css" rel="stylesheet" />
+    <link href="../assets/css/style-metronic-rtl.css" rel="stylesheet" />
+    <link href="../assets/css/style-rtl.css" rel="stylesheet" />
+    <link href="../assets/css/style-responsive-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- BEGIN PAGE LEVEL PLUGIN STYLES -->
+    <link href="../assets/plugins/gritter/css/jquery.gritter-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/bootstrap-daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/fullcalendar/fullcalendar/fullcalendar.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/jqvmap/jqvmap/jqvmap.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/jquery-easy-pie-chart/jquery.easy-pie-chart.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/plugins/bootstrap-toastr/toastr-rtl.min.css" rel="stylesheet" type="text/css" />
+    <!-- END PAGE LEVEL PLUGIN STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/css/plugins-rtl.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/pages/tasks-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <!-- BEGIN GLOBAL MANDATORY STYLES -->
+    <!-- END GLOBAL MANDATORY STYLES -->
+    <!-- BEGIN THEME STYLES -->
+    <link href="../assets/css/themes/default-rtl.css" rel="stylesheet" type="text/css" id="style_color" />
+    <link href="../assets/css/custom-rtl.css" rel="stylesheet" type="text/css" />
+    <!-- END THEME STYLES -->
+    <link rel="shortcut icon" href="favicon.ico" />
+
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="../assets/plugins/jquery-1.10.2.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-migrate-1.2.1.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-hover-dropdown/twitter-bootstrap-hover-dropdown.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/jquery.blockui.min.js" type="text/javascript"></script>
+    <script src="../assets/plugins/uniform/jquery.uniform.min.js" type="text/javascript"></script>
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN: Page level plugins -->
+    <script src="../assets/plugins/fancybox/source/jquery.fancybox.pack.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/wysihtml5-0.3.0.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-wysihtml5/bootstrap-wysihtml5.js" type="text/javascript"></script>
+    <script src="../assets/plugins/bootstrap-toastr/toastr.min.js"></script>
+    <script src="../assets/plugins/jquery.cookie.min.js" type="text/javascript"></script>
+    <!-- BEGIN:File Upload Plugin JS files-->
+    <!-- The jQuery UI widget factory, can be omitted if jQuery UI is already included -->
+    <!-- END: Page level plugins -->
+    <script src="../assets/scripts/app.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            // initiate layout and plugins
+            App.init();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+
+<!-- BEGIN BODY -->
+<body class="page-header-fixed page-sidebar-fixed">
+    <form id="form1" runat="server">
+        <!-- BEGIN HEADER -->
+        <div class="header navbar navbar-inverse navbar-fixed-top isra-header">
+            <!-- BEGIN TOP NAVIGATION BAR -->
+            <div class="header-inner">
+                <!-- BEGIN LOGO -->
+                <div class="logo" style="">
+                    <a href="index.html">
+                        <img src="../images/logo.png" alt="logo" class="img-responsive" />
+                    </a>
+                </div>
+                <div class="isra-name">
+                    <a class="isra-namein font-ha">جـــامعة الإســـــراء - غـزة
+                    </a>
+                </div>
+                <!-- END LOGO -->
+                <ul class="nav navbar-nav pull-right font-ha">
+                    <!-- BEGIN NOTIFICATION DROPDOWN -->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-warning"></i>
+                            <span class="badge">6</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <li>
+                                <p>You have 14 new notifications</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END NOTIFICATION DROPDOWN -->
+                    <!-- BEGIN INBOX DROPDOWN -->
+                    <li id="header_inbox_bar" class="dropdown">
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-envelope"></i>
+                            <span class="badge">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended inbox">
+                            <li>
+                                <p>You have 12 new messages</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END INBOX DROPDOWN -->
+                    <!-- BEGIN TODO DROPDOWN -->
+                    <li id="header_task_bar" class="dropdown">
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <i class="fa fa-tasks"></i>
+                            <span class="badge">5</span>
+                        </a>
+                        <ul class="dropdown-menu extended tasks">
+                            <li>
+                                <p>You have 12 pending tasks</p>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END TODO DROPDOWN -->
+                    <!-- BEGIN USER LOGIN DROPDOWN -->
+                    <li class="dropdown user">
+                        <asp:Label ID="lblEmployeeID" runat="server" Visible="false"></asp:Label>
+                        <% 
+                            UserPage userpage = new UserPage();
+                            lblEmployeeID.Text = userpage.EmployeeID;
+                        %>
+                        <a data-close-others="true" data-hover="dropdown" data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <img runat="server" id="image1" class="isra-nave-person-img" alt="" />
+                            <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
+                                <ItemTemplate>
+                                    <span class="username"><%# Eval("DisplayName") %></span>
+                                </ItemTemplate>
+                            </asp:Repeater>
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server"
+                                ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                SelectCommand="GetEmployeeData" SelectCommandType="StoredProcedure">
+                                <SelectParameters>
+                                    <asp:ControlParameter ControlID="lblEmployeeID" PropertyName="Text" Name="EmployeeID" Type="Int32" />
+                                </SelectParameters>
+                            </asp:SqlDataSource>
+                            <i class="fa fa-angle-down"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><i class="fa fa-user"></i>تغير كلمة المرور</a>
+                            </li>
+                            <li class="divider"></li>
+                            <li><a id="trigger_fullscreen" href="javascript:;"><i class="fa fa-move"></i>ملئ الشاشة</a>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="lb" runat="server" OnClick="lb_Click"><i class="fa fa-key"></i>تسجيل الخروج</asp:LinkButton>
+                            </li>
+                        </ul>
+                    </li>
+                    <!-- END USER LOGIN DROPDOWN -->
+                </ul>
+            </div>
+            <!-- END TOP NAVIGATION BAR -->
+
+        </div>
+        <!-- END HEADER -->
+        <div class="clearfix"></div>
+        <!-- BEGIN CONTAINER -->
+        <div class="page-container isra-contner">
+            <div class="page-sidebar navbar-collapse collapse isra-rightbare">
+                <div class="slimScrollDiv" style="position: relative; overflow: hidden; width: auto; height: 327px;">
+                    <ul class="page-sidebar-menu font-ha">
+                        <li class="start isra-user">
+                            <a>
+                                <img runat="server" id="image2" class="title" width=" 120" height="120" />
+                                <asp:Repeater ID="Repeater2" runat="server" DataSourceID="SqlDataSource1">
+                                    <ItemTemplate>
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("DisplayName") %></span>
+                                        <br />
+                                        <span class="title font-ha"><%# Eval("JobTitle") %></span>
+                                        <span class="selected"></span>
+                                    </ItemTemplate>
+                                </asp:Repeater>
+                            </a>
+                        </li>
+                        <li class="start active ">
+                            <a href="Default.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">الصفحة الرئيسية</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="Students">
+                            <a href="Students.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">ملفات الطلبة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                             <li id="StudentsBlockException">
+                            <a href="StudentsBlockException.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">طلاب الاستثناء المالي</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="StudentsBalances">
+                            <a href="StudentsBalances.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">أرصدة الطلبة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                       <%-- <li>
+                            <a href="StudentsAccounts.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">تقرير صندوق الطالب</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>--%>
+                        <li id="StudentScholarshipAccreditation">
+                            <a href="StudentScholarshipAccreditation.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إعتماد المنح</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterScholarshipStatistics">
+                            <a href="SemesterScholarshipStatistics.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إحصائيات المنح</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+<li id="StudentFromMinistryFinanceAccount">
+                            <a href="StudentFromMinistryFinanceAccountAdd.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">استقطاع من رواتب موظفي غزة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentsScholarship">
+                            <a href="SemesterStudentsScholarship.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف طلاب المنح</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+
+                             <li id="SemesterIncomeStatistics">
+                            <a href="SemesterIncomeStatistics.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إحصائيات الإيرادات والإرجاعات 1</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterCollegeStatistics">
+                            <a href="SemesterCollegeStatistics.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إحصائيات الكليات </span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                          <li id="DateIncomeStatistics">
+                            <a href="SemesterIncomeStatisticsDate.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إحصائيات الإيرادات والإرجاعات 2</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentPaiedFees">
+                            <a href="SemesterStudentPaiedFees.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف الطلاب مسددي الرسوم</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentsLoans">
+                            <a href="SemesterStudentsLoans.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف طلاب القروض</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentsInstallments">
+                            <a href="SemesterStudentsInstallments.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف أقساط الطلاب</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentsInstallmentsPaid">
+                            <a href="SemesterStudentsInstallmentsPaid.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف الأقساط المسددة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterStudentsInstallmentsNotPaid">
+                            <a href="SemesterStudentsInstallmentsNotPaid.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف الأقساط الغير مسددة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="StudentInstallmentNotPaid">
+                            <a href="StudentInstallmentNotPaid.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">كشف الأقساط المستحقة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                        <li id="SemesterDateStudentBookStatistics">
+                            <a href="SemesterDateStudentBookStatistics.aspx">
+                                <i class="fa fa-home"></i>
+                                <span class="title">إحصائيات الكتب المباعة</span>
+                                <span class="selected"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="slimScrollBar" style="background: none repeat scroll 0% 0% rgb(161, 178, 189); width: 7px; position: absolute; top: 0px; opacity: 0.3; display: block; border-radius: 7px; z-index: 99; left: 1px; height: 152.974px;"></div>
+                    <div class="slimScrollRail" style="width: 7px; height: 100%; position: absolute; top: 0px; display: none; border-radius: 7px; background: none repeat scroll 0% 0% rgb(51, 51, 51); opacity: 0.2; z-index: 90; left: 1px;"></div>
+                </div>
+            </div>
+            <!-- END SIDEBAR -->
+            <!-- BEGIN PAGE -->
+            <div class="page-content isra-contaner-heder-proparets">
+                <div class="row isra-contaner-heder isra-contaner-heder-pading">
+                    <div class="col-md-11">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- END PAGE HEADER-->
+                <div style="clear: both"></div>
+                <!-- BEGIN isra-content -->
+                <div class="isra-content">
+                    <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+                <!-- END isra-content -->
+            </div>
+            <!-- END PAGE -->
+        </div>
+        <!-- END CONTAINER -->
+        <!-- BEGIN FOOTER -->
+        <div class="footer">
+            <div class="footer-inner font-ha isra-color6">
+                جامعة الاسراء&copy;2015 
+            </div>
+            <div class="nav navbar-nav pull-right">
+                <div style="display: block; color: #fff; padding: 0px 15px; width: 250px;">
+                    <i class="fa fa-calendar"></i>
+                    <span class="font-ha isra-color6"><%= DateTime.Now.ToString("dddd dd MMMM yyyy - hh:mm tt") %></span>
+                </div>
+            </div>
+            <div class="footer-tools">
+                <span class="go-top">
+                    <i class="fa fa-angle-up"></i>
+                </span>
+            </div>
+        </div>
+        <!-- END FOOTER -->
+    </form>
+</body>

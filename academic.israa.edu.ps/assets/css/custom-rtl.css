@@ -1,0 +1,22 @@
+/* here you can put your own css to customize and override the theme */
+
+.sale-summary li .sale-num {
+    color: #169ef4;
+    font-family: hasanin;
+    font-size: 14px;
+    font-weight: 100;
+}
+
+.sale-summary li .sale-info {
+    color: #646464;
+    float: right;
+    font-family: hasanin;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.sale-summary li {
+    border-top: none;
+    overflow: hidden;
+    padding: 1.9px 0;
+}

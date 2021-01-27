@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsStudentInternalTransformationAPI" targetNamespace="http://tempuri.org/dsStudentInternalTransformationAPI.xsd" xmlns:mstns="http://tempuri.org/dsStudentInternalTransformationAPI.xsd" xmlns="http://tempuri.org/dsStudentInternalTransformationAPI.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsStudentInternalTransformationAPI" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="StudentInternalTransformationAPI">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Id" type="xs:string" minOccurs="0" />
+              <xs:element name="courseId" type="xs:string" minOccurs="0" />
+              <xs:element name="courseName" type="xs:string" minOccurs="0" />
+              <xs:element name="courseHour" type="xs:string" minOccurs="0" />
+              <xs:element name="courseCode" type="xs:string" minOccurs="0" />
+              <xs:element name="transcourseId" type="xs:string" minOccurs="0" />
+              <xs:element name="transcourseName" type="xs:string" minOccurs="0" />
+              <xs:element name="transCourseHour" type="xs:string" minOccurs="0" />
+              <xs:element name="transcourseCode" type="xs:string" minOccurs="0" />
+              <xs:element name="studentId" type="xs:string" minOccurs="0" />
+              <xs:element name="studentNo" type="xs:string" minOccurs="0" />
+              <xs:element name="studentname" type="xs:string" minOccurs="0" />
+              <xs:element name="studentProgram" type="xs:string" minOccurs="0" />
+              <xs:element name="studentCollege" type="xs:string" minOccurs="0" />
+              <xs:element name="studentDepartment" type="xs:string" minOccurs="0" />
+              <xs:element name="studentLevel" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="SemesterEmployeesTotalHours" targetNamespace="http://tempuri.org/SemesterEmployeesTotalHours.xsd" xmlns:mstns="http://tempuri.org/SemesterEmployeesTotalHours.xsd" xmlns="http://tempuri.org/SemesterEmployeesTotalHours.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="SemesterEmployeesTotalHours" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="SemesterEmployeesTotalHours" msprop:Generator_UserDSName="SemesterEmployeesTotalHours">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetSemesterEmployeesTotalHours" msprop:Generator_TableClassName="GetSemesterEmployeesTotalHoursDataTable" msprop:Generator_TableVarName="tableGetSemesterEmployeesTotalHours" msprop:Generator_TablePropName="GetSemesterEmployeesTotalHours" msprop:Generator_RowDeletingName="GetSemesterEmployeesTotalHoursRowDeleting" msprop:Generator_RowChangingName="GetSemesterEmployeesTotalHoursRowChanging" msprop:Generator_RowEvHandlerName="GetSemesterEmployeesTotalHoursRowChangeEventHandler" msprop:Generator_RowDeletedName="GetSemesterEmployeesTotalHoursRowDeleted" msprop:Generator_UserTableName="GetSemesterEmployeesTotalHours" msprop:Generator_RowChangedName="GetSemesterEmployeesTotalHoursRowChanged" msprop:Generator_RowEvArgName="GetSemesterEmployeesTotalHoursRowChangeEvent" msprop:Generator_RowClassName="GetSemesterEmployeesTotalHoursRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="RowNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnRowNo" msprop:Generator_ColumnPropNameInRow="RowNo" msprop:Generator_ColumnPropNameInTable="RowNoColumn" msprop:Generator_UserColumnName="RowNo" type="xs:long" minOccurs="0" />
+              <xs:element name="SemesteName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSemesteName" msprop:Generator_ColumnPropNameInRow="SemesteName" msprop:Generator_ColumnPropNameInTable="SemesteNameColumn" msprop:Generator_UserColumnName="SemesteName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeNo" msprop:Generator_ColumnVarNameInTable="columnEmployeeNo" msprop:Generator_ColumnPropNameInRow="EmployeeNo" msprop:Generator_ColumnPropNameInTable="EmployeeNoColumn" msprop:Generator_UserColumnName="EmployeeNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="100" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SemesterEmployeeTotalHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSemesterEmployeeTotalHours" msprop:Generator_ColumnPropNameInRow="SemesterEmployeeTotalHours" msprop:Generator_ColumnPropNameInTable="SemesterEmployeeTotalHoursColumn" msprop:Generator_UserColumnName="SemesterEmployeeTotalHours" type="xs:double" minOccurs="0" />
+              <xs:element name="AllSemesterEmployeeTotalHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnAllSemesterEmployeeTotalHours" msprop:Generator_ColumnPropNameInRow="AllSemesterEmployeeTotalHours" msprop:Generator_ColumnPropNameInTable="AllSemesterEmployeeTotalHoursColumn" msprop:Generator_UserColumnName="AllSemesterEmployeeTotalHours" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

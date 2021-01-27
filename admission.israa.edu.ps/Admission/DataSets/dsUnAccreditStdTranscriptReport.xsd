@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsUnAccreditStdTranscriptReport" targetNamespace="http://tempuri.org/dsUnAccreditStdTranscriptReport.xsd" xmlns:mstns="http://tempuri.org/dsUnAccreditStdTranscriptReport.xsd" xmlns="http://tempuri.org/dsUnAccreditStdTranscriptReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsUnAccreditStdTranscriptReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_DataSetName="dsUnAccreditStdTranscriptReport" msprop:Generator_UserDSName="dsUnAccreditStdTranscriptReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetUnAccreditStdTranscriptReport" msprop:Generator_TableClassName="GetUnAccreditStdTranscriptReportDataTable" msprop:Generator_TableVarName="tableGetUnAccreditStdTranscriptReport" msprop:Generator_TablePropName="GetUnAccreditStdTranscriptReport" msprop:Generator_RowDeletingName="GetUnAccreditStdTranscriptReportRowDeleting" msprop:Generator_RowChangingName="GetUnAccreditStdTranscriptReportRowChanging" msprop:Generator_RowEvHandlerName="GetUnAccreditStdTranscriptReportRowChangeEventHandler" msprop:Generator_RowDeletedName="GetUnAccreditStdTranscriptReportRowDeleted" msprop:Generator_UserTableName="GetUnAccreditStdTranscriptReport" msprop:Generator_RowChangedName="GetUnAccreditStdTranscriptReportRowChanged" msprop:Generator_RowEvArgName="GetUnAccreditStdTranscriptReportRowChangeEvent" msprop:Generator_RowClassName="GetUnAccreditStdTranscriptReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StdSemesterID" msprop:Generator_ColumnVarNameInTable="columnStdSemesterID" msprop:Generator_ColumnPropNameInRow="StdSemesterID" msprop:Generator_ColumnPropNameInTable="StdSemesterIDColumn" msprop:Generator_UserColumnName="StdSemesterID" type="xs:int" />
+              <xs:element name="CourseStatusID" msprop:Generator_ColumnVarNameInTable="columnCourseStatusID" msprop:Generator_ColumnPropNameInRow="CourseStatusID" msprop:Generator_ColumnPropNameInTable="CourseStatusIDColumn" msprop:Generator_UserColumnName="CourseStatusID" type="xs:int" minOccurs="0" />
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnID" msprop:Generator_ColumnPropNameInRow="ID" msprop:Generator_ColumnPropNameInTable="IDColumn" msprop:Generator_UserColumnName="ID" type="xs:int" />
+              <xs:element name="StudentStatus" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentStatus" msprop:Generator_ColumnPropNameInRow="StudentStatus" msprop:Generator_ColumnPropNameInTable="StudentStatusColumn" msprop:Generator_UserColumnName="StudentStatus" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SemesterName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSemesterName" msprop:Generator_ColumnPropNameInRow="SemesterName" msprop:Generator_ColumnPropNameInTable="SemesterNameColumn" msprop:Generator_UserColumnName="SemesterName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseCode" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCourseCode" msprop:Generator_ColumnPropNameInRow="CourseCode" msprop:Generator_ColumnPropNameInTable="CourseCodeColumn" msprop:Generator_UserColumnName="CourseCode" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="20" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseArName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCourseArName" msprop:Generator_ColumnPropNameInRow="CourseArName" msprop:Generator_ColumnPropNameInTable="CourseArNameColumn" msprop:Generator_UserColumnName="CourseArName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="150" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CourseHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCourseHours" msprop:Generator_ColumnPropNameInRow="CourseHours" msprop:Generator_ColumnPropNameInTable="CourseHoursColumn" msprop:Generator_UserColumnName="CourseHours" type="xs:int" minOccurs="0" />
+              <xs:element name="TotalMark" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnTotalMark" msprop:Generator_ColumnPropNameInRow="TotalMark" msprop:Generator_ColumnPropNameInTable="TotalMarkColumn" msprop:Generator_UserColumnName="TotalMark" type="xs:int" minOccurs="0" />
+              <xs:element name="CountOfStdSemesterRegisterHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCountOfStdSemesterRegisterHours" msprop:Generator_ColumnPropNameInRow="CountOfStdSemesterRegisterHours" msprop:Generator_ColumnPropNameInTable="CountOfStdSemesterRegisterHoursColumn" msprop:Generator_UserColumnName="CountOfStdSemesterRegisterHours" type="xs:int" minOccurs="0" />
+              <xs:element name="CountOfCumulativeStdSemesterRegisterHours" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCountOfCumulativeStdSemesterRegisterHours" msprop:Generator_ColumnPropNameInRow="CountOfCumulativeStdSemesterRegisterHours" msprop:Generator_ColumnPropNameInTable="CountOfCumulativeStdSemesterRegisterHoursColumn" msprop:Generator_UserColumnName="CountOfCumulativeStdSemesterRegisterHours" type="xs:int" minOccurs="0" />
+              <xs:element name="SemesterGPA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSemesterGPA" msprop:Generator_ColumnPropNameInRow="SemesterGPA" msprop:Generator_ColumnPropNameInTable="SemesterGPAColumn" msprop:Generator_UserColumnName="SemesterGPA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="CumulativeGPA" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnCumulativeGPA" msprop:Generator_ColumnPropNameInRow="CumulativeGPA" msprop:Generator_ColumnPropNameInTable="CumulativeGPAColumn" msprop:Generator_UserColumnName="CumulativeGPA" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="8" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Mark" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnMark" msprop:Generator_ColumnPropNameInRow="Mark" msprop:Generator_ColumnPropNameInTable="MarkColumn" msprop:Generator_UserColumnName="Mark" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" type="xs:string" minOccurs="0" />
+              <xs:element name="PostponeSemesterCount" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseStatusArName" type="xs:string" minOccurs="0" />
+              <xs:element name="SemesterID" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetUnAccreditStdTranscriptReport" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>

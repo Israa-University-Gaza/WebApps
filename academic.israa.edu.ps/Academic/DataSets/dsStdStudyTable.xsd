@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsStdStudyTable" targetNamespace="http://tempuri.org/dsStdStudyTable.xsd" xmlns:mstns="http://tempuri.org/dsStdStudyTable.xsd" xmlns="http://tempuri.org/dsStdStudyTable.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsStdStudyTable" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsStdStudyTable">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="CourseCode" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseArName" type="xs:string" minOccurs="0" />
+              <xs:element name="Employee" type="xs:string" minOccurs="0" />
+              <xs:element name="SectionNum" type="xs:string" minOccurs="0" />
+              <xs:element name="SectionType" type="xs:string" minOccurs="0" />
+              <xs:element name="Room" type="xs:string" minOccurs="0" />
+              <xs:element name="Saturday" type="xs:string" minOccurs="0" />
+              <xs:element name="Sunday" type="xs:string" minOccurs="0" />
+              <xs:element name="Monday" type="xs:string" minOccurs="0" />
+              <xs:element name="Tuesday" type="xs:string" minOccurs="0" />
+              <xs:element name="Wednesday" type="xs:string" minOccurs="0" />
+              <xs:element name="Thursday" type="xs:string" minOccurs="0" />
+              <xs:element name="ExamDate" type="xs:string" minOccurs="0" />
+              <xs:element name="ExamTime" type="xs:string" minOccurs="0" />
+              <xs:element name="CourseStatus" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,126 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Affairs/MasterPage.master" AutoEventWireup="true" CodeFile="SemesterStudentsScholarship.aspx.cs" Inherits="Affairs_SemesterStudentsLoans" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
+    <script type="text/javascript">
+        $('document').ready(function () {
+            $('.page-sidebar-menu li').removeClass("active").removeClass("open");
+            $('.page-sidebar-menu li ul li').css("background-color", "");
+            $('#SemesterStudentsScholarship').addClass("active open");
+        });
+    </script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+    <ul class="page-breadcrumb breadcrumb  isra-contaner-heder">
+        <li>
+            <i class="fa fa-home"></i>
+            <a href="index.html" class="font-ha">مالية القبول والتسجيل</a>
+            <i class="fa fa-angle-left"></i>
+        </li>
+        <li><a href="#" class="font-ha">كشف منح الطلاب</a></li>
+    </ul>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" runat="Server">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="portlet box red">
+                <div class="portlet-title">
+                    <div class="caption"><i class="fa fa-cogs"></i>كشف منح الطلاب</div>
+                    <div class="tools">
+                        <a class="collapse" href="javascript:;"></a>
+                    </div>
+                </div>
+                <div class="portlet-body form">
+                    <div class="form-horizontal">
+                        <div class="form-body">
+                            <div class="form-group row">
+                                <label class="col-md-2 control-label">الفصل الدراسي</label>
+                                <div class="col-md-10">
+                                    <asp:DropDownList ID="ddlSemester" runat="server" DataSourceID="SqlDataSource1" DataTextField="ArName" DataValueField="ID" AutoPostBack="true" CssClass="select2_category form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                        SelectCommand="Select ID, ArName From Semester Where ID<>1 and IsDelete=0"></asp:SqlDataSource>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 control-label">المنحة</label>
+                                <div class="col-md-10">
+                                    <asp:DropDownList ID="ddlAction" runat="server" DataSourceID="SqlDataSource2" DataTextField="ArName" DataValueField="ID" AutoPostBack="true" CssClass="select2_category form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>"
+                                        SelectCommand="SELECT ID, ArName FROM [Action] WHERE (([IsActive] = 1) AND ([IsDelete] = 0) And IsScholarship=1) union select -1,N'إختر المنحة'"></asp:SqlDataSource>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-md-2 control-label">الكلية</label>
+                                <div class="col-md-10">
+                                    <asp:DropDownList ID="ddlCollege" runat="server" DataSourceID="SqlDataSource4" DataTextField="ArName" DataValueField="ID" AutoPostBack="true" CssClass="select2_category form-control"></asp:DropDownList>
+                                    <asp:SqlDataSource ID="SqlDataSource4" runat="server" ConnectionString="<%$ ConnectionStrings:isra2 %>" SelectCommand="SELECT ID, ArName FROM [College] WHERE (ID <> 1 AND ([IsActive] = 1) AND ([IsDelete] = 0)) union select -1,N'كل الكليات'"></asp:SqlDataSource>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row table-responsive">
+                                <% if (ListView1.Items.Count > 0)
+                                    { %>
+                                <table class="table table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col" style="width: 5%; text-align: center">#</th>
+                                            <th scope="col" style="width: 10%; text-align: center">رقم الطالب</th>
+                                            <th scope="col" style="width: 20%; text-align: center">اسم الطالب</th>
+<th scope="col" style="width: 20%; text-align: center">رقم الجوال</th>
+                                            <th scope="col" style="width: 15%; text-align: center">القسم</th>
+                                            <th scope="col" style="width: 15%; text-align: center">المنحة</th>
+                                            <th scope="col" style="width: 15%; text-align: center">قيمة المنحة</th>
+                                            <th scope="col" style="width: 15%; text-align: center">ع. س. المنحة</th>
+                                            <th scope="col" style="width: 20%; text-align: center">تاريخ الإعتماد</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource3">
+                                            <ItemTemplate>
+                                                <tr>
+                                                    <td style="text-align: center"><span><%# Eval("RowNo") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("StudentNo") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("StudentName") %></span></td> 
+<td style="text-align: center"><span><%# Eval("StudentMobile") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("StudentDepartment") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("ActionValue") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("ScholarshipValue") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("ScholarshipQuantity") %></span></td>
+                                                    <td style="text-align: center"><span><%# Eval("AcademicAccreditationDate") %></span></td>
+                                                </tr>
+                                            </ItemTemplate>
+                                        </asp:ListView>
+                                        <asp:SqlDataSource ID="SqlDataSource3" runat="server"
+                                            ConnectionString="<%$ ConnectionStrings:isra %>"
+                                            SelectCommand="GetSemesterStudentsScholarship" SelectCommandType="StoredProcedure">
+                                            <SelectParameters>
+                                                <asp:ControlParameter ControlID="ddlSemester" PropertyName="SelectedValue" Name="SemesterID" Type="Int32" />
+                                                <asp:ControlParameter ControlID="ddlAction" PropertyName="SelectedValue" Name="ActionID" Type="Int32" />
+                                                <asp:ControlParameter ControlID="ddlCollege" PropertyName="SelectedValue" Name="CollegeID" Type="Int32" />
+                                            </SelectParameters>
+                                        </asp:SqlDataSource>
+                                    </tbody>
+                                </table>
+
+                                <div class="clearfix"></div>
+                                <% }
+                                    else
+                                    {%>
+                                <div style="font-size: 14px; margin-top: 20px;" class="alert alert-info alert-dismissable">
+                                    <div class="col-xs-11" style="text-align: center">
+                                        <strong>لا يوجد طلاب للمنحة المختارة في هذا الفصل الدراسي المختار</strong>
+                                        <div style="clear: both"></div>
+                                    </div>
+                                    <button type="button" style="margin-top: 4px;" class="close col-xs-2" data-dismiss="alert" aria-hidden="true"></button>
+                                    <div style="clear: both"></div>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</asp:Content>
+

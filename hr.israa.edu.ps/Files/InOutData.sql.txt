@@ -1,0 +1,168 @@
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Ibrahim Al Hussaina','1101','29/8/2015 9:41 AM','C/In','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Alaa musalm','1102','29/8/2015 8:06 AM','C/In','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Abd el-fttah Jaradah','1105','29/8/2015 8:40 AM','C/In','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Abd el-fttah Jaradah','1105','29/8/2015 12:13 PM','C/In','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Basel El shekh','1106','29/8/2015 7:59 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Doaa Radi','1107','29/8/2015 8:07 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Ammar El qidra','1200','29/8/2015 7:46 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed Al Asqalani','1300','29/8/2015 7:51 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mousa El Astal','1400','29/8/2015 7:14 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','mohammed Mushtaha','1600','29/8/2015 7:56 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Ahmed Abu Jomaa','1601','29/8/2015 7:51 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed Al Torkmani','1602','29/8/2015 7:51 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Ramzy Hamdan','1603','29/8/2015 7:53 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','khalid Abu Ali','1700','29/8/2015 7:59 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Iman Hamdan','1701','29/8/2015 8:05 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Heyam Abed alrahman','1702','29/8/2015 7:59 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Nabil Ismael','1800','29/8/2015 8:19 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Samya Shwedeh','1801','29/8/2015 7:51 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','kamal Al Massri','1901','29/8/2015 7:54 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Alaa Matar','2000','29/8/2015 8:05 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Hassan Abu Hassanien','2101','29/8/2015 8:05 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Wajed Isleem','2102','29/8/2015 8:05 AM','C/In','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Wajed Isleem','2102','29/8/2015 1:31 PM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Haneen El Talli','2104','29/8/2015 8:11 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed El Nahhal','2105','29/8/2015 9:25 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Rami zoarob','2106','29/8/2015 7:49 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Hassan Al Massri','2107','29/8/2015 8:14 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed Abu sultan','2201','29/8/2015 8:14 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Naim Jaradah','2301','29/8/2015 8:14 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed El Najjar','2400','29/8/2015 9:01 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Nemer Ershi','2401','29/8/2015 9:29 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Adham Abu Tawela','2402','29/8/2015 6:59 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Jalal Aead','2403','29/8/2015 9:30 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Azmii  Tafesh','2412','29/8/2015 6:08 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Salem  Alwan','2413','29/8/2015 7:04 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed Abu Ammra','2414','29/8/2015 8:30 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Talal El Njjar','2415','29/8/2015 6:25 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Kamal Abu Kass','2416','29/8/2015 7:48 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed Harazen','2600','29/8/2015 7:45 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Azzat El Asskry','2700','29/8/2015 7:44 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Atif Musad','2701','29/8/2015 8:16 AM','','1',,'Fingerpint','');
+
+INSERT INTO INOUTDATA
+  (DEFAULTDEPTID,Name,PIN,CHECKTIME,checktype,SENSORID,SSN,verifycode,CardNo)
+VALUES('OUR COMPANY','Mohammed AL Massri','2702','29/8/2015 7:51 AM','','1',,'Fingerpint','');
+

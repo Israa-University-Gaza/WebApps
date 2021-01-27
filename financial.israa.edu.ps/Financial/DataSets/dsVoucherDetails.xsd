@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsVoucherDetails" targetNamespace="http://tempuri.org/dsVoucherDetails.xsd" xmlns:mstns="http://tempuri.org/dsVoucherDetails.xsd" xmlns="http://tempuri.org/dsVoucherDetails.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsVoucherDetails" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVoucherDetails" msprop:Generator_UserDSName="dsVoucherDetails">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="dsVoucherDetails" msprop:Generator_TableClassName="dsVoucherDetailsDataTable" msprop:Generator_TableVarName="tabledsVoucherDetails" msprop:Generator_TablePropName="_dsVoucherDetails" msprop:Generator_RowDeletingName="dsVoucherDetailsRowDeleting" msprop:Generator_RowChangingName="dsVoucherDetailsRowChanging" msprop:Generator_RowEvHandlerName="dsVoucherDetailsRowChangeEventHandler" msprop:Generator_RowDeletedName="dsVoucherDetailsRowDeleted" msprop:Generator_UserTableName="dsVoucherDetails" msprop:Generator_RowChangedName="dsVoucherDetailsRowChanged" msprop:Generator_RowEvArgName="dsVoucherDetailsRowChangeEvent" msprop:Generator_RowClassName="dsVoucherDetailsRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Amount" msprop:Generator_ColumnVarNameInTable="columnAmount" msprop:Generator_ColumnPropNameInRow="Amount" msprop:Generator_ColumnPropNameInTable="AmountColumn" msprop:Generator_UserColumnName="Amount" type="xs:string" minOccurs="0" />
+              <xs:element name="Currency" msprop:Generator_ColumnVarNameInTable="columnCurrency" msprop:Generator_ColumnPropNameInRow="Currency" msprop:Generator_ColumnPropNameInTable="CurrencyColumn" msprop:Generator_UserColumnName="Currency" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

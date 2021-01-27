@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ECertificateRegistrationReport" targetNamespace="http://tempuri.org/ECertificateRegistrationReport.xsd" xmlns:mstns="http://tempuri.org/ECertificateRegistrationReport.xsd" xmlns="http://tempuri.org/ECertificateRegistrationReport.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="isra" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isra (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.isra.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ECertificateRegistrationReport" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="ECertificateRegistrationReport" msprop:Generator_DataSetName="ECertificateRegistrationReport">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ECertificateRegistrationReport" msprop:Generator_TableClassName="ECertificateRegistrationReportDataTable" msprop:Generator_TableVarName="tableECertificateRegistrationReport" msprop:Generator_TablePropName="_ECertificateRegistrationReport" msprop:Generator_RowDeletingName="ECertificateRegistrationReportRowDeleting" msprop:Generator_RowChangingName="ECertificateRegistrationReportRowChanging" msprop:Generator_RowEvHandlerName="ECertificateRegistrationReportRowChangeEventHandler" msprop:Generator_RowDeletedName="ECertificateRegistrationReportRowDeleted" msprop:Generator_UserTableName="ECertificateRegistrationReport" msprop:Generator_RowChangedName="ECertificateRegistrationReportRowChanged" msprop:Generator_RowEvArgName="ECertificateRegistrationReportRowChangeEvent" msprop:Generator_RowClassName="ECertificateRegistrationReportRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="StudentNo" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentNo" msprop:Generator_ColumnPropNameInRow="StudentNo" msprop:Generator_ColumnPropNameInTable="StudentNoColumn" msprop:Generator_UserColumnName="StudentNo" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnReportDate" msprop:Generator_ColumnPropNameInRow="ReportDate" msprop:Generator_ColumnPropNameInTable="ReportDateColumn" msprop:Generator_UserColumnName="ReportDate" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="11" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentName" msprop:Generator_ColumnPropNameInRow="StudentName" msprop:Generator_ColumnPropNameInTable="StudentNameColumn" msprop:Generator_UserColumnName="StudentName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="47" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentCollege" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentCollege" msprop:Generator_ColumnPropNameInRow="StudentCollege" msprop:Generator_ColumnPropNameInTable="StudentCollegeColumn" msprop:Generator_UserColumnName="StudentCollege" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentDepartment" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentDepartment" msprop:Generator_ColumnPropNameInRow="StudentDepartment" msprop:Generator_ColumnPropNameInTable="StudentDepartmentColumn" msprop:Generator_UserColumnName="StudentDepartment" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentLevel" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentLevel" msprop:Generator_ColumnPropNameInRow="StudentLevel" msprop:Generator_ColumnPropNameInTable="StudentLevelColumn" msprop:Generator_UserColumnName="StudentLevel" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="5" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="StudentSemester" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnStudentSemester" msprop:Generator_ColumnPropNameInRow="StudentSemester" msprop:Generator_ColumnPropNameInTable="StudentSemesterColumn" msprop:Generator_UserColumnName="StudentSemester" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="SSN" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnSSN" msprop:Generator_ColumnPropNameInRow="SSN" msprop:Generator_ColumnPropNameInTable="SSNColumn" msprop:Generator_UserColumnName="SSN" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="9" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="EmployeeName" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnEmployeeName" msprop:Generator_ColumnPropNameInRow="EmployeeName" msprop:Generator_ColumnPropNameInTable="EmployeeNameColumn" msprop:Generator_UserColumnName="EmployeeName" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="152" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -1,0 +1,158 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsBookStatistics" targetNamespace="http://tempuri.org/dsBookStatistics.xsd" xmlns:mstns="http://tempuri.org/dsBookStatistics.xsd" xmlns="http://tempuri.org/dsBookStatistics.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="IsraaLibrary" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IsraaLibrary (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.IsraaLibrary.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsBookStatistics" msdata:IsDataSet="true" msdata:UseCurrentLocale="true">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="GetBookLanguageStatistics">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="Name" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RowNo" msdata:ReadOnly="true" type="xs:long" minOccurs="0" />
+              <xs:element name="DateFrom" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="BookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="PartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="EditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyPartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyEditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="ContainerCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="ReportDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetBookContainerTypeStatistics">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RowNo" msdata:ReadOnly="true" type="xs:long" minOccurs="0" />
+              <xs:element name="DateFrom" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="BookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="PartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="EditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyPartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyEditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="ContainerCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="GetBookContainerCategoryStatistics">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ID" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" type="xs:int" />
+              <xs:element name="Name">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="200" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="RowNo" msdata:ReadOnly="true" type="xs:long" minOccurs="0" />
+              <xs:element name="DateFrom" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="DateTo" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="ReportDate" msdata:ReadOnly="true" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="10" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="TotalBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="BookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="PartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="EditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyBookCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyPartCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="CopyEditionCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+              <xs:element name="ContainerCount" msdata:ReadOnly="true" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetBookLanguageStatistics" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="GetBookContainerTypeStatistics_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetBookContainerTypeStatistics" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+    <xs:unique name="GetBookContainerCategoryStatistics_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:GetBookContainerCategoryStatistics" />
+      <xs:field xpath="mstns:ID" />
+    </xs:unique>
+  </xs:element>
+</xs:schema>
