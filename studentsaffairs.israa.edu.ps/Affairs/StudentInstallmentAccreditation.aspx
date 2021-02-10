@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Academic/MasterPage.master" AutoEventWireup="true" CodeFile="StudentInstallmentAccreditation.aspx.cs" Inherits="Academic_StudentInstallmentAccreditation" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Affairs/MasterPage.master" AutoEventWireup="true" CodeFile="StudentInstallmentAccreditation.aspx.cs" Inherits="Academic_StudentInstallmentAccreditation" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <script type="text/javascript">

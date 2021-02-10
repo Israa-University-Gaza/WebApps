@@ -4622,6 +4622,84 @@ public class DataAccess
         }
     }
 
+    /*
+     * Start Add by RSR
+     */
+    public static DataTable BuyBook(string StudentID, string BookID, string REmployeeID)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            SqlDataAdapter DA = new SqlDataAdapter("BuyBook", conn);
+            DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DA.SelectCommand.Parameters.AddWithValue("@StudentID", StudentID);
+            DA.SelectCommand.Parameters.AddWithValue("@BookID", BookID);
+            DA.SelectCommand.Parameters.AddWithValue("@REmployeeID", REmployeeID);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+
+    }
+
+    public static DataTable DeleteStudentBook(string StudentBookID, string EmployeeID)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            SqlDataAdapter DA = new SqlDataAdapter("DeleteStudentBook", conn);
+            DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DA.SelectCommand.Parameters.AddWithValue("@StudentBookID", StudentBookID);
+            DA.SelectCommand.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+    }
+
+    public static DataTable GetStudentBooks(string StudentID)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            SqlDataAdapter DA = new SqlDataAdapter("GetStudentBooks", conn);
+            DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DA.SelectCommand.Parameters.AddWithValue("@StudentID", StudentID);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+    }
+
+    public static DataTable SetSectionMarkAccreditation(string SectionID, string EmployeeID, int AccreditationType)
+    {
+        using (SqlConnection conn = GetConnection())
+        {
+            SqlDataAdapter DA = new SqlDataAdapter("SetSectionMarkAccreditation", conn);
+            DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DA.SelectCommand.Parameters.AddWithValue("@SectionID", SectionID);
+            DA.SelectCommand.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            DA.SelectCommand.Parameters.AddWithValue("@AccreditationType", AccreditationType);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+    }
+
+    public static DataTable StudentScholarshipAccreditation(string ID, string EmployeeID)
+    {
+        using (SqlConnection conn = GetConnection3())
+        {
+            SqlDataAdapter DA = new SqlDataAdapter("StudentScholarshipAccreditation", conn);
+            DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+            DA.SelectCommand.Parameters.AddWithValue("@ID", ID);
+            DA.SelectCommand.Parameters.AddWithValue("@EmployeeID", EmployeeID);
+            DataTable DT = new DataTable();
+            DA.Fill(DT);
+            return DT;
+        }
+    }
+
+    /*
+     * End Add by RSR
+     */
     #region API
 
 

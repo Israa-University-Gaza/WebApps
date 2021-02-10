@@ -111,7 +111,7 @@
                     <br />
                     <div class="row">
                         <div class="col-md-2">
-                            <asp:Button ID="btnPdf" runat="server" Text="PDF" CssClass="btn blue" OnClick="btnPdf_Click" />
+                            <!--<asp:Button ID="btnPdf" runat="server" Text="PDF" CssClass="btn blue" OnClick="btnPdf_Click" />-->
                             <asp:Button ID="lbExcel" runat="server" Text="Excel" CssClass="btn green" OnClick="lbExcel_Click" />
                         </div>
                     </div>
