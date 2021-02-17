@@ -75,7 +75,7 @@
 
         </li>
 
-      <% if (lblStdTypeID.Text != "1" &&  lblStdTypeID.Text != "7")
+      <% if (lblStdTypeID.Text != "7") // By RSR original code -> if (lblStdTypeID.Text != "1" &&  lblStdTypeID.Text != "7")
             {%>
         <li id="StudentExternalTransforamtion" runat="server">
             <asp:LinkButton ID="LinkButton4" runat="server" OnClick="Link_OnClick" CommandArgument="StudentExternalTransforamtion.aspx; ">

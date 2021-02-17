@@ -220,6 +220,7 @@ namespace IsraaSystem.Application.Academic.SectionManger
             var result = unitOfWork.Academic.Section.Clean().Where(x => x.ID == sectionId).Select(x => new SectionInfoDto
             {
                 OfferdCourseTypeID = x.OfferdCourse.OfferdCourseTypeID,
+                SemesterID = x.OfferdCourse.SemesterID,
                 SemesterTypeID = x.OfferdCourse.Semester.SemesterTypeID,
                 courseCatogery = x.OfferdCourse.Course.CourseCategory,
                 CourseType = x.OfferdCourse.Course.CourseType1,
@@ -231,11 +232,52 @@ namespace IsraaSystem.Application.Academic.SectionManger
         public MarkTitle SectionMarkTitleGet(int sectionId)
         {
             var sectionInfo = SectionInfoGet(sectionId);
-            var marktTitls = unitOfWork.Academic.MarkTitle.Clean().Where(x =>
+            /*
+             *  Start Added by RSR
+             */
+
+             var marktTitls = unitOfWork.Academic.MarkTitle.Clean().Where(x =>
+                                    (x.CourseCategoryID == sectionInfo.courseCatogery.ID ) &&
+                                    (x.CourseTypeID == sectionInfo.CourseType.ID ) &&
+                                    (x.OfferdCourseTypeID == sectionInfo.OfferdCourseTypeID ) &&
+                                    (x.SemesterTypeID == sectionInfo.SemesterTypeID ) &&
+                                    (x.SemesterID == sectionInfo.SemesterID));
+            if(marktTitls.Count() > 0)
+            {
+                return marktTitls.ToList().FirstOrDefault();
+            }
+            else
+            {
+                marktTitls = unitOfWork.Academic.MarkTitle.Clean().Where(x =>
+                                   (x.CourseTypeID == sectionInfo.CourseType.ID) &&
+                                   (x.SemesterID == sectionInfo.SemesterID));
+
+                if (marktTitls.Count() > 0)
+                {
+                    return marktTitls.ToList().FirstOrDefault();
+                }
+                else
+                {
+                    marktTitls = unitOfWork.Academic.MarkTitle.Clean().Where(x =>
+                                   (x.SemesterID == sectionInfo.SemesterID));
+                    return marktTitls.ToList().FirstOrDefault();
+
+                }
+
+            }
+
+           
+
+            /*
+            *  End Added by RSR
+            */
+            /*var marktTitls = unitOfWork.Academic.MarkTitle.Clean().Where(x =>
                 (x.CourseCategoryID == sectionInfo.courseCatogery.ID || x.CourseCategoryID == -1) &&
                 (x.CourseTypeID == sectionInfo.CourseType.ID || x.CourseTypeID == -1) &&
                 (x.OfferdCourseTypeID == sectionInfo.OfferdCourseTypeID || x.OfferdCourseTypeID == -1) &&
-                (x.SemesterTypeID == sectionInfo.SemesterTypeID || x.SemesterTypeID == -1));
+                (x.SemesterTypeID == sectionInfo.SemesterTypeID || x.SemesterTypeID == -1) &&
+                (x.SemesterID == sectionInfo.SemesterID));
+            */
             var y = marktTitls.ToList();
             return y.FirstOrDefault();
         }
@@ -243,6 +285,7 @@ namespace IsraaSystem.Application.Academic.SectionManger
         public class SectionInfoDto
         {
             public int OfferdCourseTypeID { get; set; }
+            public int? SemesterID { get; set; }
             public int? SemesterTypeID { get; set; }
             public CourseCategory courseCatogery { get; set; }
             public CourseType CourseType { get; set; }

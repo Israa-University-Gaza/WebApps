@@ -10,7 +10,7 @@ public partial class Affairs_Scholarship : UserPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if(EmployeeID!= "5124" )
+        if(EmployeeID!= "5124" && EmployeeID != "5267")
         Response.Redirect("Block.aspx");
     }
     protected void btnSave_Click(object sender, EventArgs e)

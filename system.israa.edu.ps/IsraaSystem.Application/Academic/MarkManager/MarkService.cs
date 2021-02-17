@@ -132,6 +132,17 @@ namespace IsraaSystem.Application.Academic.MarkManager
         {
             var mark = unitOfWork.Academic.Mark.Find(markId);
 
+            /* Start -- Add by RSR    */
+            var sectionID = mark.StdSection.SectionID;
+            var offerCourseID = unitOfWork.Academic.Section.Where(x => x.ID == sectionID).FirstOrDefault().OfferdCourseID;
+            var courseID = unitOfWork.Academic.OfferdCourse.Where(x => x.ID == offerCourseID).FirstOrDefault().CourseID;
+            var deparmetID = unitOfWork.Academic.Course.Where(x => x.ID == courseID).FirstOrDefault().DepartmentID;
+            var collegeID = unitOfWork.Academic.Department.Where(x => x.ID == deparmetID).FirstOrDefault().CollegeID;
+            var programID = unitOfWork.Academic.College.Where(x => x.ID == collegeID).FirstOrDefault().ProgramID;
+
+            var passMark = unitOfWork.Academic.Program.Where(x => x.ID == programID).FirstOrDefault().PassMark;
+            /* End -- Add by RSR    */
+
             var result = new MarkDto
             {
                 StdSectionId = mark.StdSectionID,
@@ -145,11 +156,7 @@ namespace IsraaSystem.Application.Academic.MarkManager
                 MidtermMark = mark.MidtermMark,
                 FinalMark = mark.FinalMark,
                 TotalMark = mark.TotalMark,
-                IsSuccess =
-                    mark.TotalMark >= 50 &&
-                    mark.StdSection.Course.Department.College.ProgramID == 1 ||
-                    mark.TotalMark >= 60 &&
-                    mark.StdSection.Course.Department.College.ProgramID == 2,
+                IsSuccess = mark.TotalMark >= passMark,
                 IsMidtermIncomplete = mark.IsMidtermIncomplete,
                 IsMidtermNoMark = mark.IsMidtermNoMark,
                 IsMidtermNoMarkAccept = mark.IsMidtermNoMarkAccept,

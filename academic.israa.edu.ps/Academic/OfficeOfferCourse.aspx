@@ -69,7 +69,7 @@
                                 <label class="control-label col-md-2">الفصل الدراسي</label>
                                 <div class="col-md-4">
                                     <asp:DropDownList ID="ddlSemester" runat="server" CssClass="select2_category form-control" DataSourceID="SqlDataSource1" DataTextField="ArName" DataValueField="ID" AutoPostBack="true"></asp:DropDownList>
-                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>" SelectCommand="SELECT ID, ArName FROM [Semester] where ID=20 ORDER BY ID DESC"></asp:SqlDataSource>
+                                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>" SelectCommand="SELECT ID, ArName FROM [Semester] where ID=21 ORDER BY ID DESC"></asp:SqlDataSource>
                                 </div>                                                                                                                                                  
                                 <label class="control-label col-md-2">القسم</label>
                                 <div class="col-md-4">

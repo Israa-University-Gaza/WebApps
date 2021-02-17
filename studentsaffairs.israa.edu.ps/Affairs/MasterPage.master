@@ -159,7 +159,7 @@
                                 <span class="title">الصفحة الرئيسية</span>
                                 <span class="selected"></span>
                             </a>
-                        </li><% if (lblEmployeeID.Text == "5124" )
+                        </li><% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
                                  { %>
                         <li id="menu1" class="">
                             <a href="Scholarship.aspx">
@@ -213,7 +213,7 @@
                             </a>
                         </li>
 
-                        <% if (lblEmployeeID.Text == "5124")
+                        <% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
                             { %>
                         <li id="menu20" class="">
                             <a href="StudentInstallmentOrderAll.aspx">
@@ -302,7 +302,7 @@
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <% if (lblEmployeeID.Text == "5124")
+                        <% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
                             { %>
 <li id="StudentFromMinistryFinanceAccount">
                                 <a href="StudentFromMinistryFinanceAccount.aspx">
