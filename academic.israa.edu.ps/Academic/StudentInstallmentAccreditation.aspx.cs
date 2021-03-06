@@ -19,9 +19,10 @@ public partial class Academic_StudentInstallmentAccreditation : UserPage
     }
     protected void lbAccrediteStudentInstallment_Click(object sender, EventArgs e)
     {
-
+        int empNo = 5267;
         int AccreditationType = 0;
-        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString())
+        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString() ||
+             EmployeeID == empNo.ToString())
         {
             AccreditationType = 1;
         }
@@ -54,7 +55,9 @@ public partial class Academic_StudentInstallmentAccreditation : UserPage
     {
 
         int AccreditationType = 0;
-        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString())
+        int empNo = 5267;
+        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString()||
+            EmployeeID == empNo.ToString())
         {
             AccreditationType = 1;
         }
@@ -101,8 +104,11 @@ public partial class Academic_StudentInstallmentAccreditation : UserPage
         var LinkButton1 = (LinkButton)e.Item.FindControl("LinkButton1");
         var icheck1 = (HtmlControl)e.Item.FindControl("icheck1");
         var iminus1 = (HtmlControl)e.Item.FindControl("iminus1");
-
-        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString() && Label1.Text == "False")
+        // added by RSR
+        int empNo = 5267;
+        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString() ||
+            EmployeeID == empNo.ToString() && 
+            Label1.Text == "False")
         {
 
             LinkButton1.Visible = true;

@@ -86,12 +86,12 @@
                                                 <td style="text-align: center;"><%# Eval("StudentCollege") %></td>
                                                 <td style="text-align: center;"><%# Eval("StudentDepartment") %></td>
                                                 <td style="text-align: center;"><%# Eval("SemesterCumulativeGraduateGPA") %></td>
-                                                <td style="text-align: center;">
+                                                <!--<td style="text-align: center;">
                                                     <asp:LinkButton ID="lbOpenStudent" runat="server" class="btn default btn-xs black" OnClick="lbOpenStudent_Click">فتح الملف</asp:LinkButton>
 
-                                                </td>
+                                                </td>-->
                                                 <td>
-                                                    <asp:LinkButton ID="LinkButton1" runat="server" class="btn default btn-xs black" OnClick="LinkButton1_OnClick">test</asp:LinkButton>
+                                                    <asp:LinkButton ID="LinkButton1" runat="server" class="btn default btn-xs black" OnClick="LinkButton1_OnClick">فتح الملف</asp:LinkButton>
 
                                                 </td>
                                             </tr>

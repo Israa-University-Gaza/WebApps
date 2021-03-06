@@ -108,7 +108,8 @@ namespace IsraaSystem.DataAccess.Sql.Academic
         {
             using (SqlConnection conn = GetIsraaHumanResourceConnection())
             {
-                SqlDataAdapter DA = new SqlDataAdapter("ddlEmployees", conn);
+                // By RSR SqlDataAdapter DA = new SqlDataAdapter("ddlEmployees", conn);
+                SqlDataAdapter DA = new SqlDataAdapter("ddlEmployeesOnWork", conn);
                 DA.SelectCommand.CommandType = CommandType.StoredProcedure;
                 DataTable DT = new DataTable();
                 DA.Fill(DT);

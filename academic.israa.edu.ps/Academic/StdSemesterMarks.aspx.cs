@@ -11,7 +11,7 @@ public partial class StdSemesterMarks : UserPage
     protected void Page_Load(object sender, EventArgs e)
     {
 
-        if (!IsPostBack)
+        /*if (!IsPostBack)
         {
 
             UserPage userPage = new UserPage();
@@ -30,7 +30,7 @@ public partial class StdSemesterMarks : UserPage
 
 
 
-        }
+        }*/
 
     }
 
