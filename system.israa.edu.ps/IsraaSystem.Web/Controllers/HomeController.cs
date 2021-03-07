@@ -151,7 +151,7 @@ namespace IsraaSystem.Web.Controllers
                             name = x.StudentAcademic.StudentNo,
                             Password = " ",
                             Firstname = x.StudentAcademic.StudentPersonal.ArFirstName,
-                            Lastname = x.StudentAcademic.StudentPersonal.ArFamilyName
+                            Lastname = x.StudentAcademic.StudentPersonal.ArFamilyName+" "+x.StudentAcademic.StudentPersonal.ArThirdName
                         })
                         .ToList();
 
