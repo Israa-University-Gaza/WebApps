@@ -142,7 +142,7 @@ namespace IsraaSystem.Web.Controllers
             var result = AC
                         .StdSection
                         .Clean()
-                        .Where(x => x.StdSemester.SemesterID == 20)
+                        .Where(x => x.StdSemester.SemesterID == 21)
                         .Where(x => x.CourseStatusID == 1)
                         .Select(x => new ELearningStudentsExcelDto
                         {
@@ -287,7 +287,7 @@ namespace IsraaSystem.Web.Controllers
             var r = AC
                         .OfferdCourse
                         .Clean()
-                        .Where(x => x.SemesterID == 20)
+                        .Where(x => x.SemesterID == 21)
                         .Select(x => new
                         {
                             category = 2,
@@ -328,7 +328,7 @@ namespace IsraaSystem.Web.Controllers
 
             var sections = AC.OfferdCourse
                 .Where(x => !x.IsDelete)
-                .Where(x => x.SemesterID == 20)
+                .Where(x => x.SemesterID == 21)
                 .SelectMany(x => x.Section)
                 .Select(x => new
                 {
