@@ -150,7 +150,7 @@ namespace IsraaSystem.Web.Controllers
                             Section = "Section_" + x.Section.SectionNum.ToString(),
                             name = x.StudentAcademic.StudentNo,
                             Password = " ",
-                            Firstname = x.StudentAcademic.StudentPersonal.ArFirstName,
+                            Firstname = x.StudentAcademic.StudentPersonal.ArFirstName + ' ' + x.StudentAcademic.StudentPersonal.ArSecoundName,
                             Lastname = x.StudentAcademic.StudentPersonal.ArFamilyName
                         })
                         .ToList();
@@ -292,7 +292,7 @@ namespace IsraaSystem.Web.Controllers
                         {
                             category = 2,
                             shortname = x.CourseID,
-                            fullname = x.Course.ArName
+                            fullname = x.Course.ArName + "2021s2"
                         })
                         .ToList();
 
