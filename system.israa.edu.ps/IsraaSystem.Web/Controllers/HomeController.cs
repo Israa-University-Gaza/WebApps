@@ -291,7 +291,7 @@ namespace IsraaSystem.Web.Controllers
                         .Select(x => new
                         {
                             category = 2,
-                            shortname = x.CourseID,
+                            shortname = x.CourseCode,
                             fullname = x.Course.ArName + "2021s2"
                         })
                         .ToList();
