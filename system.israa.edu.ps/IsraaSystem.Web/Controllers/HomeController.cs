@@ -47,7 +47,7 @@ namespace IsraaSystem.Web.Controllers
 {
     public class ELearningStudentsExcelDto
     {
-        public int Cource { get; set; }
+        public string Cource { get; set; }
         public string Section { get; set; }
         public int name { get; set; }
         public string Password { get; set; }
@@ -146,11 +146,11 @@ namespace IsraaSystem.Web.Controllers
                         .Where(x => x.CourseStatusID == 1)
                         .Select(x => new ELearningStudentsExcelDto
                         {
-                            Cource = x.CourseID,
+                            Cource = x.Course.CourseCode,
                             Section = "Section_" + x.Section.SectionNum.ToString(),
                             name = x.StudentAcademic.StudentNo,
                             Password = " ",
-                            Firstname = x.StudentAcademic.StudentPersonal.ArFirstName + ' ' + x.StudentAcademic.StudentPersonal.ArSecoundName,
+                            Firstname = x.StudentAcademic.StudentPersonal.ArFirstName + " " + x.StudentAcademic.StudentPersonal.ArSecoundName,
                             Lastname = x.StudentAcademic.StudentPersonal.ArFamilyName
                         })
                         .ToList();
@@ -246,9 +246,9 @@ namespace IsraaSystem.Web.Controllers
 
 
             string csv = ListToCSV(list);
-
+           
             return File(new System.Text.UTF8Encoding().GetBytes(csv), "text/csv", "ELearningStudentsExcel.csv");
-
+            
 
 
 
@@ -283,7 +283,7 @@ namespace IsraaSystem.Web.Controllers
         {
 
             var AC = new IsraaAcademicEntities();
-
+           
             var r = AC
                         .OfferdCourse
                         .Clean()
@@ -291,7 +291,7 @@ namespace IsraaSystem.Web.Controllers
                         .Select(x => new
                         {
                             category = 2,
-                            shortname = x.CourseCode,
+                            shortname = x.Course.CourseCode,
                             fullname = x.Course.ArName + "2021s2"
                         })
                         .ToList();
@@ -332,7 +332,7 @@ namespace IsraaSystem.Web.Controllers
                 .SelectMany(x => x.Section)
                 .Select(x => new
                 {
-                    x.OfferdCourse.Course.ID,
+                    x.OfferdCourse.Course.CourseCode,
                     InstructorID = x.EmployeeID,
                     x.SectionNum
                 })
@@ -347,7 +347,7 @@ namespace IsraaSystem.Web.Controllers
                      join emp in emps on c.InstructorID equals emp.EmployeeID
                      select new
                      {
-                         Cource = c.ID,
+                         Cource = c.CourseCode,
                          Section = "Section_" + c.SectionNum,
                          empID = emp.EmployeeID,
                          username = emp.EmployeeNo,

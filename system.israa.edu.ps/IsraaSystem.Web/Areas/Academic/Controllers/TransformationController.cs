@@ -58,8 +58,6 @@ namespace IsraaSystem.Web.Areas.Academic.Controllers
                 queryOptions.AddSuccessAlert();
             }
 
-            int i = 0;
-            i++;
             var data = _transformationService.GetTransformations(queryOptions);
            
             return Content(data.QueryOptionsGetJson(queryOptions), "application/json");

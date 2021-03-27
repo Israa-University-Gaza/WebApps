@@ -344,7 +344,7 @@
                                                             <% } %>
                                                             <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12")
                                                                 { %>
-                                                            <% if (lblEmployeeID.Text == "9" || lblEmployeeID.Text == "5083" || lblEmployeeID.Text == "12" || lblEmployeeID.Text == "5123")
+                                                            <% if (lblEmployeeID.Text == "9" || lblEmployeeID.Text == "5083" || lblEmployeeID.Text == "12" || lblEmployeeID.Text == "5123" || lblEmployeeID.Text == "14")
                                                                 { %>
                                                             <li>
                                                                 <asp:LinkButton ID="lbStdResetPassword" runat="server" class="btn default btn-sm blue-stripe isra-inline-1 font-ha" OnClick="lbStdResetPassword_Click" OnClientClick="return confirm('هل انت متاكد من أنك تود إعادة تعين كلمة المرور؟')">إعادة تعين كلمة المرور</asp:LinkButton>
@@ -1396,7 +1396,7 @@
                                                                 <td style="text-align: center"><span><%# Eval("FinalMark") %></span></td>
                                                                 <td style="text-align: center"><span><%# Eval("TotalMark") %></span></td>
                                                                 <td style="text-align: center">
-                                                                    <% if (EmployeeID == "12" || EmployeeID == "5123")
+                                                                    <% if (EmployeeID == "12" || EmployeeID == "5123" || EmployeeID == "14")
                                                                         { %>
                                                                     <asp:Button ID="btnCancelCourse" runat="server" Text="إلغاء التسجيل" CssClass="btn green" OnClick="btnCancelCourse_Click" OnClientClick="return confirm('هل أنت متأكد من أنك تود إلغاء تسجيل المساق ؟');" />
                                                                     <asp:Button ID="btnWithdrawCourse" runat="server" Text="إنسحاب" CssClass="btn blue" OnClick="btnWithdrawCourse_Click" OnClientClick="return confirm('هل أنت متأكد من أنك تود الإنسحاب من المساق ؟');" />

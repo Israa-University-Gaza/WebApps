@@ -106,8 +106,8 @@ public partial class Academic_StudentInstallmentAccreditation : UserPage
         var iminus1 = (HtmlControl)e.Item.FindControl("iminus1");
         // added by RSR
         int empNo = 5267;
-        if (EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString() ||
-            EmployeeID == empNo.ToString() && 
+        if ((EmployeeID == ((int)StudentInstallmentAccreditation.loansDivisionAccerdiation).ToString() ||
+            EmployeeID == empNo.ToString() )&& 
             Label1.Text == "False")
         {
 
@@ -210,7 +210,8 @@ public partial class Academic_StudentInstallmentAccreditation : UserPage
     {
         for(int i=0; i < ListView1.Items.Count; i++)
         {
-            ((CheckBox)ListView1.Items[i].FindControl("cbStudentInstallment")).Checked = cbCheckAll.Checked;
+            if(((CheckBox)ListView1.Items[i].FindControl("cbStudentInstallment")).Visible)
+                ((CheckBox)ListView1.Items[i].FindControl("cbStudentInstallment")).Checked = cbCheckAll.Checked;
         }
     }
 }

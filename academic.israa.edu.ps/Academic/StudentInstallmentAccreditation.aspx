@@ -130,10 +130,11 @@
                                    </th>
                                     <th style="text-align: center; width: 10%; padding: 8px 0px;">رقم الطالب</th>
                                     <th style="text-align: center; width: 20%; padding: 8px 0px;">اسم الطالب</th>
+                                    <th style="text-align: center; width: 15%; padding: 8px 0px;">البرنامج</th>
                                     <th style="text-align: center; width: 10%; padding: 8px 0px;">عدد الأقساط</th>
                                     <th style="text-align: center; width: 15%; padding: 8px 0px;">التاريخ</th>
-                                    <th style="text-align: center; width: 15%; padding: 8px 0px;">نسبة المنحة %</th>
-                                    <th style="text-align: center; width: 15%; padding: 8px 0px;">آخر دفعة مالية</th>
+                                    <th style="text-align: center; width: 10%; padding: 8px 0px;">نسبة المنحة %</th>
+                                    <th style="text-align: center; width: 10%; padding: 8px 0px;">آخر دفعة مالية</th>
                                     <th style="text-align: center;   padding: 8px 0px;">اعتماد صندوق الاقراض </th>
                                     <th style="text-align: center;   padding: 8px 0px;">اعتماد شؤون الطلبة</th>
                                     <th style="text-align: center;   padding: 8px 0px;">اعتماد النائب الأكاديمي</th>
@@ -153,6 +154,7 @@
                                             </td>
                                             <td style="text-align: center;"><%# Eval("StudentNo") %></td>
                                             <td style="text-align: center;"><%# Eval("StudentName") %></td>
+                                            <td style="text-align: center;"><%# Eval("Program") %></td>
                                             <td style="text-align: center;"><%# Eval("InstallmentCount") %></td>
                                             <td style="text-align: center;"><%# Eval("InsertDate") %></td>
                                             <td style="text-align: center;"><%# Eval("GrantPercentage") %></td>
@@ -201,6 +203,7 @@
                                         <asp:ControlParameter ControlID="txtSecoundName" DefaultValue="%" PropertyName="Text" Name="ArSecoundName" Type="String" />
                                         <asp:ControlParameter ControlID="txtArFamilyName" DefaultValue="%" PropertyName="Text" Name="ArFamilyName" Type="String" />
                                         <asp:ControlParameter ControlID="ddlSemesterID" PropertyName="SelectedValue" Name="SemesterID" Type="Int32" />
+                                        <asp:ControlParameter ControlID="lblEmployeeID" PropertyName="Text" Name="EmployeeID" Type="Int32" />
                                         <%--<asp:ControlParameter ControlID="txtDateFrom"  PropertyName="Text" Name="From" Type="String" />--%>
                                         <%--<asp:ControlParameter ControlID="txtDateTo"  PropertyName="Text" Name="To" Type="String" />--%>
                                         <%--<asp:Parameter DefaultValue="9" Name="SemesterID" Type="Int32" />--%>

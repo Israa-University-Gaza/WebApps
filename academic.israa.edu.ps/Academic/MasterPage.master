@@ -386,6 +386,17 @@
 
                         <% if (userpage.IsPermissionsContains("Student"))
                             { %>
+                        
+                          <% if (lblEmployeeID.Text == "5275")
+                            { %>
+                        <li id="topic" class="">
+                            <a href="TopicsAccAcadmic.aspx">
+                                <i class="fa fa-user"></i>
+                                <span class="title">)الشؤون الاكاديمية(عروض الموضوع</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+                        <% } %>
                         <li id="Student" class="">
                             <a href="javascript:;">
                                 <i class="fa fa-user"></i>
@@ -683,8 +694,22 @@
                         </li>
                         <% } %>
 
+
+
+                           <% if (lblEmployeeID.Text == "5015")
+                            { %>
+                             <li id="topicss" class="">
+                            <a href="TopicsAccMangment.aspx">
+                                <i class="fa fa-check-square"></i>
+                                <span class="title">عروض الموضوع(الشؤون الإدارية)</span>
+                                <span class="arrow"></span>
+                            </a>
+                        </li>
+                        <% } %>
+
                         <% if (userpage.Permissions.Contains("StudentScholarshipAccreditation") || userpage.Permissions.Contains("StudentInstallmentAccreditation"))
                             { %>
+                       
                         <li id="StudentScholarshipAccreditation" class="">
                             <a href="javascript:;">
                                 <i class="fa fa-check-square"></i>
@@ -1105,6 +1130,9 @@
                                 <li id="StudentIssue_2">
                                     <a href="AcademicIssueShow.aspx">عرض قضايا الطلاب</a>
                                 </li>
+                               <%--   <li id="StudentIssue_2_2">
+                                    <a href="TopicsAccAcadmic.aspx">عروض الموضوع (الشوؤن الأكاديمية)</a>
+                                </li>--%>
                                 <% } %>
                                 <% if (userpage.IsPermissionsContains("DeanIssueShow") || userpage.IsPermissionsContains("HeadIssueShow"))
                                     { %>
