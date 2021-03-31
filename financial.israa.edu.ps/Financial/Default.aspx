@@ -6,5 +6,7 @@
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
     <asp:LinkButton ID="lbFinancialStatistic1" runat="server" OnClick="lbFinancialStatistic1_Click">كشف مالية رقم 1</asp:LinkButton><br />
-</asp:Content>
 
+<a href="https://api.israa.edu.ps/students/printVouchersMain.php" target="_blank">التقارير الشهرية</a>
+
+</asp:Content>
