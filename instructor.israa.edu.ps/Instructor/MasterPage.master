@@ -508,12 +508,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <span>علامات الطلاب</span>
                                 </a>
                                 <ul class="dropdown-menu pull-left">
-                                    <li id="SectionStudentsFinalMarks">
+                                    <%--<li id="SectionStudentsFinalMarks">
                                         <a href="/Instructor/SectionStudentsWorkFinalMarks" class="nav-link nav-toggle">
                                             <i class="fa fa-hand-paper-o"></i>
                                             <span>إدراج علامات النهائي</span>
                                         </a>
-                                    </li>
+                                    </li>--%>
                                    <li id="SectionStudentsMarks">
                                         <a href="/Instructor/SectionStudentsMidtermMarks" class="nav-link nav-toggle">
                                             <i class="fa fa-hand-paper-o"></i>
