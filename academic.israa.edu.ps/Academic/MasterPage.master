@@ -1056,6 +1056,13 @@
                                 <li id="AcademicMarkRevision">
                                     <a href="AcademicMarkRevision.aspx">طلبات المراجعة النهائية</a>
                                 </li>
+                                <!-- Added by RSR -->
+                                <% if (lblEmployeeID.Text == "5536")
+                                    {%>
+                                 <li id="AcademicAccreditation_Mid_Final_By_Semester">
+                                    <a href="https://api.israa.edu.ps/students/marksAcademicAccreditationForm.php">علامات غير المعتمدة</a>
+                                </li>
+                                <%} %>
                             </ul>
                         </li>
                         <%--                        <li id="AcademicMarkRevision" class="">

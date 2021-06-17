@@ -24,20 +24,26 @@ public partial class Financial_SemesterIncomeStatistics : System.Web.UI.Page
 
     protected void LinkButton_TotalAmount_Click(object sender, EventArgs e)
     {
-        ListView4.DataSource = DataAccess.GetSemesterTotalStatistics(ddlSemester.SelectedValue);
+        /*by RSR
+         * ListView4.DataSource = DataAccess.GetSemesterTotalStatistics(ddlSemester.SelectedValue);
         ListView4.DataBind();
+        */
 
     }
 
     protected void LinkButton_TotalIncomeAmount_Click(object sender, EventArgs e)
     {
-        ListView5.DataSource = DataAccess.GetSemesterIncomeStatistics(ddlSemester.SelectedValue);
+        /*by RSR
+         * ListView5.DataSource = DataAccess.GetSemesterIncomeStatistics(ddlSemester.SelectedValue);
         ListView5.DataBind();
+        */
     }
 
     protected void LinkButton_TotalReterunAmount_Click(object sender, EventArgs e)
     {
-        ListView6.DataSource = DataAccess.GetSemesterReturnStatistics(ddlSemester.SelectedValue);
+        /*by RSR
+         * ListView6.DataSource = DataAccess.GetSemesterReturnStatistics(ddlSemester.SelectedValue);
         ListView6.DataBind();
+        */
     }
 }

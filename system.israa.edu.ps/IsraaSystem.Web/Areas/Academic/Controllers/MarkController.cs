@@ -205,6 +205,7 @@ namespace IsraaSystem.Web.Areas.Academic.Controllers
         [Audit]
         public ActionResult MarkUpdate(MarkUpdateVM model)
         {
+            
             _markService.MarkUpdate(model.MarkDto, ThisUserId());
             _markService.MarKAccrediation(new MarKAccrediationPorter(model.MarkDto.StdSectionId,
                 AccreditationTypeEnum.Academic, Convert.ToInt32(User.Identity.Name), ExamTypeEnum.Mid));

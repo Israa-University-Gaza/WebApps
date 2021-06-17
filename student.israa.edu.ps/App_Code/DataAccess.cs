@@ -1125,7 +1125,7 @@ public class DataAccess
      {
          SqlDataAdapter DA = new SqlDataAdapter("GetStudentInfo", conn);
          DA.SelectCommand.CommandType = CommandType.StoredProcedure;
-         DA.SelectCommand.Parameters.AddWithValue("@StudentID", StudentID);
+         DA.SelectCommand.Parameters.AddWithValue("@StudentID", int.Parse(StudentID));
          DataTable DT = new DataTable();
          DA.Fill(DT);
          return DT;

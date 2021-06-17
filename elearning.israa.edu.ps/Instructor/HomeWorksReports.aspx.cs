@@ -51,6 +51,8 @@ public partial class Instructor_HomeWorksReports : System.Web.UI.Page
                     grade.Text = "0";
                     marks = marks + 0;
                     grade.ForeColor = System.Drawing.Color.Red;
+                    // Added by RSR
+                    grade.Font.Bold = true;
                 }
 
                 else
@@ -58,12 +60,18 @@ public partial class Instructor_HomeWorksReports : System.Web.UI.Page
                     if(DT.Rows[0][0].ToString()=="NULL" || DT.Rows[0][0].ToString() == "")
                     {
                         grade.Text = "0";
-                        grade.ForeColor = System.Drawing.Color.Brown;
+                        grade.ForeColor = System.Drawing.Color.DarkGray; /// by RSR System.Drawing.Color.Brown
+                        // Added by RSR
+                        grade.Font.Bold = true;
+
+
                     }
                     else
                     {
                         grade.Text = DT.Rows[0][0].ToString();
                         marks = marks + Convert.ToInt32(DT.Rows[0][0]);
+                        // Added by RSR
+                        grade.Font.Bold = true;
                     }
                     
                 }

@@ -106,7 +106,8 @@
                                             <asp:ControlParameter ControlID="txtSecoundName" DefaultValue="%" PropertyName="Text" Name="ArSecoundName" Type="String" />
                                             <asp:ControlParameter ControlID="txtArThirdName" DefaultValue="%" PropertyName="Text" Name="ArThirdName" Type="String" />
                                             <asp:ControlParameter ControlID="txtArFamilyName" DefaultValue="%" PropertyName="Text" Name="ArFamilyName" Type="String" />
-
+                                            <asp:Parameter DefaultValue="3" Name="College" Type="Int32"/>
+                                            <asp:Parameter DefaultValue="3" Name="Department" Type="Int32"/>
                                         </SelectParameters>
                                     </asp:SqlDataSource>
                                 </tbody>

@@ -9,11 +9,11 @@
     left: 161px;
     top: 222px;
 ">
-                <span style="color:brown">لم يتم تقييم الواجب من قبل المحاضر</span>
+                <span style="color:DarkGray">لم يتم تقييم الواجب من قبل المحاضر</span>
                 <br>
-                <span style="color:red">لم يتم تسليمة من قبل الطالب </span>
+                <span style="color:Red">لم يتم تسليمة من قبل الطالب </span>
                   <br>
-                <span style="color:blue">تم التسليم والتقييم</span>
+                <span style="color:Blue">تم التسليم والتقييم</span>
             </div>
         </div>
     </div>

@@ -217,5 +217,6 @@
             { %>
         <li id="li6" runat="server"><a href="StdInfractionAddEdit.aspx?id=<%= lblStudentID.Text %>"><i class="fa fa-lock"></i>مخالفات الطالب</a></li>
         <% } %>
+        
     </ul>
 </div>

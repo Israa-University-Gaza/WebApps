@@ -85,7 +85,7 @@ public class DataAccess
 
     public static int ActionAddEdit(string ID, string ArName, string EnName, string Value, string CDType, string RVType, bool IsScholarship, bool IsActive, string UserID)
     {
-        using (SqlConnection conn = GetConnection())
+        using (SqlConnection conn = GetConnection3())
         {
             SqlCommand cmd = new SqlCommand("ActionAddEdit", conn);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -105,7 +105,7 @@ public class DataAccess
 
     public static DataTable ActionGet(string ID)
     {
-        using (SqlConnection conn = GetConnection())
+        using (SqlConnection conn = GetConnection3())
         {
             SqlDataAdapter DA = new SqlDataAdapter("ActionGet", conn);
             DA.SelectCommand.CommandType = CommandType.StoredProcedure;
@@ -118,20 +118,21 @@ public class DataAccess
 
     public static int ActionActivate(string ID, bool IsActive, string UserID)
     {
-        using (SqlConnection conn = GetConnection())
+        using (SqlConnection conn = GetConnection3())
         {
             SqlCommand cmd = new SqlCommand("ActionActivate", conn);
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.AddWithValue("@ID", ID);
             cmd.Parameters.AddWithValue("@IsActive", IsActive);
             cmd.Parameters.AddWithValue("@UserID", UserID);
-            return cmd.ExecuteNonQuery();
+            return cmd.ExecuteNonQuery();//.ExecuteNonQuery();
+            //return 1;
         }
     }
 
     public static int ActionDelete(string ID, string UserID)
     {
-        using (SqlConnection conn = GetConnection())
+        using (SqlConnection conn = GetConnection3())
         {
             SqlCommand cmd = new SqlCommand("ActionDelete", conn);
             cmd.CommandType = CommandType.StoredProcedure;

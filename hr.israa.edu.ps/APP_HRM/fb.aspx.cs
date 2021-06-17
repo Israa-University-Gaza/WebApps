@@ -1,4 +1,4 @@
-﻿using ASPSnippets.FaceBookAPI;
+﻿// by RSR using ASPSnippets.FaceBookAPI;
 using System;
 using System.Data;
 using System.Web.Script.Serialization;
@@ -7,8 +7,8 @@ public partial class APP_HRM_fb : UserPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        FaceBookConnect.API_Key = "1972383083007716";
-        FaceBookConnect.API_Secret = "6559d8b4bce2bb2f97c4a0c92b4a2e4e";
+        // by RSR FaceBookConnect.API_Key = "1972383083007716";
+        // by RSR FaceBookConnect.API_Secret = "6559d8b4bce2bb2f97c4a0c92b4a2e4e";
 
         if (!string.IsNullOrEmpty(Request.QueryString["code"]))
         {

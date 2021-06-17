@@ -194,6 +194,31 @@
                                 <span class="selected"></span>
                             </a>
                         </li>--%>
+                        <li id="menu16">
+                            <a href="javascript:;">
+                                <i class="fa fa-list-alt"></i>
+                                <span class="title">طلبات الطلبة</span>
+                                <span class="selected"></span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                            <ul class="sub-menu">
+                                <li>
+                                    <a href="HelpRequestForm.aspx">طلب مساعدة</a>
+                                </li>
+                                <li>
+                                    <a href="topic.aspx">عرض موضوع</a>
+                                </li>
+                               
+                                <li>
+                                    <a href="InstallmentOrder.aspx">طلب تقسيط داخلي</a>
+                                </li>
+                                 <li>
+                                    <a href="StudentBankInstallment.aspx">طلب تقسيط بنكي</a>
+                                </li>
+                            </ul>
+                        </li>
 
                         <li id="menu20">
                             <a href="javascript:;">
@@ -331,7 +356,7 @@
                             </a>
                         </li>
                         <li id="menu8">
-                            <a href="ExamsTable.aspx">
+                            <a href="FinalExamsTable.aspx"><%-- By RSR ExamsTable.aspx --%>
                                 <i class="fa fa-table"></i>
                                 <span class="title">جدول الإمتحانات</span>
                                 <span class="selected"></span>
@@ -366,30 +391,7 @@
                             </a>
                         </li>
 
-                        <li id="menu16">
-                            <a href="javascript:;">
-                                <i class="fa fa-list-alt"></i>
-                                <span class="title">طلبات الطلبة</span>
-                                <span class="selected"></span>
-                                <!-- اسم القائمة -->
-                                <span class="arrow "></span>
-                                <!-- ألسهم -->
-                            </a>
-                            <ul class="sub-menu">
-                                <li>
-                                    <a href="HelpRequestForm.aspx">طلب مساعدة</a>
-                                </li>
-                                <li>
-                                    <a href="LoanRequestForm.aspx">طلب قرض جامعي</a>
-                                </li>
-                                <li>
-                                    <a href="StudentBankInstallment.aspx">طلب تقسيط بنكي</a>
-                                </li>
-                                <li>
-                                    <a href="InstallmentOrder.aspx">طلب تقسيط داخلي</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <li id="menu12">
                             <a href="LibraryBorrow.aspx">
                                 <i class="fa fa-book"></i>

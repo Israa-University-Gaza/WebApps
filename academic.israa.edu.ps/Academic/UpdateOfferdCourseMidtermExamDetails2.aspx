@@ -85,7 +85,7 @@
 
                             <div class="col-md-4">
                                 <span>تصنيف المساق المطروح :</span>
-                                <asp:DropDownList ID="ddlOfferdCourseType" runat="server" CssClass="select2_category form-control" DataSourceID="SqlDataSource8" DataTextField="Name" DataValueField="ID" AutoPostBack="true" OnSelectedIndexChanged="ddlOfferdCourseType_SelectedIndexChanged"></asp:DropDownList>
+                                <%--<asp:DropDownList ID="ddlOfferdCourseType" runat="server" CssClass="select2_category form-control" DataSourceID="SqlDataSource8" DataTextField="Name" DataValueField="ID" AutoPostBack="true" OnSelectedIndexChanged="ddlOfferdCourseType_SelectedIndexChanged"></asp:DropDownList>--%>
                                 <asp:SqlDataSource ID="SqlDataSource8" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>" SelectCommand="ddlOfferdCourseTypes" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
                             </div>
                             <div class="col-md-2">
@@ -97,7 +97,7 @@
 
                             <div class="col-md-2">
                                 <span>الوقت :</span>
-                                <asp:DropDownList ID="ddlExamTime" runat="server" CssClass="select2_category form-control" DataSourceID="SqlDataSource7" DataTextField="MidtermExamTime" DataValueField="MidtermExamTimeFrom" AutoPostBack="true" OnSelectedIndexChanged="ddlExamTime_SelectedIndexChanged"></asp:DropDownList>
+                                <%--<asp:DropDownList ID="ddlExamTime" runat="server" CssClass="select2_category form-control" DataSourceID="SqlDataSource7" DataTextField="MidtermExamTime" DataValueField="MidtermExamTimeFrom" AutoPostBack="true" OnSelectedIndexChanged="ddlExamTime_SelectedIndexChanged"></asp:DropDownList>--%>
                                 <asp:SqlDataSource ID="SqlDataSource7" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>" SelectCommand="GetDateMidtermExamTimes" SelectCommandType="StoredProcedure">
                                     <SelectParameters>
                                         <asp:ControlParameter ControlID="ddlSemester" PropertyName="Text" Name="SemesterID" Type="String" />
@@ -111,8 +111,8 @@
                     <br />
                     <div class="row">
                         <div class="col-md-2">
-                            <!--<asp:Button ID="btnPdf" runat="server" Text="PDF" CssClass="btn blue" OnClick="btnPdf_Click" />-->
-                            <asp:Button ID="lbExcel" runat="server" Text="Excel" CssClass="btn green" OnClick="lbExcel_Click" />
+                            <%--<asp:Button ID="btnPdf" runat="server" Text="PDF" CssClass="btn blue" OnClick="btnPdf_Click" />--%>
+                            <%-- by RSR <asp:Button ID="lbExcel" runat="server" Text="Excel" CssClass="btn green" OnClick="lbExcel_Click" />--%>
                         </div>
                     </div>
                     <br />
@@ -152,8 +152,8 @@
                                                     <asp:TextBox ID="txtMidtermExamTo" runat="server" CssClass="form-control text-center" Text='<%# Eval("MidtermExamTimeTo1") %>'></asp:TextBox>
                                                 </td>
                                                 <td style="text-align: center">
-                                                    <asp:LinkButton ID="btnSave" runat="server" CssClass="btn blue" OnClick="btnSave_Click">حفظ</asp:LinkButton>
-                                                    <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn red" OnClick="btnCancel_Click">الغاء</asp:LinkButton></td>
+                                                    <%-- by RSR <asp:LinkButton ID="btnSave" runat="server" CssClass="btn blue" OnClick="btnSave_Click">حفظ</asp:LinkButton>--%>
+                                                    <%-- by RSR <asp:LinkButton ID="btnCancel" runat="server" CssClass="btn red" OnClick="btnCancel_Click">الغاء</asp:LinkButton></td>--%>
                                         </tr>
                                 </ItemTemplate>
                             </asp:ListView>
@@ -177,7 +177,7 @@
                     <div class="form-actions fluid">
                         <div class="row">
                             <div class="col-md-offset-6 col-md-6">
-                                <asp:LinkButton ID="BtnSaveAll" runat="server" CssClass="btn blue" OnClick="BtnSaveAll_Click">حفظ</asp:LinkButton></td>
+                                <%--<asp:LinkButton ID="BtnSaveAll" runat="server" CssClass="btn blue" OnClick="BtnSaveAll_Click">حفظ</asp:LinkButton></td>--%>
                             </div>
                         </div>
                     </div>

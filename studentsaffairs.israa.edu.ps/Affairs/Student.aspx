@@ -264,8 +264,12 @@
                                                 <div class="col-md-8">
                                                     <asp:DropDownList ID="ddlAction" runat="server" class="form-control" DataSourceID="SqlDataSource2" DataTextField="ArName" DataValueField="ID"></asp:DropDownList>
                                                     <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:isra %>"
-                                                        SelectCommand="SELECT ID, ArName FROM [Action] WHERE (([IsActive] = 1) AND ([IsDelete] = 0) And IsScholarship=1 and RVType=1) union select -1,N'إختر المنحة'"></asp:SqlDataSource>
+                                                        SelectCommand="SELECT ID, ArName FROM [Action] WHERE (([IsActive] = 1) AND ([IsDelete] = 0) And IsScholarship=1 and RVType=1) union select -1,N'إختر المنحة' ORDER BY ArName Asc"></asp:SqlDataSource>
+                                                <%--BY RSR 
+                                                    SelectCommand="SELECT ID, ArName FROM [Action] WHERE (([IsActive] = 1) AND ([IsDelete] = 0) And IsScholarship=1 and RVType=1) union select -1,N'إختر المنحة'"></asp:SqlDataSource>
+--%>
                                                 </div>
+
                                             </div>
                                         </div>
                                         <br />

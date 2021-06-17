@@ -31,4 +31,33 @@ public partial class Academic_AcademicSectionStatistics : UserPage
 
     }
 
+    /* added by RSR */
+     protected void cbSectionIsActive2_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+     protected void cbSectionIsActive3_CheckedChanged(object sender, EventArgs e)
+    {
+
+    }
+     protected void lbSectionDelete2_Click(object sender, EventArgs e)
+    {
+
+    }
+     protected void lbSectionDelete3_Click(object sender, EventArgs e)
+    {
+
+    }
+      protected void lbSectionEdit2_Click(object sender, EventArgs e)
+    {
+
+    }
+       protected void lbSectionEdit3_Click(object sender, EventArgs e)
+    {
+
+    }
+
+
+    /* end of RSR */
+
 }

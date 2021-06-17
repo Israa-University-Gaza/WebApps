@@ -240,6 +240,7 @@
                                 <li id="Student_6">
                                     <a href="StudentsAcademicWarning.aspx">طلاب التحذير الأكاديمي</a>
                                 </li>
+
                         </li>
                         <li id="Student_7">
                             <a href="StudentsNotRegisterdStdSection.aspx">طلاب الغاء التسجيل الفصلي</a>
@@ -268,6 +269,11 @@
                             <a href="StudentsPasswordNotupdated.aspx">إعادة تعيين كلمات المرور</a>
                         </li>
                         <% } %>
+                        <% } %>
+
+                        <% if (lblEmployeeID.Text == "12")
+                            { %>
+                        <li id="li1" runat="server"><a href="https://api.israa.edu.ps/students/recalculateStudentGPAForm.php" target="_blank">اعادة احتساب المعدل والساعات</a></li>
                         <% } %>
                     </ul>
                     </li>

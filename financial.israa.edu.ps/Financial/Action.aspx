@@ -39,18 +39,18 @@
                             <asp:Repeater ID="Repeater1" runat="server" DataSourceID="SqlDataSource1">
                                 <ItemTemplate>
                                     <asp:Label ID="ID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
-                                    <tr>
+                                   <tr>
                                         <td><span><%# Eval("ArName") %></span></td>
                                         <td style="text-align: center"><span><%# (Eval("RVType").ToString() == "1")? Eval("value") + " %" : Eval("value") %></span></td>
                                         <td style="text-align: center"><span><%# (Eval("CDType").ToString() == "1")? "دائن":"مدين" %></span></td>
                                         <td style="text-align: center">
-                                            <asp:CheckBox ID="cbIsActive" runat="server" AutoPostBack="true" OnCheckedChanged="cbIsActive_CheckedChanged" Checked='<%# Eval("IsActive") %>' Enabled='<%# (Permissions.Contains("ActionActivate"))? true:false %>' /></td>
-                                        <td style="text-align: center">
-                                            <% if (Permissions.Contains("ActionEdit"))
+                                            <asp:CheckBox ID="cbIsActive" runat="server" AutoPostBack="true" OnCheckedChanged="cbIsActive_CheckedChanged" Checked='<%# Eval("IsActive") %>' Enabled='<%# (/* by RSR Permissions.Contains("ActionActivate")*/ true)? true:false %>' /></td>
+                                         <td style="text-align: center">
+                                            <% if (/* by RSR Permissions.Contains("ActionEdit")*/ true)
                                                { %>
                                             <asp:LinkButton ID="lbEdit" runat="server" class="btn default btn-xs black" OnClick="lbEdit_Click"><i class="fa fa-edit"></i></asp:LinkButton>
                                             <% } %>
-                                            <% if (Permissions.Contains("ActionDelete"))
+                                            <% if (/* by RSRPermissions.Contains("ActionDelete")*/ true)
                                                { %>
                                             <asp:LinkButton ID="lbDelete" runat="server" class="btn default btn-xs purple" OnClick="lbDelete_Click" OnClientClick="return confirm('هل انت متاكد من عملية الحذف؟')"><i class="fa fa-trash-o"></i></a></asp:LinkButton>
                                             <% } %>
@@ -59,14 +59,14 @@
                                 </ItemTemplate>
                             </asp:Repeater>
                             <asp:SqlDataSource ID="SqlDataSource1" runat="server"
-                                ConnectionString="<%$ ConnectionStrings:isra %>"
+                                ConnectionString="<%$ ConnectionStrings:isra3 %>"
                                 SelectCommand="SELECT * From [Action] where [IsDelete]=0 order by ID"></asp:SqlDataSource>
                         </tbody>
                     </table>
                 </div>
             </div>
         </div>
-        <% if (Permissions.Contains("ActionAdd") || Permissions.Contains("ActionEdit"))
+        <% if (/* by RSR Permissions.Contains("ActionAdd") || Permissions.Contains("ActionEdit")*/ true)
            { %>
         <div class="col-md-5">
             <div class="portlet box blue">

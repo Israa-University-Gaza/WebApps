@@ -21,17 +21,20 @@ public partial class Academic_GraduationStudents : UserPage
 
     protected void btnFilter_OnClick(object sender, EventArgs e)
     {
-        string StudentStatusID= (ckbStudentStatusID.Checked == true ? "12" : "-1");
+       /*by RSR
+        * string StudentStatusID= (ckbStudentStatusID.Checked == true ? "12" : "-1");
         string GraduationStatus= (ckbGraduationStatus.Checked == true ? "2" : "-1");
 
         DataTable dt = DataAccess.GetGraduationStudents(txtStudentNo.Text, StudentStatusID, GraduationStatus,ddlCollege.SelectedValue, txtArFirstName.Text, txtSecoundName.Text, txtArThirdName.Text, txtArFamilyName.Text);
         ListView1.DataSource = dt;
         ListView1.DataBind();
+       */
     }
 
     protected void GraduationPDF_OnClick(object sender, EventArgs e)
     {
-        ListViewDataItem item = (ListViewDataItem)((LinkButton)sender).Parent;
+        /* by RSR
+         * ListViewDataItem item = (ListViewDataItem)((LinkButton)sender).Parent;
         string StudentID = ((Label)item.FindControl("StudentID")).Text;
 
         DataTable dd = DataAccess.GetStdSemesterPlan(StudentID);
@@ -62,6 +65,7 @@ public partial class Academic_GraduationStudents : UserPage
         a2.Add(DataAccess.GetAcademicAdvisingReport(StudentID, "9"));
         a2.Add(DataAccess.GetAcademicAdvisingReport(StudentID, "10"));
         CreatePDF("AcademicGraduation", @"Academic\Reports\GraduationReport.rdlc", a1, a2);
+        */
     }
 
     private void CreatePDF(string fileName, string reportpath, ArrayList dsNameArray, ArrayList DTArray)

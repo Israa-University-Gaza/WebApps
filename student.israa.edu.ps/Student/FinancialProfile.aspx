@@ -48,8 +48,8 @@
                                     <thead>
                                         <tr>
                                             <th style="text-align: center; width: 15%">الفصل الدراسي</th>
-                                            <th style="text-align: center; width: 10%">منه</th>
-                                            <th style="text-align: center; width: 10%">له</th>
+                                            <th style="text-align: center; width: 10%">مدين</th>
+                                            <th style="text-align: center; width: 10%">دائن</th>
                                             <th style="text-align: center; width: 15%">الرصيد</th>
                                             <th style="text-align: center; width: 30%">البيان</th>
                                             <th style="text-align: center; width: 20%">التاريخ</th>

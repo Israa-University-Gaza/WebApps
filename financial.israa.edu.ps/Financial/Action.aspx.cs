@@ -10,10 +10,10 @@ public partial class Financial_Action : UserPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        if (!Permissions.Contains("Action"))
+        /* By RSR if (!Permissions.Contains("Action"))
         {
             Response.Redirect("Default.aspx");
-        }
+        }*/
     }
 
     protected void btnSave_Click(object sender, EventArgs e)

@@ -120,6 +120,7 @@
                                 <th style="width: 5%;">التاريخ </th>
                                 <th style="width: 15%; text-align: center;">اسم الطالب</th>
                                 <th style="width: 15%; text-align: center;">رقم الطالب</th>
+                                <th style="width: 15%; text-align: center;">قسم الطالب</th>
                                 <th style="width: 20%; text-align: center;">القضية</th>
                                 <th style="width: 25%; text-align: center;">وصف القضية</th>
                                 <th style="width: 25%; text-align: center;">حالة القضية  </th>
@@ -136,6 +137,7 @@
                                         <td><%# Eval("RequestDate","{0:yyyy/MM/dd}") %></td>
                                         <td style="text-align: center"><%# Eval("StudentName") %></td>
                                         <td style="text-align: center"><%# Eval("StudentNo") %></td>
+                                        <td style="text-align: center"><%# Eval("DepartmentName") %></td>
                                         <td style="text-align: center"><%# Eval("IssueName") %></td>
                                         <td style="text-align: center"><%# Eval("Describtion") %></td>
                                         <td style="text-align: center"><%# Eval("IssueStatus") %></td>

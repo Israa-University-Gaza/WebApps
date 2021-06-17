@@ -17,7 +17,7 @@ public class UpdateLectureOld : IHttpHandler
         string selectedFromHour = context.Request.QueryString["selectedFromHour"];
         string selectedToHour = context.Request.QueryString["selectedToHour"];
 
-        DataTable DT = DataAccess.LectureUpdate(selectedID, selectedInstructor, selectedRoom, selectedDay, selectedFromHour, selectedToHour, context.User.Identity.Name);
+        DataTable DT = DataAccess.LectureUpdate(selectedID, /* By RSR selectedInstructor, */selectedRoom, selectedDay, selectedFromHour, selectedToHour, true, context.User.Identity.Name);
 
         string sJSON = "{ \"status\" : \"" + DT.Rows[0]["status"].ToString() + "\", \"title\" : \"" + DT.Rows[0]["title"].ToString() + "\", \"msg\" : \"" + DT.Rows[0]["msg"].ToString() + "\" }";
         context.Response.Clear();

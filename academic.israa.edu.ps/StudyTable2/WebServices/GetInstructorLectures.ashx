@@ -30,7 +30,7 @@ public class GetInstructorLectures : IHttpHandler
     public List<Event> GetMyEvents(string instructorid)
     {
         List<Event> events = new List<Event>();
-        DataTable DT = DataAccess.GetInstructorLectures(instructorid);
+        DataTable DT = DataAccess.GetInstructorLectures(instructorid,"21"); /* by RSR */
         foreach (DataRow row in DT.Rows)
         {
             events.Add(new Event()

@@ -782,7 +782,7 @@ public class DataAccess
 
     public static DataTable SetSectionMarkAccreditation(string SectionID, string EmployeeID)
     {
-        using (SqlConnection conn = GetConnectionIsraaAcademic())
+        using (SqlConnection conn = GetConnectionIsraaAcademic()) /* by RSR */
         {
             SqlDataAdapter DA = new SqlDataAdapter("SetSectionMarkAccreditation", conn);
             DA.SelectCommand.CommandType = CommandType.StoredProcedure;
