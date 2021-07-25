@@ -65,10 +65,9 @@
                                         </asp:ListView>
                                         <asp:SqlDataSource ID="SqlDataSource3" runat="server"
                                             ConnectionString="<%$ ConnectionStrings:isra %>"
-                                            SelectCommand="GetSemesterHelpRequest" SelectCommandType="StoredProcedure">
+                                            SelectCommand="GetSemesterStudentsLoans" SelectCommandType="StoredProcedure">
                                             <SelectParameters>
                                                 <asp:ControlParameter ControlID="ddlSemester" PropertyName="SelectedValue" Name="SemesterID" Type="Int32" />
-                                                <asp:Parameter DefaultValue="84" Name="TypeRequestID" Type="Int32"></asp:Parameter>
                                             </SelectParameters>
                                         </asp:SqlDataSource>
                                     </tbody>

@@ -73,7 +73,7 @@ public partial class AddEditeInstallmentOrder :UserPage
 
     protected void BtnAddEdit_Click(object sender, EventArgs e)
     {
-        bool valid = ValidateControls(new WebControl[] { txtRegisterHourNumber,txtPaidAmount,txtRemainingAmount});
+      /* by RSR  bool valid = ValidateControls(new WebControl[] { txtRegisterHourNumber,txtPaidAmount,txtRemainingAmount});
        
         if (valid)
         {
@@ -111,7 +111,7 @@ public partial class AddEditeInstallmentOrder :UserPage
         else
         {
             ShowToast(this, "بالرجاء ادخال البيانات", "", "error");
-        }
+        }*/
         
     }
    

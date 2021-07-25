@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
     <DataSource Name="dsGetModelReport">
@@ -15,6 +15,13 @@
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
       <rd:DataSourceID>92a2e7ff-cb67-43a2-9a6e-fbf5aefe45fe</rd:DataSourceID>
+    </DataSource>
+    <DataSource Name="GetModelReport11">
+      <ConnectionProperties>
+        <DataProvider>System.Data.DataSet</DataProvider>
+        <ConnectString>/* Local Connection */</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>ece2fa63-4873-42f4-92fb-6b593a3b06fd</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -104,11 +111,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -208,11 +215,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -312,11 +319,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -416,11 +423,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -520,11 +527,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -624,11 +631,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -728,11 +735,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -832,11 +839,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -936,11 +943,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1040,11 +1047,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1144,11 +1151,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1248,11 +1255,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1352,11 +1359,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1456,11 +1463,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1560,11 +1567,11 @@
           <DataField>EmployeeEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="CourseStatusEnName">
+        <Field Name="CourseStatusEnName">
           <DataField>CourseStatusEnName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-		<Field Name="SemesterID">
+        <Field Name="SemesterID">
           <DataField>SemesterID</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
@@ -1580,7 +1587,7 @@
     </DataSet>
     <DataSet Name="dsGetModelReport">
       <Query>
-        <DataSourceName>dsGetModelReport</DataSourceName>
+        <DataSourceName>GetModelReport11</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1590,6 +1597,10 @@
         </Field>
         <Field Name="ReportDate">
           <DataField>ReportDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EnReportDate">
+          <DataField>EnReportDate</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="SemesterID">
@@ -1620,8 +1631,20 @@
           <DataField>StudentName</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="GraduationDate">
+          <DataField>GraduationDate</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="StudentEnName">
           <DataField>StudentEnName</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DateOfBirth">
+          <DataField>DateOfBirth</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="SSN">
+          <DataField>SSN</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="StudentNo">
@@ -1648,6 +1671,10 @@
           <DataField>StudentEnCollege</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
+        <Field Name="StudentProgramDepartment">
+          <DataField>StudentProgramDepartment</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="StudentEnPrograme">
           <DataField>StudentEnPrograme</DataField>
           <rd:TypeName>System.String</rd:TypeName>
@@ -1664,8 +1691,28 @@
           <DataField>CountOfRegisterHours</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
+        <Field Name="CountOfRegisterHours2">
+          <DataField>CountOfRegisterHours2</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="ExternalTransformHours">
+          <DataField>ExternalTransformHours</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="OfficeHours">
+          <DataField>OfficeHours</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
         <Field Name="StudiedHour">
           <DataField>StudiedHour</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="RichnessHour">
+          <DataField>RichnessHour</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="SemesterCumulativeRegisteredHours">
+          <DataField>SemesterCumulativeRegisteredHours</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="SucceedHour">
@@ -1708,18 +1755,14 @@
           <DataField>IsStudentDelay</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="EnReportDate">
-          <DataField>EnReportDate</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>dsGetModelReport</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Ladmin\Desktop\AdmissionApplication\Admission\DataSets\dsGetModelReport.xsd</rd:SchemaPath>
+        <rd:DataSetName>GetModelReport11</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\PcJ\Documents\GitHub\WebApps\admission.israa.edu.ps\App_Code\GetModelReport11.xsd</rd:SchemaPath>
         <rd:TableName>GetModelReport</rd:TableName>
-        <rd:TableAdapterFillMethod />
-        <rd:TableAdapterGetDataMethod />
-        <rd:TableAdapterName />
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>GetModelReportTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
@@ -2369,7 +2412,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>09/09/2019</Value>
+                                  <Value>=Fields!GraduationDate.Value</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -2465,7 +2508,6 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>0cm</Top>
             <Left>1.38966cm</Left>
             <Height>1.09361cm</Height>
             <Width>18.37901cm</Width>
@@ -2815,7 +2857,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3213,7 +3255,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3349,24 +3391,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -3438,7 +3463,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -3676,7 +3701,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -4074,7 +4099,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -4210,24 +4235,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -4299,7 +4307,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -4537,7 +4545,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -4935,7 +4943,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -5071,24 +5079,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -5160,7 +5151,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -5398,7 +5389,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -5796,7 +5787,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -5932,24 +5923,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -6021,7 +5995,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -6259,7 +6233,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -6657,7 +6631,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -6793,24 +6767,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -6882,7 +6839,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -7120,7 +7077,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -7518,7 +7475,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -7654,24 +7611,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -7743,7 +7683,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -7981,7 +7921,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -8379,7 +8319,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -8515,24 +8455,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -8604,7 +8527,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -8842,7 +8765,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -9240,7 +9163,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -9376,24 +9299,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -9465,7 +9371,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -9703,7 +9609,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -10101,7 +10007,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -10237,24 +10143,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -10326,7 +10215,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -10564,7 +10453,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -10962,7 +10851,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -11098,24 +10987,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -11187,7 +11059,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -11425,7 +11297,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -11823,7 +11695,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -11959,24 +11831,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -12048,7 +11903,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -12286,7 +12141,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -12684,7 +12539,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -12820,24 +12675,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -12909,7 +12747,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -13147,7 +12985,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -13545,7 +13383,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -13681,24 +13519,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -13770,7 +13591,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -14008,7 +13829,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -14406,7 +14227,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -14542,24 +14363,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -14631,7 +14435,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -14869,7 +14673,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Credit Hours</Value>
+                                  <Value> CH</Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -15267,7 +15071,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Passed Hours : </Value>
+                                  <Value>Semester CH: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -15403,24 +15207,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>Cumulative </Value>
-                                  <Style>
-                                    <FontStyle>Normal</FontStyle>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                    <TextDecoration>None</TextDecoration>
-                                    <Color>#000000</Color>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value>Passed Hours</Value>
-                                  <Style>
-                                    <FontSize>9pt</FontSize>
-                                    <FontWeight>Bold</FontWeight>
-                                  </Style>
-                                </TextRun>
-                                <TextRun>
-                                  <Value> : </Value>
+                                  <Value>Cumulative CH: </Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontSize>9pt</FontSize>
@@ -15492,7 +15279,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>CGPA : </Value>
+                                  <Value>CGPA: </Value>
                                   <Style>
                                     <FontSize>9pt</FontSize>
                                     <FontWeight>Bold</FontWeight>

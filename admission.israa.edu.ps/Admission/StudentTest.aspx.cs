@@ -211,7 +211,7 @@ public partial class Admission_Student : UserPage
 
     protected void btnRegisterBlock_Click(object sender, EventArgs e)
     {
-        DataTable DT = DataAccess.RegisterBlockCourses(lblStudentID.Text, EmployeeID,"1");
+        DataTable DT = DataAccess.RegisterBlockCourses(lblStudentID.Text, EmployeeID);
         ShowMsg8(DT.Rows[0]["msg"].ToString(), (Convert.ToInt32(DT.Rows[0]["status"].ToString()) > 0) ? "success" : "danger");
         OpenTab(8);
         Repeater1.DataBind();
@@ -723,9 +723,9 @@ public partial class Admission_Student : UserPage
     {
         if (ValidateControls(new WebControl[] { ddlStudentStatus, txtChangeStatusNote }))
         {
-            // by RSR DataTable DT = DataAccess.ChangeStudentStatus(lblStudentID.Text, ddlStudentStatus.SelectedValue, txtChangeStatusNote.Text, EmployeeID);
-           // by RSR ShowMsg14(DT.Rows[0]["msg"].ToString(), (Convert.ToInt32(DT.Rows[0]["status"].ToString()) > 0) ? "success" : "danger");
-            // by RSR Repeater10.DataBind();
+            DataTable DT = DataAccess.ChangeStudentStatus(lblStudentID.Text, ddlStudentStatus.SelectedValue, txtChangeStatusNote.Text, EmployeeID);
+            ShowMsg14(DT.Rows[0]["msg"].ToString(), (Convert.ToInt32(DT.Rows[0]["status"].ToString()) > 0) ? "success" : "danger");
+            Repeater10.DataBind();
         }
         else
         {

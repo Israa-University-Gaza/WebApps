@@ -73,7 +73,7 @@ return [
             'port' => env('DB_PORT', '1600'),
             'database' => env('DB_DATABASE', 'IsraaAcademic'),
             'username' => env('DB_USERNAME', 'dbuser'),
-            'password' => env('DB_PASSWORD', 'islam123qwe!@#QWE'),
+            'password' => env('DB_PASSWORD', 'isr@adb342!@#BKA'),
             'charset' => 'utf8',
             'prefix' => '',
         ],

@@ -63,12 +63,12 @@ public partial class Attendance_EmpDailyAttendance : UserPage
                 string EmployeeID = ((Label)ri.FindControl("Emp_ID")).Text;
                 if (From != "")
                 {
-                    DataTable DT = DataAccess.hrManualFingerprintAdd(EmployeeID, "1", Convert.ToDateTime (Date + " " +From));
+                    DataTable DT = DataAccess.hrManualFingerprintAdd(EmployeeID, "1", Convert.ToDateTime (Date + " " +From),"2");
                  /*  DataTable DT = DataAccess.AttendanceDailyAdd2(EmployeeID, "1", date.Text,Convert.ToDateTime(From));*/
                 }
                 if (To != "")
                 {
-                    DataTable DT = DataAccess.hrManualFingerprintAdd(EmployeeID, "2", Convert.ToDateTime(Date + " " + To));
+                    DataTable DT = DataAccess.hrManualFingerprintAdd(EmployeeID, "2", Convert.ToDateTime(Date + " " + To),"2");
                 }
 
 

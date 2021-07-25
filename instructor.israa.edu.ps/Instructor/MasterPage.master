@@ -514,12 +514,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <span>إدراج علامات النهائي</span>
                                         </a>
                                     </li>
-                                   <li id="SectionStudentsMarks">
+                                   <%-- By RSR <li id="SectionStudentsMarks">
                                         <a href="/Instructor/SectionStudentsMidtermMarks" class="nav-link nav-toggle">
                                             <i class="fa fa-hand-paper-o"></i>
                                             <span>إدراج علامات النصفي</span>
                                         </a>
-                                    </li>
+                                    </li> --%>
                                     <li id="MarkRevision">
                                         <a href="/Instructor/MarkRevision" class="nav-link nav-toggle">
                                             <i class="fa fa-pie-chart"></i>

@@ -207,6 +207,20 @@
                                 </div>
 
                             </div>
+                                                        <div class="form-group">
+                                <label class="col-md-1 control-label"> استلم الشهادة؟ </label>
+                                <div class="col-md-3">
+                                        <div class="col-md-3">
+                                    <asp:DropDownList ID="cer" runat="server" CssClass="form-control">
+                                        <asp:ListItem Value="-1">الكل</asp:ListItem>
+                                        <asp:ListItem Value="1">نعم</asp:ListItem>
+                                        <asp:ListItem Value="0">لا</asp:ListItem>
+                                    </asp:DropDownList>
+                                    </div>
+
+                            </div>
+
+
                             <div class="form-group">
                                 <div class="col-md-5 col-lg-offset-5">
                                     <asp:Button ID="btnGenrateReport" runat="server" Text="بناء التقرير" class="btn green" OnClick="btnGenrateReport_Click" />

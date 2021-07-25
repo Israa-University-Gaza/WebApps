@@ -92,7 +92,7 @@ namespace IsraaSystem.DataAccess.Sql.Academic
                     DA.SelectCommand.Parameters.AddWithValue("@StudyLevelID", model.filter.StudyLevelID);
                 if (!String.IsNullOrEmpty(model.filter.CourseCategoryID))
                     DA.SelectCommand.Parameters.AddWithValue("@CourseCategoryID", model.filter.CourseCategoryID);
-                DA.SelectCommand.Parameters.AddWithValue("@OfferdCourseTypeID", model.filter.OfferdCourseTypeID);
+                //DA.SelectCommand.Parameters.AddWithValue("@OfferdCourseTypeID", model.filter.OfferdCourseTypeID);
                 if (!String.IsNullOrEmpty(model.filter.CourseCode))
                     DA.SelectCommand.Parameters.AddWithValue("@CourseCode", model.filter.CourseCode);
                 if (!String.IsNullOrEmpty(model.filter.CourseName))

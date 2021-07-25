@@ -51,10 +51,10 @@ public partial class Student_Default : UserPage
         {
             Response.Redirect("StudentPoll.aspx");
         }
-        if (!DataAccess.IsStudentFinishEvaluation(StudentID))
+        /* by RSR if (!DataAccess.IsStudentFinishEvaluation(StudentID))
         {
             Response.Redirect("EvaluationChooseEmployeeCourse.aspx");
-        }
+        }*/
 
         SqlDataAdapter daZ = new SqlDataAdapter("select std_id from Eva_answer where std_id='" + Session["log"] + "'", conn);
         DataTable dtZ = new DataTable();

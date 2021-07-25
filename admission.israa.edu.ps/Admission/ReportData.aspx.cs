@@ -118,7 +118,7 @@ public partial class Admission_ReportData : UserPage
         GridView1.Columns.Add(h2);
 
         //  this.GetData();
-        DataTable DT = DataAccess.GetReportData(ddlprogram.SelectedValue, ddlCollege.SelectedValue, ddlDepartment.SelectedValue, ddlCourse.SelectedValue,ddlSemester.SelectedValue, ddlStudentType.SelectedValue, ddlStudentStatus.SelectedValue, ddlGender.SelectedValue, txtTawjehyGPAFrom.Text, txtTawjehyGPATo.Text, ddlIsPaid.SelectedValue, ddlAppAccreditation.SelectedValue, ddlAccreditation.SelectedValue, FirstRegisterSemesterID.SelectedValue, ddlTawjehyType.SelectedValue, ddlFirstWish.SelectedValue,ddlStudyPlace.SelectedValue,txtSemesterGPA.Text,ddlGraduationStatus.SelectedValue);
+        DataTable DT = DataAccess.GetReportData(ddlprogram.SelectedValue, ddlCollege.SelectedValue, ddlDepartment.SelectedValue, ddlCourse.SelectedValue,ddlSemester.SelectedValue, ddlStudentType.SelectedValue, ddlStudentStatus.SelectedValue, ddlGender.SelectedValue, txtTawjehyGPAFrom.Text, txtTawjehyGPATo.Text, ddlIsPaid.SelectedValue, ddlAppAccreditation.SelectedValue, ddlAccreditation.SelectedValue, FirstRegisterSemesterID.SelectedValue, ddlTawjehyType.SelectedValue, ddlFirstWish.SelectedValue,ddlStudyPlace.SelectedValue,txtSemesterGPA.Text,ddlGraduationStatus.SelectedValue,cer.SelectedValue);
         if (DT.Rows.Count > 0)
         {
             GridView1.DataSource = DT;
@@ -142,7 +142,7 @@ public partial class Admission_ReportData : UserPage
             }
         }
         // this.GetData();
-        DataTable DT = DataAccess.GetReportData(ddlprogram.SelectedValue, ddlCollege.SelectedValue, ddlDepartment.SelectedValue, ddlCourse.SelectedValue, ddlSemester.SelectedValue, ddlStudentType.SelectedValue, ddlStudentStatus.SelectedValue, ddlGender.SelectedValue, txtTawjehyGPAFrom.Text, txtTawjehyGPATo.Text, ddlIsPaid.SelectedValue, ddlAppAccreditation.SelectedValue, ddlAccreditation.SelectedValue, FirstRegisterSemesterID.SelectedValue, ddlTawjehyType.SelectedValue, ddlFirstWish.SelectedValue, ddlStudyPlace.SelectedValue, txtSemesterGPA.Text, ddlGraduationStatus.SelectedValue);
+        DataTable DT = DataAccess.GetReportData(ddlprogram.SelectedValue, ddlCollege.SelectedValue, ddlDepartment.SelectedValue, ddlCourse.SelectedValue, ddlSemester.SelectedValue, ddlStudentType.SelectedValue, ddlStudentStatus.SelectedValue, ddlGender.SelectedValue, txtTawjehyGPAFrom.Text, txtTawjehyGPATo.Text, ddlIsPaid.SelectedValue, ddlAppAccreditation.SelectedValue, ddlAccreditation.SelectedValue, FirstRegisterSemesterID.SelectedValue, ddlTawjehyType.SelectedValue, ddlFirstWish.SelectedValue, ddlStudyPlace.SelectedValue, txtSemesterGPA.Text, ddlGraduationStatus.SelectedValue,cer.SelectedValue);
         if (DT.Rows.Count > 0)
         {
             GridView1.DataSource = DT;

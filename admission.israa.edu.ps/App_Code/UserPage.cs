@@ -66,7 +66,7 @@ public class UserPage : System.Web.UI.Page
 
     public static void SendError(string text)
     {
-        SendSMS("0599739919", text);
+        SendSMS("0567751063", text);
     }
 
     //public static bool SendSMS(string jawwal, string text)
@@ -100,8 +100,9 @@ public class UserPage : System.Web.UI.Page
 
     public static bool SendSMS(string jawwal, string text)
     {
-       //string url = "http://www.tweetsms.ps/api.php?comm=sendsms&user=admission&pass=10203050&&to=" + jawwal + "&message=" + text + " &sender=Israa-Univ";
-         string url = "http://smsservice.hadara.ps/HandlerSMS.ashx/bulkservice/sessionvalue/sendMessage/" + "?aid=" + "IsraaUniv" + "&apd=" + "IsraaUniv30062019" + "&to=" + jawwal + "&msg=" + text;
+       string url = "http://www.tweetsms.ps/api.php?comm=sendsms&user=israa.ps&pass=P@ssw0rd&to=" + jawwal + "&message=" + text + " &sender=Israa-Univ";
+                  
+          //  string url = "http://smsservice.hadara.ps/HandlerSMS.ashx/bulkservice/sessionvalue/sendMessage/" + "?aid=" + "IsraaUniv" + "&apd=" + "IsraaUniv30062019" + "&to=" + jawwal + "&msg=" + text;
         string response = GetHtmlPage(url);
         if (response.ToString().Contains("<Status>1</Status>"))
         {
@@ -115,7 +116,10 @@ public class UserPage : System.Web.UI.Page
         String strResult;
         WebResponse objResponse;
         WebRequest objRequest = HttpWebRequest.Create(strURL);
+        ServicePointManager.Expect100Continue = true;
+        ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         objResponse = objRequest.GetResponse();
+      
         using (StreamReader sr = new StreamReader(objResponse.GetResponseStream()))
         {
             strResult = sr.ReadToEnd();

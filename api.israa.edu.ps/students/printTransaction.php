@@ -5,15 +5,15 @@ require('assets/I18N/Arabic.php');
 $Arabic = new I18N_Arabic('Numbers');
 
 $serverName = "135.181.3.160"; //serverName\instanceName
-$connectionInfo = array( "Database"=>"IsraData", "UID"=>"dbuser", "PWD"=>"islam123qwe!@#QWE" , "CharacterSet" => "UTF-8");
+$connectionInfo = array( "Database"=>"IsraData", "UID"=>"dbuser", "PWD"=>"isr@adb342!@#BKA" , "CharacterSet" => "UTF-8");
 $conn = sqlsrv_connect( $serverName, $connectionInfo);
 
 $serverName_2 = "135.181.3.160"; //serverName\instanceName
-$connectionInfo_2 = array( "Database"=>"IsraaHumanResource", "UID"=>"dbuser", "PWD"=>"islam123qwe!@#QWE" , "CharacterSet" => "UTF-8");
+$connectionInfo_2 = array( "Database"=>"IsraaHumanResource", "UID"=>"dbuser", "PWD"=>"isr@adb342!@#BKA" , "CharacterSet" => "UTF-8");
 $conn_2 = sqlsrv_connect( $serverName, $connectionInfo);
 
 $serverName_4 = "135.181.3.160"; //serverName\instanceName
-$connectionInfo_4 = array( "Database"=>"IsraaAcademic", "UID"=>"dbuser", "PWD"=>"islam123qwe!@#QWE" , "CharacterSet" => "UTF-8");
+$connectionInfo_4 = array( "Database"=>"IsraaAcademic", "UID"=>"dbuser", "PWD"=>"isr@adb342!@#BKA" , "CharacterSet" => "UTF-8");
 $conn_4 = sqlsrv_connect( $serverName, $connectionInfo);
 
 

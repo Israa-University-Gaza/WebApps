@@ -604,6 +604,16 @@ public partial class Admission_Student : UserPage
 
         CreatePDF("Certificate", @"Admission\Reports\Certificate.rdlc", a1, a2);
     }
+    protected void lbCertificate1_Click(object sender, EventArgs e)
+    {
+        ArrayList a1 = new ArrayList();
+        a1.Add("dsGetStdAdmissionAppReport");
+
+        ArrayList a2 = new ArrayList();
+        a2.Add(DataAccess.GetStdAdmissionAppDataReport(lblStudentID.Text, EmployeeID));
+
+        CreatePDF("Certificate", @"Admission\Reports\Certificate3.rdlc", a1, a2);
+    }
     protected void lbRegistrationHoursHigherAllowableLimit_Click(object sender, EventArgs e)
     {
         ArrayList a1 = new ArrayList();
@@ -1046,6 +1056,7 @@ public partial class Admission_Student : UserPage
     {
         ArrayList a1 = new ArrayList();
         a1.Add("dsGetModelReport");
+    
         a1.Add("dsGetAccreditStdTranscriptReport");
         a1.Add("dsGetAccreditStdTranscriptReport1");
         a1.Add("dsGetAccreditStdTranscriptReport2");
@@ -1064,6 +1075,7 @@ public partial class Admission_Student : UserPage
 
         ArrayList a2 = new ArrayList();
         DataTable dt = DataAccess.GetModelReport(lblStudentID.Text);
+
         DataTable dt1 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "0", EmployeeID);
         DataTable dt2 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "1");
         DataTable dt3 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "2");

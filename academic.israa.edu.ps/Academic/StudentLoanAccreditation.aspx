@@ -75,7 +75,7 @@
                                             <td style="text-align: center;"><%# Eval("RepayDate") %></td>
                                             <td style="text-align: center;">
                                                 <asp:LinkButton ID="lbAccrediteStudentLoan" runat="server" class="btn default btn-xs green" OnClick="lbAccrediteStudentLoan_Click" Enabled='<%# (!Convert.ToBoolean(Eval("AcademicAccreditation").ToString())) %>'><i title="اعتماد القرض" class="fa  fa-check-square-o"style="margin-left:10px;padding:5px;"></i><%# (!Convert.ToBoolean(Eval("AcademicAccreditation").ToString())) ? "إعتماد القرض" : "تم إعتماد القرض" %></asp:LinkButton>
-                                            </td>
+                                            </td>   
                                         </tr>
                                     </ItemTemplate>
                                 </asp:ListView>

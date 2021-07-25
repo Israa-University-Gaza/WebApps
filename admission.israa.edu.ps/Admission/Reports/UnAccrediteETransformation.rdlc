@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns:cl="http://schemas.microsoft.com/sqlserver/reporting/2010/01/componentdefinition" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2010/01/reportdefinition">
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
@@ -79,7 +79,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>نموذج معادلة</Value>
+                    <Value>نموذج معادلة غير معتمد</Value>
                     <Style>
                       <FontSize>12pt</FontSize>
                       <FontWeight>Bold</FontWeight>
@@ -840,7 +840,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>نائب الرئيس للشؤون الأكاديمية</Value>
+                    <Value>-</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1012,7 +1012,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>توقيع العميد</Value>
+                    <Value>-</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1046,7 +1046,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>دائرة القبول والتسجيل</Value>
+                    <Value>-</Value>
                     <Style>
                       <FontWeight>Bold</FontWeight>
                     </Style>
@@ -1316,7 +1316,7 @@
                 <Paragraph>
                   <TextRuns>
                     <TextRun>
-                      <Value>ISRAA 17-07</Value>
+                      <Value>ISRAA 17-08</Value>
                       <Style>
                         <FontStyle>Normal</FontStyle>
                         <FontFamily>Times New Roman</FontFamily>

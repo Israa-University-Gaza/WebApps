@@ -39,7 +39,7 @@ public partial class Attendance_AdoptEmpAttendance : UserPage
     }
     protected void lbEdit_Click(object sender, EventArgs e)
     {
-        RepeaterItem ri = (RepeaterItem)((LinkButton)sender).Parent;
+        /* by RSR RepeaterItem ri = (RepeaterItem)((LinkButton)sender).Parent;
         string id = ((Label)ri.FindControl("Attendance_ID")).Text;
 
          if (DataAccess.AttendanceConstant_TB_AddEdit(id,
@@ -54,6 +54,6 @@ public partial class Attendance_AdoptEmpAttendance : UserPage
             Repeater1.DataBind();
         }
         else
-            ShowToast(this, "عذرًا , لم يتم الحفظ .", "", "error");
+            ShowToast(this, "عذرًا , لم يتم الحفظ .", "", "error");*/
     }
 }

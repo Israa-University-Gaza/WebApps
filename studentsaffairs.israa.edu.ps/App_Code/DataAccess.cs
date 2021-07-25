@@ -530,7 +530,7 @@ public class DataAccess
             return DT;
         }
     }
-    
+
     public static DataTable InstallmentOrderAddEdit(string ID, string StudentID, string NumOfHours, string PaidAmount, string RemainingAmount, string EmployeeID, string GrantPercentage, string LastFinancialPayment)
     {
         using (SqlConnection conn = GetConnection())

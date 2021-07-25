@@ -62,7 +62,7 @@ public class DataAccess
     public static DataTable GetReportData(string ProgramID, string CollegeID, string DepartmentID, string CourseID,
           string SemesterID, string StudentTypeID, string StudentStatusID, string Gender, string TawjehyGPAFrom,
           string TawjehyGPATo, string IsPaid, string AppAccreditation, string Accreditation, string FirstRegisterSemesterID,
-          string TawjehyTypeID, string FirstWishID, string PlaceOfStudyID, string SemesterGPA, string GraduationStatusID)
+          string TawjehyTypeID, string FirstWishID, string PlaceOfStudyID, string SemesterGPA, string GraduationStatusID,string cer)
     {
         using (SqlConnection conn = GetConnection())
         {
@@ -91,6 +91,8 @@ public class DataAccess
             DA.SelectCommand.Parameters.AddWithValue("@FirstWishID", FirstWishID);
             DA.SelectCommand.Parameters.AddWithValue("@PlaceOfStudyID", PlaceOfStudyID);
             DA.SelectCommand.Parameters.AddWithValue("@GraduationStatusID", GraduationStatusID);
+            if (cer != "-1")
+                DA.SelectCommand.Parameters.AddWithValue("@cer", cer);
             DataTable DT = new DataTable();
             DA.Fill(DT);
             return DT;

@@ -159,7 +159,31 @@
                                 <span class="title">الصفحة الرئيسية</span>
                                 <span class="selected"></span>
                             </a>
-                        </li><% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
+
+
+
+
+
+
+
+                        </li>
+                        
+                        
+                        
+                                <% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267"  )
+                                 { %>
+                          <li id="menu1_1" class="">
+                            <a href="TopicsAccDept.aspx">
+                                <i class="fa fa-building"></i>
+                                <span class="title">عرض الموضوع قسم المنح والقروض</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>
+                          <%} %>
+
+                        <% if (lblEmployeeID.Text == "5124" )
                                  { %>
                         <li id="menu1" class="">
                             <a href="Scholarship.aspx">
@@ -170,11 +194,34 @@
                                 <!-- ألسهم -->
                             </a>
                         </li>
+                
                         <%} %>
                         <li id="menu2" class="">
                             <a href="Students.aspx">
                                 <i class="fa fa-building"></i>
                                 <span class="title">الطلاب</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>
+                          <% if (lblEmployeeID.Text == "5105")
+                            { %>
+                        <li id="Infraction" class="">
+                            <a href="TopicsAccStudentAff.aspx">
+                                <i class="fa fa-building"></i>
+                                <span class="title">عرض الموضوع مدير الدائرة</span>
+                                <!-- اسم القائمة -->
+                                <span class="arrow "></span>
+                                <!-- ألسهم -->
+                            </a>
+                        </li>
+
+                        <% } %>
+                              <li id="menu2_2" class="">
+                            <a href="TopicsAll.aspx">
+                                <i class="fa fa-building"></i>
+                                <span class="title">عروض المواضيع</span>
                                 <!-- اسم القائمة -->
                                 <span class="arrow "></span>
                                 <!-- ألسهم -->
@@ -213,7 +260,7 @@
                             </a>
                         </li>
 
-                        <% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
+                        <% if (lblEmployeeID.Text == "5124")
                             { %>
                         <li id="menu20" class="">
                             <a href="StudentInstallmentOrderAll.aspx">
@@ -302,7 +349,7 @@
                                 <span class="selected"></span>
                             </a>
                         </li>
-                        <% if (lblEmployeeID.Text == "5124" || lblEmployeeID.Text == "5267" )
+                        <% if (lblEmployeeID.Text == "5124")
                             { %>
 <li id="StudentFromMinistryFinanceAccount">
                                 <a href="StudentFromMinistryFinanceAccount.aspx">

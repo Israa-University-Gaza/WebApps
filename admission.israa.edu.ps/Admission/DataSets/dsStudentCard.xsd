@@ -19,6 +19,7 @@
               <xs:element name="StudentName" type="xs:string" minOccurs="0" />
               <xs:element name="StudentImage" type="xs:string" minOccurs="0" />
               <xs:element name="StudentCollege" type="xs:string" minOccurs="0" />
+              <xs:element name="qr" type="xs:string" minOccurs="0" />
               <xs:element name="StudentDepartment" type="xs:string" minOccurs="0" />
               <xs:element name="Expr" type="xs:string" minOccurs="0" />
               <xs:element name="StudentProgram" type="xs:string" minOccurs="0" />

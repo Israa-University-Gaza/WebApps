@@ -15,8 +15,8 @@ public partial class Admission_Reports : System.Web.UI.Page
     protected void btnReport_Click(object sender, EventArgs e)
     {
 
-        // by RSR string s = "Select StudentNo From IsraPermissions.dbo.Student";
-        // by RSR GridView1.DataSource = DataAccess.GetReport(s);
-        // by RSR GridView1.DataBind();
+        string s = "Select StudentNo From IsraPermissions.dbo.Student";
+        GridView1.DataSource = DataAccess.GetReport(s);
+        GridView1.DataBind();
     }
 }

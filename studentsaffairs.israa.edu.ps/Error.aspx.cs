@@ -9,6 +9,6 @@ public partial class Error : UserPage
 {
     protected void Page_Load(object sender, EventArgs e)
     {
-        SendError("خطأ في برنامج الشؤون الأكاديمية");
+        //by RSR SendError("خطأ في برنامج الشؤون الأكاديمية");
     }
 }

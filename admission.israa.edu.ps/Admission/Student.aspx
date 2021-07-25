@@ -120,6 +120,7 @@
                                                         <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7"))
                                                             { %>
                                                         <asp:LinkButton ID="lbCertificate" runat="server" OnClick="lbCertificate_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">شهادة مصدقة</asp:LinkButton>
+                                                        <asp:LinkButton ID="lbCertificate1" runat="server" OnClick="lbCertificate1_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">1شهادة مصدقة</asp:LinkButton>
                                                         <% } %>
                                                         <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text != "5" && lblStdStatusID.Text != "6" && lblStdStatusID.Text != "8" && lblStdStatusID.Text != "9" && lblStdStatusID.Text != "10"))
                                                             { %>
@@ -344,7 +345,7 @@
                                                             <% } %>
                                                             <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12")
                                                                 { %>
-                                                            <% if (lblEmployeeID.Text == "9" || lblEmployeeID.Text == "5083" || lblEmployeeID.Text == "12" || lblEmployeeID.Text == "5123" || lblEmployeeID.Text == "14")
+                                                            <% if (lblEmployeeID.Text == "9" || lblEmployeeID.Text == "5083" || lblEmployeeID.Text == "12" || lblEmployeeID.Text == "5123")
                                                                 { %>
                                                             <li>
                                                                 <asp:LinkButton ID="lbStdResetPassword" runat="server" class="btn default btn-sm blue-stripe isra-inline-1 font-ha" OnClick="lbStdResetPassword_Click" OnClientClick="return confirm('هل انت متاكد من أنك تود إعادة تعين كلمة المرور؟')">إعادة تعين كلمة المرور</asp:LinkButton>
@@ -1396,7 +1397,7 @@
                                                                 <td style="text-align: center"><span><%# Eval("FinalMark") %></span></td>
                                                                 <td style="text-align: center"><span><%# Eval("TotalMark") %></span></td>
                                                                 <td style="text-align: center">
-                                                                    <% if (EmployeeID == "12" || EmployeeID == "5123" || EmployeeID == "14")
+                                                                    <% if (EmployeeID == "12" || EmployeeID == "5123")
                                                                         { %>
                                                                     <asp:Button ID="btnCancelCourse" runat="server" Text="إلغاء التسجيل" CssClass="btn green" OnClick="btnCancelCourse_Click" OnClientClick="return confirm('هل أنت متأكد من أنك تود إلغاء تسجيل المساق ؟');" />
                                                                     <asp:Button ID="btnWithdrawCourse" runat="server" Text="إنسحاب" CssClass="btn blue" OnClick="btnWithdrawCourse_Click" OnClientClick="return confirm('هل أنت متأكد من أنك تود الإنسحاب من المساق ؟');" />

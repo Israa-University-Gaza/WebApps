@@ -25,10 +25,10 @@ public partial class Student_FinancialProfile : UserPage
         {
             Response.Redirect("StudentPoll.aspx");
         }
-        if (!DataAccess.IsStudentFinishEvaluation(StudentID))
+        /* by SRS if (!DataAccess.IsStudentFinishEvaluation(StudentID))
         {
             Response.Redirect("EvaluationChooseEmployeeCourse.aspx");
-        }
+        }*/
 
 
         if (!IsPostBack)

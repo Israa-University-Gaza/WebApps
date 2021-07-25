@@ -50,11 +50,11 @@ public partial class InstallmentOrderAddEdit : UserPage
 
     protected void btnInstallmentOrderAddEdit_Click(object sender, EventArgs e)
     {
-        bool valid = ValidateControls(new WebControl[] { txtNumOfHours, txtPaidAmount, txtRemainingAmount });
+        /* by RSR bool valid = ValidateControls(new WebControl[] { txtNumOfHours, txtPaidAmount, txtRemainingAmount });
 
         if (valid)
         {
-            DataTable DT = DataAccess.InstallmentOrderAddEdit(lblOrderID.Text, lblStudentID.Text, txtNumOfHours.Text, txtPaidAmount.Text, txtRemainingAmount.Text, EmployeeID,"","");
+            DataTable DT = DataAccess.InstallmentOrderAddEdit(lblOrderID.Text, lblStudentID.Text, txtNumOfHours.Text, txtPaidAmount.Text, txtRemainingAmount.Text, EmployeeID);
             if (DT.Rows.Count > 0)
             {
                 ShowToast(this, DT.Rows[0]["msg"].ToString(), "", (Convert.ToInt32(DT.Rows[0]["status"].ToString()) > 0) ? "success" : "error");
@@ -69,6 +69,6 @@ public partial class InstallmentOrderAddEdit : UserPage
         else
         {
             ShowToast(this, "بالرجاء ادخال البيانات", "", "error");
-        }
+        }*/
     }
 }

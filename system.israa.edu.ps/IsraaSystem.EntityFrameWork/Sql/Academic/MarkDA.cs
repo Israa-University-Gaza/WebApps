@@ -149,9 +149,19 @@ namespace IsraaSystem.DataAccess.Sql.Academic
         {
             using (SqlConnection conn = GetIsraaAcademicConnection())
             {
-                SqlDataAdapter DA = new SqlDataAdapter("GetSectionStudentsMarks", conn);
-                DA.SelectCommand.CommandType = CommandType.StoredProcedure;
-                DA.SelectCommand.Parameters.AddWithValue("@SectionID", SectionID);
+                // Added by RSR
+               SqlCommand command = conn.CreateCommand();
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandTimeout = 180; //The time in seconds to wait for the command to execute.
+                command.CommandText = "GetSectionStudentsMarks";
+                command.Parameters.AddWithValue("@SectionID", SectionID);
+                
+                //End of RSR
+                // by RSR SqlDataAdapter DA = new SqlDataAdapter("GetSectionStudentsMarks", conn);
+                SqlDataAdapter DA = new SqlDataAdapter(command);
+
+                //DA.SelectCommand.CommandType = CommandType.StoredProcedure;
+                //DA.SelectCommand.Parameters.AddWithValue("@SectionID", SectionID);
                 DataTable DT = new DataTable();
                 DA.Fill(DT);
                 return DT;

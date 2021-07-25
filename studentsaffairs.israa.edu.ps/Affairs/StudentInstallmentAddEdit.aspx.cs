@@ -56,7 +56,7 @@ public partial class StudentInstallmentAddEdit : UserPage
 
     protected void btnStudentInstallmentAddEdit_Click(object sender, EventArgs e)
     {
-        bool Validate = ValidateControls(new WebControl[] { lblStudentID, txtInstallmentName, txtInstallmentValue, txtInstallmentNotes, txtInstallmentRequestDate, txtInstallmentRepayDate });
+        /* BY bool Validate = ValidateControls(new WebControl[] { lblStudentID, txtInstallmentName, txtInstallmentValue, txtInstallmentNotes, txtInstallmentRequestDate, txtInstallmentRepayDate });
         if (Validate)
         {
             DataTable DT = DataAccess.StudentInstallmentAddEdit(lblInstallmentID.Text, lblStudentID.Text, txtInstallmentName.Text, txtInstallmentValue.Text, Convert.ToDateTime(txtInstallmentRequestDate.Text), Convert.ToDateTime(txtInstallmentRepayDate.Text), "1", txtInstallmentNotes.Text, EmployeeID);
@@ -70,6 +70,6 @@ public partial class StudentInstallmentAddEdit : UserPage
         else
         {
             ShowToast(this, "الرجاء تعبئة الحقول المطلوبة بشكل صحيح", "", "error");
-        }
+        }*/
     }
 }

@@ -5,8 +5,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder2" Runat="Server">
+    
+<% UserPage userpage = new UserPage();
+    if (userpage.EmployeeID == "5115")
+    { %>
     <asp:LinkButton ID="lbFinancialStatistic1" runat="server" OnClick="lbFinancialStatistic1_Click">كشف مالية رقم 1</asp:LinkButton><br />
-
-<a href="https://api.israa.edu.ps/students/printVouchersMain.php" target="_blank">التقارير الشهرية</a>
-
+<a href="https://api.israa.edu.ps/students/printVouchersMain.php?empID=<%=userpage.EmployeeID%>" target="_blank">التقارير الشهرية</a>
+    <%} %>
 </asp:Content>

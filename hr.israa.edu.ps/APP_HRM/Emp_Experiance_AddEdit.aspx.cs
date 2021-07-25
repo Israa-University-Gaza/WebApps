@@ -32,7 +32,7 @@ public partial class APP_HRM_Emp_Experiance_AddEdit : UserPage
     }
     protected void Button12_Click(object sender, EventArgs e)
     {
-        if (ValidateControls(new WebControl[] { JobName, JobDetailes, CompName, ScopeName, From_Date, To_Date, LeaveReason, DropDownList8 }))
+        /* by RSR if (ValidateControls(new WebControl[] { JobName, JobDetailes, CompName, ScopeName, From_Date, To_Date, LeaveReason, DropDownList8 }))
         {
 
             if (DataAccess.Experience_TB_AddEdit(
@@ -57,7 +57,7 @@ public partial class APP_HRM_Emp_Experiance_AddEdit : UserPage
         else
         {
             ShowToast(this, "الرجاء تعبئة الحقول المطلوبة بشكل صحيح.", "", "error");
-        }
+        }*/
 
     }
     //protected void Username_Checker_Click2(object sender, EventArgs e)
