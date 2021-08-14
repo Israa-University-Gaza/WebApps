@@ -86,7 +86,7 @@
                         </ul>
                     </div>
                     <div class="col-md-9">
-<%--                        <% if (IsGraduated )
+                       <%-- %> <% if (IsGraduated )
                         {  %>
 
 
@@ -120,7 +120,7 @@
 
 
 
-                        <%  } %>--%>
+                        <%  } %> --%>
 
 
 
@@ -275,8 +275,58 @@
                                                         <span class="sale-num"><%# Eval("StudentDepartment") %></span>
                                                     </li>
                                                     <li>
-                                                        <span class="sale-info">الرصيد : </span>
-                                                        <span class="sale-num"><%# Eval("Balance") %></span>
+                                                        <%-- By RSR --%>
+                                                        <asp:Repeater ID="Repeater4" runat="server" DataSourceID="SqlDataSource4">
+                                                            <ItemTemplate>
+                                                                <span class="sale-info">الرصيد(بدون قروض) : </span>
+                                                                <span class="sale-num"><%# Eval("Balance") %></span>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        
+                                                        <asp:SqlDataSource ID="SqlDataSource4" runat="server"
+                                                            ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                                            SelectCommand="GetRealStudentBalance" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="lblStudentID" PropertyName="Text" Name="StudentID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                        <%-- end By RSR --%>
+                                                    </li>
+                                                    <li>
+                                                        <%-- By RSR --%>
+                                                        <asp:Repeater ID="Repeater5" runat="server" DataSourceID="SqlDataSource5">
+                                                            <ItemTemplate>
+                                                                <span class="sale-info">قروض : </span>
+                                                                <span class="sale-num"><%# Eval("TotalLoans") %></span>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        
+                                                        <asp:SqlDataSource ID="SqlDataSource5" runat="server"
+                                                            ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                                            SelectCommand="GetRealStudentLoans" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="lblStudentID" PropertyName="Text" Name="StudentID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                        <%-- end By RSR --%>
+                                                    </li>
+                                                    <li>
+                                                        <%-- By RSR --%>
+                                                        <asp:Repeater ID="Repeater6" runat="server" DataSourceID="SqlDataSource6">
+                                                            <ItemTemplate>
+                                                                <span class="sale-info">إجمالي الرصيد : </span>
+                                                                <span class="sale-num"><%# Eval("TotalBalanceAndLoans") %> دينار</span>
+                                                            </ItemTemplate>
+                                                        </asp:Repeater>
+                                                        
+                                                        <asp:SqlDataSource ID="SqlDataSource6" runat="server"
+                                                            ConnectionString="<%$ ConnectionStrings:isra2 %>"
+                                                            SelectCommand="GetRealStudentBalanceAndLoans" SelectCommandType="StoredProcedure">
+                                                            <SelectParameters>
+                                                                <asp:ControlParameter ControlID="lblStudentID" PropertyName="Text" Name="StudentID" Type="Int32" />
+                                                            </SelectParameters>
+                                                        </asp:SqlDataSource>
+                                                        <%-- end By RSR --%>
                                                     </li>
                                                     <li>
                                                         <span class="sale-info">حالة الطالب : </span>

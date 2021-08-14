@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\inetpub\vhosts\israa.edu.ps\admissionapp.israa.edu.ps\App_Code\DataModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\GitRepository\WebApps\admissionapp.israa.edu.ps\App_Code\DataModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

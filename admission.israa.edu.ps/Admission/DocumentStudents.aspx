@@ -133,10 +133,10 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th style="width: 30%">رقم الطالب</th>
-                                    <th style="width: 10%; text-align: center">اسم الطالب</th>
-                                    <th style="width: 20%">المستند</th>
-                                    <th style="width: 20%; text-align: center">تاريخ الرفع</th>
+                                    <th style="width: 10%">رقم الطالب</th>
+                                    <th style="width: 20%; text-align: right">اسم الطالب</th>
+                                    <th style="width: 60%">المستند</th>
+                                    <th style="width: 10%; text-align: center">تاريخ الرفع</th>
 
                                 </tr>
                             </thead>
@@ -146,7 +146,7 @@
                                         <asp:Label ID="StdDocumentID" runat="server" Text='<%# Eval("ID") %>' Visible="false"></asp:Label>
                                         <tr>
                                             <td><span><%# Eval("StudentNo") %></span></td>
-                                            <td style="text-align: center"><span><%# Eval("StudentName") %></span></td>
+                                            <td style="text-align: right;white-space: nowrap;direction:rtl;"><span><%# Eval("StudentName") %></span></td>
                                             <td><a href='http://admission.israa.edu.ps/Document/Student/<%# Eval("DocumentLink") %>' target="_blank"><%# Eval("StdDocumentType") %></a></td>
                                             <td style="text-align: center"><span><%# Eval("InsertDate","{0:yyyy/MM/dd}") %></span></td>
 
