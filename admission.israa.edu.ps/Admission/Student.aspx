@@ -157,6 +157,8 @@
                                                         <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12"))
                                                             { %>
                                                         <asp:LinkButton ID="lbAccreditationStudentTranscript" runat="server" OnClick="lbAccreditationStudentTranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج</asp:LinkButton>
+                                                        <asp:LinkButton ID="lbAccreditationStudentTranscript_D" runat="server" OnClick="lbAccreditationStudentTranscript_Click_D" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج-دبلوم</asp:LinkButton>
+
                                                         <asp:LinkButton ID="lbAccreditationStudentETranscript" runat="server" OnClick="lbAccreditationStudentETranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج باللغه الانجليزية</asp:LinkButton>
                                                         <% } %>
                                                         <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "3" || lblStdStatusID.Text == "12")
