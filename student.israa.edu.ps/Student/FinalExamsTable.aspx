@@ -68,9 +68,9 @@
                                             <td><span><%# Eval("CourseCode") %></span></td>
                                             <td style="text-align: center"><span><%# Eval("ArNameCourse") %></span></td>
                                             <td style="text-align: center"><span><%# Eval("SectionNum") %></span></td>
-                                            <td style="text-align: center"><span><%# Eval("ExamDate") %></span></td>
-                                            <td style="text-align: center"><span><%# Eval("ExamTime") %></span></td>
-                                            <td style="text-align: center"><span><%# Eval("ExamRoom") %></span></td>
+                                            <td style="text-align: center"><span><%-- by RSR # Eval("ExamDate") --%></span></td>
+                                            <td style="text-align: center"><span><%-- by RSR # Eval("ExamTime") --%></span></td>
+                                            <td style="text-align: center"><span><%-- by RSR # Eval("ExamRoom") --%></span></td>
                                         </tr>
                                     </ItemTemplate>
                                 </asp:Repeater>
