@@ -387,7 +387,7 @@
                         <% if (userpage.IsPermissionsContains("Student"))
                             { %>
                         
-                          <% if (lblEmployeeID.Text == "5275")
+                          <% if (lblEmployeeID.Text == "1007")
                             { %>
                         <li id="topic" class="">
                             <a href="TopicsAccAcadmic.aspx">
