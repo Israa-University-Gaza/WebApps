@@ -1109,6 +1109,63 @@ public partial class Admission_Student : UserPage
         a2.Add(dt15);
         CreatePDF("StdATranscript_" + lblStudentID.Text, @"Admission\Reports\StudentAccreditationTranscript.rdlc", a1, a2);
     }
+    protected void lbAccreditationStudentTranscript_Click_D(object sender, EventArgs e)
+    {
+        ArrayList a1 = new ArrayList();
+        a1.Add("dsGetModelReport");
+
+        a1.Add("dsGetAccreditStdTranscriptReport");
+        a1.Add("dsGetAccreditStdTranscriptReport1");
+        a1.Add("dsGetAccreditStdTranscriptReport2");
+        a1.Add("dsGetAccreditStdTranscriptReport3");
+        a1.Add("dsGetAccreditStdTranscriptReport4");
+        a1.Add("dsGetAccreditStdTranscriptReport5");
+        a1.Add("dsGetAccreditStdTranscriptReport6");
+        a1.Add("dsGetAccreditStdTranscriptReport7");
+        a1.Add("dsGetAccreditStdTranscriptReport8");
+        a1.Add("dsGetAccreditStdTranscriptReport9");
+        a1.Add("dsGetAccreditStdTranscriptReport10");
+        a1.Add("dsGetAccreditStdTranscriptReport11");
+        a1.Add("dsGetAccreditStdTranscriptReport12");
+        a1.Add("dsGetAccreditStdTranscriptReport13");
+        a1.Add("dsGetAccreditStdTranscriptReport14");
+
+        ArrayList a2 = new ArrayList();
+        DataTable dt = DataAccess.GetModelReport(lblStudentID.Text);
+
+        DataTable dt1 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "0", EmployeeID);
+        DataTable dt2 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "1");
+        DataTable dt3 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "2");
+        DataTable dt4 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "3");
+        DataTable dt5 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "4");
+        DataTable dt6 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "5");
+        DataTable dt7 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "6");
+        DataTable dt8 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "7");
+        DataTable dt9 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "8");
+        DataTable dt10 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "9");
+        DataTable dt11 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "10");
+        DataTable dt12 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "11");
+        DataTable dt13 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "12");
+        DataTable dt14 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "13");
+        DataTable dt15 = DataAccess.GetAccreditStdTranscriptReport(lblStudentID.Text, "14");
+        a2.Add(dt);
+        a2.Add(dt1);
+        a2.Add(dt2);
+        a2.Add(dt3);
+        a2.Add(dt4);
+        a2.Add(dt5);
+        a2.Add(dt6);
+        a2.Add(dt7);
+        a2.Add(dt8);
+        a2.Add(dt9);
+        a2.Add(dt10);
+        a2.Add(dt11);
+        a2.Add(dt12);
+        a2.Add(dt13);
+        a2.Add(dt14);
+        a2.Add(dt15);
+        CreatePDF("StdATranscript_" + lblStudentID.Text, @"Admission\Reports\StudentAccreditationTranscript_D.rdlc", a1, a2);
+    }
 
     protected void lbAccreditationStudentETranscript_Click(object sender, EventArgs e)
     {
