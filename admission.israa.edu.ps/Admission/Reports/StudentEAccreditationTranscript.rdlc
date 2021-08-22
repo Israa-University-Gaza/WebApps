@@ -2412,7 +2412,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=Fields!GraduationDate.Value</Value>
+                                  <Value>16/05/2020</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -2557,7 +2557,7 @@
                                   </Style>
                                 </TextRun>
                                 <TextRun>
-                                  <Value>Director of Admissions and Registration</Value>
+                                  <Value>Head of Admission and Registration Dept.</Value>
                                   <Style>
                                     <FontStyle>Normal</FontStyle>
                                     <FontFamily>arial</FontFamily>
@@ -2638,7 +2638,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>Dr. Eng. Ahmed Izzat Alsalibi</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
