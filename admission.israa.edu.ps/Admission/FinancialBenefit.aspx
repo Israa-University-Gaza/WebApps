@@ -91,7 +91,12 @@
                         <% if (lblEmployeeID.Text != "5301")
                             { %>
                         <li id="litab15" runat="server"><a href="Student.aspx?id=<%= lblStudentID.Text %>#tab15"><i class="fa fa-lock"></i>كشف الإرشاد الأكاديمي</a></li>
-                        <li id="litab5" runat="server"><a href="Student.aspx?id=<%= lblStudentID.Text %>#tab5"><i class="fa fa-stack-exchange"></i>علامات المساقات</a></li>
+                        <%--Added by RSR  --%>
+                        <% if (lblEmployeeID.Text !="5534" && lblEmployeeID.Text !="14" && lblEmployeeID.Text !="5084")
+                           {%>
+                                <li id="litab5" runat="server"><a href="Student.aspx?id=<%= lblStudentID.Text %>#tab5"><i class="fa fa-stack-exchange"></i>علامات المساقات</a></li>
+                        <% } %>
+                        <%--end by RSR  --%>
                         <li id="litab21" runat="server"><a href="Student.aspx?id=<%= lblStudentID.Text %>#tab21"><i class="fa fa-stack-exchange"></i>إنسحاب المساقات</a></li>
                         <% } %>
 
