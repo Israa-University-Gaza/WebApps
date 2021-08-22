@@ -2787,7 +2787,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>عميد الكلية</Value>
+                                  <Value>المسجل</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2827,7 +2827,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>د.م. أحمد عزات الصليبي</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2855,14 +2855,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox59">
+                        <Textbox Name="EmployeeName">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=Fields!EmployeeName.Value</Value>
                                   <Style>
                                     <FontSize>11pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
@@ -2874,7 +2874,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox59</rd:DefaultName>
+                          <rd:DefaultName>EmployeeName</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>None</Style>
@@ -2886,6 +2886,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -2909,7 +2910,7 @@
             <Top>21.35084in</Top>
             <Left>0.46017in</Left>
             <Height>0.5in</Height>
-            <Width>7.32277in</Width>
+            <Width>7.32278in</Width>
             <ZIndex>2</ZIndex>
             <Style>
               <Border>
