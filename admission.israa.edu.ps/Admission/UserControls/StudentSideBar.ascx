@@ -105,7 +105,10 @@
             </asp:LinkButton>
         </li>
         <% } %>
-        <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "0000" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text != "4" && lblStdStatusID.Text != "6"))
+        <% if ((lblEmployeeID.Text != "5083" && lblEmployeeID.Text != "5497"
+                // Added by RSR
+                && lblEmployeeID.Text != "5534" && lblEmployeeID.Text != "14" && lblEmployeeID.Text != "5084") 
+                && (lblStdStatusID.Text != "4" && lblStdStatusID.Text != "6"))
             { %>
         <li id="litab5" runat="server">
             <asp:LinkButton ID="LinkButton5" runat="server" OnClick="LinkRedirect" CommandArgument="5">
@@ -130,7 +133,10 @@
 
         <% } %>
 
-        <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12"))
+        <% if ((lblEmployeeID.Text != "5083" && lblEmployeeID.Text != "5497"
+                // Added by RSR
+                && lblEmployeeID.Text != "5534" && lblEmployeeID.Text != "14" && lblEmployeeID.Text != "5084") 
+                && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12"))
             { %>
         <li id="litab6" runat="server">
             <asp:LinkButton ID="LinkButton6" runat="server" OnClick="LinkRedirect" CommandArgument="6">
