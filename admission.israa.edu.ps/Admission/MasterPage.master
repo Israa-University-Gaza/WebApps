@@ -756,7 +756,8 @@
                             <!-- ألسهم -->
                         </a>
                         <ul class="sub-menu">
-                            <% if (userpage.IsPermissionsContains("AdmissionReportData"))
+                            <% if (userpage.IsPermissionsContains("AdmissionReportData") && 
+                                    (lblEmployeeID.Text !="5534" && lblEmployeeID.Text !="14" && lblEmployeeID.Text !="5084"))
                                 { %>
                             <li>
                                 <a href="ReportData.aspx">بناء التقارير الدورية</a>
