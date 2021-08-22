@@ -35,6 +35,8 @@
     <asp:Label ID="lblEmployeeName" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblEmployeeID" runat="server" Visible="False"></asp:Label>
     <asp:Label ID="lblStdStatusID" runat="server" Visible="False"></asp:Label>
+    <asp:Label ID="lblStdProgramID" runat="server" Visible="False"></asp:Label>
+    
     <div class="col-md-12">
         <div class="portlet box blue">
             <div class="portlet-title">
@@ -117,11 +119,21 @@
                                                         <asp:LinkButton ID="lbStudentInternalTransformationPDF" runat="server" OnClick="lbStudentInternalTransformationPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف بالمواد المعادلة داخلياً</asp:LinkButton>
                                                         <asp:LinkButton ID="lbStudentRichnessCoursesPDF" runat="server" OnClick="lbStudentRichnessCoursesPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف المواد الإثرائية</asp:LinkButton>
                                                         <% } %>
-                                                        <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "7"))
-                                                            { %>
-                                                        <asp:LinkButton ID="lbCertificate" runat="server" OnClick="lbCertificate_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">شهادة مصدقة</asp:LinkButton>
+                                                        <%-- by RSR if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497" ) /*&& (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "12")*/)
+                                                            { --%>
+                                                                    <%-- by RSR if (lblStdProgramID.Text == "2" /*&& lblStdStatusID.Text == "12"*/)
+                                                                        { --%>
+                                                                    <asp:LinkButton ID="LinkButton1" runat="server" OnClick="lbCertificate_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">شهادة مصدقة</asp:LinkButton>
+                                                                  <%-- by RSR } --%>
+                                                        <%-- %><asp:LinkButton ID="lbCertificate" runat="server" OnClick="lbCertificate_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">شهادة مصدقة</asp:LinkButton>
                                                         <asp:LinkButton ID="lbCertificate1" runat="server" OnClick="lbCertificate1_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">1شهادة مصدقة</asp:LinkButton>
-                                                        <% } %>
+                                                        --%>
+                                                                     <%-- by RSR if (lblStdProgramID.Text == "1" && lblStdStatusID.Text == "12")
+                                                                        { --%>
+                                                                    <asp:LinkButton ID="lbCertificate1" runat="server" OnClick="lbCertificate1_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">شهادة مصدقة - دبلوم</asp:LinkButton>
+                                                                    <%--RSR  } --%>
+                                                        
+                                                        <%-- by RSR } --%>
                                                         <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text != "5" && lblStdStatusID.Text != "6" && lblStdStatusID.Text != "8" && lblStdStatusID.Text != "9" && lblStdStatusID.Text != "10"))
                                                             { %>
                                                         <asp:LinkButton ID="lbShowingStudentIssue" runat="server" OnClick="lbShowingStudentIssue_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">عرض قضية طلابية</asp:LinkButton>
@@ -143,24 +155,30 @@
                                                             { %>
                                                         <asp:LinkButton ID="lbGraduateAvowalPDF" runat="server" OnClick="lbGraduateAvowalPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">إقرار خريج</asp:LinkButton>
                                                         <% } %>
+                                                        <% // Added by RSR
+                                                            if (lblEmployeeID.Text != "5534" && lblEmployeeID.Text != "14" && lblEmployeeID.Text != "5084")
+                                                            {
+                                                            %>
+                                                                    <% if (lblStdStatusID.Text == "1")
+                                                                 { %>
+                                                                    <asp:LinkButton ID="lbstdTranscriptPDF" runat="server" OnClick="lbstdTranscriptPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات بغرض التخرج</asp:LinkButton>
+                                                                    <% } %>
 
-                                                        <% if (lblStdStatusID.Text == "1")
-                                                            { %>
-                                                        <asp:LinkButton ID="lbstdTranscriptPDF" runat="server" OnClick="lbstdTranscriptPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات بغرض التخرج</asp:LinkButton>
-                                                        <% } %>
+                                                                    <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12")
+                                                                 { %>
+                                                                    <asp:LinkButton ID="lbUnAccreditationStudentTranscript" runat="server" OnClick="lbUnAccreditationStudentTranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">  كشف درجات</asp:LinkButton>
+                                                                    <% } %>
 
-                                                        <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12")
-                                                            { %>
-                                                        <asp:LinkButton ID="lbUnAccreditationStudentTranscript" runat="server" OnClick="lbUnAccreditationStudentTranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">  كشف درجات</asp:LinkButton>
-                                                        <% } %>
+                                                                    <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12"))
+                                                                 { %>
+                                                                    <asp:LinkButton ID="lbAccreditationStudentTranscript" runat="server" OnClick="lbAccreditationStudentTranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج</asp:LinkButton>
+                                                                    <asp:LinkButton ID="lbAccreditationStudentTranscript_D" runat="server" OnClick="lbAccreditationStudentTranscript_Click_D" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج-دبلوم</asp:LinkButton>
 
-                                                        <% if ((lblEmployeeID.Text != "5083" || lblEmployeeID.Text != "5301" || lblEmployeeID.Text != "5497") && (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "7" || lblStdStatusID.Text == "12"))
-                                                            { %>
-                                                        <asp:LinkButton ID="lbAccreditationStudentTranscript" runat="server" OnClick="lbAccreditationStudentTranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج</asp:LinkButton>
-                                                        <asp:LinkButton ID="lbAccreditationStudentTranscript_D" runat="server" OnClick="lbAccreditationStudentTranscript_Click_D" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج-دبلوم</asp:LinkButton>
-
-                                                        <asp:LinkButton ID="lbAccreditationStudentETranscript" runat="server" OnClick="lbAccreditationStudentETranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج باللغه الانجليزية</asp:LinkButton>
-                                                        <% } %>
+                                                                    <asp:LinkButton ID="lbAccreditationStudentETranscript" runat="server" OnClick="lbAccreditationStudentETranscript_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف درجات خريج باللغه الانجليزية</asp:LinkButton>
+                                                                    <% } %>
+                                                        <%
+                                                            }
+                                                            // end RSR%>
                                                         <% if (lblStdStatusID.Text == "1" || lblStdStatusID.Text == "2" || lblStdStatusID.Text == "3" || lblStdStatusID.Text == "12")
                                                             { %>
                                                         <asp:LinkButton ID="lbAcademicAdvisingPDF" runat="server" OnClick="lbAcademicAdvisingPDF_Click" CssClass="btn default btn-sm dark-stripe isra-inline font-ha">كشف الارشاد الأكاديمي</asp:LinkButton>
