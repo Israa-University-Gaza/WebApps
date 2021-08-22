@@ -32,6 +32,8 @@ public partial class Admission_Student : UserPage
 
                 DataTable DT2 = DataAccess.GetStudentData(Request.QueryString["id"].ToString());
                 lblStdStatusID.Text = DT2.Rows[0]["StdStatusID"].ToString();
+                lblStdProgramID.Text = DT2.Rows[0]["StudentProgramID"].ToString();
+
                 DataTable DT1 = DataAccess.GetEmployeeData(EmployeeID);
                 lblEmployeeName.Text = DT1.Rows[0]["DisplayName"].ToString();
 
