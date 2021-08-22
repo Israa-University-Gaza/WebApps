@@ -59,7 +59,7 @@
                                     <th scope="col" style="width: 8%; text-align: center">اسم الطالب</th>
                                     <th scope="col" style="width: 10%; text-align: center">عميد</th>
                                     <th scope="col" style="width: 10%; text-align: center">نائب أكاديمي</th>
-                                    <th scope="col" style="width: 20%; text-align: center">العلامة</th>
+                                    <th scope="col" style="width: 20%; text-align: center">علامة الامتحان النهائي</th>
                                     <th scope="col" style="width: 15%; text-align: center"></th>
                                 </tr>
                             </thead>
